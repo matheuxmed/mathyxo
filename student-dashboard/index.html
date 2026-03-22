@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - MatheuxMed</title>
+    <link rel="stylesheet" href="/mathyxo/css/style.css">
+    <link rel="stylesheet" href="/mathyxo/css/dashboard.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
+
+    <main class="container">
+        <div class="dashboard-header">
+            <h1>📊 Tableau de Bord</h1>
+            <p id="welcome-message">Bienvenue!</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Student Info Card -->
+            <div class="dashboard-card">
+                <h3>👤 Profil Étudiant</h3>
+                <div id="student-profile">
+                    <p><strong>Nom:</strong> <span id="student-name">-</span></p>
+                    <p><strong>Email:</strong> <span id="student-email">-</span></p>
+                    <p><strong>Niveau:</strong> <span id="student-level">-</span></p>
+                    <p><strong>Membre depuis:</strong> <span id="student-joined">-</span></p>
+                </div>
+            </div>
+
+            <!-- Progress Stats -->
+            <div class="dashboard-card">
+                <h3>📈 Statistiques</h3>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="completed-lessons">0</div>
+                        <p>Leçons Complétées</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="total-points">0</div>
+                        <p>Points Totaux</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="avg-score">0%</div>
+                        <p>Score Moyen</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress by Level -->
+            <div class="dashboard-card full-width">
+                <h3>🎯 Progression par Niveau</h3>
+                <div id="level-progress">
+                    <div class="progress-item">
+                        <h4>Seconde</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="seconde-progress" style="width: 0%"></div>
+                        </div>
+                        <p id="seconde-text">0 leçons complétées</p>
+                    </div>
+                    <div class="progress-item">
+                        <h4>Première</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="premiere-progress" style="width: 0%"></div>
+                        </div>
+                        <p id="premiere-text">0 leçons complétées</p>
+                    </div>
+                    <div class="progress-item">
+                        <h4>Terminale</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="terminale-progress" style="width: 0%"></div>
+                        </div>
+                        <p id="terminale-text">0 leçons complétées</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="dashboard-card full-width">
+                <h3>📅 Activité Récente</h3>
+                <div id="recent-activity">
+                    <p style="text-align: center; color: #999;">Pas d'activité récente</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="dashboard-actions">
+                <a href="/mathyxo/seconde/" class="btn btn-primary">📚 Aller à Seconde</a>
+                <a href="/mathyxo/premiere/" class="btn btn-primary">📊 Aller à Première</a>
+                <a href="/mathyxo/terminale/" class="btn btn-primary">���� Aller à Terminale</a>
+                <button onclick="logoutUser()" class="btn btn-danger">🚪 Déconnexion</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script src="/mathyxo/js/auth.js"></script>
+    
+    <script>
+        // Load dashboard data
+        document.addEventListener('DOMContentLoaded', async function() {
+            document.getElementById('header-container').innerHTML = renderHeader();
+            const currentPath = window.location.pathname;
+            document.getElementById('nav-container').innerHTML = renderNavbar(currentPath);
+            document.getElementById('footer-container').innerHTML = renderFooter();
+
+            // Check if user is logged in
+            if (!currentUser) {
+                alert('Vous devez être connecté pour accéder au tableau de bord');
+                window.location.href = '/mathyxo/auth/login.html';
+                return;
+            }
+
+            // Load student data
+            const userData = await getCurrentUserData();
+            if (userData) {
+                document.getElementById('student-name').textContent = userData.displayName || currentUser.email;
+                document.getElementById('student-email').textContent = currentUser.email;
+                document.getElementById('student-level').textContent = userData.level;
+                document.getElementById('student-joined').textContent = new Date(userData.enrolledDate.toDate()).toLocaleDateString('fr-FR');
+                document.getElementById('welcome-message').textContent = `Bienvenue ${userData.displayName || 'Étudiant'}!`;
+                document.getElementById('total-points').textContent = userData.totalPoints || 0;
+            }
+
+            // Load progress
+            const progress = await getUserProgress(currentUser.uid);
+            const completedCount = progress.filter(p => p.completed).length;
+            document.getElementById('completed-lessons').textContent = completedCount;
+
+            if (progress.length > 0) {
+                const avgScore = Math.round(progress.reduce((sum, p) => sum + p.quizScore, 0) / progress.length);
+                document.getElementById('avg-score').textContent = avgScore + '%';
+            }
+
+            // Display recent activity
+            if (progress.length > 0) {
+                const recent = progress.slice(-5).reverse();
+                let activityHTML = '';
+                recent.forEach(p => {
+                    const date = p.completedDate.toDate().toLocaleDateString('fr-FR');
+                    activityHTML += `<p>📝 Quiz ${p.lessonId}: ${p.quizScore}% - ${date}</p>`;
+                });
+                document.getElementById('recent-activity').innerHTML = activityHTML;
+            }
+        });
+    </script>
+</body>
+</html>
