@@ -2,12 +2,12 @@
 
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyD...", // REPLACE WITH YOUR KEY
-  authDomain: "mathyxo.firebaseapp.com",
-  projectId: "mathyxo",
-  storageBucket: "mathyxo.appspot.com",
-  messagingSenderId: "123456789012",
-  appId: "1:123456789012:web:abc..."
+  apiKey: "AIzaSyD6q-mHObvKIsCYo8NW8O24_1fuCdSlgBY",
+  authDomain: "mathyxo-e191e.firebaseapp.com",
+  projectId: "mathyxo-e191e",
+  storageBucket: "mathyxo-e191e.firebasestorage.app",
+  messagingSenderId: "486174230938",
+  appId: "1:486174230938:web:71ec38b77e381cb7c9d223"
 };
 
 // Initialize Firebase
