@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - MatheuxMed</title>
+    <link rel="stylesheet" href="/mathyxo/css/style.css">
+    <link rel="stylesheet" href="/mathyxo/css/auth.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
+
+    <main class="container">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2>Se Connecter</h2>
+                <p class="auth-subtitle">Connectez-vous à votre compte</p>
+
+                <form id="login-form" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required placeholder="ahmed@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="login-password">Mot de Passe</label>
+                        <input type="password" id="login-password" name="password" required placeholder="Votre mot de passe">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                </form>
+
+                <p class="auth-toggle">
+                    Vous n'avez pas de compte? <a href="/mathyxo/auth/register.html">S'inscrire</a>
+                </p>
+            </div>
+
+            <div class="auth-info">
+                <h3>Bienvenue sur MatheuxMed</h3>
+                <p>Connectez-vous pour:</p>
+                <ul>
+                    <li>📚 Accéder à tous les cours</li>
+                    <li>✅ Sauvegarder votre progrès</li>
+                    <li>📊 Voir vos statistiques</li>
+                    <li>🎯 Suivre vos objectifs</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script src="/mathyxo/js/auth.js"></script>
+    
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            loginUser(email, password);
+        }
+
+        // Load components
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('header-container').innerHTML = renderHeader();
+            const currentPath = window.location.pathname;
+            document.getElementById('nav-container').innerHTML = renderNavbar(currentPath);
+            document.getElementById('footer-container').innerHTML = renderFooter();
+        });
+    </script>
+</body>
+</html>
