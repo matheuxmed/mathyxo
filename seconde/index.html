@@ -7,105 +7,51 @@
     <link rel="stylesheet" href="/mathyxo/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>📐 MatheuxMed</h1>
-            <p>Mathématiques pour le Lycée Marocain</p>
-        </div>
-    </header>
-
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li><a href="/mathyxo/" class="nav-link">🏠 Accueil</a></li>
-            <li><a href="/mathyxo/seconde/" class="nav-link active">📚 Seconde</a></li>
-            <li><a href="/mathyxo/premiere/" class="nav-link">📊 Première</a></li>
-            <li><a href="/mathyxo/terminale/" class="nav-link">🎓 Terminale</a></li>
-            <li><a href="#contact" class="nav-link">📧 Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
 
     <main class="container">
-        <div class="page-header">
-            <h1>📘 Mathématiques - Seconde</h1>
-            <p>Explorez les fondamentaux des mathématiques avec des leçons interactives</p>
-        </div>
-
-        <section class="lessons-grid">
-            <div class="lesson-card">
-                <h3>1️⃣ Équations et Inéquations</h3>
-                <p>Résolvez des équations linéaires et quadratiques. Apprenez les méthodes de factorisation et d'analyse des signes.</p>
-                <a href="/mathyxo/seconde/equations.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>2️⃣ Fonctions et Graphiques</h3>
-                <p>Découvrez les propriétés des fonctions, les transformations graphiques et l'étude du domaine et de la plage.</p>
-                <a href="/mathyxo/seconde/fonctions.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>3️⃣ Fonctions du Second Degré</h3>
-                <p>Maîtrisez les paraboles, calculez le sommet et trouvez les racines avec la formule du discriminant.</p>
-                <a href="/mathyxo/seconde/second-degre.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>4️⃣ Vecteurs et Géométrie Plane</h3>
-                <p>Comprenez les opérations vectorielles, la colinéarité et les applications en géométrie analytique.</p>
-                <a href="/mathyxo/seconde/vecteurs.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>5️⃣ Géométrie: Droites et Cercles</h3>
-                <p>Explorez les équations des droites et des cercles, les intersections et les propriétés géométriques.</p>
-                <a href="/mathyxo/seconde/droites-cercles.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>6️⃣ Statistiques Descriptives</h3>
-                <p>Analysez les données avec les mesures de tendance centrale, la variance et les représentations graphiques.</p>
-                <a href="/mathyxo/seconde/statistiques.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>7️⃣ Probabilités Simples</h3>
-                <p>Initiez-vous aux probabilités, aux événements et aux calculs de chances à l'aide d'exemples concrets.</p>
-                <a href="/mathyxo/seconde/probabilites.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>8️⃣ Transformations Géométriques</h3>
-                <p>Étudiez les translations, rotations, symétries et homothéties dans le plan.</p>
-                <a href="/mathyxo/seconde/transformations.html" class="btn">Accéder à la leçon →</a>
-            </div>
-        </section>
-
-        <section style="text-align: center; padding: 40px 20px; background: #f0f0f0; border-radius: 10px;">
-            <h2>🎯 Conseils pour Réussir</h2>
-            <ul style="list-style: none; padding: 0; color: #666; text-align: left; max-width: 600px; margin: 20px auto;">
-                <li>✅ Suivez les leçons dans l'ordre proposé</li>
-                <li>✅ Explorez les outils interactifs pour mieux comprendre</li>
-                <li>✅ Répondez aux quizzes pour valider vos acquis</li>
-                <li>✅ Pratiquez régulièrement avec les exercices</li>
-                <li>✅ Revisitez les concepts difficiles autant de fois que nécessaire</li>
-            </ul>
-        </section>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/mathyxo/" class="btn">← Retour à l'accueil</a>
-        </div>
+        <div id="page-header-container"></div>
+        <div id="lessons-container"></div>
+        <div id="tips-container"></div>
+        <div id="back-button-container"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 MatheuxMed. Plateforme gratuite pour l'enseignement des mathématiques.</p>
-        <p>Créée avec ❤️ pour les lycéens marocains</p>
-    </footer>
+    <div id="footer-container"></div>
 
-    <script src="/mathyxo/js/script.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page header
+            document.getElementById('page-header-container').innerHTML = 
+                renderPageHeader('📘 Mathématiques - Seconde', 'Explorez les fondamentaux des mathématiques avec des leçons interactives');
+
+            // Lessons
+            let lessonsHTML = '<section class="lessons-grid">';
+            lessonsHTML += renderLessonCard('1️⃣', 'Équations et Inéquations', 'Résolvez des équations linéaires et quadratiques. Apprenez les méthodes de factorisation et d\'analyse des signes.', '/mathyxo/seconde/equations.html');
+            lessonsHTML += renderLessonCard('2️⃣', 'Fonctions et Graphiques', 'Découvrez les propriétés des fonctions, les transformations graphiques et l\'étude du domaine et de la plage.', '/mathyxo/seconde/fonctions.html');
+            lessonsHTML += renderLessonCard('3️⃣', 'Fonctions du Second Degré', 'Maîtrisez les paraboles, calculez le sommet et trouvez les racines avec la formule du discriminant.', '/mathyxo/seconde/second-degre.html');
+            lessonsHTML += renderLessonCard('4️⃣', 'Vecteurs et Géométrie Plane', 'Comprenez les opérations vectorielles, la colinéarité et les applications en géométrie analytique.', '/mathyxo/seconde/vecteurs.html');
+            lessonsHTML += renderLessonCard('5️⃣', 'Géométrie: Droites et Cercles', 'Explorez les équations des droites et des cercles, les intersections et les propriétés géométriques.', '/mathyxo/seconde/droites-cercles.html');
+            lessonsHTML += renderLessonCard('6️⃣', 'Statistiques Descriptives', 'Analysez les données avec les mesures de tendance centrale, la variance et les représentations graphiques.', '/mathyxo/seconde/statistiques.html');
+            lessonsHTML += renderLessonCard('7️⃣', 'Probabilités Simples', 'Initiez-vous aux probabilités, aux événements et aux calculs de chances à l\'aide d\'exemples concrets.', '/mathyxo/seconde/probabilites.html');
+            lessonsHTML += renderLessonCard('8️⃣', 'Transformations Géométriques', 'Étudiez les translations, rotations, symétries et homothéties dans le plan.', '/mathyxo/seconde/transformations.html');
+            lessonsHTML += '</section>';
+            document.getElementById('lessons-container').innerHTML = lessonsHTML;
+
+            // Tips
+            const tips = [
+                'Suivez les leçons dans l\'ordre proposé',
+                'Explorez les outils interactifs pour mieux comprendre',
+                'Répondez aux quizzes pour valider vos acquis',
+                'Pratiquez régulièrement avec les exercices',
+                'Revisitez les concepts difficiles autant de fois que nécessaire'
+            ];
+            document.getElementById('tips-container').innerHTML = renderTipsSection(tips);
+
+            // Back button
+            document.getElementById('back-button-container').innerHTML = renderBackButton();
+        });
+    </script>
 </body>
 </html>
