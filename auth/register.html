@@ -17,7 +17,7 @@
                 <h2>Créer un Compte</h2>
                 <p class="auth-subtitle">Inscrivez-vous pour commencer à apprendre</p>
 
-                <form id="register-form" onsubmit="handleRegister(event)">
+                <form id="register-form">
                     <div class="form-group">
                         <label for="register-name">Nom Complet</label>
                         <input type="text" id="register-name" name="name" required placeholder="Ahmed Bennani">
@@ -43,7 +43,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                    <button type="button" onclick="handleRegister()" class="btn btn-primary">S'inscrire</button>
                 </form>
 
                 <p class="auth-toggle">
@@ -66,30 +66,38 @@
 
     <div id="footer-container"></div>
 
+    <!-- Firebase SDK - MUST BE BEFORE auth.js -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+    <!-- Components -->
     <script src="/mathyxo/js/components.js"></script>
-    <script src="/mathyxo/js/auth.js"></script>
     
+    <!-- Auth System -->
+    <script src="/mathyxo/js/auth.js"></script>
+
     <script>
-        function handleRegister(event) {
-            event.preventDefault();
-            
+        function handleRegister() {
             const name = document.getElementById('register-name').value;
             const email = document.getElementById('register-email').value;
             const password = document.getElementById('register-password').value;
             const level = document.getElementById('register-level').value;
+            
+            if (!name || !email || !password || !level) {
+                alert('Veuillez remplir tous les champs');
+                return;
+            }
             
             if (password.length < 6) {
                 alert('Le mot de passe doit contenir au moins 6 caractères');
                 return;
             }
             
-            registerUser(email, password, name);
+            registerUser(email, password, name, level);
         }
 
-        // Load components
+        // Load page components
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('header-container').innerHTML = renderHeader();
             const currentPath = window.location.pathname;
