@@ -7,75 +7,79 @@ const firebaseConfig = {
   projectId: "mathyxo-e191e",
   storageBucket: "mathyxo-e191e.firebasestorage.app",
   messagingSenderId: "486174230938",
-  appId: "1:486174230938:web:71ec38b77e381cb7c9d223"
+  appId: "1:486174230938:web:71ec38b77e381cb7c9d223",
+  measurementId: "G-QV3VPJ5HP5"
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Get Firebase Auth and Firestore
+// Get Firebase instances
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// ===== User Session Management =====
+// Global user variable
 let currentUser = null;
 
-// Monitor auth state changes
+// Monitor auth state
 auth.onAuthStateChanged((user) => {
     currentUser = user;
-    if (user) {
-        console.log('User logged in:', user.email);
-        updateUILoggedIn(user);
-    } else {
-        console.log('No user logged in');
-        updateUILoggedOut();
-    }
+    console.log('Auth state changed:', user ? user.email : 'No user');
 });
 
 // ===== Registration Function =====
-function registerUser(email, password, displayName) {
+function registerUser(email, password, displayName, level) {
+    console.log('Starting registration...');
+    
     auth.createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            console.log('User created:', user.uid);
             
-            // Save user profile to Firestore
-            db.collection('users').doc(user.uid).set({
-                uid: user.uid,
-                email: email,
-                displayName: displayName,
-                level: 'Seconde',
-                enrolledDate: new Date(),
-                totalPoints: 0,
-                photoURL: ''
-            });
-            
-            // Update user display name
-            user.updateProfile({
+            // Update user profile
+            return user.updateProfile({
                 displayName: displayName
+            }).then(() => {
+                // Save to Firestore
+                return db.collection('users').doc(user.uid).set({
+                    uid: user.uid,
+                    email: email,
+                    displayName: displayName,
+                    level: level,
+                    enrolledDate: new Date(),
+                    totalPoints: 0
+                });
             });
-            
-            console.log('User registered successfully:', user.email);
-            alert('Inscription réussie! Bienvenue ' + displayName);
-            redirectToStudentDashboard();
+        })
+        .then(() => {
+            console.log('Registration successful!');
+            alert('✅ Inscription réussie! Bienvenue ' + displayName);
+            setTimeout(() => {
+                window.location.href = '/mathyxo/student-dashboard/';
+            }, 1500);
         })
         .catch((error) => {
-            console.error('Registration error:', error.message);
-            alert('Erreur d\'inscription: ' + error.message);
+            console.error('Registration error:', error);
+            alert('❌ Erreur: ' + error.message);
         });
 }
 
 // ===== Login Function =====
 function loginUser(email, password) {
+    console.log('Starting login...');
+    
     auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            console.log('User logged in:', user.email);
-            alert('Bienvenue ' + (user.displayName || user.email));
-            redirectToStudentDashboard();
+            console.log('Login successful:', user.email);
+            alert('✅ Connexion réussie! Bienvenue ' + (user.displayName || user.email));
+            setTimeout(() => {
+                window.location.href = '/mathyxo/student-dashboard/';
+            }, 1500);
         })
         .catch((error) => {
-            console.error('Login error:', error.message);
-            alert('Erreur de connexion: ' + error.message);
+            console.error('Login error:', error);
+            alert('❌ Erreur de connexion: ' + error.message);
         });
 }
 
@@ -84,56 +88,23 @@ function logoutUser() {
     auth.signOut()
         .then(() => {
             console.log('User logged out');
-            alert('Déconnexion réussie');
-            redirectToHomepage();
+            alert('✅ Déconnexion réussie');
+            setTimeout(() => {
+                window.location.href = '/mathyxo/';
+            }, 1000);
         })
         .catch((error) => {
-            console.error('Logout error:', error.message);
+            console.error('Logout error:', error);
+            alert('❌ Erreur: ' + error.message);
         });
-}
-
-// ===== Update UI for Logged-In User =====
-function updateUILoggedIn(user) {
-    const loginBtn = document.getElementById('login-btn');
-    const dashboardBtn = document.getElementById('dashboard-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-    const userNameDisplay = document.getElementById('user-name-display');
-    
-    if (loginBtn) loginBtn.style.display = 'none';
-    if (dashboardBtn) dashboardBtn.style.display = 'inline-block';
-    if (logoutBtn) logoutBtn.style.display = 'inline-block';
-    if (userNameDisplay) userNameDisplay.textContent = user.displayName || user.email;
-}
-
-// ===== Update UI for Logged-Out User =====
-function updateUILoggedOut() {
-    const loginBtn = document.getElementById('login-btn');
-    const dashboardBtn = document.getElementById('dashboard-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-    const userNameDisplay = document.getElementById('user-name-display');
-    
-    if (loginBtn) loginBtn.style.display = 'inline-block';
-    if (dashboardBtn) dashboardBtn.style.display = 'none';
-    if (logoutBtn) logoutBtn.style.display = 'none';
-    if (userNameDisplay) userNameDisplay.textContent = '';
-}
-
-// ===== Redirect Functions =====
-function redirectToStudentDashboard() {
-    setTimeout(() => {
-        window.location.href = '/mathyxo/student-dashboard/';
-    }, 1500);
-}
-
-function redirectToHomepage() {
-    setTimeout(() => {
-        window.location.href = '/mathyxo/';
-    }, 1500);
 }
 
 // ===== Get Current User Data =====
 async function getCurrentUserData() {
-    if (!currentUser) return null;
+    if (!currentUser) {
+        console.log('No user logged in');
+        return null;
+    }
     
     try {
         const doc = await db.collection('users').doc(currentUser.uid).get();
@@ -147,8 +118,8 @@ async function getCurrentUserData() {
 // ===== Save Progress =====
 async function saveProgress(lessonId, quizScore) {
     if (!currentUser) {
-        alert('Vous devez être connecté pour sauvegarder votre progrès');
-        return;
+        alert('Vous devez être connecté');
+        return false;
     }
     
     try {
@@ -165,11 +136,11 @@ async function saveProgress(lessonId, quizScore) {
             totalPoints: (userData.totalPoints || 0) + quizScore
         });
         
-        console.log('Progress saved successfully');
-        alert('Progrès sauvegardé!');
+        console.log('Progress saved');
+        return true;
     } catch (error) {
         console.error('Error saving progress:', error);
-        alert('Erreur lors de la sauvegarde du progrès');
+        return false;
     }
 }
 
@@ -187,7 +158,7 @@ async function getUserProgress(userId) {
         
         return progress;
     } catch (error) {
-        console.error('Error getting user progress:', error);
+        console.error('Error getting progress:', error);
         return [];
     }
 }
