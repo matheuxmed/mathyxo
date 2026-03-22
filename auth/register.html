@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - MatheuxMed</title>
+    <link rel="stylesheet" href="/mathyxo/css/style.css">
+    <link rel="stylesheet" href="/mathyxo/css/auth.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
+
+    <main class="container">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2>Créer un Compte</h2>
+                <p class="auth-subtitle">Inscrivez-vous pour commencer à apprendre</p>
+
+                <form id="register-form" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label for="register-name">Nom Complet</label>
+                        <input type="text" id="register-name" name="name" required placeholder="Ahmed Bennani">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required placeholder="ahmed@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-password">Mot de Passe</label>
+                        <input type="password" id="register-password" name="password" required placeholder="Minimum 6 caractères">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="register-level">Niveau</label>
+                        <select id="register-level" name="level" required>
+                            <option value="">Sélectionnez votre niveau</option>
+                            <option value="Seconde">Seconde</option>
+                            <option value="Première">Première</option>
+                            <option value="Terminale">Terminale</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+                </form>
+
+                <p class="auth-toggle">
+                    Vous avez déjà un compte? <a href="/mathyxo/auth/login.html">Se connecter</a>
+                </p>
+            </div>
+
+            <div class="auth-info">
+                <h3>Avantages de l'inscription</h3>
+                <ul>
+                    <li>✅ Sauvegardez votre progrès</li>
+                    <li>✅ Accédez aux quizzes interactifs</li>
+                    <li>✅ Suivez vos scores</li>
+                    <li>✅ Débloquez les leçons premium</li>
+                    <li>✅ Recevez des recommandations</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script src="/mathyxo/js/auth.js"></script>
+    
+    <script>
+        function handleRegister(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const level = document.getElementById('register-level').value;
+            
+            if (password.length < 6) {
+                alert('Le mot de passe doit contenir au moins 6 caractères');
+                return;
+            }
+            
+            registerUser(email, password, name);
+        }
+
+        // Load components
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('header-container').innerHTML = renderHeader();
+            const currentPath = window.location.pathname;
+            document.getElementById('nav-container').innerHTML = renderNavbar(currentPath);
+            document.getElementById('footer-container').innerHTML = renderFooter();
+        });
+    </script>
+</body>
+</html>
