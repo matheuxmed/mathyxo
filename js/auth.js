@@ -1,20 +1,19 @@
-
 // ===== Firebase Authentication System =====
+
 // Initialize Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyD6q-mHObvKIsCYo8NW8O24_1fuCdSlgBY",
-  authDomain: "mathyxo-e191e.firebaseapp.com",
-  projectId: "mathyxo-e191e",
-  storageBucket: "mathyxo-e191e.firebasestorage.app",
-  messagingSenderId: "486174230938",
-  appId: "1:486174230938:web:71ec38b77e381cb7c9d223",
-  measurementId: "G-QV3VPJ5HP5"
+  apiKey: "AIzaSyD...", // REPLACE WITH YOUR KEY
+  authDomain: "mathyxo.firebaseapp.com",
+  projectId: "mathyxo",
+  storageBucket: "mathyxo.appspot.com",
+  messagingSenderId: "123456789012",
+  appId: "1:123456789012:web:abc..."
 };
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Get Firebase Auth
+// Get Firebase Auth and Firestore
 const auth = firebase.auth();
 const db = firebase.firestore();
 
@@ -44,7 +43,7 @@ function registerUser(email, password, displayName) {
                 uid: user.uid,
                 email: email,
                 displayName: displayName,
-                level: 'Seconde', // Default level
+                level: 'Seconde',
                 enrolledDate: new Date(),
                 totalPoints: 0,
                 photoURL: ''
@@ -95,7 +94,6 @@ function logoutUser() {
 
 // ===== Update UI for Logged-In User =====
 function updateUILoggedIn(user) {
-    // Hide login buttons, show user menu
     const loginBtn = document.getElementById('login-btn');
     const dashboardBtn = document.getElementById('dashboard-btn');
     const logoutBtn = document.getElementById('logout-btn');
@@ -105,14 +103,10 @@ function updateUILoggedIn(user) {
     if (dashboardBtn) dashboardBtn.style.display = 'inline-block';
     if (logoutBtn) logoutBtn.style.display = 'inline-block';
     if (userNameDisplay) userNameDisplay.textContent = user.displayName || user.email;
-    
-    // Enable lesson access
-    enableLessonAccess();
 }
 
 // ===== Update UI for Logged-Out User =====
 function updateUILoggedOut() {
-    // Show login buttons, hide user menu
     const loginBtn = document.getElementById('login-btn');
     const dashboardBtn = document.getElementById('dashboard-btn');
     const logoutBtn = document.getElementById('logout-btn');
@@ -122,34 +116,6 @@ function updateUILoggedOut() {
     if (dashboardBtn) dashboardBtn.style.display = 'none';
     if (logoutBtn) logoutBtn.style.display = 'none';
     if (userNameDisplay) userNameDisplay.textContent = '';
-    
-    // Disable lesson access
-    disableLessonAccess();
-}
-
-// ===== Check if Lesson is Protected =====
-function isLessonProtected() {
-    return window.location.pathname.includes('/seconde/') || 
-           window.location.pathname.includes('/premiere/') || 
-           window.location.pathname.includes('/terminale/');
-}
-
-// ===== Enable Lesson Access =====
-function enableLessonAccess() {
-    const lessonContent = document.getElementById('lesson-content');
-    const loginPrompt = document.getElementById('login-prompt');
-    
-    if (lessonContent) lessonContent.style.display = 'block';
-    if (loginPrompt) loginPrompt.style.display = 'none';
-}
-
-// ===== Disable Lesson Access =====
-function disableLessonAccess() {
-    const lessonContent = document.getElementById('lesson-content');
-    const loginPrompt = document.getElementById('login-prompt');
-    
-    if (lessonContent) lessonContent.style.display = 'none';
-    if (loginPrompt) loginPrompt.style.display = 'block';
 }
 
 // ===== Redirect Functions =====
@@ -194,7 +160,6 @@ async function saveProgress(lessonId, quizScore) {
             completed: quizScore >= 60
         });
         
-        // Update user total points
         const userData = await getCurrentUserData();
         await db.collection('users').doc(currentUser.uid).update({
             totalPoints: (userData.totalPoints || 0) + quizScore
@@ -226,23 +191,3 @@ async function getUserProgress(userId) {
         return [];
     }
 }
-
-// ===== Update User Level =====
-async function updateUserLevel(userId, newLevel) {
-    try {
-        await db.collection('users').doc(userId).update({
-            level: newLevel
-        });
-        console.log('User level updated to:', newLevel);
-    } catch (error) {
-        console.error('Error updating user level:', error);
-    }
-}
-
-// ===== Check Protected Pages =====
-document.addEventListener('DOMContentLoaded', function() {
-    // If on a protected lesson page and not logged in, show login prompt
-    if (isLessonProtected() && !currentUser) {
-        disableLessonAccess();
-    }
-});
