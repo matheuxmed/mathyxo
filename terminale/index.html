@@ -7,117 +7,57 @@
     <link rel="stylesheet" href="/mathyxo/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>📐 MatheuxMed</h1>
-            <p>Mathématiques pour le Lycée Marocain</p>
-        </div>
-    </header>
-
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li><a href="/mathyxo/" class="nav-link">🏠 Accueil</a></li>
-            <li><a href="/mathyxo/seconde/" class="nav-link">📚 Seconde</a></li>
-            <li><a href="/mathyxo/premiere/" class="nav-link">📊 Première</a></li>
-            <li><a href="/mathyxo/terminale/" class="nav-link active">🎓 Terminale</a></li>
-            <li><a href="#contact" class="nav-link">📧 Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
 
     <main class="container">
-        <div class="page-header">
-            <h1>📕 Mathématiques - Terminale</h1>
-            <p>Maîtrisez les concepts avancés pour réussir vos examens</p>
-        </div>
-
-        <section class="lessons-grid">
-            <div class="lesson-card">
-                <h3>1️⃣ Limites et Continuité</h3>
-                <p>Étudiez les limites de fonctions et la continuité sur un intervalle.</p>
-                <a href="/mathyxo/terminale/limites.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>2️⃣ Dérivation</h3>
-                <p>Apprenez à calculer les dérivées et à comprendre leur signification géométrique.</p>
-                <a href="/mathyxo/terminale/derivees.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>3️⃣ Étude de Fonctions</h3>
-                <p>Analysez complètement des fonctions: monotonie, extrema et représentation graphique.</p>
-                <a href="/mathyxo/terminale/etude-fonctions.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>4️⃣ Intégration</h3>
-                <p>Découvrez les primitives, les intégrales définies et leurs applications.</p>
-                <a href="/mathyxo/terminale/integrales.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>5️⃣ Nombres Complexes - Forme Algébrique</h3>
-                <p>Explorez les opérations sur les nombres complexes et le plan complexe.</p>
-                <a href="/mathyxo/terminale/complexes-algebrique.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>6️⃣ Nombres Complexes - Forme Trigonométrique</h3>
-                <p>Maîtrisez la forme exponentielle et les puissances de nombres complexes.</p>
-                <a href="/mathyxo/terminale/complexes-trigo.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>7️⃣ Suites et Limites</h3>
-                <p>Étudiez la convergence des suites et les limites infinies.</p>
-                <a href="/mathyxo/terminale/suites-limites.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>8️⃣ Matrices et Systèmes Linéaires</h3>
-                <p>Apprenez les opérations matricielles et la résolution de systèmes.</p>
-                <a href="/mathyxo/terminale/matrices.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>9️⃣ Variables Aléatoires et Lois</h3>
-                <p>Comprenez les variables aléatoires, les lois binomiale et normale.</p>
-                <a href="/mathyxo/terminale/variables-aleatoires.html" class="btn">Accéder à la leçon →</a>
-            </div>
-
-            <div class="lesson-card">
-                <h3>🔟 Statistique Inférentielle</h3>
-                <p>Explorez l'estimation, les intervalles de confiance et les tests statistiques.</p>
-                <a href="/mathyxo/terminale/statistique-inf.html" class="btn">Accéder à la leçon →</a>
-            </div>
-        </section>
-
-        <section style="text-align: center; padding: 40px 20px; background: #f0f0f0; border-radius: 10px;">
-            <h2>🎯 Important pour la Terminale</h2>
-            <ul style="list-style: none; padding: 0; color: #666; text-align: left; max-width: 700px; margin: 20px auto;">
-                <li>✅ Dominez la dérivation et l'intégration - concepts clés</li>
-                <li>✅ Comprenez bien les nombres complexes</li>
-                <li>✅ Pratiquez l'étude complète de fonctions</li>
-                <li>✅ Maîtrisez les probabilités et la statistique</li>
-                <li>✅ Révisez les formules clés régulièrement</li>
-            </ul>
-        </section>
-
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/mathyxo/" class="btn">← Retour à l'accueil</a>
-        </div>
+        <div id="page-header-container"></div>
+        <div id="lessons-container"></div>
+        <div id="tips-container"></div>
+        <div id="back-button-container"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 MatheuxMed. Plateforme gratuite pour l'enseignement des mathématiques.</p>
-        <p>Créée avec ❤️ pour les lycéens marocains</p>
-    </footer>
+    <div id="footer-container"></div>
 
-    <script src="/mathyxo/js/script.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Page header
+            document.getElementById('page-header-container').innerHTML = 
+                renderPageHeader('📕 Mathématiques - Terminale', 'Maîtrisez les concepts avancés pour réussir vos examens');
+
+            // Lessons
+            let lessonsHTML = '<section class="lessons-grid">';
+            lessonsHTML += renderLessonCard('1️⃣', 'Limites et Continuité', 'Étudiez les limites de fonctions et la continuité sur un intervalle.', '/mathyxo/terminale/limites.html');
+            lessonsHTML += renderLessonCard('2️⃣', 'Dérivation', 'Apprenez à calculer les dérivées et à comprendre leur signification géométrique.', '/mathyxo/terminale/derivees.html');
+            lessonsHTML += renderLessonCard('3️⃣', 'Étude de Fonctions', 'Analysez complètement des fonctions: monotonie, extrema et représentation graphique.', '/mathyxo/terminale/etude-fonctions.html');
+            lessonsHTML += renderLessonCard('4️⃣', 'Intégration', 'Découvrez les primitives, les intégrales définies et leurs applications.', '/mathyxo/terminale/integrales.html');
+            lessonsHTML += renderLessonCard('5️⃣', 'Nombres Complexes - Forme Algébrique', 'Explorez les opérations sur les nombres complexes et le plan complexe.', '/mathyxo/terminale/complexes-algebrique.html');
+            lessonsHTML += renderLessonCard('6️⃣', 'Nombres Complexes - Forme Trigonométrique', 'Maîtrisez la forme exponentielle et les puissances de nombres complexes.', '/mathyxo/terminale/complexes-trigo.html');
+            lessonsHTML += renderLessonCard('7️⃣', 'Suites et Limites', 'Étudiez la convergence des suites et les limites infinies.', '/mathyxo/terminale/suites-limites.html');
+            lessonsHTML += renderLessonCard('8️⃣', 'Matrices et Systèmes Linéaires', 'Apprenez les opérations matricielles et la résolution de systèmes.', '/mathyxo/terminale/matrices.html');
+            lessonsHTML += renderLessonCard('9️⃣', 'Variables Aléatoires et Lois', 'Comprenez les variables aléatoires, les lois binomiale et normale.', '/mathyxo/terminale/variables-aleatoires.html');
+            lessonsHTML += renderLessonCard('🔟', 'Statistique Inférentielle', 'Explorez l\'estimation, les intervalles de confiance et les tests statistiques.', '/mathyxo/terminale/statistique-inf.html');
+            lessonsHTML += '</section>';
+            document.getElementById('lessons-container').innerHTML = lessonsHTML;
+
+            // Tips
+            document.getElementById('tips-container').innerHTML = `
+                <section style="text-align: center; padding: 40px 20px; background: #f0f0f0; border-radius: 10px;">
+                    <h2>🎯 Important pour la Terminale</h2>
+                    <ul style="list-style: none; padding: 0; color: #666; text-align: left; max-width: 700px; margin: 20px auto;">
+                        <li>✅ Dominez la dérivation et l'intégration - concepts clés</li>
+                        <li>✅ Comprenez bien les nombres complexes</li>
+                        <li>✅ Pratiquez l'étude complète de fonctions</li>
+                        <li>✅ Maîtrisez les probabilités et la statistique</li>
+                        <li>✅ Révisez les formules clés régulièrement</li>
+                    </ul>
+                </section>
+            `;
+
+            // Back button
+            document.getElementById('back-button-container').innerHTML = renderBackButton();
+        });
+    </script>
 </body>
 </html>
