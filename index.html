@@ -7,104 +7,27 @@
     <link rel="stylesheet" href="/mathyxo/css/style.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>📐 MatheuxMed</h1>
-            <p>Mathématiques pour le Lycée Marocain</p>
-        </div>
-    </header>
-
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li><a href="/mathyxo/" class="nav-link active">🏠 Accueil</a></li>
-            <li><a href="/mathyxo/seconde/" class="nav-link">📚 Seconde</a></li>
-            <li><a href="/mathyxo/premiere/" class="nav-link">📊 Première</a></li>
-            <li><a href="/mathyxo/terminale/" class="nav-link">🎓 Terminale</a></li>
-            <li><a href="#contact" class="nav-link">📧 Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
 
     <main class="container">
-        <section class="hero">
-            <h2>Bienvenue sur MatheuxMed</h2>
-            <p>Une plateforme interactive et engageante pour apprendre les mathématiques du lycée marocain.</p>
-            <p><strong>100% Gratuit • Interactif • En Français</strong></p>
-        </section>
-
-        <section class="levels">
-            <div class="level-card">
-                <div class="level-icon">📘</div>
-                <h3>Seconde</h3>
-                <p>Découvrez les fondamentaux : équations, fonctions, géométrie plane et statistiques.</p>
-                <a href="/mathyxo/seconde/" class="btn">Accéder →</a>
-            </div>
-
-            <div class="level-card">
-                <div class="level-icon">📗</div>
-                <h3>Première</h3>
-                <p>Approfondissez vos connaissances : polynômes, trigonométrie, suites et probabilités.</p>
-                <a href="/mathyxo/premiere/" class="btn">Accéder →</a>
-            </div>
-
-            <div class="level-card">
-                <div class="level-icon">📕</div>
-                <h3>Terminale</h3>
-                <p>Maîtrisez les concepts avancés : calcul, nombres complexes, matrices et statistiques.</p>
-                <a href="/mathyxo/terminale/" class="btn">Accéder →</a>
-            </div>
-        </section>
-
-        <section class="features">
-            <h2>Pourquoi MatheuxMed?</h2>
-            <div class="features-grid">
-                <div class="feature">
-                    <h4>🎯 Interactif</h4>
-                    <p>Graphiques Desmos, géométrie GeoGebra, simulations PhET</p>
-                </div>
-                <div class="feature">
-                    <h4>🎓 Pédagogique</h4>
-                    <p>Explications claires, exercices progressifs, quizzes intégrés</p>
-                </div>
-                <div class="feature">
-                    <h4>💰 Gratuit</h4>
-                    <p>100% gratuit, 0 publicité, accessible de partout</p>
-                </div>
-                <div class="feature">
-                    <h4>📱 Responsive</h4>
-                    <p>Fonctionne sur desktop, tablette et téléphone</p>
-                </div>
-                <div class="feature">
-                    <h4>🔄 À jour</h4>
-                    <p>Aligné avec le curriculum marocain officiel</p>
-                </div>
-                <div class="feature">
-                    <h4>🌍 Français</h4>
-                    <p>Entièrement en français avec contexte marocain</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Prêt à commencer?</h2>
-            <p>Choisissez votre niveau et explorez les leçons interactives</p>
-            <div class="cta-buttons">
-                <a href="/mathyxo/seconde/" class="btn btn-primary">Seconde</a>
-                <a href="/mathyxo/premiere/" class="btn btn-primary">Première</a>
-                <a href="/mathyxo/terminale/" class="btn btn-primary">Terminale</a>
-            </div>
-        </section>
+        <div id="hero-container"></div>
+        <div id="levels-container"></div>
+        <div id="features-container"></div>
+        <div id="cta-container"></div>
     </main>
 
-    <footer>
-        <p>&copy; 2026 MatheuxMed. Plateforme gratuite pour l'enseignement des mathématiques.</p>
-        <p>Créée avec ❤️ pour les lycéens marocains</p>
-    </footer>
+    <div id="footer-container"></div>
 
-    <script src="/mathyxo/js/script.js"></script>
+    <script src="/mathyxo/js/components.js"></script>
+    <script>
+        // Inject homepage content
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('hero-container').innerHTML = renderHero();
+            document.getElementById('levels-container').innerHTML = renderLevelCards();
+            document.getElementById('features-container').innerHTML = renderFeatures();
+            document.getElementById('cta-container').innerHTML = renderCTA();
+        });
+    </script>
 </body>
 </html>
