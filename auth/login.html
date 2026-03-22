@@ -17,7 +17,7 @@
                 <h2>Se Connecter</h2>
                 <p class="auth-subtitle">Connectez-vous à votre compte</p>
 
-                <form id="login-form" onsubmit="handleLogin(event)">
+                <form id="login-form">
                     <div class="form-group">
                         <label for="login-email">Email</label>
                         <input type="email" id="login-email" name="email" required placeholder="ahmed@example.com">
@@ -28,7 +28,7 @@
                         <input type="password" id="login-password" name="password" required placeholder="Votre mot de passe">
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Se connecter</button>
+                    <button type="button" onclick="handleLogin()" class="btn btn-primary">Se connecter</button>
                 </form>
 
                 <p class="auth-toggle">
@@ -51,23 +51,31 @@
 
     <div id="footer-container"></div>
 
+    <!-- Firebase SDK - MUST BE BEFORE auth.js -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+
+    <!-- Components -->
     <script src="/mathyxo/js/components.js"></script>
-    <script src="/mathyxo/js/auth.js"></script>
     
+    <!-- Auth System -->
+    <script src="/mathyxo/js/auth.js"></script>
+
     <script>
-        function handleLogin(event) {
-            event.preventDefault();
-            
+        function handleLogin() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
+            
+            if (!email || !password) {
+                alert('Veuillez remplir tous les champs');
+                return;
+            }
             
             loginUser(email, password);
         }
 
-        // Load components
+        // Load page components
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('header-container').innerHTML = renderHeader();
             const currentPath = window.location.pathname;
