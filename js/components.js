@@ -63,7 +63,7 @@ function renderNavbar(activePath = '') {
     let navHTML = '<nav class="navbar"><ul class="nav-menu">';
     
     SITE_CONFIG.navItems.forEach(item => {
-        const isActive = activePath === item.href ? 'active' : '';
+        const isActive = activePath === item.href || activePath.includes('contact') && item.href.includes('contact.html') ? 'active' : '';
         navHTML += `<li><a href="${item.href}" class="nav-link ${isActive}">${item.name}</a></li>`;
     });
     
@@ -318,7 +318,8 @@ function setActiveNavLink() {
         
         if (currentPath === href || 
             (currentPath === '/mathyxo/' && href === '/mathyxo/') ||
-            (currentPath.startsWith(href) && href !== '/mathyxo/')) {
+            (currentPath.startsWith(href) && href !== '/mathyxo/') ||
+            (currentPath.includes('contact') && href.includes('contact.html'))) {
             link.classList.add('active');
         }
     });
