@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MatheuxMed</title>
+    <link rel="stylesheet" href="/mathyxo/css/style.css">
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
+
+    <main class="container">
+        <div id="contact-container"></div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/mathyxo/js/components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('contact-container').innerHTML = renderContact();
+        });
+    </script>
+</body>
+</html>
