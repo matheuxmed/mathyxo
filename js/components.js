@@ -10,7 +10,14 @@ const SITE_CONFIG = {
         { name: '📚 Seconde', href: '/mathyxo/seconde/' },
         { name: '📊 Première', href: '/mathyxo/premiere/' },
         { name: '🎓 Terminale', href: '/mathyxo/terminale/' },
-        { name: '📧 Contact', href: '#contact' }
+        { name: '📧 Contact', href: '/mathyxo/contact.html' }
+    ],
+    socialLinks: [
+        { name: 'GitHub', icon: '🐙', url: 'https://github.com/matheuxmed', color: '#333' },
+        { name: 'Email', icon: '📧', url: 'mailto:contact@matheuxmed.com', color: '#ea4335' },
+        { name: 'LinkedIn', icon: '💼', url: 'https://linkedin.com', color: '#0077b5' },
+        { name: 'Twitter', icon: '🐦', url: 'https://twitter.com', color: '#1da1f2' },
+        { name: 'Instagram', icon: '📸', url: 'https://instagram.com', color: '#e4405f' }
     ]
 };
 
@@ -196,6 +203,80 @@ function renderTipsSection(tips) {
     
     tipsHTML += '</ul></section>';
     return tipsHTML;
+}
+
+// ===== Contact Page Component =====
+function renderContact() {
+    let contactHTML = `
+        <div class="page-header">
+            <h1>📧 Contactez-moi</h1>
+            <p>Connectez-vous sur mes réseaux sociaux et restez en contact</p>
+        </div>
+        
+        <section class="contact-section" style="text-align: center; padding: 60px 20px;">
+            <h2>Mes Réseaux Sociaux</h2>
+            <p style="color: #666; margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Suivez-moi pour les dernières mises à jour, conseils mathématiques et annonces sur MatheuxMed.
+            </p>
+            
+            <div class="social-links-grid" style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+                max-width: 800px;
+                margin: 0 auto;
+            ">
+    `;
+    
+    SITE_CONFIG.socialLinks.forEach(social => {
+        contactHTML += `
+            <a href="${social.url}" target="_blank" rel="noopener noreferrer" class="social-link-card" style="
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 20px;
+                background: linear-gradient(135deg, ${social.color}20, ${social.color}10);
+                border: 2px solid ${social.color};
+                border-radius: 12px;
+                text-decoration: none;
+                transition: all 0.3s ease;
+                color: ${social.color};
+            " onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 25px ${social.color}30';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                <span style="font-size: 48px; margin-bottom: 10px;">${social.icon}</span>
+                <span style="font-size: 18px; font-weight: 600;">${social.name}</span>
+            </a>
+        `;
+    });
+    
+    contactHTML += `
+            </div>
+        </section>
+        
+        <section style="
+            text-align: center;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            margin-top: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        ">
+            <h3>Questions ou Suggestions?</h3>
+            <p style="color: #666; margin-bottom: 20px;">
+                N'hésitez pas à m'envoyer un email directement ou à me contacter via les réseaux sociaux.
+            </p>
+            <a href="mailto:contact@matheuxmed.com" class="btn btn-primary">📧 Envoyer un Email</a>
+        </section>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/mathyxo/" class="btn">← Retour à l'accueil</a>
+        </div>
+    `;
+    
+    return contactHTML;
 }
 
 // ===== Initialize Components on Page Load =====
