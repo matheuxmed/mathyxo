@@ -1,5 +1,57 @@
 // ===== MatheuxMed Components System =====
-// Reusable components for all pages
+// Reusable components for all pages with Gamification
+
+// ===== Gamification System =====
+const GAMIFICATION = {
+    // localStorage keys
+    userKey: 'mathyxo_user',
+    
+    // Initialize or get user profile
+    getOrCreateUser: function() {
+        const stored = localStorage.getItem(this.userKey);
+        if (stored) return JSON.parse(stored);
+        
+        const newUser = {
+            username: 'Apprenant',
+            avatar: '👤',
+            xp: 0,
+            level: 0,
+            currentLevelId: 'secondaire-1',
+            badges: [],
+            lessonsCompleted: 0,
+            streakDays: 0,
+            joinDate: new Date().toISOString()
+        };
+        localStorage.setItem(this.userKey, JSON.stringify(newUser));
+        return newUser;
+    },
+    
+    // Add XP points
+    addXP: function(points) {
+        const user = this.getOrCreateUser();
+        user.xp += points;
+        // Level up every 100 XP
+        const newLevel = Math.floor(user.xp / 100);
+        if (newLevel > user.level) {
+            user.level = newLevel;
+            user.badges.push({ name: 'Level ' + newLevel, icon: '⭐', date: new Date() });
+        }
+        localStorage.setItem(this.userKey, JSON.stringify(user));
+        return user;
+    },
+    
+    // Update current level/section
+    setCurrentLevel: function(levelId) {
+        const user = this.getOrCreateUser();
+        user.currentLevelId = levelId;
+        localStorage.setItem(this.userKey, JSON.stringify(user));
+    },
+    
+    // Get user
+    getUser: function() {
+        return this.getOrCreateUser();
+    }
+};
 
 const SITE_CONFIG = {
     baseUrl: '/mathyxo',
@@ -7,10 +59,134 @@ const SITE_CONFIG = {
     year: new Date().getFullYear(),
     navItems: [
         { name: '🏠 Accueil', href: '/mathyxo/' },
-        { name: '📚 Seconde', href: '/mathyxo/seconde/' },
-        { name: '📊 Première', href: '/mathyxo/premiere/' },
-        { name: '🎓 Terminale', href: '/mathyxo/terminale/' },
+        { name: '📚 Primaire', href: '/mathyxo/primaire/' },
+        { name: '📖 Collège', href: '/mathyxo/college/' },
+        { name: '📊 Tronc Commun', href: '/mathyxo/tronc-commun/' },
+        { name: '🎓 Bac 1ère', href: '/mathyxo/bac1/' },
+        { name: '🏆 Bac 2ème', href: '/mathyxo/bac2/' },
         { name: '📧 Contact', href: '/mathyxo/contact.html' }
+    ],
+    educationLevels: [
+        {
+            id: 'primaire-1',
+            name: '1ère Primaire',
+            icon: '📗',
+            description: 'Bases des mathématiques : compter, formes et patterns',
+            xpReward: 10,
+            category: 'Primaire'
+        },
+        {
+            id: 'primaire-2',
+            name: '2ème Primaire',
+            icon: '📘',
+            description: 'Addition, soustraction et premières opérations',
+            xpReward: 15,
+            category: 'Primaire'
+        },
+        {
+            id: 'primaire-3',
+            name: '3ème Primaire',
+            icon: '📕',
+            description: 'Multiplication, division et fractions simples',
+            xpReward: 20,
+            category: 'Primaire'
+        },
+        {
+            id: 'primaire-4',
+            name: '4ème Primaire',
+            icon: '📗',
+            description: 'Fractions décimales et géométrie de base',
+            xpReward: 25,
+            category: 'Primaire'
+        },
+        {
+            id: 'primaire-5',
+            name: '5ème Primaire',
+            icon: '📘',
+            description: 'Nombres décimaux et géométrie plane',
+            xpReward: 30,
+            category: 'Primaire'
+        },
+        {
+            id: 'primaire-6',
+            name: '6ème Primaire',
+            icon: '📕',
+            description: 'Préparation au collège : statistiques simples',
+            xpReward: 35,
+            category: 'Primaire'
+        },
+        {
+            id: 'college-1',
+            name: '1ère Année Collège',
+            icon: '📙',
+            description: 'Nombres entiers, fractions et opérations',
+            xpReward: 40,
+            category: 'Collège'
+        },
+        {
+            id: 'college-2',
+            name: '2ème Année Collège',
+            icon: '📗',
+            description: 'Equations, proportions et géométrie',
+            xpReward: 50,
+            category: 'Collège'
+        },
+        {
+            id: 'college-3',
+            name: '3ème Année Collège',
+            icon: '📘',
+            description: 'Théorème de Pythagore, trigonométrie basique',
+            xpReward: 60,
+            category: 'Collège'
+        },
+        {
+            id: 'tronc-commun',
+            name: 'Tronc Commun',
+            icon: '📊',
+            description: 'Fondamentaux pour tous : équations, fonctions et géométrie',
+            xpReward: 75,
+            category: 'Secondaire'
+        },
+        {
+            id: 'bac1-se',
+            name: '1ère Bac SE/SM',
+            icon: '🔬',
+            description: 'Limite, continuité, dérivée et fonctions exponentielles',
+            xpReward: 100,
+            category: 'Baccalauréat'
+        },
+        {
+            id: 'bac1-sh',
+            name: '1ère Bac SH',
+            icon: '📈',
+            description: 'Statistiques, probabilités et algèbre linéaire',
+            xpReward: 85,
+            category: 'Baccalauréat'
+        },
+        {
+            id: 'bac2-pc',
+            name: '2ème Bac PC',
+            icon: '⚗️',
+            description: 'Intégrales, équations différentielles et géométrie 3D',
+            xpReward: 120,
+            category: 'Baccalauréat'
+        },
+        {
+            id: 'bac2-svt',
+            name: '2ème Bac SVT',
+            icon: '🌿',
+            description: 'Calcul intégral, statistiques avancées',
+            xpReward: 110,
+            category: 'Baccalauréat'
+        },
+        {
+            id: 'bac2-sm',
+            name: '2ème Bac SM',
+            icon: '🧮',
+            description: 'Algèbre avancée, géométrie et séries',
+            xpReward: 125,
+            category: 'Baccalauréat'
+        }
     ],
     socialLinks: [
         { 
@@ -52,7 +228,6 @@ function renderHeader() {
         <header>
             <div class="header-content">
                 <h1>📐 ${SITE_CONFIG.siteName}</h1>
-                <p>Mathématiques pour le Lycée Marocain</p>
             </div>
         </header>
     `;
@@ -60,18 +235,38 @@ function renderHeader() {
 
 // ===== Navbar Component =====
 function renderNavbar(activePath = '') {
-    let navHTML = '<nav class="navbar"><ul class="nav-menu">';
+    const user = GAMIFICATION.getUser();
+    const currentLevel = SITE_CONFIG.educationLevels.find(l => l.id === user.currentLevelId);
+    
+    let navHTML = `<nav class="navbar">
+        <div class="nav-left">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+    `;
     
     SITE_CONFIG.navItems.forEach(item => {
-        const isActive = activePath === item.href || activePath.includes('contact') && item.href.includes('contact.html') ? 'active' : '';
+        const isActive = activePath === item.href || activePath.includes(item.href.split('/')[item.href.split('/').length - 2]) ? 'active' : '';
         navHTML += `<li><a href="${item.href}" class="nav-link ${isActive}">${item.name}</a></li>`;
     });
     
     navHTML += `</ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        </div>
+        <div class="nav-right">
+            <div class="current-level">
+                <span>${currentLevel ? currentLevel.icon : '📚'}</span>
+                <span>${currentLevel ? currentLevel.name : 'Select Level'}</span>
+            </div>
+            <div class="profile-section" onclick="alert('Profil: ${user.username}\\nNiveau: ${user.level}\\nXP: ${user.xp}')">
+                <div class="profile-avatar">${user.avatar}</div>
+                <div class="xp-badge">
+                    <span>⭐</span>
+                    <span>${user.xp} XP</span>
+                </div>
+            </div>
         </div>
     </nav>`;
     
@@ -90,10 +285,11 @@ function renderFooter() {
 
 // ===== Hero Section Component =====
 function renderHero() {
+    const user = GAMIFICATION.getUser();
     return `
         <section class="hero">
-            <h2>Bienvenue sur ${SITE_CONFIG.siteName}</h2>
-            <p>Une plateforme interactive et engageante pour apprendre les mathématiques du lycée marocain.</p>
+            <h2>Bienvenue, ${user.username}! 👋</h2>
+            <p>Vous avez ${user.xp} XP • Niveau ${user.level} • ${user.lessonsCompleted} leçons complétées</p>
             <p><strong>100% Gratuit • Interactif • En Français</strong></p>
         </section>
     `;
@@ -101,42 +297,37 @@ function renderHero() {
 
 // ===== Level Cards Component =====
 function renderLevelCards() {
-    const levels = [
-        {
-            icon: '📘',
-            title: 'Seconde',
-            description: 'Découvrez les fondamentaux : équations, fonctions, géométrie plane et statistiques.',
-            link: '/mathyxo/seconde/'
-        },
-        {
-            icon: '📗',
-            title: 'Première',
-            description: 'Approfondissez vos connaissances : polynômes, trigonométrie, suites et probabilités.',
-            link: '/mathyxo/premiere/'
-        },
-        {
-            icon: '📕',
-            title: 'Terminale',
-            description: 'Maîtrisez les concepts avancés : calcul, nombres complexes, matrices et statistiques.',
-            link: '/mathyxo/terminale/'
-        }
-    ];
-
     let cardsHTML = '<section class="levels">';
     
-    levels.forEach(level => {
+    SITE_CONFIG.educationLevels.forEach(level => {
+        const progressPercent = (Math.random() * 100).toFixed(0);
         cardsHTML += `
-            <div class="level-card">
+            <div class="level-card" onclick="selectLevel('${level.id}')">
                 <div class="level-icon">${level.icon}</div>
-                <h3>${level.title}</h3>
+                <h3>${level.name}</h3>
                 <p>${level.description}</p>
-                <a href="${level.link}" class="btn">Accéder →</a>
+                <div class="level-meta">
+                    <span>📊 ${level.category}</span>
+                    <span><strong>+${level.xpReward} XP</strong></span>
+                </div>
+                <div class="level-progress">
+                    <div class="level-progress-bar" style="width: ${progressPercent}%"></div>
+                </div>
+                <a href="#" class="btn">Commencer →</a>
             </div>
         `;
     });
     
     cardsHTML += '</section>';
     return cardsHTML;
+}
+
+// Select level function
+function selectLevel(levelId) {
+    GAMIFICATION.setCurrentLevel(levelId);
+    GAMIFICATION.addXP(5);
+    alert('Niveau sélectionné! +5 XP');
+    location.reload();
 }
 
 // ===== Features Component =====
@@ -146,8 +337,8 @@ function renderFeatures() {
         { icon: '🎓', title: 'Pédagogique', desc: 'Explications claires, exercices progressifs, quizzes intégrés' },
         { icon: '💰', title: 'Gratuit', desc: '100% gratuit, 0 publicité, accessible de partout' },
         { icon: '📱', title: 'Responsive', desc: 'Fonctionne sur desktop, tablette et téléphone' },
-        { icon: '🔄', title: 'À jour', desc: 'Aligné avec le curriculum marocain officiel' },
-        { icon: '🌍', title: 'Français', desc: 'Entièrement en français avec contexte marocain' }
+        { icon: '🎮', title: 'Gamifié', desc: 'Gagnez des XP, débloquez des badges et progressez' },
+        { icon: '🌍', title: 'Marocain', desc: 'Aligné avec le curriculum marocain officiel' }
     ];
 
     let featuresHTML = `
@@ -173,12 +364,11 @@ function renderFeatures() {
 function renderCTA() {
     return `
         <section class="cta">
-            <h2>Prêt à commencer?</h2>
-            <p>Choisissez votre niveau et explorez les leçons interactives</p>
+            <h2>Prêt à apprendre?</h2>
+            <p>Choisissez votre niveau et commencez votre voyage éducatif</p>
             <div class="cta-buttons">
-                <a href="/mathyxo/seconde/" class="btn btn-primary">Seconde</a>
-                <a href="/mathyxo/premiere/" class="btn btn-primary">Première</a>
-                <a href="/mathyxo/terminale/" class="btn btn-primary">Terminale</a>
+                <a href="#levels" class="btn btn-primary">Découvrir les Niveaux</a>
+                <a href="/mathyxo/contact.html" class="btn btn-primary">Nous Contacter</a>
             </div>
         </section>
     `;
