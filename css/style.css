@@ -8,6 +8,8 @@
     --text-light: #666;
     --border-color: #ddd;
     --transition: all 0.3s ease;
+    --xp-gold: #ffd700;
+    --level-badge: #ff6b6b;
 }
 
 * {
@@ -27,49 +29,58 @@ body {
     background-color: var(--light-bg);
 }
 
-/* ===== Header ===== */
+/* ===== Header (Reduced Height) ===== */
 header {
     background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
     color: white;
-    padding: 40px 20px;
+    padding: 15px 20px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 0;
 }
 
 .header-content p {
-    font-size: 1.2rem;
-    opacity: 0.95;
+    display: none;
 }
 
-/* ===== Navigation ===== */
+/* ===== New Navigation Structure ===== */
 .navbar {
     background-color: var(--dark-bg);
-    padding: 0;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 100;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-menu {
     list-style: none;
     display: flex;
-    justify-content: center;
+    gap: 0;
     flex-wrap: wrap;
 }
 
 .nav-link {
     color: white;
     text-decoration: none;
-    padding: 15px 20px;
+    padding: 10px 15px;
     display: block;
     transition: var(--transition);
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .nav-link:hover,
@@ -82,7 +93,7 @@ header {
     display: none;
     flex-direction: column;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 5px;
 }
 
 .hamburger span {
@@ -91,6 +102,72 @@ header {
     background-color: white;
     margin: 5px 0;
     transition: var(--transition);
+}
+
+/* ===== Right Navigation (Level & Profile) ===== */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.current-level {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 123, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.current-level span:first-child {
+    font-size: 1.2rem;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.profile-section:hover {
+    transform: scale(1.05);
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 2px solid var(--xp-gold);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.xp-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+}
+
+.xp-badge span:first-child {
+    font-size: 1.2rem;
+}
+
+.xp-badge span:last-child {
+    color: var(--xp-gold);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
 }
 
 /* ===== Main Container ===== */
@@ -104,67 +181,99 @@ header {
 /* ===== Hero Section ===== */
 .hero {
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
     background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(40, 167, 69, 0.1) 100%);
     border-radius: 10px;
     margin-bottom: 60px;
 }
 
 .hero h2 {
-    font-size: 2.2rem;
+    font-size: 2rem;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .hero p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--text-light);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-/* ===== Level Cards ===== */
+/* ===== Level Cards with Gamification ===== */
 .levels {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
     margin-bottom: 60px;
 }
 
 .level-card {
     background: white;
-    padding: 30px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     text-align: center;
+    cursor: pointer;
+    border-top: 4px solid var(--primary-color);
 }
 
 .level-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
 .level-icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
 .level-card h3 {
     color: var(--primary-color);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
 }
 
 .level-card p {
     color: var(--text-light);
-    margin-bottom: 20px;
-    line-height: 1.8;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 0.85rem;
+}
+
+.level-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.level-meta strong {
+    color: var(--xp-gold);
+}
+
+/* ===== Level Progress Bar ===== */
+.level-progress {
+    width: 100%;
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.level-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    transition: width 0.3s ease;
 }
 
 /* ===== Buttons ===== */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 20px;
     background-color: var(--primary-color);
     color: white;
     text-decoration: none;
@@ -173,6 +282,7 @@ header {
     font-weight: 600;
     border: none;
     cursor: pointer;
+    font-size: 0.85rem;
 }
 
 .btn:hover {
@@ -182,7 +292,7 @@ header {
 
 .btn-primary {
     background-color: var(--primary-color);
-    margin: 10px;
+    margin: 8px;
 }
 
 .btn-primary:hover {
@@ -235,20 +345,20 @@ header {
 .cta {
     background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
     color: white;
-    padding: 50px 20px;
+    padding: 40px 20px;
     border-radius: 10px;
     text-align: center;
     margin: 60px 0;
 }
 
 .cta h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
 }
 
 .cta p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin-bottom: 25px;
     opacity: 0.95;
 }
 
@@ -282,22 +392,23 @@ footer p {
     font-size: 0.95rem;
 }
 
-/* ===== Page Spécifiques (Seconde, Première, Terminale) ===== */
+/* ===== Page Specific ===== */
 .page-header {
     background: linear-gradient(135deg, var(--primary-color) 0%, #0056b3 100%);
     color: white;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
     margin-bottom: 40px;
+    border-radius: 8px;
 }
 
 .page-header h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 8px;
 }
 
 .page-header p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     opacity: 0.9;
 }
 
@@ -339,7 +450,7 @@ footer p {
     text-align: center;
 }
 
-/* ===== Contact Page Social Cards ===== */
+/* ===== Contact Social Cards ===== */
 .contact-section {
     padding: 40px 20px;
 }
@@ -404,6 +515,27 @@ footer p {
 }
 
 /* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+    .nav-right {
+        gap: 15px;
+    }
+
+    .current-level {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .profile-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .xp-badge {
+        font-size: 0.8rem;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -418,6 +550,7 @@ footer p {
         background-color: var(--dark-bg);
         flex-direction: column;
         width: 100%;
+        z-index: 99;
     }
 
     .nav-menu.active {
@@ -429,24 +562,42 @@ footer p {
         border-bottom: 1px solid #444;
     }
 
-    .header-content h1 {
-        font-size: 1.8rem;
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px;
     }
 
-    .header-content p {
-        font-size: 1rem;
+    .nav-left {
+        width: 100%;
+        order: 1;
+    }
+
+    .nav-right {
+        width: 100%;
+        order: 2;
+        margin-top: 10px;
+        justify-content: space-around;
     }
 
     .hero h2 {
-        font-size: 1.8rem;
+        font-size: 1.5rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 0.85rem;
     }
 
     .levels {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .level-card {
+        padding: 15px;
+    }
+
+    .level-icon {
+        font-size: 2rem;
     }
 
     .features-grid {
@@ -462,7 +613,7 @@ footer p {
     }
 
     .page-header h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .lessons-grid {
@@ -484,29 +635,67 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    .navbar {
+        padding: 8px;
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+
+    .current-level {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+
+    .profile-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    header {
+        padding: 10px 15px;
+    }
+
     .header-content h1 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .hero {
-        padding: 30px 15px;
+        padding: 25px 15px;
+        margin-bottom: 30px;
     }
 
     .hero h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+
+    .levels {
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
 
     .btn {
-        padding: 10px 20px;
-        font-size: 0.95rem;
+        padding: 8px 16px;
+        font-size: 0.8rem;
     }
 
     .level-card {
-        padding: 20px;
+        padding: 12px;
     }
 
     .level-icon {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.3rem;
+    }
+
+    .cta h2 {
+        font-size: 1.5rem;
     }
 
     .social-links-grid {
