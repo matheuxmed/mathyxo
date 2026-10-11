@@ -216,6 +216,9 @@ header {
     text-align: center;
     cursor: pointer;
     border-top: 4px solid var(--primary-color);
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .level-card:hover {
@@ -425,6 +428,9 @@ footer p {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .lesson-card:hover {
@@ -712,5 +718,103 @@ footer p {
 
     .social-card h3 {
         font-size: 1rem;
+    }
+}
+
+/* ===== Auth Buttons (navbar + hero) ===== */
+.nav-auth {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-auth-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+}
+
+.hero-auth {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* ===== Section Title ===== */
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+/* ===== Breadcrumb ===== */
+.page-header .breadcrumb {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
+.page-header .breadcrumb a {
+    color: white;
+    text-decoration: underline;
+}
+
+.page-header .breadcrumb a:hover {
+    opacity: 0.8;
+}
+
+/* ===== Lesson Detail ===== */
+.lesson-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.placeholder-note {
+    background: rgba(0, 123, 255, 0.08);
+    border-left: 4px solid var(--primary-color);
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-top: 20px;
+    color: var(--text-color, #333);
+}
+
+@media (max-width: 768px) {
+    .nav-auth {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-auth-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
     }
 }

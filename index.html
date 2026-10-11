@@ -45,25 +45,32 @@
             fetch('./data/curriculum.json')
                 .then(res => res.json())
                 .then(curriculum => {
-                    container.innerHTML = curriculum.levels.map(level => `
-                        <article class="level-card">
-                            <div class="level-icon">${level.icon}</div>
-                            <h3>${level.title}</h3>
-                            <p>${level.description}</p>
-                            <div class="level-meta">
-                                <span>📊 ${level.category}</span>
-                                <span><strong>${level.lessons.length} leçons</strong></span>
-                            </div>
-                            <div class="level-progress">
-                                <div class="level-progress-bar" style="width: 50%"></div>
-                            </div>
-                            <a href="./${level.id}/" class="btn">Commencer →</a>
-                        </article>
-                    `).join('');
+                    const cards = (curriculum.categories || []).map(cat => {
+                        const levelCount = cat.levels.length;
+                        const lessonCount = cat.levels.reduce(
+                            (n, l) => n + l.chapters.reduce((m, c) => m + c.lessons.length, 0), 0
+                        );
+                        return `
+                            <a class="level-card" href="./niveaux.html?cat=${encodeURIComponent(cat.id)}">
+                                <div class="level-icon">${cat.icon}</div>
+                                <h3>${cat.title}</h3>
+                                <p>${cat.description}</p>
+                                <div class="level-meta">
+                                    <span>🏫 ${levelCount} niveaux</span>
+                                    <span><strong>${lessonCount} leçons</strong></span>
+                                </div>
+                                <span class="btn">Explorer →</span>
+                            </a>
+                        `;
+                    }).join('');
+                    container.innerHTML = `
+                        <h2 class="section-title">Choisissez votre cycle</h2>
+                        <section class="levels">${cards}</section>
+                    `;
                 })
                 .catch(error => {
                     console.error('Homepage curriculum load failed:', error);
-                    container.innerHTML = '<p>Le curriculum n\'a pas pu être chargé.</p>';
+                    container.innerHTML = '<p>Le programme n\'a pas pu être chargé.</p>';
                 });
         }
 

@@ -84,6 +84,8 @@ const LANGUAGE_SWITCHER = {
                 link.textContent = I18N.t('nav.primary');
             } else if (text.includes('Collège') || text.includes('الإعدادي')) {
                 link.textContent = I18N.t('nav.middle');
+            } else if (text.includes('Lycée') || text.includes('الثانوي')) {
+                link.textContent = I18N.t('nav.lycee');
             } else if (text.includes('Tronc Commun') || text.includes('الجذع المشترك')) {
                 link.textContent = I18N.t('nav.trunk');
             } else if (text.includes('Bac 1ère') || text.includes('الأول')) {

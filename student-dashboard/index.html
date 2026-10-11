@@ -53,27 +53,7 @@
             <div class="dashboard-card full-width">
                 <h3>🎯 Progression par Niveau</h3>
                 <div id="level-progress">
-                    <div class="progress-item">
-                        <h4>Seconde</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="seconde-progress" style="width: 0%"></div>
-                        </div>
-                        <p id="seconde-text">0 leçons complétées</p>
-                    </div>
-                    <div class="progress-item">
-                        <h4>Première</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="premiere-progress" style="width: 0%"></div>
-                        </div>
-                        <p id="premiere-text">0 leçons complétées</p>
-                    </div>
-                    <div class="progress-item">
-                        <h4>Terminale</h4>
-                        <div class="progress-bar">
-                            <div class="progress-fill" id="terminale-progress" style="width: 0%"></div>
-                        </div>
-                        <p id="terminale-text">0 leçons complétées</p>
-                    </div>
+                    <p style="text-align: center; color: #999;">Chargement de la progression…</p>
                 </div>
             </div>
 
@@ -87,9 +67,9 @@
 
             <!-- Action Buttons -->
             <div class="dashboard-actions">
-                <a href="../seconde/" class="btn btn-primary">📚 Aller à Seconde</a>
-                <a href="../premiere/" class="btn btn-primary">📊 Aller à Première</a>
-                <a href="../terminale/" class="btn btn-primary">📕 Aller à Terminale</a>
+                <a href="../niveaux.html?cat=primaire" class="btn btn-primary">🔢 Primaire</a>
+                <a href="../niveaux.html?cat=college" class="btn btn-primary">📐 Collège</a>
+                <a href="../niveaux.html?cat=lycee" class="btn btn-primary">🎓 Lycée</a>
                 <button onclick="logoutUser()" class="btn btn-danger">🚪 Déconnexion</button>
             </div>
         </div>
@@ -165,26 +145,41 @@
                 const res = await fetch((window.MATHYXO_BASE || '/') + 'data/curriculum.json');
                 const curriculum = await res.json();
                 const lessonToLevel = {};
-                curriculum.levels.forEach(l => {
-                    l.lessons.forEach(lesson => { lessonToLevel[lesson.id] = l.id; });
+                const levelEntries = [];
+
+                curriculum.categories.forEach(category => {
+                    category.levels.forEach(level => {
+                        const lessons = level.chapters.reduce(
+                            (acc, chapter) => acc.concat(chapter.lessons), []
+                        );
+                        lessons.forEach(lesson => { lessonToLevel[lesson.id] = level.id; });
+                        levelEntries.push({
+                            id: level.id,
+                            title: level.title,
+                            category: category.title,
+                            total: lessons.length
+                        });
+                    });
                 });
 
-                ['seconde', 'premiere', 'terminale'].forEach(levelId => {
-                    const level = curriculum.levels.find(l => l.id === levelId);
-                    if (!level) return;
-
-                    const done = completed.filter(p => lessonToLevel[p.lesson_id] === levelId).length;
-                    const pct = level.lessons.length
-                        ? Math.round((done / level.lessons.length) * 100)
-                        : 0;
-
-                    const bar = document.getElementById(levelId + '-progress');
-                    const text = document.getElementById(levelId + '-text');
-                    if (bar) bar.style.width = pct + '%';
-                    if (text) text.textContent = done + ' leçon(s) complétée(s)';
-                });
+                const container = document.getElementById('level-progress');
+                container.innerHTML = levelEntries.map(entry => {
+                    const done = completed.filter(p => lessonToLevel[p.lesson_id] === entry.id).length;
+                    const pct = entry.total ? Math.round((done / entry.total) * 100) : 0;
+                    return `
+                        <div class="progress-item">
+                            <h4>${entry.category} · ${entry.title}</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${pct}%"></div>
+                            </div>
+                            <p>${done}/${entry.total} leçon(s) complétée(s)</p>
+                        </div>
+                    `;
+                }).join('') || '<p style="text-align: center; color: #999;">Aucun niveau disponible</p>';
             } catch (error) {
                 console.warn('Could not load curriculum for progress:', error);
+                document.getElementById('level-progress').innerHTML =
+                    '<p style="text-align: center; color: #999;">Progression indisponible</p>';
             }
         });
     </script>

@@ -85,9 +85,9 @@ var SITE_CONFIG = {
     year: new Date().getFullYear(),
     navItems: [
         { name: 'nav.home', href: MATHYXO_BASE },
-        { name: 'nav.seconde', href: MATHYXO_BASE + 'seconde/' },
-        { name: 'nav.premiere', href: MATHYXO_BASE + 'premiere/' },
-        { name: 'nav.terminale', href: MATHYXO_BASE + 'terminale/' },
+        { name: 'nav.primary', href: MATHYXO_BASE + 'niveaux.html?cat=primaire' },
+        { name: 'nav.middle', href: MATHYXO_BASE + 'niveaux.html?cat=college' },
+        { name: 'nav.lycee', href: MATHYXO_BASE + 'niveaux.html?cat=lycee' },
         { name: 'nav.contact', href: MATHYXO_BASE + 'contact.html' }
     ],
     educationLevels: [
@@ -152,6 +152,7 @@ function renderNavbar(activePath = '') {
     navHTML += `</ul>
         </div>
         <div class="nav-right">
+            <div class="nav-auth" id="nav-auth"></div>
             <div class="current-level">
                 <span>${levelIcon}</span>
                 <span>${levelName}</span>
@@ -194,6 +195,7 @@ function renderHero() {
             <h2>${greeting}</h2>
             <p>${stats}</p>
             <p><strong>${tagline}</strong></p>
+            <div class="hero-auth" id="hero-auth"></div>
         </section>
     `;
 }
@@ -361,25 +363,62 @@ function renderTipsSection(tips) {
 // ===== Set Active Navigation Link =====
 function setActiveNavLink() {
     const navLinks = document.querySelectorAll('.nav-link');
-    const currentPath = window.location.pathname;
     const normalize = (value) => value.replace(/index\.html$/, '').replace(/\/+$/, '') || '/';
+    const current = new URL(window.location.href);
+    const currentPath = normalize(current.pathname);
 
     navLinks.forEach(link => {
         link.classList.remove('active');
         const href = link.getAttribute('href');
-        let targetPath;
-        try {
-            targetPath = normalize(new URL(href, window.location.href).pathname);
-        } catch (e) {
-            targetPath = normalize(href);
-        }
-        const currentNormalized = normalize(currentPath);
+        if (!href) return;
 
-        if (currentNormalized === targetPath ||
-            (currentNormalized === '/' && targetPath === '/')) {
-            link.classList.add('active');
+        let target;
+        try {
+            target = new URL(href, window.location.href);
+        } catch (e) {
+            return;
         }
+
+        let matches = currentPath === normalize(target.pathname);
+        if (matches && target.search) {
+            matches = current.search === target.search;
+        }
+        if (matches) link.classList.add('active');
     });
+}
+
+// ===== Authentication UI (navbar + hero) =====
+function renderAuthArea(container, loggedIn) {
+    if (!container) return;
+    const loginHref = MATHYXO_BASE + 'auth/login.html';
+    const registerHref = MATHYXO_BASE + 'auth/register.html';
+    const dashboardHref = MATHYXO_BASE + 'student-dashboard/';
+
+    if (loggedIn) {
+        container.innerHTML = `
+            <a href="${dashboardHref}" class="btn nav-auth-btn">📊 Tableau de bord</a>
+            <button type="button" class="btn btn-danger nav-auth-btn" onclick="logoutUser()">Déconnexion</button>
+        `;
+    } else {
+        container.innerHTML = `
+            <a href="${loginHref}" class="btn btn-outline nav-auth-btn">Connexion</a>
+            <a href="${registerHref}" class="btn nav-auth-btn">Inscription</a>
+        `;
+    }
+}
+
+async function refreshAuthUI() {
+    let user = null;
+    try {
+        if (window.SUPABASE_CLIENT) {
+            const { data } = await window.SUPABASE_CLIENT.auth.getSession();
+            user = data && data.session && data.session.user;
+        }
+    } catch (error) {
+        console.warn('Auth UI session check failed:', error);
+    }
+    renderAuthArea(document.getElementById('nav-auth'), !!user);
+    renderAuthArea(document.getElementById('hero-auth'), !!user);
 }
 
 // ===== Mobile Menu Toggle =====
@@ -450,6 +489,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer) footerContainer.innerHTML = renderFooter();
 
+    refreshAuthUI();
     initSmoothScroll();
     initScrollAnimations();
 });

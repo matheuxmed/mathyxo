@@ -1,137 +1,419 @@
 {
-  "levels": [
+  "categories": [
     {
-      "id": "seconde",
-      "title": "Seconde",
-      "category": "Collège",
-      "description": "Fondements de l'algèbre, géométrie et statistiques.",
-      "icon": "📘",
-      "xpReward": 100,
-      "lessons": [
+      "id": "primaire",
+      "title": "Primaire",
+      "icon": "🎒",
+      "description": "Les fondements des mathématiques, du CP à la 6ème année.",
+      "levels": [
         {
-          "id": "nombres-reels",
-          "title": "Nombres réels",
-          "description": "Découvrir les nombres réels et leurs propriétés.",
-          "duration": 45,
-          "difficulty": "beginner"
+          "id": "primaire-1",
+          "title": "1ère Année Primaire",
+          "icon": "📗",
+          "description": "Découvrir les nombres, compter et les premières figures.",
+          "chapters": [
+            { "id": "nombres-0-9", "title": "Les nombres de 0 à 9", "description": "Lire, écrire et comparer les nombres de 0 à 9.", "lessons": [
+              { "id": "decouvrir-nombres", "title": "Découvrir les nombres", "description": "Reconnaître et nommer les nombres de 0 à 9.", "duration": 20, "difficulty": "beginner" },
+              { "id": "compter-objets", "title": "Compter des objets", "description": "Associer une quantité à un nombre.", "duration": 20, "difficulty": "beginner" },
+              { "id": "ecrire-nombres", "title": "Écrire les nombres", "description": "Tracer correctement les chiffres.", "duration": 20, "difficulty": "beginner" }
+            ]},
+            { "id": "addition-soustraction", "title": "Addition et soustraction", "description": "Premières opérations avec les petits nombres.", "lessons": [
+              { "id": "addition-simple", "title": "L'addition simple", "description": "Ajouter des nombres de 1 à 9.", "duration": 25, "difficulty": "beginner" },
+              { "id": "soustraction-simple", "title": "La soustraction simple", "description": "Retirer des objets et compter ce qui reste.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "figures-geometriques", "title": "Les figures géométriques de base", "description": "Carré, rectangle, triangle, cercle.", "lessons": [
+              { "id": "reconnaitre-figures", "title": "Reconnaître les figures", "description": "Identifier les formes du quotidien.", "duration": 20, "difficulty": "beginner" },
+              { "id": "tracer-figures", "title": "Tracer les figures", "description": "Dessiner des figures simples.", "duration": 20, "difficulty": "beginner" }
+            ]},
+            { "id": "reperage-espace", "title": "Se repérer dans l'espace", "description": "Devant, derrière, à gauche, à droite.", "lessons": [
+              { "id": "positions-relatives", "title": "Les positions relatives", "description": "Utiliser le vocabulaire de position.", "duration": 20, "difficulty": "beginner" }
+            ]},
+            { "id": "solides", "title": "Les solides", "description": "Cube, pavé, boule, cylindre.", "lessons": [
+              { "id": "reconnaitre-solides", "title": "Reconnaître les solides", "description": "Identifier les solides de l'espace.", "duration": 20, "difficulty": "beginner" }
+            ]}
+          ]
         },
         {
-          "id": "fonctions-affines",
-          "title": "Fonctions affines",
-          "description": "Étudier les fonctions affines et leur représentation.",
-          "duration": 50,
-          "difficulty": "beginner"
+          "id": "primaire-2",
+          "title": "2ème Année Primaire",
+          "icon": "📘",
+          "description": "Les nombres jusqu'à 100 et les tables de multiplication.",
+          "chapters": [
+            { "id": "nombres-100", "title": "Les nombres jusqu'à 100", "description": "Lire, écrire et comparer jusqu'à 100.", "lessons": [
+              { "id": "dizaines-unites", "title": "Dizaines et unités", "description": "Décomposer les nombres en dizaines et unités.", "duration": 25, "difficulty": "beginner" },
+              { "id": "comparer-lignes-nombres", "title": "Comparer et ranger", "description": "Utiliser les symboles <, >, =.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "addition-soustraction-2", "title": "Addition et soustraction", "description": "Opérations avec retenue.", "lessons": [
+              { "id": "addition-retenue", "title": "L'addition avec retenue", "description": "Additionner en colonnes.", "duration": 25, "difficulty": "beginner" },
+              { "id": "soustraction-retenue", "title": "La soustraction avec retenue", "description": "Soustraire en colonnes.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "multiplication-tables", "title": "La multiplication", "description": "Sens de la multiplication et tables.", "lessons": [
+              { "id": "sens-multiplication", "title": "Le sens de la multiplication", "description": "Addition répétée.", "duration": 25, "difficulty": "beginner" },
+              { "id": "tables-2-5", "title": "Tables de 2 à 5", "description": "Mémoriser les premières tables.", "duration": 20, "difficulty": "beginner" }
+            ]},
+            { "id": "grandeurs-mesures", "title": "Grandeurs et mesures", "description": "Longueurs et masses.", "lessons": [
+              { "id": "mesurer-longueur", "title": "Mesurer une longueur", "description": "Utiliser le mètre et le centimètre.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "figures-symetrie", "title": "Figures et symétrie", "description": "Premières notions de symétrie.", "lessons": [
+              { "id": "axe-symetrie", "title": "L'axe de symétrie", "description": "Trouver l'axe de symétrie d'une figure.", "duration": 25, "difficulty": "beginner" }
+            ]}
+          ]
         },
         {
-          "id": "equations-lineaires",
-          "title": "Équations linéaires",
-          "description": "Résoudre des équations du premier degré.",
-          "duration": 40,
-          "difficulty": "beginner"
+          "id": "primaire-3",
+          "title": "3ème Année Primaire",
+          "icon": "📕",
+          "description": "Multiplication, division et premières fractions.",
+          "chapters": [
+            { "id": "nombres-1000", "title": "Les nombres jusqu'à 1000", "description": "Numération jusqu'à 1000.", "lessons": [
+              { "id": "centaines", "title": "Centaines, dizaines, unités", "description": "Décomposer les nombres à trois chiffres.", "duration": 25, "difficulty": "beginner" },
+              { "id": "encadrer", "title": "Encadrer un nombre", "description": "Trouver l'encadrement à la dizaine.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "multiplication-division", "title": "Multiplication et division", "description": "Tables et partage.", "lessons": [
+              { "id": "tables-6-9", "title": "Tables de 6 à 9", "description": "Mémoriser les tables restantes.", "duration": 25, "difficulty": "beginner" },
+              { "id": "division-partage", "title": "Le sens de la division", "description": "Partager en parts égales.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "fractions-simples", "title": "Les fractions simples", "description": "Demi, tiers, quart.", "lessons": [
+              { "id": "lire-fractions", "title": "Lire une fraction", "description": "Comprendre numérateur et dénominateur.", "duration": 25, "difficulty": "beginner" }
+            ]},
+            { "id": "perimetre", "title": "Périmètre et longueurs", "description": "Calculer le périmètre.", "lessons": [
+              { "id": "perimetre-carre-rectangle", "title": "Périmètre du carré et du rectangle", "description": "Formules simples de périmètre.", "duration": 30, "difficulty": "beginner" }
+            ]},
+            { "id": "droites-angles", "title": "Droites et angles", "description": "Droite, segment, angle droit.", "lessons": [
+              { "id": "droite-segment", "title": "Droite et segment", "description": "Distinguer droite et segment.", "duration": 25, "difficulty": "beginner" },
+              { "id": "angle-droit", "title": "L'angle droit", "description": "Reconnaître un angle droit.", "duration": 25, "difficulty": "beginner" }
+            ]}
+          ]
         },
         {
-          "id": "geometrie-plane",
-          "title": "Géométrie plane",
-          "description": "Les bases de la géométrie euclidienne.",
-          "duration": 55,
-          "difficulty": "intermediate"
+          "id": "primaire-4",
+          "title": "4ème Année Primaire",
+          "icon": "📗",
+          "description": "Fractions décimales, aires et proportionnalité.",
+          "chapters": [
+            { "id": "nombres-grands", "title": "Les grands nombres", "description": "Nombres jusqu'au million.", "lessons": [
+              { "id": "lire-grands-nombres", "title": "Lire les grands nombres", "description": "Classes des mille et des millions.", "duration": 30, "difficulty": "beginner" }
+            ]},
+            { "id": "fractions-decimales", "title": "Fractions décimales", "description": "Passer des fractions aux décimaux.", "lessons": [
+              { "id": "fraction-decimale", "title": "Fraction décimale", "description": "Dixièmes et centièmes.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "comparer-decimaux", "title": "Comparer des décimaux", "description": "Ranger des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "division-euclidienne", "title": "La division", "description": "Division euclidienne.", "lessons": [
+              { "id": "division-entiere", "title": "La division entière", "description": "Quotient et reste.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "aires", "title": "Les aires", "description": "Aire du carré et du rectangle.", "lessons": [
+              { "id": "aire-carre-rectangle", "title": "Aire du carré et du rectangle", "description": "Calculer des aires.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "cercles-triangles", "title": "Cercles et triangles", "description": "Construire cercles et triangles.", "lessons": [
+              { "id": "construire-cercle", "title": "Construire un cercle", "description": "Utiliser le compas.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "triangles-particuliers", "title": "Triangles particuliers", "description": "Triangle rectangle, isocèle, équilatéral.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "proportionnalite", "title": "La proportionnalité", "description": "Tableaux de proportionnalité.", "lessons": [
+              { "id": "tableaux-proportion", "title": "Tableaux de proportionnalité", "description": "Reconnaître une situation de proportionnalité.", "duration": 30, "difficulty": "intermediate" }
+            ]}
+          ]
+        },
+        {
+          "id": "primaire-5",
+          "title": "5ème Année Primaire",
+          "icon": "📘",
+          "description": "Nombres décimaux, opérations et volumes.",
+          "chapters": [
+            { "id": "nombres-decimaux", "title": "Les nombres décimaux", "description": "Écriture et comparaison.", "lessons": [
+              { "id": "ecriture-decimale", "title": "Écriture décimale", "description": "Virgule et rangs.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "ranger-decimaux", "title": "Ranger les décimaux", "description": "Comparer des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "operations-decimaux", "title": "Opérations sur les décimaux", "description": "Addition, soustraction, multiplication.", "lessons": [
+              { "id": "addition-decimaux", "title": "Addition et soustraction", "description": "Poser et calculer.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "multiplication-decimaux", "title": "Multiplication des décimaux", "description": "Multiplier des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "fractions-operations", "title": "Fractions", "description": "Addition de fractions et fractions égales.", "lessons": [
+              { "id": "fractions-egales", "title": "Fractions égales", "description": "Simplifier une fraction.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "addition-fractions", "title": "Additionner des fractions", "description": "Même dénominateur.", "duration": 35, "difficulty": "intermediate" }
+            ]},
+            { "id": "aires-volumes", "title": "Aires et volumes", "description": "Aire et volume des solides.", "lessons": [
+              { "id": "volume-pave", "title": "Volume du pavé droit", "description": "Calculer un volume.", "duration": 35, "difficulty": "intermediate" }
+            ]},
+            { "id": "droites-perpendiculaires", "title": "Droites perpendiculaires et parallèles", "description": "Constructions géométriques.", "lessons": [
+              { "id": "perpendiculaires", "title": "Droites perpendiculaires", "description": "Tracer une perpendiculaire.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "paralleles", "title": "Droites parallèles", "description": "Tracer une parallèle.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "statistiques-p5", "title": "Organisation de données", "description": "Tableaux et graphiques.", "lessons": [
+              { "id": "lire-graphiques", "title": "Lire un graphique", "description": "Diagrammes en bâtons.", "duration": 30, "difficulty": "intermediate" }
+            ]}
+          ]
+        },
+        {
+          "id": "primaire-6",
+          "title": "6ème Année Primaire",
+          "icon": "📕",
+          "description": "Préparation au collège : décimaux, symétrie et statistiques.",
+          "chapters": [
+            { "id": "decimaux-operations", "title": "Opérations sur les décimaux", "description": "Division et priorités opératoires.", "lessons": [
+              { "id": "division-decimaux", "title": "Division des décimaux", "description": "Diviser par un décimal.", "duration": 35, "difficulty": "intermediate" },
+              { "id": "priorites", "title": "Priorités des opérations", "description": "Parenthèses et ordre des opérations.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "proportionnalite-pourcentage", "title": "Proportionnalité et pourcentages", "description": "Pourcentages et échelles.", "lessons": [
+              { "id": "pourcentages", "title": "Les pourcentages", "description": "Calculer un pourcentage.", "duration": 35, "difficulty": "intermediate" },
+              { "id": "echelles", "title": "Les échelles", "description": "Utiliser une échelle.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "volumes-solides", "title": "Volumes des solides", "description": "Cube, pavé, cylindre.", "lessons": [
+              { "id": "volume-cube", "title": "Volume du cube", "description": "Calculer le volume d'un cube.", "duration": 30, "difficulty": "intermediate" }
+            ]},
+            { "id": "symetrie-axiale", "title": "Symétrie axiale", "description": "Construire le symétrique d'une figure.", "lessons": [
+              { "id": "symetrique-point", "title": "Symétrique d'un point", "description": "Construire un symétrique.", "duration": 35, "difficulty": "intermediate" }
+            ]},
+            { "id": "statistiques-p6", "title": "Statistiques", "description": "Effectifs et moyennes.", "lessons": [
+              { "id": "effectifs-frequences", "title": "Effectifs et fréquences", "description": "Organiser des données.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "moyenne", "title": "La moyenne", "description": "Calculer une moyenne.", "duration": 30, "difficulty": "intermediate" }
+            ]}
+          ]
         }
       ]
     },
     {
-      "id": "premiere",
-      "title": "Première",
-      "category": "Bac",
-      "description": "Approfondissement du calcul et des probabilités.",
-      "icon": "📐",
-      "xpReward": 150,
-      "lessons": [
+      "id": "college",
+      "title": "Collège",
+      "icon": "🏫",
+      "description": "L'enseignement secondaire collégial, de la 1ère à la 3ème année.",
+      "levels": [
         {
-          "id": "polynomes",
-          "title": "Polynômes",
-          "description": "Étude complète des polynômes et de la factorisation.",
-          "duration": 60,
-          "difficulty": "intermediate"
+          "id": "college-1",
+          "title": "1ère Année Collège",
+          "icon": "📙",
+          "description": "Nombres entiers et rationnels, premières notions de géométrie.",
+          "chapters": [
+            { "id": "nombres-entiers", "title": "Nombres entiers et opérations", "description": "Opérations sur les entiers naturels.", "lessons": [
+              { "id": "addition-multiplication-entiers", "title": "Addition et multiplication", "description": "Propriétés des opérations.", "duration": 40, "difficulty": "beginner" },
+              { "id": "division-euclidienne-c1", "title": "Division euclidienne", "description": "Quotient et reste.", "duration": 40, "difficulty": "beginner" }
+            ]},
+            { "id": "nombres-decimaux-c1", "title": "Nombres décimaux", "description": "Écriture, comparaison et opérations.", "lessons": [
+              { "id": "decimaux-ecriture", "title": "Écriture des décimaux", "description": "Écriture décimale et fractionnaire.", "duration": 40, "difficulty": "beginner" },
+              { "id": "decimaux-operations-c1", "title": "Opérations sur les décimaux", "description": "Addition, soustraction, multiplication.", "duration": 40, "difficulty": "beginner" }
+            ]},
+            { "id": "nombres-rationnels-c1", "title": "Nombres rationnels", "description": "Fractions et opérations.", "lessons": [
+              { "id": "fractions-intro", "title": "Introduction aux fractions", "description": "Représenter une fraction.", "duration": 40, "difficulty": "intermediate" },
+              { "id": "fractions-operations-c1", "title": "Opérations sur les fractions", "description": "Addition et multiplication.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "droites-angles-c1", "title": "Droites et angles", "description": "Positions relatives et angles.", "lessons": [
+              { "id": "droites-remarquables", "title": "Droites remarquables", "description": "Perpendiculaires et parallèles.", "duration": 40, "difficulty": "beginner" },
+              { "id": "angles-mesure", "title": "Mesurer un angle", "description": "Utiliser le rapporteur.", "duration": 40, "difficulty": "beginner" }
+            ]},
+            { "id": "symetrie-axiale-c1", "title": "Symétrie axiale", "description": "Symétrie par rapport à une droite.", "lessons": [
+              { "id": "symetrie-figures", "title": "Symétrie des figures", "description": "Construire des symétriques.", "duration": 40, "difficulty": "intermediate" }
+            ]},
+            { "id": "proportionnalite-c1", "title": "Proportionnalité", "description": "Tableaux et graphiques.", "lessons": [
+              { "id": "proportionnalite-c1-les", "title": "Situations de proportionnalité", "description": "Reconnaître et résoudre.", "duration": 40, "difficulty": "intermediate" }
+            ]},
+            { "id": "statistiques-c1", "title": "Statistiques", "description": "Effectifs, fréquences, moyennes.", "lessons": [
+              { "id": "series-statistiques", "title": "Séries statistiques", "description": "Organiser des données.", "duration": 40, "difficulty": "intermediate" }
+            ]}
+          ]
         },
         {
-          "id": "fonctions-exponentielles",
-          "title": "Fonctions exponentielles",
-          "description": "Comprendre la croissance exponentielle avec la base e.",
-          "duration": 50,
-          "difficulty": "intermediate"
+          "id": "college-2",
+          "title": "2ème Année Collège",
+          "icon": "📗",
+          "description": "Calcul littéral, équations et géométrie du triangle.",
+          "chapters": [
+            { "id": "rationnels-c2", "title": "Nombres rationnels", "description": "Opérations et puissance.", "lessons": [
+              { "id": "rationnels-operations", "title": "Opérations sur les rationnels", "description": "Addition, soustraction, multiplication.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "puissance-c2", "title": "Puissances", "description": "Puissances d'un nombre.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "calcul-litteral-c2", "title": "Calcul littéral", "description": "Développer et réduire.", "lessons": [
+              { "id": "developper", "title": "Développer une expression", "description": "Distributivité.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "reduire", "title": "Réduire une expression", "description": "Regrouper les termes semblables.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "equations-c2", "title": "Équations du premier degré", "description": "Résoudre des équations.", "lessons": [
+              { "id": "equations-simples", "title": "Équations simples", "description": "Résoudre ax + b = 0.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "problemes-equations", "title": "Problèmes et équations", "description": "Mettre en équation un problème.", "duration": 50, "difficulty": "intermediate" }
+            ]},
+            { "id": "triangles-c2", "title": "Triangles et parallèles", "description": "Droites des milieux et triangles.", "lessons": [
+              { "id": "droite-milieux", "title": "Droite des milieux", "description": "Propriété des milieux.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "triangles-egaux", "title": "Triangles égaux", "description": "Cas d'égalité des triangles.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "cercles-c2", "title": "Le cercle", "description": "Angles et cercles.", "lessons": [
+              { "id": "cercle-triangle-rect", "title": "Cercle et triangle rectangle", "description": "Cercle circonscrit.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "proportionnalite-c2", "title": "Proportionnalité et pourcentages", "description": "Applications.", "lessons": [
+              { "id": "pourcentages-c2", "title": "Pourcentages", "description": "Calculs de pourcentages.", "duration": 45, "difficulty": "intermediate" }
+            ]},
+            { "id": "statistiques-c2", "title": "Statistiques", "description": "Moyenne pondérée et graphiques.", "lessons": [
+              { "id": "moyenne-ponderee", "title": "Moyenne pondérée", "description": "Calculer une moyenne pondérée.", "duration": 45, "difficulty": "intermediate" }
+            ]}
+          ]
         },
         {
-          "id": "logarithmes",
-          "title": "Logarithme Népérien",
-          "description": "Explorez les propriétés du logarithme et ses relations.",
-          "duration": 50,
-          "difficulty": "intermediate"
-        },
-        {
-          "id": "suites",
-          "title": "Suites Arithmétiques et Géométriques",
-          "description": "Étudiez les suites, leurs limites et formules de somme.",
-          "duration": 55,
-          "difficulty": "intermediate"
-        },
-        {
-          "id": "trigonometrie",
-          "title": "Trigonométrie Avancée",
-          "description": "Maîtrisez les fonctions trigonométriques et identités.",
-          "duration": 60,
-          "difficulty": "advanced"
-        },
-        {
-          "id": "produit-scalaire",
-          "title": "Produit Scalaire",
-          "description": "Comprenez le produit scalaire et ses applications.",
-          "duration": 45,
-          "difficulty": "advanced"
+          "id": "college-3",
+          "title": "3ème Année Collège",
+          "icon": "📘",
+          "description": "Racines carrées, Pythagore, Thalès et trigonométrie.",
+          "chapters": [
+            { "id": "nombres-reels-c3", "title": "Nombres réels et racines carrées", "description": "Racines carrées et calculs.", "lessons": [
+              { "id": "racines-carrees", "title": "Racines carrées", "description": "Propriétés des racines carrées.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "calcul-racines", "title": "Calculs sur les racines", "description": "Simplifier et réduire.", "duration": 50, "difficulty": "intermediate" }
+            ]},
+            { "id": "calcul-algebrique-c3", "title": "Calcul algébrique", "description": "Identités remarquables et factorisation.", "lessons": [
+              { "id": "identites-remarquables", "title": "Identités remarquables", "description": "(a+b)², (a-b)², (a+b)(a-b).", "duration": 50, "difficulty": "intermediate" },
+              { "id": "factorisation", "title": "Factorisation", "description": "Factoriser une expression.", "duration": 50, "difficulty": "intermediate" }
+            ]},
+            { "id": "equations-inequations-c3", "title": "Équations et inéquations", "description": "Équations et inéquations du 1er degré.", "lessons": [
+              { "id": "inequations", "title": "Inéquations", "description": "Résoudre une inéquation.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "systemes-equations", "title": "Systèmes d'équations", "description": "Résoudre un système 2x2.", "duration": 55, "difficulty": "intermediate" }
+            ]},
+            { "id": "pythagore", "title": "Théorème de Pythagore", "description": "Calculer des longueurs.", "lessons": [
+              { "id": "pythagore-direct", "title": "Calcul de l'hypoténuse", "description": "Appliquer le théorème.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "pythagore-reciproque", "title": "Réciproque de Pythagore", "description": "Démontrer qu'un triangle est rectangle.", "duration": 50, "difficulty": "intermediate" }
+            ]},
+            { "id": "thales", "title": "Théorème de Thalès", "description": "Configuration de Thalès.", "lessons": [
+              { "id": "thales-direct", "title": "Théorème de Thalès", "description": "Calculer des longueurs.", "duration": 50, "difficulty": "advanced" },
+              { "id": "thales-reciproque", "title": "Réciproque de Thalès", "description": "Montrer que des droites sont parallèles.", "duration": 50, "difficulty": "advanced" }
+            ]},
+            { "id": "trigonometrie-c3", "title": "Trigonométrie", "description": "Cosinus, sinus, tangente.", "lessons": [
+              { "id": "cosinus", "title": "Le cosinus", "description": "Calculer un cosinus.", "duration": 50, "difficulty": "advanced" },
+              { "id": "sinus-tangente", "title": "Sinus et tangente", "description": "Relations trigonométriques.", "duration": 55, "difficulty": "advanced" }
+            ]},
+            { "id": "fonctions-c3", "title": "Fonctions linéaires et affines", "description": "Premières fonctions.", "lessons": [
+              { "id": "fonctions-lineaires", "title": "Fonctions linéaires", "description": "Représentation et coefficients.", "duration": 50, "difficulty": "advanced" },
+              { "id": "fonctions-affines-c3", "title": "Fonctions affines", "description": "Ordonnée à l'origine et coefficient.", "duration": 50, "difficulty": "advanced" }
+            ]},
+            { "id": "statistiques-c3", "title": "Statistiques et probabilités", "description": "Statistiques et introduction aux probabilités.", "lessons": [
+              { "id": "statistiques-c3-les", "title": "Statistiques", "description": "Moyenne, médiane, étendue.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "probabilites-c3", "title": "Probabilités", "description": "Notion de probabilité.", "duration": 45, "difficulty": "intermediate" }
+            ]}
+          ]
         }
       ]
     },
     {
-      "id": "terminale",
-      "title": "Terminale",
-      "category": "Bac",
-      "description": "Calcul intégral, probabilités avancées et analyse.",
-      "icon": "📊",
-      "xpReward": 200,
-      "lessons": [
+      "id": "lycee",
+      "title": "Lycée",
+      "icon": "🎓",
+      "description": "L'enseignement secondaire qualifiant : tronc commun et Baccalauréat.",
+      "levels": [
         {
-          "id": "limites",
-          "title": "Limites et continuité",
-          "description": "Les concepts fondamentaux de l'analyse.",
-          "duration": 60,
-          "difficulty": "advanced"
+          "id": "tronc-commun",
+          "title": "Tronc Commun",
+          "icon": "📊",
+          "description": "Les fondamentaux communs : fonctions, polynômes et géométrie.",
+          "chapters": [
+            { "id": "ensembles-logique", "title": "Ensembles et logique", "description": "Notions d'ensembles et raisonnement.", "lessons": [
+              { "id": "ensembles", "title": "Les ensembles", "description": "Appartenance, inclusion, opérations.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "logique", "title": "Logique et raisonnement", "description": "Propositions, implication, quantificateurs.", "duration": 50, "difficulty": "intermediate" }
+            ]},
+            { "id": "calcul-algebrique-tc", "title": "Calcul algébrique", "description": "Identités et calcul littéral.", "lessons": [
+              { "id": "identites-tc", "title": "Identités remarquables", "description": "Développement et factorisation.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "polynomes-tc", "title": "Polynômes", "description": "Degré, racines, division.", "duration": 60, "difficulty": "intermediate" }
+            ]},
+            { "id": "equations-inequations-tc", "title": "Équations, inéquations et systèmes", "description": "Degré 1 et 2, systèmes.", "lessons": [
+              { "id": "equations-degre2", "title": "Équations du second degré", "description": "Discriminant et racines.", "duration": 60, "difficulty": "intermediate" },
+              { "id": "inequations-tc", "title": "Inéquations", "description": "Tableaux de signes.", "duration": 60, "difficulty": "intermediate" }
+            ]},
+            { "id": "fonctions-generales", "title": "Généralités sur les fonctions", "description": "Domaine, variations, représentation.", "lessons": [
+              { "id": "domaine-fonction", "title": "Domaine de définition", "description": "Déterminer le domaine.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "variations", "title": "Sens de variation", "description": "Étudier la monotonie.", "duration": 60, "difficulty": "intermediate" }
+            ]},
+            { "id": "fonctions-affines-tc", "title": "Fonctions affines", "description": "Étude et représentation.", "lessons": [
+              { "id": "affines-etude", "title": "Étude d'une fonction affine", "description": "Coefficient directeur.", "duration": 55, "difficulty": "intermediate" }
+            ]},
+            { "id": "geometrie-analytique-tc", "title": "Géométrie analytique", "description": "Repérage et vecteurs.", "lessons": [
+              { "id": "repere-plan", "title": "Repère du plan", "description": "Coordonnées d'un point.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "vecteurs-tc", "title": "Vecteurs", "description": "Opérations sur les vecteurs.", "duration": 60, "difficulty": "intermediate" }
+            ]},
+            { "id": "trigonometrie-tc", "title": "Trigonométrie", "description": "Cercle trigonométrique.", "lessons": [
+              { "id": "cercle-trigo", "title": "Cercle trigonométrique", "description": "Sinus, cosinus, angles.", "duration": 60, "difficulty": "advanced" }
+            ]},
+            { "id": "statistiques-tc", "title": "Statistiques", "description": "Séries statistiques.", "lessons": [
+              { "id": "stats-tc", "title": "Séries statistiques", "description": "Moyenne, médiane, quartiles.", "duration": 55, "difficulty": "intermediate" }
+            ]},
+            { "id": "probabilites-tc", "title": "Probabilités", "description": "Notion de probabilité.", "lessons": [
+              { "id": "probabilites-tc-les", "title": "Calcul de probabilités", "description": "Événements et probabilités.", "duration": 50, "difficulty": "intermediate" }
+            ]}
+          ]
         },
         {
-          "id": "derivees",
-          "title": "Dérivées",
-          "description": "Calcul des dérivées et applications.",
-          "duration": 65,
-          "difficulty": "advanced"
+          "id": "bac1",
+          "title": "1ère Année Bac (SE/SM)",
+          "icon": "🔬",
+          "description": "Analyse, suites, exponentielle, logarithme et complexes.",
+          "chapters": [
+            { "id": "limites-continuite-b1", "title": "Limites et continuité", "description": "Limites et continuité des fonctions.", "lessons": [
+              { "id": "limites-b1", "title": "Calcul de limites", "description": "Limites en un point et à l'infini.", "duration": 65, "difficulty": "advanced" },
+              { "id": "continuite-b1", "title": "Continuité", "description": "Théorème des valeurs intermédiaires.", "duration": 65, "difficulty": "advanced" }
+            ]},
+            { "id": "derivation-b1", "title": "Dérivation", "description": "Dérivabilité et calcul de dérivées.", "lessons": [
+              { "id": "derivabilite-b1", "title": "Dérivabilité", "description": "Nombre dérivé et tangente.", "duration": 65, "difficulty": "advanced" },
+              { "id": "derivees-b1", "title": "Fonction dérivée", "description": "Formules de dérivation.", "duration": 65, "difficulty": "advanced" }
+            ]},
+            { "id": "suites-b1", "title": "Les suites numériques", "description": "Suites arithmétiques et géométriques.", "lessons": [
+              { "id": "suites-arithmetiques", "title": "Suites arithmétiques", "description": "Terme général et somme.", "duration": 65, "difficulty": "advanced" },
+              { "id": "suites-geometriques", "title": "Suites géométriques", "description": "Terme général et somme.", "duration": 65, "difficulty": "advanced" }
+            ]},
+            { "id": "exponentielle-b1", "title": "Fonctions exponentielles", "description": "La fonction exponentielle.", "lessons": [
+              { "id": "exponentielle-proprietes", "title": "Propriétés de l'exponentielle", "description": "Équations et inéquations.", "duration": 70, "difficulty": "advanced" },
+              { "id": "exponentielle-etude", "title": "Étude de la fonction exp", "description": "Variations et limite.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "logarithme-b1", "title": "Fonction logarithme népérien", "description": "La fonction ln.", "lessons": [
+              { "id": "logarithme-proprietes", "title": "Propriétés du logarithme", "description": "Équations et inéquations.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "produit-scalaire-b1", "title": "Produit scalaire", "description": "Produit scalaire dans le plan.", "lessons": [
+              { "id": "produit-scalaire-plan", "title": "Produit scalaire dans le plan", "description": "Définition et applications.", "duration": 65, "difficulty": "advanced" }
+            ]},
+            { "id": "calcul-trigo-b1", "title": "Calcul trigonométrique", "description": "Formules trigonométriques.", "lessons": [
+              { "id": "formules-trigo", "title": "Formules d'addition", "description": "cos(a+b), sin(a+b).", "duration": 65, "difficulty": "advanced" },
+              { "id": "equations-trigo", "title": "Équations trigonométriques", "description": "Résoudre cos x = a.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "nombres-complexes-b1", "title": "Nombres complexes", "description": "Introduction aux complexes.", "lessons": [
+              { "id": "complexes-forme-algebrique", "title": "Forme algébrique", "description": "Opérations sur les complexes.", "duration": 70, "difficulty": "advanced" },
+              { "id": "complexes-argument", "title": "Argument et module", "description": "Forme trigonométrique.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "geometrie-espace-b1", "title": "Géométrie dans l'espace", "description": "Droites et plans de l'espace.", "lessons": [
+              { "id": "droites-plans", "title": "Droites et plans", "description": "Positions relatives.", "duration": 70, "difficulty": "advanced" }
+            ]}
+          ]
         },
         {
-          "id": "integrales",
-          "title": "Intégrales",
-          "description": "Calcul intégral et applications.",
-          "duration": 70,
-          "difficulty": "advanced"
-        },
-        {
-          "id": "probabilites",
-          "title": "Probabilités",
-          "description": "Variables aléatoires et lois de probabilité.",
-          "duration": 60,
-          "difficulty": "advanced"
-        },
-        {
-          "id": "statistiques",
-          "title": "Statistiques inférentielles",
-          "description": "Estimation et tests d'hypothèses.",
-          "duration": 55,
-          "difficulty": "advanced"
+          "id": "bac2",
+          "title": "2ème Année Bac (PC/SVT/SM)",
+          "icon": "🏆",
+          "description": "Intégrales, complexes, probabilités et équations différentielles.",
+          "chapters": [
+            { "id": "limites-continuite-b2", "title": "Limites et continuité", "description": "Révisions et approfondissements.", "lessons": [
+              { "id": "limites-b2", "title": "Limites", "description": "Techniques de calcul.", "duration": 70, "difficulty": "advanced" },
+              { "id": "continuite-b2", "title": "Continuité", "description": "Théorèmes fondamentaux.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "derivees-etude-b2", "title": "Dérivées et étude de fonctions", "description": "Étude complète de fonctions.", "lessons": [
+              { "id": "etude-fonctions-b2", "title": "Étude de fonctions", "description": "Tableaux de variation.", "duration": 75, "difficulty": "advanced" },
+              { "id": "fonctions-reciproques-b2", "title": "Fonctions réciproques", "description": "Bijection et réciproque.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "suites-b2", "title": "Les suites", "description": "Convergence des suites.", "lessons": [
+              { "id": "limites-suites", "title": "Limites de suites", "description": "Convergence et divergence.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "primitives-b2", "title": "Primitives", "description": "Calcul de primitives.", "lessons": [
+              { "id": "primitives-usuelles", "title": "Primitives usuelles", "description": "Tableau des primitives.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "integrales-b2", "title": "Intégrales", "description": "Calcul intégral.", "lessons": [
+              { "id": "integrale-definie", "title": "Intégrale définie", "description": "Calcul d'aires.", "duration": 75, "difficulty": "advanced" },
+              { "id": "integration-parties", "title": "Intégration par parties", "description": "Technique d'intégration.", "duration": 75, "difficulty": "advanced" }
+            ]},
+            { "id": "complexes-b2", "title": "Nombres complexes", "description": "Formes et transformations.", "lessons": [
+              { "id": "complexes-trigo-b2", "title": "Forme trigonométrique", "description": "Module et argument.", "duration": 75, "difficulty": "advanced" },
+              { "id": "complexes-exponentielle", "title": "Forme exponentielle", "description": "Écriture exponentielle.", "duration": 75, "difficulty": "advanced" }
+            ]},
+            { "id": "geometrie-espace-b2", "title": "Géométrie dans l'espace", "description": "Produit vectoriel et plans.", "lessons": [
+              { "id": "produit-vectoriel", "title": "Produit vectoriel", "description": "Applications géométriques.", "duration": 75, "difficulty": "advanced" }
+            ]},
+            { "id": "probabilites-b2", "title": "Probabilités", "description": "Probabilités conditionnelles et lois.", "lessons": [
+              { "id": "probabilites-conditionnelles", "title": "Probabilités conditionnelles", "description": "Arbres et Bayes.", "duration": 70, "difficulty": "advanced" },
+              { "id": "lois-probabilite", "title": "Lois de probabilité", "description": "Binomiale et normale.", "duration": 75, "difficulty": "advanced" }
+            ]},
+            { "id": "statistiques-b2", "title": "Statistiques inférentielles", "description": "Estimation et tests.", "lessons": [
+              { "id": "intervalle-confiance", "title": "Intervalle de confiance", "description": "Estimation d'une proportion.", "duration": 70, "difficulty": "advanced" }
+            ]},
+            { "id": "equations-differentielles-b2", "title": "Équations différentielles", "description": "Équations différentielles linéaires.", "lessons": [
+              { "id": "equa-diff-ordre1", "title": "Équations du 1er ordre", "description": "y' = ay + b.", "duration": 75, "difficulty": "advanced" }
+            ]}
+          ]
         }
       ]
     }

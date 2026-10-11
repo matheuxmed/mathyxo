@@ -68,6 +68,10 @@ const I18N = {
             fr: '📕 Terminale',
             ar: '📕 النهائية'
         },
+        'nav.lycee': {
+            fr: '🎓 Lycée',
+            ar: '🎓 الثانوي التأهيلي'
+        },
         
         // ===== Hero Section =====
         'hero.greeting': {
