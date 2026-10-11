@@ -1,0 +1,139 @@
+{
+  "levels": [
+    {
+      "id": "seconde",
+      "title": "Seconde",
+      "category": "Collège",
+      "description": "Fondements de l'algèbre, géométrie et statistiques.",
+      "icon": "📘",
+      "xpReward": 100,
+      "lessons": [
+        {
+          "id": "nombres-reels",
+          "title": "Nombres réels",
+          "description": "Découvrir les nombres réels et leurs propriétés.",
+          "duration": 45,
+          "difficulty": "beginner"
+        },
+        {
+          "id": "fonctions-affines",
+          "title": "Fonctions affines",
+          "description": "Étudier les fonctions affines et leur représentation.",
+          "duration": 50,
+          "difficulty": "beginner"
+        },
+        {
+          "id": "equations-lineaires",
+          "title": "Équations linéaires",
+          "description": "Résoudre des équations du premier degré.",
+          "duration": 40,
+          "difficulty": "beginner"
+        },
+        {
+          "id": "geometrie-plane",
+          "title": "Géométrie plane",
+          "description": "Les bases de la géométrie euclidienne.",
+          "duration": 55,
+          "difficulty": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "premiere",
+      "title": "Première",
+      "category": "Bac",
+      "description": "Approfondissement du calcul et des probabilités.",
+      "icon": "📐",
+      "xpReward": 150,
+      "lessons": [
+        {
+          "id": "polynomes",
+          "title": "Polynômes",
+          "description": "Étude complète des polynômes et de la factorisation.",
+          "duration": 60,
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "fonctions-exponentielles",
+          "title": "Fonctions exponentielles",
+          "description": "Comprendre la croissance exponentielle avec la base e.",
+          "duration": 50,
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "logarithmes",
+          "title": "Logarithme Népérien",
+          "description": "Explorez les propriétés du logarithme et ses relations.",
+          "duration": 50,
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "suites",
+          "title": "Suites Arithmétiques et Géométriques",
+          "description": "Étudiez les suites, leurs limites et formules de somme.",
+          "duration": 55,
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "trigonometrie",
+          "title": "Trigonométrie Avancée",
+          "description": "Maîtrisez les fonctions trigonométriques et identités.",
+          "duration": 60,
+          "difficulty": "advanced"
+        },
+        {
+          "id": "produit-scalaire",
+          "title": "Produit Scalaire",
+          "description": "Comprenez le produit scalaire et ses applications.",
+          "duration": 45,
+          "difficulty": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "terminale",
+      "title": "Terminale",
+      "category": "Bac",
+      "description": "Calcul intégral, probabilités avancées et analyse.",
+      "icon": "📊",
+      "xpReward": 200,
+      "lessons": [
+        {
+          "id": "limites",
+          "title": "Limites et continuité",
+          "description": "Les concepts fondamentaux de l'analyse.",
+          "duration": 60,
+          "difficulty": "advanced"
+        },
+        {
+          "id": "derivees",
+          "title": "Dérivées",
+          "description": "Calcul des dérivées et applications.",
+          "duration": 65,
+          "difficulty": "advanced"
+        },
+        {
+          "id": "integrales",
+          "title": "Intégrales",
+          "description": "Calcul intégral et applications.",
+          "duration": 70,
+          "difficulty": "advanced"
+        },
+        {
+          "id": "probabilites",
+          "title": "Probabilités",
+          "description": "Variables aléatoires et lois de probabilité.",
+          "duration": 60,
+          "difficulty": "advanced"
+        },
+        {
+          "id": "statistiques",
+          "title": "Statistiques inférentielles",
+          "description": "Estimation et tests d'hypothèses.",
+          "duration": 55,
+          "difficulty": "advanced"
+        }
+      ]
+    }
+  ]
+}

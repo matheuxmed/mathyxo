@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion - MatheuxMed</title>
-    <link rel="stylesheet" href="/mathyxo/css/style.css">
-    <link rel="stylesheet" href="/mathyxo/css/auth.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -32,7 +33,7 @@
                 </form>
 
                 <p class="auth-toggle">
-                    Vous n'avez pas de compte? <a href="/mathyxo/auth/register.html">S'inscrire</a>
+                    Vous n'avez pas de compte? <a href="./register.html">S'inscrire</a>
                 </p>
             </div>
 
@@ -51,30 +52,26 @@
 
     <div id="footer-container"></div>
 
-    <!-- Firebase SDK - MUST BE BEFORE auth.js -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Components -->
-    <script src="/mathyxo/js/components.js"></script>
-    
-    <!-- Auth System -->
-    <script type="module" src="/mathyxo/js/auth.js"></script>
+    <script src="../js/components.js"></script>
+    <script>
+        window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+        window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
+    </script>
+    <script src="../js/auth.js"></script>
 
     <script>
         function handleLogin() {
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
-            
+
             if (!email || !password) {
                 alert('Veuillez remplir tous les champs');
                 return;
             }
-            
+
             loginUser(email, password);
         }
 
-        // Load page components
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('header-container').innerHTML = renderHeader();
             const currentPath = window.location.pathname;
