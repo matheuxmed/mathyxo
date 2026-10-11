@@ -3,26 +3,35 @@
 // The anon key is safe to expose in the browser
 // The service role key MUST NEVER be in frontend code
 
-const SUPABASE_URL = window.MATHYXO_SUPABASE_URL || 'https://sjuzppnrsdfxlvvugslq.supabase.co';
-const SUPABASE_ANON_KEY = window.MATHYXO_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
+// Prevent re-declaration if already loaded
+if (!window.supabase) {
+    console.error('Supabase CDN not loaded. Please include Supabase JS library.');
+}
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-    auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true
-    }
-});
+if (!window.SUPABASE_CLIENT) {
+    const SUPABASE_URL = window.MATHYXO_SUPABASE_URL || 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+    const SUPABASE_ANON_KEY = window.MATHYXO_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
 
-console.log('✅ Supabase initialized');
+    window.SUPABASE_CLIENT = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+        auth: {
+            persistSession: true,
+            autoRefreshToken: true,
+            detectSessionInUrl: true
+        }
+    });
 
-supabase.auth.onAuthStateChange((event, session) => {
-    if (session?.user) {
-        console.log('User logged in:', session.user.email);
-    } else {
-        console.log('No user session');
-    }
-});
+    console.log('✅ Supabase initialized');
+
+    window.SUPABASE_CLIENT.auth.onAuthStateChange((event, session) => {
+        if (session?.user) {
+            console.log('User logged in:', session.user.email);
+        } else {
+            console.log('No user session');
+        }
+    });
+}
+
+const supabase = window.SUPABASE_CLIENT;
 
 async function registerUser(email, password, displayName, level) {
     try {

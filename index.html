@@ -46,21 +46,19 @@
                 .then(res => res.json())
                 .then(curriculum => {
                     container.innerHTML = curriculum.levels.map(level => `
-                        <section class="levels">
-                            <article class="level-card">
-                                <div class="level-icon">${level.icon}</div>
-                                <h3>${level.title}</h3>
-                                <p>${level.description}</p>
-                                <div class="level-meta">
-                                    <span>📊 ${level.category}</span>
-                                    <span><strong>${level.lessons.length} leçons</strong></span>
-                                </div>
-                                <div class="level-progress">
-                                    <div class="level-progress-bar" style="width: 50%"></div>
-                                </div>
-                                <a href="./${level.id}/" class="btn">Commencer →</a>
-                            </article>
-                        </section>
+                        <article class="level-card">
+                            <div class="level-icon">${level.icon}</div>
+                            <h3>${level.title}</h3>
+                            <p>${level.description}</p>
+                            <div class="level-meta">
+                                <span>📊 ${level.category}</span>
+                                <span><strong>${level.lessons.length} leçons</strong></span>
+                            </div>
+                            <div class="level-progress">
+                                <div class="level-progress-bar" style="width: 50%"></div>
+                            </div>
+                            <a href="./${level.id}/" class="btn">Commencer →</a>
+                        </article>
                     `).join('');
                 })
                 .catch(error => {
@@ -71,9 +69,20 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             try {
-                document.getElementById('hero-container').innerHTML = renderHero();
-                document.getElementById('features-container').innerHTML = renderFeatures();
-                document.getElementById('cta-container').innerHTML = renderCTA();
+                if (typeof renderHero !== 'undefined') {
+                    document.getElementById('hero-container').innerHTML = renderHero();
+                } else {
+                    console.warn('renderHero not available yet');
+                }
+                
+                if (typeof renderFeatures !== 'undefined') {
+                    document.getElementById('features-container').innerHTML = renderFeatures();
+                }
+                
+                if (typeof renderCTA !== 'undefined') {
+                    document.getElementById('cta-container').innerHTML = renderCTA();
+                }
+                
                 loadHomepageCurriculum();
             } catch (error) {
                 console.error('Error rendering homepage:', error);
