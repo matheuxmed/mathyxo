@@ -210,7 +210,8 @@ async function renderLessonPage() {
                 <h1>${esc(lesson.title)}</h1>
                 <p>⏱️ ${lesson.duration || 30} min · 🎯 ${difficultyLabel(lesson.difficulty)}</p>
             </div>`,
-            `<article class="lesson-content">
+            `<div id="lesson-auth-note"></div>
+            <article class="lesson-content">
                 <p>${esc(lesson.description)}</p>
                 <div class="placeholder-note">📝 Le contenu détaillé de cette leçon sera bientôt disponible.</div>
             </article>
@@ -218,8 +219,42 @@ async function renderLessonPage() {
                 <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}" class="btn">← Retour aux leçons</a>
             </div>`
         );
+        applyLessonAuthNote();
     } catch (error) {
         console.error(error);
         setPageContent(errorBlock('Impossible de charger la leçon.'), '');
     }
+}
+
+// Non-blocking sign-in prompt for lessons viewed while signed out.
+async function applyLessonAuthNote() {
+    const note = document.getElementById('lesson-auth-note');
+    if (!note) return;
+
+    let user = null;
+    try {
+        if (window.SUPABASE_CLIENT) {
+            const { data } = await window.SUPABASE_CLIENT.auth.getSession();
+            user = data && data.session && data.session.user;
+        }
+    } catch (error) {
+        console.warn('Lesson auth note session check failed:', error);
+    }
+
+    if (user) {
+        note.innerHTML = '';
+        return;
+    }
+
+    const loginHref = (window.MATHYXO_BASE || '/') + 'auth/login.html';
+    const registerHref = (window.MATHYXO_BASE || '/') + 'auth/register.html';
+    note.innerHTML = `
+        <div class="auth-banner">
+            <span>💡 Connectez-vous pour sauvegarder votre progression et vos scores.</span>
+            <span class="auth-banner-actions">
+                <a href="${loginHref}" class="btn btn-ghost">Connexion</a>
+                <a href="${registerHref}" class="btn">Inscription</a>
+            </span>
+        </div>
+    `;
 }
