@@ -1,0 +1,253 @@
+{
+  "levels": [
+    {
+      "id": "primaire",
+      "name": "Primaire",
+      "slug": "primaire",
+      "category": "Primaire",
+      "description": "Consolidation des bases mathématiques et du raisonnement logique.",
+      "chapters": [
+        {
+          "id": "nombres-operations",
+          "title": "Nombres et opérations",
+          "lessons": [
+            {
+              "id": "nombres-1-10",
+              "title": "Les nombres de 1 à 10",
+              "description": "Identifier, compter et comparer les nombres de base.",
+              "objectives": [
+                "Compter jusqu'à 10",
+                "Comparer les nombres",
+                "Lire et écrire les nombres"
+              ],
+              "difficulty": "easy"
+            },
+            {
+              "id": "addition-simple",
+              "title": "L'addition simple",
+              "description": "Découvrir les premiers calculs de somme avec des objets et des schémas.",
+              "objectives": [
+                "Additionner des nombres jusqu'à 10",
+                "Comprendre le sens de l'addition",
+                "Résoudre des petits problèmes"
+              ],
+              "difficulty": "easy"
+            },
+            {
+              "id": "soustraction-simple",
+              "title": "La soustraction simple",
+              "description": "Apprendre à enlever, comparer et calculer des différences.",
+              "objectives": [
+                "Retirer une quantité",
+                "Comparer deux quantités",
+                "Résoudre des problèmes de retrait"
+              ],
+              "difficulty": "easy"
+            }
+          ]
+        },
+        {
+          "id": "geometrie",
+          "title": "Géométrie",
+          "lessons": [
+            {
+              "id": "formes-geometriques",
+              "title": "Les formes géométriques",
+              "description": "Identifier carré, rectangle, triangle et cercle.",
+              "objectives": [
+                "Repérer les figures de base",
+                "Comparer leurs propriétés",
+                "Les utiliser dans des dessins"
+              ],
+              "difficulty": "easy"
+            },
+            {
+              "id": "mesures-lignes",
+              "title": "Mesurer et comparer",
+              "description": "Utiliser des unités simples pour mesurer des longueurs.",
+              "objectives": [
+                "Comparer des longueurs",
+                "Utiliser une règle simple",
+                "Expliquer la mesure"
+              ],
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "college",
+      "name": "Collège",
+      "slug": "college",
+      "category": "Collège",
+      "description": "Approfondissement des notions fondamentales, fonctions et géométrie.",
+      "chapters": [
+        {
+          "id": "nombres-relatifs",
+          "title": "Nombres relatifs et puissances",
+          "lessons": [
+            {
+              "id": "nombres-relatifs-intro",
+              "title": "Les nombres relatifs",
+              "description": "Comprendre les nombres positifs, négatifs et leur ordre.",
+              "objectives": [
+                "Placer des nombres sur une droite",
+                "Comparer des nombres relatifs",
+                "Calculer des sommes et différences"
+              ],
+              "difficulty": "medium"
+            },
+            {
+              "id": "puissances",
+              "title": "Les puissances",
+              "description": "Découvrir la notation exponentielle et ses règles.",
+              "objectives": [
+                "Transformer un produit en puissance",
+                "Calculer des puissances simples",
+                "Utiliser les propriétés de la puissance"
+              ],
+              "difficulty": "medium"
+            }
+          ]
+        },
+        {
+          "id": "fonctions-equations",
+          "title": "Fonctions et équations",
+          "lessons": [
+            {
+              "id": "fonction-lineaire",
+              "title": "Fonction linéaire",
+              "description": "Apprendre à représenter une fonction de la forme ax + b.",
+              "objectives": [
+                "Comprendre le coefficient directeur",
+                "Traduire un tableau en graphique",
+                "Résoudre des équations simples"
+              ],
+              "difficulty": "medium"
+            },
+            {
+              "id": "equations-premier-degre",
+              "title": "Équations du premier degré",
+              "description": "Résoudre des équations avec une inconnue.",
+              "objectives": [
+                "Isoler l'inconnue",
+                "Valider la solution",
+                "Interpréter le résultat"
+              ],
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tronc-commun",
+      "name": "Tronc Commun",
+      "slug": "tronc-commun",
+      "category": "Secondaire",
+      "description": "Base du lycée marocain: fonctions, probabilités et géométrie analytique.",
+      "chapters": [
+        {
+          "id": "fonctions",
+          "title": "Fonctions",
+          "lessons": [
+            {
+              "id": "fonctions-affines",
+              "title": "Les fonctions affines",
+              "description": "Étudier les fonctions linéaires et affines et leurs graphes.",
+              "objectives": [
+                "Lire un graphique",
+                "Calculer le coefficient directeur",
+                "Représenter une fonction"
+              ],
+              "difficulty": "medium"
+            },
+            {
+              "id": "fonctions-quadratiques",
+              "title": "Les fonctions quadratiques",
+              "description": "Comprendre la parabole et ses propriétés essentielles.",
+              "objectives": [
+                "Déterminer le sommet",
+                "Étudier le signe",
+                "Interpréter le graphique"
+              ],
+              "difficulty": "hard"
+            }
+          ]
+        },
+        {
+          "id": "probabilites",
+          "title": "Probabilités et statistiques",
+          "lessons": [
+            {
+              "id": "probabilites-intro",
+              "title": "Probabilités simples",
+              "description": "Définir les expériences aléatoires et calculer des chances.",
+              "objectives": [
+                "Calculer des probabilités simples",
+                "Interpréter des événements",
+                "Raisonner avec des diagrammes"
+              ],
+              "difficulty": "medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bac",
+      "name": "Baccalauréat",
+      "slug": "bac",
+      "category": "Bac",
+      "description": "Préparation avancée et exercices de spécialité selon les filières.",
+      "chapters": [
+        {
+          "id": "analyse",
+          "title": "Analyse",
+          "lessons": [
+            {
+              "id": "derivation",
+              "title": "Dérivation",
+              "description": "Étudier les taux de variation et les règles de dérivation.",
+              "objectives": [
+                "Calculer des dérivées",
+                "Interpréter le sens de variation",
+                "Résoudre des problèmes d'optimisation"
+              ],
+              "difficulty": "hard"
+            },
+            {
+              "id": "integrales",
+              "title": "Intégrales",
+              "description": "Comprendre le calcul d'aire sous la courbe et les primitives.",
+              "objectives": [
+                "Calculer une primitive",
+                "Interpréter une intégrale",
+                "Résoudre des problèmes concrets"
+              ],
+              "difficulty": "hard"
+            }
+          ]
+        },
+        {
+          "id": "specialites",
+          "title": "Spécialités",
+          "lessons": [
+            {
+              "id": "suite-numerique",
+              "title": "Suites numériques",
+              "description": "Approfondir les suites arithmétiques, géométriques et leurs limites.",
+              "objectives": [
+                "Déterminer la nature d'une suite",
+                "Calculer des termes",
+                "Interpréter la convergence"
+              ],
+              "difficulty": "hard"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
