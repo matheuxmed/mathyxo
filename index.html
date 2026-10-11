@@ -27,51 +27,57 @@
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
 
+    <!-- Load i18n FIRST -->
     <script src="./js/i18n.js"></script>
     <script src="./js/language-switcher.js"></script>
+    
+    <!-- Load components AFTER i18n -->
     <script src="./js/components.js"></script>
-    <script type="module" src="./js/auth.js"></script>
+    
+    <!-- Load auth AFTER components -->
+    <script src="./js/auth.js"></script>
+
     <script>
-        async function loadHomepageCurriculum() {
+        function loadHomepageCurriculum() {
             const container = document.getElementById('levels-container');
             if (!container) return;
 
-            try {
-                const response = await fetch('./data/curriculum.json');
-                if (!response.ok) {
-                    throw new Error('Unable to load curriculum JSON');
-                }
-
-                const curriculum = await response.json();
-
-                container.innerHTML = curriculum.levels.map(level => `
-                    <section class="levels">
-                        <article class="level-card">
-                            <div class="level-icon">${level.icon}</div>
-                            <h3>${level.title}</h3>
-                            <p>${level.description}</p>
-                            <div class="level-meta">
-                                <span>📊 ${level.category}</span>
-                                <span><strong>${level.lessons.length} leçons</strong></span>
-                            </div>
-                            <div class="level-progress">
-                                <div class="level-progress-bar" style="width: 50%"></div>
-                            </div>
-                            <a href="./${level.id}/" class="btn">Commencer →</a>
-                        </article>
-                    </section>
-                `).join('');
-            } catch (error) {
-                console.error('Homepage curriculum load failed:', error);
-                container.innerHTML = '<p>Le curriculum n’a pas pu être chargé.</p>';
-            }
+            fetch('./data/curriculum.json')
+                .then(res => res.json())
+                .then(curriculum => {
+                    container.innerHTML = curriculum.levels.map(level => `
+                        <section class="levels">
+                            <article class="level-card">
+                                <div class="level-icon">${level.icon}</div>
+                                <h3>${level.title}</h3>
+                                <p>${level.description}</p>
+                                <div class="level-meta">
+                                    <span>📊 ${level.category}</span>
+                                    <span><strong>${level.lessons.length} leçons</strong></span>
+                                </div>
+                                <div class="level-progress">
+                                    <div class="level-progress-bar" style="width: 50%"></div>
+                                </div>
+                                <a href="./${level.id}/" class="btn">Commencer →</a>
+                            </article>
+                        </section>
+                    `).join('');
+                })
+                .catch(error => {
+                    console.error('Homepage curriculum load failed:', error);
+                    container.innerHTML = '<p>Le curriculum n\'a pas pu être chargé.</p>';
+                });
         }
 
-        document.addEventListener('DOMContentLoaded', async function() {
-            document.getElementById('hero-container').innerHTML = renderHero();
-            document.getElementById('features-container').innerHTML = renderFeatures();
-            document.getElementById('cta-container').innerHTML = renderCTA();
-            await loadHomepageCurriculum();
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                document.getElementById('hero-container').innerHTML = renderHero();
+                document.getElementById('features-container').innerHTML = renderFeatures();
+                document.getElementById('cta-container').innerHTML = renderCTA();
+                loadHomepageCurriculum();
+            } catch (error) {
+                console.error('Error rendering homepage:', error);
+            }
         });
     </script>
 </body>

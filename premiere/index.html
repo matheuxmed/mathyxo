@@ -19,42 +19,48 @@
 
     <div id="footer-container"></div>
 
-    <script src="../js/components.js"></script>
     <script>
         window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
+
+    <script src="../js/i18n.js"></script>
+    <script src="../js/components.js"></script>
     <script src="../js/auth.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('page-header-container').innerHTML =
-                renderPageHeader('📗 Mathématiques - Première', 'Approfondissez vos connaissances avec des sujets avancés et stimulants');
+            try {
+                document.getElementById('page-header-container').innerHTML =
+                    renderPageHeader('📗 Mathématiques - Première', 'Approfondissez vos connaissances avec des sujets avancés et stimulants');
 
-            let lessonsHTML = '<section class="lessons-grid">';
-            lessonsHTML += renderLessonCard('1️⃣', 'Polynômes et Fractions Rationnelles', 'Divisez les polynômes, trouvez les racines et analysez les fractions rationnelles.', './polynomes.html');
-            lessonsHTML += renderLessonCard('2️⃣', 'Fonctions Exponentielles', 'Comprenez la croissance exponentielle avec la base e et les applications réelles.', './exponentielles.html');
-            lessonsHTML += renderLessonCard('3️⃣', 'Logarithme Népérien', 'Explorez les propriétés du logarithme et ses relations avec l\'exponentielle.', './logarithmes.html');
-            lessonsHTML += renderLessonCard('4️⃣', 'Suites Arithmétiques et Géométriques', 'Étudiez les suites, leurs limites et les formules de somme.', './suites.html');
-            lessonsHTML += renderLessonCard('5️⃣', 'Trigonométrie Avancée', 'Maîtrisez les fonctions trigonométriques, les équations et les identités.', './trigonometrie.html');
-            lessonsHTML += renderLessonCard('6️⃣', 'Produit Scalaire', 'Comprenez le produit scalaire et ses applications en géométrie et physique.', './produit-scalaire.html');
-            lessonsHTML += renderLessonCard('7️⃣', 'Géométrie 3D et Vecteurs', 'Explorez l\'espace tridimensionnel, les plans et les droites en 3D.', './geometrie-3d.html');
-            lessonsHTML += renderLessonCard('8️⃣', 'Probabilités Conditionnelles', 'Apprenez les probabilités conditionnelles, la formule de Bayes et les applications.', './probabilites-cond.html');
-            lessonsHTML += renderLessonCard('9️⃣', 'Combinatoire', 'Maîtrisez les permutations, combinaisons et arrangements.', './combinatoire.html');
-            lessonsHTML += '</section>';
-            document.getElementById('lessons-container').innerHTML = lessonsHTML;
+                let lessonsHTML = '<section class="lessons-grid">';
+                lessonsHTML += renderLessonCard('1️⃣', 'Polynômes et Fractions Rationnelles', 'Divisez les polynômes, trouvez les racines et analysez les fractions rationnelles.', './polynomes.html');
+                lessonsHTML += renderLessonCard('2️⃣', 'Fonctions Exponentielles', 'Comprenez la croissance exponentielle avec la base e et les applications réelles.', './exponentielles.html');
+                lessonsHTML += renderLessonCard('3️⃣', 'Logarithme Népérien', 'Explorez les propriétés du logarithme et ses relations avec l\'exponentielle.', './logarithmes.html');
+                lessonsHTML += renderLessonCard('4️⃣', 'Suites Arithmétiques et Géométriques', 'Étudiez les suites, leurs limites et les formules de somme.', './suites.html');
+                lessonsHTML += renderLessonCard('5️⃣', 'Trigonométrie Avancée', 'Maîtrisez les fonctions trigonométriques, les équations et les identités.', './trigonometrie.html');
+                lessonsHTML += renderLessonCard('6️⃣', 'Produit Scalaire', 'Comprenez le produit scalaire et ses applications en géométrie et physique.', './produit-scalaire.html');
+                lessonsHTML += renderLessonCard('7️⃣', 'Géométrie 3D et Vecteurs', 'Explorez l\'espace tridimensionnel, les plans et les droites en 3D.', './geometrie-3d.html');
+                lessonsHTML += renderLessonCard('8️⃣', 'Probabilités Conditionnelles', 'Apprenez les probabilités conditionnelles, la formule de Bayes et les applications.', './probabilites-cond.html');
+                lessonsHTML += renderLessonCard('9️⃣', 'Combinatoire', 'Maîtrisez les permutations, combinaisons et arrangements.', './combinatoire.html');
+                lessonsHTML += '</section>';
+                document.getElementById('lessons-container').innerHTML = lessonsHTML;
 
-            const tips = ['Les leçons de Première approfondissent les concepts de Seconde', 'Assurez-vous de bien maîtriser les suites et la trigonométrie', 'Avant d\'aborder le calcul en Terminale'];
-            document.getElementById('tips-container').innerHTML = `
-                <section style="text-align: center; padding: 40px 20px; background: #f0f0f0; border-radius: 10px;">
-                    <h2>📈 Progression Recommandée</h2>
-                    <p style="color: #666; max-width: 700px; margin: 20px auto;">
-                        Les leçons de Première approfondissent les concepts de Seconde. Assurez-vous de bien maîtriser
-                        les suites et la trigonométrie avant d'aborder le calcul en Terminale.
-                    </p>
-                </section>
-            `;
+                document.getElementById('tips-container').innerHTML = `
+                    <section style="text-align: center; padding: 40px 20px; background: #f0f0f0; border-radius: 10px;">
+                        <h2>📈 Progression Recommandée</h2>
+                        <p style="color: #666; max-width: 700px; margin: 20px auto;">
+                            Les leçons de Première approfondissent les concepts de Seconde. Assurez-vous de bien maîtriser
+                            les suites et la trigonométrie avant d'aborder le calcul en Terminale.
+                        </p>
+                    </section>
+                `;
 
-            document.getElementById('back-button-container').innerHTML = renderBackButton();
+                document.getElementById('back-button-container').innerHTML = renderBackButton();
+            } catch (error) {
+                console.error('Error rendering première page:', error);
+            }
         });
     </script>
 </body>
