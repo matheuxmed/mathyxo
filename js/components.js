@@ -129,9 +129,6 @@ function renderHeader() {
 
 // ===== Navbar Component =====
 function renderNavbar(activePath = '') {
-    const user = GAMIFICATION.getUser();
-    const currentLevel = SITE_CONFIG.educationLevels.find(l => l.id === user.currentLevelId);
-
     let navHTML = `<nav class="navbar">
         <div class="nav-left">
             <div class="hamburger">
@@ -146,28 +143,48 @@ function renderNavbar(activePath = '') {
         navHTML += `<li><a href="${item.href}" class="nav-link">${t(item.name)}</a></li>`;
     });
 
-    const levelName = currentLevel ? t(currentLevel.nameKey) : t('gamif.level');
-    const levelIcon = currentLevel ? currentLevel.iconKey : '📚';
-
     navHTML += `</ul>
         </div>
         <div class="nav-right">
             <div class="nav-auth" id="nav-auth"></div>
-            <div class="current-level">
-                <span>${levelIcon}</span>
-                <span>${levelName}</span>
-            </div>
-            <div class="profile-section" onclick="alert('${t('gamif.profile')}: ${user.username}\\n${t('gamif.level')}: ${user.level}\\n${t('gamif.xp')}: ${user.xp}')">
-                <div class="profile-avatar">${user.avatar}</div>
+            <div class="current-level" id="nav-current-level" style="display:none;"></div>
+            <div class="profile-section" id="nav-profile" style="display:none;" onclick="toggleProfile(event)">
+                <div class="profile-avatar" id="nav-profile-avatar">👤</div>
                 <div class="xp-badge">
-                    <span>⭐</span>
-                    <span>${user.xp} ${t('gamif.xp')}</span>
+                    <span id="nav-profile-name"></span>
+                    <span id="nav-profile-points"></span>
+                </div>
+                <div class="profile-dropdown" id="nav-profile-dropdown" hidden onclick="event.stopPropagation()">
+                    <div class="profile-dropdown-header">
+                        <div class="profile-avatar">👤</div>
+                        <strong id="dd-name">-</strong>
+                        <span id="dd-email">-</span>
+                    </div>
+                    <ul class="profile-dropdown-list">
+                        <li><span>Niveau</span><strong id="dd-level">-</strong></li>
+                        <li><span>Points</span><strong id="dd-points">0</strong></li>
+                        <li><span>Leçons complétées</span><strong id="dd-lessons">0</strong></li>
+                        <li><span>Membre depuis</span><strong id="dd-joined">-</strong></li>
+                    </ul>
+                    <a href="${MATHYXO_BASE}student-dashboard/" class="btn">📊 Tableau de bord</a>
+                    <button type="button" class="btn btn-danger" onclick="logoutUser()">🚪 Déconnexion</button>
                 </div>
             </div>
         </div>
     </nav>`;
 
     return navHTML;
+}
+
+function toggleProfile(event) {
+    if (event) event.stopPropagation();
+    const dropdown = document.getElementById('nav-profile-dropdown');
+    if (dropdown) dropdown.hidden = !dropdown.hidden;
+}
+
+function closeProfile() {
+    const dropdown = document.getElementById('nav-profile-dropdown');
+    if (dropdown) dropdown.hidden = true;
 }
 
 // ===== Footer Component =====
@@ -419,6 +436,65 @@ async function refreshAuthUI() {
     }
     renderAuthArea(document.getElementById('nav-auth'), !!user);
     renderAuthArea(document.getElementById('hero-auth'), !!user);
+    await renderProfile(user);
+}
+
+async function renderProfile(user) {
+    const profile = document.getElementById('nav-profile');
+    const currentLevel = document.getElementById('nav-current-level');
+    if (!profile) return;
+
+    // No logged-in student: never show the profile content.
+    if (!user) {
+        profile.style.display = 'none';
+        if (currentLevel) currentLevel.style.display = 'none';
+        return;
+    }
+
+    let info = null;
+    try {
+        if (typeof getCurrentUserData === 'function') info = await getCurrentUserData();
+    } catch (error) {
+        console.warn('Could not load profile data:', error);
+    }
+    info = info || {};
+
+    let completedLessons = 0;
+    try {
+        if (typeof getUserProgress === 'function') {
+            const progress = await getUserProgress(user.id);
+            completedLessons = progress.filter(p => p.completed).length;
+        }
+    } catch (error) {
+        console.warn('Could not load progress:', error);
+    }
+
+    const meta = user.user_metadata || {};
+    const displayName = info.display_name || meta.display_name || user.email || 'Étudiant';
+    const level = info.level || meta.level || '-';
+    const points = Number(info.total_points || 0);
+    const joined = info.created_at || user.created_at;
+
+    const setText = (id, value) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+    };
+
+    setText('nav-profile-name', displayName);
+    setText('nav-profile-points', points + ' ' + t('gamif.xp'));
+    setText('dd-name', displayName);
+    setText('dd-email', user.email || '-');
+    setText('dd-level', level);
+    setText('dd-points', points);
+    setText('dd-lessons', completedLessons);
+    setText('dd-joined', joined ? new Date(joined).toLocaleDateString('fr-FR') : '-');
+
+    if (currentLevel) {
+        currentLevel.style.display = 'flex';
+        currentLevel.innerHTML = `<span>📚</span><span>${level}</span>`;
+    }
+
+    profile.style.display = 'flex';
 }
 
 // ===== Mobile Menu Toggle =====
@@ -490,6 +566,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (footerContainer) footerContainer.innerHTML = renderFooter();
 
     refreshAuthUI();
+    document.addEventListener('click', closeProfile);
     initSmoothScroll();
     initScrollAnimations();
 });

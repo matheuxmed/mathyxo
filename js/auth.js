@@ -47,9 +47,40 @@ function authUnavailable() {
     alert('Service d\'authentification indisponible. Veuillez rafraîchir la page.');
 }
 
+// Translate common Supabase auth errors into friendly French messages.
+function friendlyAuthError(error) {
+    const code = (error && (error.code || error.error_code)) || '';
+    const msg = (error && error.message ? error.message : '').toLowerCase();
+
+    if (code === 'over_email_send_rate_limit' || msg.includes('rate limit')) {
+        return 'Trop de tentatives d\'inscription. Veuillez patienter quelques minutes puis réessayer.';
+    }
+    if (code === 'user_already_exists' || msg.includes('already registered') || msg.includes('already been registered')) {
+        return 'Un compte existe déjà avec cet email. Connectez-vous plutôt.';
+    }
+    if (msg.includes('invalid email') || code === 'email_address_invalid' || code === 'validation_failed') {
+        return 'Adresse email invalide. Vérifiez le format (ex: nom@domaine.com).';
+    }
+    if (code === 'signup_disabled') {
+        return 'Les inscriptions sont temporairement désactivées.';
+    }
+    if (msg.includes('email not confirmed')) {
+        return 'Votre email n\'est pas encore confirmé. Vérifiez votre boîte de réception.';
+    }
+    if (msg.includes('invalid login credentials')) {
+        return 'Email ou mot de passe incorrect.';
+    }
+    if (msg.includes('password') && (msg.includes('at least') || msg.includes('short') || msg.includes('weak'))) {
+        return 'Le mot de passe est trop faible (6 caractères minimum).';
+    }
+    return error && error.message ? error.message : 'Inscription impossible. Réessayez plus tard.';
+}
+
 async function registerUser(email, password, displayName, level) {
     if (!SUPABASE) { authUnavailable(); return false; }
     try {
+        email = (email || '').trim().toLowerCase();
+
         const { data, error } = await SUPABASE.auth.signUp({
             email,
             password,
@@ -66,18 +97,25 @@ async function registerUser(email, password, displayName, level) {
         const user = data && data.user;
         if (!user) throw new Error('Registration failed: no user returned');
 
-        if (data.session) {
-            const { error: profileError } = await SUPABASE.from('profiles').upsert({
-                id: user.id,
-                email,
-                display_name: displayName,
-                level,
-                created_at: new Date().toISOString(),
-                total_points: 0
-            });
-            if (profileError) {
-                console.warn('Profile could not be saved:', profileError.message);
-            }
+        // When email confirmation is enabled, signUp returns a user but no session.
+        if (!data.session) {
+            alert('✅ Compte créé! Vérifiez votre boîte email (' + email + ') pour confirmer votre inscription, puis connectez-vous.');
+            setTimeout(() => {
+                window.location.href = siteBase() + 'auth/login.html';
+            }, 2000);
+            return true;
+        }
+
+        const { error: profileError } = await SUPABASE.from('profiles').upsert({
+            id: user.id,
+            email,
+            display_name: displayName,
+            level,
+            created_at: new Date().toISOString(),
+            total_points: 0
+        });
+        if (profileError) {
+            console.warn('Profile could not be saved:', profileError.message);
         }
 
         alert('✅ Inscription réussie! Bienvenue ' + displayName);
@@ -87,7 +125,7 @@ async function registerUser(email, password, displayName, level) {
         return true;
     } catch (error) {
         console.error('Registration error:', error);
-        alert('❌ Erreur: ' + (error && error.message ? error.message : 'Inscription impossible'));
+        alert('❌ ' + friendlyAuthError(error));
         return false;
     }
 }
@@ -95,6 +133,7 @@ async function registerUser(email, password, displayName, level) {
 async function loginUser(email, password) {
     if (!SUPABASE) { authUnavailable(); return false; }
     try {
+        email = (email || '').trim().toLowerCase();
         const { data, error } = await SUPABASE.auth.signInWithPassword({ email, password });
         if (error) throw error;
 
@@ -106,7 +145,7 @@ async function loginUser(email, password) {
         return true;
     } catch (error) {
         console.error('Login error:', error);
-        alert('❌ Erreur de connexion: ' + (error && error.message ? error.message : 'Identifiants invalides'));
+        alert('❌ ' + friendlyAuthError(error));
         return false;
     }
 }
