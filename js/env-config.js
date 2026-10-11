@@ -9,7 +9,8 @@
 
 async function loadEnv() {
   // Try to load from .env file (development only)
-  if (typeof fetch !== 'undefined' && process.env.NODE_ENV !== 'production') {
+  const isDev = typeof process !== 'undefined' && process.env && process.env.NODE_ENV !== 'production';
+  if (typeof fetch !== 'undefined' && isDev) {
     try {
       const response = await fetch('./.env');
       if (response.ok) {

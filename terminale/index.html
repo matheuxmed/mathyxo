@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terminale - MatheuxMed</title>
-    <link rel="stylesheet" href="/mathyxo/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <div id="header-container"></div>
@@ -19,9 +19,15 @@
 
     <div id="footer-container"></div>
 
-    <script src="/mathyxo/js/components.js"></script>
-    <!-- Auth System -->
-    <script type="module" src="/mathyxo/js/auth.js"></script>
+    <script>
+        window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+        window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/auth.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Page header
@@ -30,16 +36,16 @@
 
             // Lessons
             let lessonsHTML = '<section class="lessons-grid">';
-            lessonsHTML += renderLessonCard('1️⃣', 'Limites et Continuité', 'Étudiez les limites de fonctions et la continuité sur un intervalle.', '/mathyxo/terminale/limites.html');
-            lessonsHTML += renderLessonCard('2️⃣', 'Dérivation', 'Apprenez à calculer les dérivées et à comprendre leur signification géométrique.', '/mathyxo/terminale/derivees.html');
-            lessonsHTML += renderLessonCard('3️⃣', 'Étude de Fonctions', 'Analysez complètement des fonctions: monotonie, extrema et représentation graphique.', '/mathyxo/terminale/etude-fonctions.html');
-            lessonsHTML += renderLessonCard('4️⃣', 'Intégration', 'Découvrez les primitives, les intégrales définies et leurs applications.', '/mathyxo/terminale/integrales.html');
-            lessonsHTML += renderLessonCard('5️⃣', 'Nombres Complexes - Forme Algébrique', 'Explorez les opérations sur les nombres complexes et le plan complexe.', '/mathyxo/terminale/complexes-algebrique.html');
-            lessonsHTML += renderLessonCard('6️⃣', 'Nombres Complexes - Forme Trigonométrique', 'Maîtrisez la forme exponentielle et les puissances de nombres complexes.', '/mathyxo/terminale/complexes-trigo.html');
-            lessonsHTML += renderLessonCard('7️⃣', 'Suites et Limites', 'Étudiez la convergence des suites et les limites infinies.', '/mathyxo/terminale/suites-limites.html');
-            lessonsHTML += renderLessonCard('8️⃣', 'Matrices et Systèmes Linéaires', 'Apprenez les opérations matricielles et la résolution de systèmes.', '/mathyxo/terminale/matrices.html');
-            lessonsHTML += renderLessonCard('9️⃣', 'Variables Aléatoires et Lois', 'Comprenez les variables aléatoires, les lois binomiale et normale.', '/mathyxo/terminale/variables-aleatoires.html');
-            lessonsHTML += renderLessonCard('🔟', 'Statistique Inférentielle', 'Explorez l\'estimation, les intervalles de confiance et les tests statistiques.', '/mathyxo/terminale/statistique-inf.html');
+            lessonsHTML += renderLessonCard('1️⃣', 'Limites et Continuité', 'Étudiez les limites de fonctions et la continuité sur un intervalle.', './limites.html');
+            lessonsHTML += renderLessonCard('2️⃣', 'Dérivation', 'Apprenez à calculer les dérivées et à comprendre leur signification géométrique.', './derivees.html');
+            lessonsHTML += renderLessonCard('3️⃣', 'Étude de Fonctions', 'Analysez complètement des fonctions: monotonie, extrema et représentation graphique.', './etude-fonctions.html');
+            lessonsHTML += renderLessonCard('4️⃣', 'Intégration', 'Découvrez les primitives, les intégrales définies et leurs applications.', './integrales.html');
+            lessonsHTML += renderLessonCard('5️⃣', 'Nombres Complexes - Forme Algébrique', 'Explorez les opérations sur les nombres complexes et le plan complexe.', './complexes-algebrique.html');
+            lessonsHTML += renderLessonCard('6️⃣', 'Nombres Complexes - Forme Trigonométrique', 'Maîtrisez la forme exponentielle et les puissances de nombres complexes.', './complexes-trigo.html');
+            lessonsHTML += renderLessonCard('7️⃣', 'Suites et Limites', 'Étudiez la convergence des suites et les limites infinies.', './suites-limites.html');
+            lessonsHTML += renderLessonCard('8️⃣', 'Matrices et Systèmes Linéaires', 'Apprenez les opérations matricielles et la résolution de systèmes.', './matrices.html');
+            lessonsHTML += renderLessonCard('9️⃣', 'Variables Aléatoires et Lois', 'Comprenez les variables aléatoires, les lois binomiale et normale.', './variables-aleatoires.html');
+            lessonsHTML += renderLessonCard('🔟', 'Statistique Inférentielle', 'Explorez l\'estimation, les intervalles de confiance et les tests statistiques.', './statistique-inf.html');
             lessonsHTML += '</section>';
             document.getElementById('lessons-container').innerHTML = lessonsHTML;
 

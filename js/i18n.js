@@ -56,6 +56,18 @@ const I18N = {
             fr: '📧 Contact',
             ar: '📧 اتصل بنا'
         },
+        'nav.seconde': {
+            fr: '📘 Seconde',
+            ar: '📘 الثانية'
+        },
+        'nav.premiere': {
+            fr: '📗 Première',
+            ar: '📗 الأولى'
+        },
+        'nav.terminale': {
+            fr: '📕 Terminale',
+            ar: '📕 النهائية'
+        },
         
         // ===== Hero Section =====
         'hero.greeting': {
@@ -72,6 +84,10 @@ const I18N = {
         },
         
         // ===== Features =====
+        'features.title': {
+            fr: 'Pourquoi MatheuxMed ?',
+            ar: 'لماذا ماثوكس ميد؟'
+        },
         'feature.interactive': {
             fr: 'Interactif',
             ar: 'تفاعلي'

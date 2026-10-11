@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord - MatheuxMed</title>
-    <link rel="stylesheet" href="/mathyxo/css/style.css">
-    <link rel="stylesheet" href="/mathyxo/css/dashboard.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <div id="header-container"></div>
@@ -86,9 +87,9 @@
 
             <!-- Action Buttons -->
             <div class="dashboard-actions">
-                <a href="/mathyxo/seconde/" class="btn btn-primary">📚 Aller à Seconde</a>
-                <a href="/mathyxo/premiere/" class="btn btn-primary">📊 Aller à Première</a>
-                <a href="/mathyxo/terminale/" class="btn btn-primary">���� Aller à Terminale</a>
+                <a href="../seconde/" class="btn btn-primary">📚 Aller à Seconde</a>
+                <a href="../premiere/" class="btn btn-primary">📊 Aller à Première</a>
+                <a href="../terminale/" class="btn btn-primary">📕 Aller à Terminale</a>
                 <button onclick="logoutUser()" class="btn btn-danger">🚪 Déconnexion</button>
             </div>
         </div>
@@ -96,57 +97,94 @@
 
     <div id="footer-container"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="/mathyxo/js/components.js"></script>
-    <script type="module" src="/mathyxo/js/auth.js"></script>
-    
     <script>
-        // Load dashboard data
-        document.addEventListener('DOMContentLoaded', async function() {
-            document.getElementById('header-container').innerHTML = renderHeader();
-            const currentPath = window.location.pathname;
-            document.getElementById('nav-container').innerHTML = renderNavbar(currentPath);
-            document.getElementById('footer-container').innerHTML = renderFooter();
+        window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+        window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
+    </script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/auth.js"></script>
 
-            // Check if user is logged in
-            if (!currentUser) {
-                alert('Vous devez être connecté pour accéder au tableau de bord');
-                window.location.href = '/mathyxo/auth/login.html';
+    <script>
+        document.addEventListener('DOMContentLoaded', async function () {
+            if (!SUPABASE) {
+                alert('Service d\'authentification indisponible. Veuillez rafraîchir la page.');
                 return;
             }
 
-            // Load student data
-            const userData = await getCurrentUserData();
-            if (userData) {
-                document.getElementById('student-name').textContent = userData.displayName || currentUser.email;
-                document.getElementById('student-email').textContent = currentUser.email;
-                document.getElementById('student-level').textContent = userData.level;
-                document.getElementById('student-joined').textContent = new Date(userData.enrolledDate.toDate()).toLocaleDateString('fr-FR');
-                document.getElementById('welcome-message').textContent = `Bienvenue ${userData.displayName || 'Étudiant'}!`;
-                document.getElementById('total-points').textContent = userData.totalPoints || 0;
+            const { data: sessionData } = await SUPABASE.auth.getSession();
+            const session = sessionData && sessionData.session;
+
+            if (!session) {
+                alert('Vous devez être connecté pour accéder au tableau de bord');
+                window.location.href = (window.MATHYXO_BASE || '/') + 'auth/login.html';
+                return;
             }
 
-            // Load progress
-            const progress = await getUserProgress(currentUser.uid);
-            const completedCount = progress.filter(p => p.completed).length;
-            document.getElementById('completed-lessons').textContent = completedCount;
+            const user = session.user;
+            const userData = await getCurrentUserData();
+
+            const displayName = (userData && userData.display_name) ||
+                (user.user_metadata && user.user_metadata.display_name) || 'Étudiant';
+            const level = (userData && userData.level) ||
+                (user.user_metadata && user.user_metadata.level) || '-';
+            const joined = (userData && userData.created_at) || user.created_at;
+
+            document.getElementById('student-name').textContent = displayName;
+            document.getElementById('student-email').textContent = user.email || '-';
+            document.getElementById('student-level').textContent = level;
+            document.getElementById('student-joined').textContent =
+                joined ? new Date(joined).toLocaleDateString('fr-FR') : '-';
+            document.getElementById('welcome-message').textContent = 'Bienvenue ' + displayName + '!';
+            document.getElementById('total-points').textContent = (userData && userData.total_points) || 0;
+
+            const progress = (await getUserProgress(user.id)).slice().sort((a, b) =>
+                new Date(a.completed_at || 0) - new Date(b.completed_at || 0));
+            const completed = progress.filter(p => p.completed);
+
+            document.getElementById('completed-lessons').textContent = completed.length;
 
             if (progress.length > 0) {
-                const avgScore = Math.round(progress.reduce((sum, p) => sum + p.quizScore, 0) / progress.length);
+                const avgScore = Math.round(
+                    progress.reduce((sum, p) => sum + (Number(p.quiz_score) || 0), 0) / progress.length
+                );
                 document.getElementById('avg-score').textContent = avgScore + '%';
             }
 
-            // Display recent activity
             if (progress.length > 0) {
                 const recent = progress.slice(-5).reverse();
-                let activityHTML = '';
-                recent.forEach(p => {
-                    const date = p.completedDate.toDate().toLocaleDateString('fr-FR');
-                    activityHTML += `<p>📝 Quiz ${p.lessonId}: ${p.quizScore}% - ${date}</p>`;
+                document.getElementById('recent-activity').innerHTML = recent.map(p => {
+                    const date = p.completed_at
+                        ? new Date(p.completed_at).toLocaleDateString('fr-FR')
+                        : '';
+                    return `<p>📝 Quiz ${p.lesson_id}: ${p.quiz_score}% - ${date}</p>`;
+                }).join('');
+            }
+
+            try {
+                const res = await fetch((window.MATHYXO_BASE || '/') + 'data/curriculum.json');
+                const curriculum = await res.json();
+                const lessonToLevel = {};
+                curriculum.levels.forEach(l => {
+                    l.lessons.forEach(lesson => { lessonToLevel[lesson.id] = l.id; });
                 });
-                document.getElementById('recent-activity').innerHTML = activityHTML;
+
+                ['seconde', 'premiere', 'terminale'].forEach(levelId => {
+                    const level = curriculum.levels.find(l => l.id === levelId);
+                    if (!level) return;
+
+                    const done = completed.filter(p => lessonToLevel[p.lesson_id] === levelId).length;
+                    const pct = level.lessons.length
+                        ? Math.round((done / level.lessons.length) * 100)
+                        : 0;
+
+                    const bar = document.getElementById(levelId + '-progress');
+                    const text = document.getElementById(levelId + '-text');
+                    if (bar) bar.style.width = pct + '%';
+                    if (text) text.textContent = done + ' leçon(s) complétée(s)';
+                });
+            } catch (error) {
+                console.warn('Could not load curriculum for progress:', error);
             }
         });
     </script>

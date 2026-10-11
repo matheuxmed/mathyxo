@@ -52,6 +52,7 @@
 
     <div id="footer-container"></div>
 
+    <script src="../js/i18n.js"></script>
     <script src="../js/components.js"></script>
     <script>
         window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
@@ -71,13 +72,6 @@
 
             loginUser(email, password);
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('header-container').innerHTML = renderHeader();
-            const currentPath = window.location.pathname;
-            document.getElementById('nav-container').innerHTML = renderNavbar(currentPath);
-            document.getElementById('footer-container').innerHTML = renderFooter();
-        });
     </script>
 </body>
 </html>
