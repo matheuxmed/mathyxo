@@ -19,39 +19,46 @@
 
     <div id="footer-container"></div>
 
-    <script src="../js/components.js"></script>
     <script>
         window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
+
+    <script src="../js/i18n.js"></script>
+    <script src="../js/components.js"></script>
     <script src="../js/auth.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('page-header-container').innerHTML =
-                renderPageHeader('📘 Mathématiques - Seconde', 'Explorez les fondamentaux des mathématiques avec des leçons interactives');
+            try {
+                document.getElementById('page-header-container').innerHTML =
+                    renderPageHeader('📘 Mathématiques - Seconde', 'Explorez les fondamentaux des mathématiques avec des leçons interactives');
 
-            let lessonsHTML = '<section class="lessons-grid">';
-            lessonsHTML += renderLessonCard('1️⃣', 'Équations et Inéquations', 'Résolvez des équations linéaires et quadratiques. Apprenez les méthodes de factorisation et d\'analyse des expressions.', './equations-inequations.html');
-            lessonsHTML += renderLessonCard('2️⃣', 'Fonctions et Graphiques', 'Découvrez les propriétés des fonctions, les transformations graphiques et l\'étude du domaine et de la plage.', './fonctions-graphiques.html');
-            lessonsHTML += renderLessonCard('3️⃣', 'Fonctions du Second Degré', 'Maîtrisez les paraboles, calculez le sommet et trouvez les racines avec la formule du discriminant.', './fonction-second-degre.html');
-            lessonsHTML += renderLessonCard('4️⃣', 'Vecteurs et Géométrie Plane', 'Comprenez les opérations vectorielles, la colinéarité et les applications en géométrie analytique.', './vecteurs-geometrie.html');
-            lessonsHTML += renderLessonCard('5️⃣', 'Géométrie: Droites et Cercles', 'Explorez les équations des droites et des cercles, les intersections et les propriétés géométriques.', './droites-cercles.html');
-            lessonsHTML += renderLessonCard('6️⃣', 'Statistiques Descriptives', 'Analysez les données avec les mesures de tendance centrale, la variance et les représentations graphiques.', './statistiques-descriptives.html');
-            lessonsHTML += renderLessonCard('7️⃣', 'Probabilités Simples', 'Initiez-vous aux probabilités, aux événements et aux calculs de chances à l\'aide d\'exemples concrets.', './probabilites-simples.html');
-            lessonsHTML += renderLessonCard('8️⃣', 'Transformations Géométriques', 'Étudiez les translations, rotations, symétries et homothéties dans le plan.', './transformations-geometriques.html');
-            lessonsHTML += '</section>';
-            document.getElementById('lessons-container').innerHTML = lessonsHTML;
+                let lessonsHTML = '<section class="lessons-grid">';
+                lessonsHTML += renderLessonCard('1️⃣', 'Équations et Inéquations', 'Résolvez des équations linéaires et quadratiques. Apprenez les méthodes de factorisation et d\'analyse des expressions.', './equations-inequations.html');
+                lessonsHTML += renderLessonCard('2️⃣', 'Fonctions et Graphiques', 'Découvrez les propriétés des fonctions, les transformations graphiques et l\'étude du domaine et de la plage.', './fonctions-graphiques.html');
+                lessonsHTML += renderLessonCard('3️⃣', 'Fonctions du Second Degré', 'Maîtrisez les paraboles, calculez le sommet et trouvez les racines avec la formule du discriminant.', './fonction-second-degre.html');
+                lessonsHTML += renderLessonCard('4️⃣', 'Vecteurs et Géométrie Plane', 'Comprenez les opérations vectorielles, la colinéarité et les applications en géométrie analytique.', './vecteurs-geometrie.html');
+                lessonsHTML += renderLessonCard('5️⃣', 'Géométrie: Droites et Cercles', 'Explorez les équations des droites et des cercles, les intersections et les propriétés géométriques.', './droites-cercles.html');
+                lessonsHTML += renderLessonCard('6️⃣', 'Statistiques Descriptives', 'Analysez les données avec les mesures de tendance centrale, la variance et les représentations graphiques.', './statistiques-descriptives.html');
+                lessonsHTML += renderLessonCard('7️⃣', 'Probabilités Simples', 'Initiez-vous aux probabilités, aux événements et aux calculs de chances à l\'aide d\'exemples concrets.', './probabilites-simples.html');
+                lessonsHTML += renderLessonCard('8️⃣', 'Transformations Géométriques', 'Étudiez les translations, rotations, symétries et homothéties dans le plan.', './transformations-geometriques.html');
+                lessonsHTML += '</section>';
+                document.getElementById('lessons-container').innerHTML = lessonsHTML;
 
-            const tips = [
-                'Suivez les leçons dans l\'ordre proposé',
-                'Explorez les outils interactifs pour mieux comprendre',
-                'Répondez aux quizzes pour valider vos acquis',
-                'Pratiquez régulièrement avec les exercices',
-                'Revisitez les concepts difficiles autant de fois que nécessaire'
-            ];
-            document.getElementById('tips-container').innerHTML = renderTipsSection(tips);
+                const tips = [
+                    'Suivez les leçons dans l\'ordre proposé',
+                    'Explorez les outils interactifs pour mieux comprendre',
+                    'Répondez aux quizzes pour valider vos acquis',
+                    'Pratiquez régulièrement avec les exercices',
+                    'Revisitez les concepts difficiles autant de fois que nécessaire'
+                ];
+                document.getElementById('tips-container').innerHTML = renderTipsSection(tips);
 
-            document.getElementById('back-button-container').innerHTML = renderBackButton();
+                document.getElementById('back-button-container').innerHTML = renderBackButton();
+            } catch (error) {
+                console.error('Error rendering seconde page:', error);
+            }
         });
     </script>
 </body>
