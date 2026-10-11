@@ -1,31 +1,29 @@
-// ===== Firebase Authentication System =====
+// ===== Supabase Authentication System =====
+// Browser-safe authentication using Supabase
+// The anon key is safe to expose in the browser
+// The service role key MUST NEVER be in frontend code
 
-// Initialize Firebase (Replace "YOUR_ACTUAL_API_KEY")
-const firebaseConfig = {
-    apiKey: "AIzaSyD6q-mHObvKIsCYo8NW8O24_1fuCdSlgBY",
-    authDomain: "mathyxo-e191e.firebaseapp.com",
-    projectId: "mathyxo-e191e",
-    storageBucket: "mathyxo-e191e.firebasestorage.app",
-    messagingSenderId: "486174230938",
-    appId: "1:486174230938:web:71ec38b77e381cb7c9d223",
-    measurementId: "G-QV3VPJ5HP5"
-};
+// Get credentials from environment variables
+const SUPABASE_URL = window.MATHYXO_SUPABASE_URL || 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+const SUPABASE_ANON_KEY = window.MATHYXO_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
 
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// Initialize Supabase client
+const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true
+    }
+});
 
-// Get Firebase instances
-const auth = firebase.auth();
-const db = firebase.firestore();
+console.log('✅ Supabase initialized');
 
 // Monitor auth state
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        console.log('User is logged in:', user.email);
+supabase.auth.onAuthStateChange((event, session) => {
+    if (session?.user) {
+        console.log('User logged in:', session.user.email);
     } else {
-        console.log('No user is logged in.');
+        console.log('No user session');
     }
 });
 
@@ -33,34 +31,51 @@ auth.onAuthStateChanged((user) => {
 async function registerUser(email, password, displayName, level) {
     console.log('Starting registration...');
     try {
-        // 1. Create the user in Firebase Auth
-        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-        console.log('User created:', user.uid);
-        
-        // 2. Update Auth Profile
-        await user.updateProfile({ displayName: displayName });
-        
-        // 3. Save to Firestore
-        await db.collection('users').doc(user.uid).set({
-            uid: user.uid,
-            email: email,
-            displayName: displayName,
-            level: level,
-            enrolledDate: firebase.firestore.FieldValue.serverTimestamp(), // Better than new Date()
-            totalPoints: 0
+        // 1. Create user in Supabase Auth
+        const { data, error } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                data: {
+                    display_name: displayName,
+                    level
+                }
+            }
         });
+
+        if (error) throw error;
+
+        const user = data?.user;
+        if (!user) throw new Error('Registration failed: no user returned');
+
+        console.log('User created:', user.id);
+
+        // 2. Create profile in profiles table
+        const { error: profileError } = await supabase
+            .from('profiles')
+            .upsert({
+                id: user.id,
+                email: email,
+                display_name: displayName,
+                level: level,
+                created_at: new Date().toISOString(),
+                total_points: 0
+            });
+
+        if (profileError) throw profileError;
 
         console.log('Registration successful!');
         alert('✅ Inscription réussie! Bienvenue ' + displayName);
-        
+
         setTimeout(() => {
-            window.location.href = '/mathyxo/student-dashboard/';
+            window.location.href = './student-dashboard/';
         }, 1500);
 
+        return true;
     } catch (error) {
         console.error('Registration error:', error);
-        alert('❌ Erreur: ' + error.message);
+        alert('❌ Erreur: ' + (error?.message || 'Inscription impossible'));
+        return false;
     }
 }
 
@@ -68,55 +83,73 @@ async function registerUser(email, password, displayName, level) {
 async function loginUser(email, password) {
     console.log('Starting login...');
     try {
-        const userCredential = await auth.signInWithEmailAndPassword(email, password);
-        const user = userCredential.user;
-        
-        console.log('Login successful:', user.email);
-        alert('✅ Connexion réussie! Bienvenue ' + (user.displayName || user.email));
-        
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        if (error) throw error;
+
+        const user = data?.user;
+        console.log('Login successful:', user?.email);
+
+        alert('✅ Connexion réussie! Bienvenue ' + (user?.user_metadata?.display_name || user?.email));
+
         setTimeout(() => {
-            window.location.href = '/mathyxo/student-dashboard/';
+            window.location.href = './student-dashboard/';
         }, 1500);
 
+        return true;
     } catch (error) {
         console.error('Login error:', error);
-        alert('❌ Erreur de connexion: ' + error.message);
+        alert('❌ Erreur de connexion: ' + (error?.message || 'Identifiants invalides'));
+        return false;
     }
 }
 
 // ===== Logout Function =====
 async function logoutUser() {
     try {
-        await auth.signOut();
+        const { error } = await supabase.auth.signOut();
+        if (error) throw error;
+
         console.log('User logged out');
         alert('✅ Déconnexion réussie');
+
         setTimeout(() => {
-            window.location.href = '/mathyxo/';
+            window.location.href = './';
         }, 1000);
+
+        return true;
     } catch (error) {
         console.error('Logout error:', error);
-        alert('❌ Erreur: ' + error.message);
+        alert('❌ Erreur: ' + (error?.message || 'Déconnexion impossible'));
+        return false;
     }
 }
 
 // ===== Get Current User Data =====
 async function getCurrentUserData() {
-    // Check auth.currentUser directly instead of a global variable
-    const user = auth.currentUser; 
-    
-    if (!user) {
-        console.log('No user logged in or auth state not resolved yet');
-        return null;
-    }
-    
     try {
-        const doc = await db.collection('users').doc(user.uid).get();
-        if (doc.exists) {
-            return doc.data();
-        } else {
-            console.log("No such user document!");
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+        if (userError || !user) {
+            console.log('No user logged in or auth state not resolved yet');
             return null;
         }
+
+        const { data, error } = await supabase
+            .from('profiles')
+            .select('*')
+            .eq('id', user.id)
+            .single();
+
+        if (error) {
+            console.error('Error fetching user profile:', error);
+            return null;
+        }
+
+        return data;
     } catch (error) {
         console.error('Error getting user data:', error);
         return null;
@@ -125,29 +158,45 @@ async function getCurrentUserData() {
 
 // ===== Save Progress =====
 async function saveProgress(lessonId, quizScore) {
-    const user = auth.currentUser;
-    
-    if (!user) {
-        alert('Vous devez être connecté');
-        return false;
-    }
-    
     try {
-        await db.collection('progress').add({
-            userId: user.uid,
-            lessonId: lessonId,
-            quizScore: quizScore,
-            completedDate: firebase.firestore.FieldValue.serverTimestamp(),
-            completed: quizScore >= 60
-        });
-        
-        const userData = await getCurrentUserData();
-        const currentPoints = userData?.totalPoints || 0;
-        
-        await db.collection('users').doc(user.uid).update({
-            totalPoints: currentPoints + quizScore
-        });
-        
+        const { data: { user }, error: userError } = await supabase.auth.getUser();
+
+        if (userError || !user) {
+            alert('Vous devez être connecté');
+            return false;
+        }
+
+        // 1. Save progress record
+        const { error: progressError } = await supabase
+            .from('user_progress')
+            .insert({
+                user_id: user.id,
+                lesson_id: lessonId,
+                quiz_score: quizScore,
+                completed_at: new Date().toISOString(),
+                completed: quizScore >= 60
+            });
+
+        if (progressError) throw progressError;
+
+        // 2. Update user's total points
+        const { data: profileData, error: profileError } = await supabase
+            .from('profiles')
+            .select('total_points')
+            .eq('id', user.id)
+            .single();
+
+        if (profileError) throw profileError;
+
+        const nextTotal = (profileData?.total_points || 0) + Number(quizScore || 0);
+
+        const { error: updateError } = await supabase
+            .from('profiles')
+            .update({ total_points: nextTotal })
+            .eq('id', user.id);
+
+        if (updateError) throw updateError;
+
         console.log('Progress saved');
         return true;
     } catch (error) {
@@ -159,18 +208,19 @@ async function saveProgress(lessonId, quizScore) {
 // ===== Get User Progress =====
 async function getUserProgress(userId) {
     try {
-        const querySnapshot = await db.collection('progress')
-            .where('userId', '==', userId)
-            .get();
-        
-        const progress = [];
-        querySnapshot.forEach((doc) => {
-            progress.push(doc.data());
-        });
-        
-        return progress;
+        const { data, error } = await supabase
+            .from('user_progress')
+            .select('*')
+            .eq('user_id', userId);
+
+        if (error) {
+            console.error('Error getting user progress:', error);
+            return [];
+        }
+
+        return data || [];
     } catch (error) {
-        console.error('Error getting progress:', error);
+        console.error('Error getting user progress:', error);
         return [];
     }
 }
