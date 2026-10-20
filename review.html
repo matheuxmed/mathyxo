@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr" data-title-key="page.title.review">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <script>
+        // Apply the saved language direction before paint to avoid a layout flash.
+        (function () {
+            try {
+                if (localStorage.getItem('mathyxo_language') === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
+    <title>Activités — Revue - MatheuxMed</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/rtl.css">
+    <link rel="stylesheet" href="./css/language-switcher.css">
+    <link rel="stylesheet" href="./css/activities.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div id="header-container"></div>
+    <div id="nav-container"></div>
+
+    <main class="container">
+        <div class="review-banner">
+            <h1 data-i18n="review.title">🎨 Revue des activités — Primaire</h1>
+            <p data-i18n="review.subtitle">Prototype interactif : manipulation, micro-apprentissage et gamification.</p>
+        </div>
+
+        <div class="review-toolbar">
+            <button class="act-btn" id="lang-btn">🌐 العربية / Français</button>
+            <button class="act-btn secondary" id="dir-btn">↔ LTR / RTL</button>
+            <span class="spacer"></span>
+            <button class="act-btn ghost" id="reset-all">↻ <span data-i18n="review.resetAll">Tout réinitialiser</span></button>
+        </div>
+
+        <div class="review-note" data-i18n-html="review.note">
+            Ces activités sont des <strong>prototypes à valider</strong>. Testez-les sur téléphone.
+        </div>
+
+        <h2 class="review-section-title" data-i18n="review.section.manipulatives">🧮 Manipulation &amp; dénombrement</h2>
+        <div id="sec-manip"></div>
+
+        <h2 class="review-section-title" data-i18n="review.section.compare">📏 Comparer, ranger, mesurer</h2>
+        <div id="sec-compare"></div>
+
+        <h2 class="review-section-title" data-i18n="review.section.geometry">🔷 Géométrie &amp; espace</h2>
+        <div id="sec-geometry"></div>
+
+        <h2 class="review-section-title" data-i18n="review.section.explain">🎬 Explications animées</h2>
+        <div id="sec-explain"></div>
+
+        <h2 class="review-section-title" data-i18n="review.section.games">🎮 Jeux &amp; défis</h2>
+        <div id="sec-games"></div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
+        window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
+    </script>
+
+    <script src="./js/i18n.js"></script>
+    <script src="./js/language-switcher.js"></script>
+    <script src="./js/components.js"></script>
+    <script src="./js/auth.js"></script>
+    <script src="./js/activities.js"></script>
+    <script src="./js/review-gallery.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            ReviewGallery.mount();
+        });
+    </script>
+</body>
+</html>

@@ -561,7 +561,28 @@ const I18N = {
         'dash.noActivity': { fr: 'Pas d\'activité récente', ar: 'لا يوجد نشاط حديث' },
         'dash.lessonsDone': { fr: '{done}/{total} leçon(s) complétée(s)', ar: '{done}/{total} درس مكتمل' },
         'dash.loginRequired': { fr: 'Vous devez être connecté pour accéder au tableau de bord', ar: 'يجب تسجيل الدخول للوصول إلى لوحة التحكم' },
-        'dash.authUnavailable': { fr: 'Service d\'authentification indisponible. Veuillez rafraîchir la page.', ar: 'خدمة المصادقة غير متوفرة. يرجى تحديث الصفحة.' }
+        'dash.authUnavailable': { fr: 'Service d\'authentification indisponible. Veuillez rafraîchir la page.', ar: 'خدمة المصادقة غير متوفرة. يرجى تحديث الصفحة.' },
+
+        // ===== Activity review gallery (internal) =====
+        'page.title.review': { fr: 'Activités — Revue - MatheuxMed', ar: 'الأنشطة — مراجعة - ماثوكس ميد' },
+        'review.title': { fr: '🎨 Revue des activités — Primaire', ar: '🎨 مراجعة الأنشطة — الابتدائي' },
+        'review.subtitle': { fr: 'Prototype interactif : manipulation, micro-apprentissage et gamification.', ar: 'نموذج تفاعلي: التلاعب بالأشياء، التعلم المصغّر، واللعب.' },
+        'review.resetAll': { fr: 'Tout réinitialiser', ar: 'إعادة تعيين الكل' },
+        'review.note': { fr: 'Ces activités sont des <strong>prototypes à valider</strong>. Testez-les sur téléphone.', ar: 'هذه الأنشطة <strong>نماذج للمراجعة</strong>. جرّبها على الهاتف.' },
+        'review.section.manipulatives': { fr: '🧮 Manipulation & dénombrement', ar: '🧮 التلاعب والعدّ' },
+        'review.section.compare': { fr: '📏 Comparer, ranger, mesurer', ar: '📏 المقارنة والترتيب والقياس' },
+        'review.section.geometry': { fr: '🔷 Géométrie & espace', ar: '🔷 الهندسة والفضاء' },
+        'review.section.explain': { fr: '🎬 Explications animées', ar: '🎬 شروح متحركة' },
+        'review.section.games': { fr: '🎮 Jeux & défis', ar: '🎮 ألعاب وتحديات' },
+
+        // ===== Lesson content UI =====
+        'lesson.objectives': { fr: '🎯 Objectifs', ar: '🎯 الأهداف' },
+        'lesson.activities': { fr: '✏️ Activités', ar: '✏️ الأنشطة' },
+        'lesson.recap': { fr: '📌 À retenir', ar: '📌 خلاصة' },
+        'lesson.next': { fr: 'Leçon suivante →', ar: 'الدرس التالي ←' },
+        'lesson.prev': { fr: '← Leçon précédente', ar: '→ الدرس السابق' },
+        'lesson.start': { fr: 'Commencer l\'activité', ar: 'ابدأ النشاط' },
+        'lesson.backToChapter': { fr: '↑ Revenir au chapitre', ar: '↑ العودة إلى الفصل' }
     },
 
     // Pick a data field localized for the current language.
