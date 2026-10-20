@@ -13,7 +13,8 @@ const ReviewGallery = (function () {
         tryAgain: { fr: 'Continue à t\'entraîner 💪', ar: 'واصل التدريب 💪' },
         restart: { fr: 'Rejouer', ar: 'إعادة اللعب' },
         streakLabel: { fr: 'Série :', ar: 'المتتالية:' },
-        bestLabel: { fr: 'record !', ar: 'رقم قياسي!' }
+        bestLabel: { fr: 'record !', ar: 'رقم قياسي!' },
+        tooMany: { fr: 'Presque ! Tu en as colorié trop.', ar: 'تقريباً! لوّنت أكثر من اللازم.' }
     };
 
     // ---------- Section 1: manipulatives ----------
@@ -298,6 +299,109 @@ const ReviewGallery = (function () {
         }
     ];
 
+    // ---------- Section 6: extended widgets (primaire 3–6) ----------
+    const extended = [
+        {
+            type: 'fraction',
+            title: { fr: 'Colorie la fraction 3/4', ar: 'لوّن الكسر 3/4' },
+            prompt: { fr: 'Touche les parts pour en colorier trois sur quatre.', ar: 'المس الأجزاء لتلوّن ثلاثة من أربعة.' },
+            correct: S.correct, retry: S.tryAgain, tooMany: S.tooMany,
+            shape: 'bar', parts: 4, mode: 'shade', target: 3
+        },
+        {
+            type: 'fraction',
+            title: { fr: 'Quelle fraction est coloriée ?', ar: 'ما الكسر الملوّن؟' },
+            prompt: { fr: 'Lis la fraction représentée par le disque.', ar: 'اقرأ الكسر الذي تمثله الدائرة.' },
+            correct: S.correct, retry: S.tryAgain,
+            shape: 'pie', parts: 6, mode: 'read', shaded: 4, target: 4
+        },
+        {
+            type: 'place-value',
+            title: { fr: 'Place les chiffres de 3,45', ar: 'ضع أرقام 3,45' },
+            prompt: { fr: 'Touche chaque case pour choisir le bon chiffre.', ar: 'المس كل مربع لاختيار الرقم الصحيح.' },
+            correct: S.correct,
+            mode: 'build', number: '3,45'
+        },
+        {
+            type: 'place-value',
+            title: { fr: 'Compare 3,45 et 3,5', ar: 'قارن 3,45 و3,5' },
+            prompt: { fr: 'Choisis le bon signe.', ar: 'اختر الرمز الصحيح.' },
+            correct: S.correct, retry: S.tryAgain,
+            mode: 'compare', a: '3,45', b: '3,5'
+        },
+        {
+            type: 'angle',
+            title: { fr: 'Construis un angle droit', ar: 'أنشئ زاوية قائمة' },
+            prompt: { fr: 'Glisse le rayon bleu pour former un angle de 90°.', ar: 'اسحب الشعاع الأزرق لتكوين زاوية 90°.' },
+            correct: S.correct,
+            mode: 'make', target: 90
+        },
+        {
+            type: 'angle',
+            title: { fr: 'Reconnais l\'angle', ar: 'تعرّف على الزاوية' },
+            prompt: { fr: 'Quelle sorte d\'angle vois-tu ?', ar: 'أي نوع من الزوايا ترى؟' },
+            correct: S.correct, retry: S.tryAgain,
+            mode: 'identify', angle: 40
+        },
+        {
+            type: 'column',
+            title: { fr: 'Multiplication posée : 23 × 4', ar: 'ضرب عمودي: 23 × 4' },
+            prompt: { fr: 'Observe la disposition en colonnes.', ar: 'لاحظ الترتيب العمودي.' },
+            correct: S.correct,
+            op: 'mul', a: 23, b: 4
+        },
+        {
+            type: 'column',
+            title: { fr: 'Division posée : 47 ÷ 5', ar: 'قسمة عمودية: 47 ÷ 5' },
+            prompt: { fr: 'Trouve le quotient et le reste.', ar: 'جد الخارج والباقي.' },
+            correct: S.correct,
+            op: 'div', a: 47, b: 5
+        },
+        {
+            type: 'chart',
+            title: { fr: 'Lis le diagramme', ar: 'اقرأ المخطط' },
+            prompt: { fr: 'Quel jour a le plus de livres lus ?', ar: 'أي يوم فيه أكثر كتب مقروءة؟' },
+            correct: S.correct, retry: S.tryAgain,
+            mode: 'read',
+            labels: [
+                { fr: 'Lundi', ar: 'الاثنين' },
+                { fr: 'Mardi', ar: 'الثلاثاء' },
+                { fr: 'Mercredi', ar: 'الأربعاء' },
+                { fr: 'Jeudi', ar: 'الخميس' }
+            ],
+            values: [4, 7, 2, 6],
+            question: { answer: 1 }
+        },
+        {
+            type: 'chart',
+            title: { fr: 'Calcule la moyenne', ar: 'احسب المتوسط' },
+            prompt: { fr: 'Quelle est la moyenne des points ?', ar: 'ما متوسط النقاط؟' },
+            correct: S.correct, retry: S.tryAgain,
+            mode: 'mean',
+            labels: [
+                { fr: 'Ana', ar: 'آنا' },
+                { fr: 'Ben', ar: 'بن' },
+                { fr: 'Chloé', ar: 'كلوي' }
+            ],
+            values: [4, 6, 8],
+            target: 6
+        },
+        {
+            type: 'measure',
+            title: { fr: 'Mesure 6 cm', ar: 'قِس 6 سم' },
+            prompt: { fr: 'Glisse la poignée pour mesurer 6 cm.', ar: 'اسحب المقبض لقياس 6 سم.' },
+            correct: S.correct,
+            target: 6, maxCm: 10
+        },
+        {
+            type: 'pattern',
+            title: { fr: 'Continue la suite', ar: 'أكمل المتتالية' },
+            prompt: { fr: 'Quel nombre vient ensuite ?', ar: 'ما العدد التالي؟' },
+            correct: S.correct, retry: S.tryAgain,
+            start: 3, step: 2, length: 6, missing: 5
+        }
+    ];
+
     // Apply the right streak wording per language at render time.
     function localizeGameSpecs() {
         const lang = (typeof I18N !== 'undefined' && I18N.currentLanguage) || 'fr';
@@ -313,7 +417,8 @@ const ReviewGallery = (function () {
         { sel: '#sec-compare', items: compare },
         { sel: '#sec-geometry', items: geometry },
         { sel: '#sec-explain', items: explainers },
-        { sel: '#sec-games', items: games }
+        { sel: '#sec-games', items: games },
+        { sel: '#sec-extended', items: extended }
     ];
 
     let mounted = [];

@@ -210,7 +210,116 @@ const VARIANTS = {
     symmetry(spec) { return {}; },
 
     // spec: { type:'explainer' } — explainers are deterministic teaching steps.
-    explainer(spec) { return {}; }
+    explainer(spec) { return {}; },
+
+    // ---------- extended widgets (primaire 3–6) ----------
+
+    // spec: { type:'fraction', shape:'bar'|'pie', mode:'shade'|'read', maxParts:n }
+    fraction(spec, rng) {
+        const maxParts = spec.maxParts || 8;
+        const minParts = spec.minParts || 2;
+        const parts = rng.pick([2, 3, 4, 5, 6, 8].filter(v => v >= minParts && v <= maxParts));
+        if (spec.mode === 'read') {
+            const shaded = rng.int(1, parts - 1);
+            return { parts, shaded, target: shaded };
+        }
+        const target = rng.int(1, parts - 1);
+        return { parts, target, shaded: 0 };
+    },
+
+    // spec: { type:'place-value', mode:'build'|'compare', intDigits:n, decimals:n }
+    'place-value'(spec, rng) {
+        const intDigits = spec.intDigits || 1;
+        const decimals = spec.decimals || 1;
+        const randDigits = (n, firstMin) => {
+            let s = '';
+            for (let i = 0; i < n; i++) {
+                const lo = (i === 0 && firstMin) ? 1 : 0;
+                s += String(rng.int(lo, 9));
+            }
+            return s;
+        };
+        const mk = () => randDigits(intDigits, true) + (decimals ? ',' + randDigits(decimals, false) : '');
+        if (spec.mode === 'compare') {
+            let a = mk(), b = mk();
+            let guard = 0;
+            while (a === b && guard++ < 20) b = mk();
+            return { a, b };
+        }
+        const number = mk();
+        return {
+            number,
+            places: ['C', 'D', 'U'].slice(-intDigits).concat(['dixièmes', 'centièmes'].slice(0, decimals))
+        };
+    },
+
+    // spec: { type:'angle', mode:'make'|'identify' }
+    angle(spec, rng) {
+        if (spec.mode === 'identify') {
+            const buckets = ['acute', 'right', 'obtuse'];
+            const kind = spec.angleKind || rng.pick(buckets);
+            let deg;
+            if (kind === 'right' || kind === 'droit') deg = 90;
+            else if (kind === 'acute' || kind === 'aigu') deg = rng.int(20, 75);
+            else deg = rng.int(105, 165);
+            return { angle: deg };
+        }
+        const targets = spec.targets || [30, 45, 60, 90, 120, 135];
+        return { target: rng.pick(targets) };
+    },
+
+    // spec: { type:'column', op:'add'|'sub'|'mul'|'div', digits:n, table:n }
+    column(spec, rng) {
+        const op = spec.op || 'add';
+        const digits = spec.digits || 2;
+        const lo = Math.pow(10, digits - 1);
+        const hi = Math.pow(10, digits) - 1;
+        if (op === 'mul') {
+            const a = rng.int(lo, hi);
+            const b = spec.table ? spec.table : rng.int(2, 9);
+            return { op, a, b };
+        }
+        if (op === 'div') {
+            const b = spec.table ? spec.table : rng.int(2, 9);
+            const q = rng.int(Math.max(2, Math.floor(lo / b)), Math.max(3, Math.floor(hi / b)));
+            return { op, a: b * q + rng.int(0, b - 1), b };
+        }
+        let a = rng.int(lo, hi);
+        let b = rng.int(lo, hi);
+        if (op === 'sub' && b > a) { const t = a; a = b; b = t; }
+        return { op, a, b };
+    },
+
+    // spec: { type:'chart', labels:[..], max:n, mode:'read'|'mean'|'build' }
+    chart(spec, rng) {
+        const labels = spec.labels || [];
+        const max = spec.max || 10;
+        const values = labels.map(() => rng.int(1, max));
+        if (spec.mode === 'mean') {
+            const total = values.reduce((s, v) => s + v, 0);
+            return { values, target: Math.round((total / labels.length) * 100) / 100 };
+        }
+        return { values };
+    },
+
+    // spec: { type:'measure', maxCm:n, step:n }
+    measure(spec, rng) {
+        const maxCm = spec.maxCm || 10;
+        const step = spec.step || 1;
+        const choices = [];
+        for (let v = step; v <= maxCm; v += step) choices.push(v);
+        return { target: rng.pick(choices), maxCm };
+    },
+
+    // spec: { type:'pattern', maxStep:n, maxStart:n, length:n }
+    pattern(spec, rng) {
+        const maxStep = spec.maxStep || 5;
+        const maxStart = spec.maxStart || 10;
+        const length = spec.length || 6;
+        const start = rng.int(0, maxStart);
+        const step = spec.step || rng.int(1, maxStep);
+        return { start, step, length, missing: length - 1 };
+    }
 };
 
 // Build a concrete spec from a chunk's static activity template, with fresh

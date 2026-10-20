@@ -574,6 +574,7 @@ const I18N = {
         'review.section.geometry': { fr: '🔷 Géométrie & espace', ar: '🔷 الهندسة والفضاء' },
         'review.section.explain': { fr: '🎬 Explications animées', ar: '🎬 شروح متحركة' },
         'review.section.games': { fr: '🎮 Jeux & défis', ar: '🎮 ألعاب وتحديات' },
+        'review.section.extended': { fr: '🧩 Nouvelles activités (cycles 3–4)', ar: '🧩 أنشطة جديدة (المرحلتان 3–4)' },
 
         // ===== Lesson content UI =====
         'lesson.objectives': { fr: '🎯 Objectifs', ar: '🎯 الأهداف' },

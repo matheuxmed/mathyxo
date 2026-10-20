@@ -892,6 +892,768 @@ function buildSort(spec, host) {
     return { el: host, reset() { feedback.textContent = ''; feedback.className = 'act-feedback'; } };
 }
 
+// ---------- 10. Fraction builder (shade a bar or pie, then read/write it) ----------
+// spec: {
+//   shape:'bar'|'pie', parts:n, shaded:n,                 // round 1: recognise
+//   mode:'shade'|'read', target:n,                        // 'shade': student shades target/parts
+//   showLabel:bool, compare:[{a,b}]                       // optional comparison sub-task
+// }
+function buildFraction(spec, host) {
+    const parts = spec.parts || 4;
+    const shape = spec.shape || 'bar';
+    const mode = spec.mode || 'shade';
+    const target = spec.target != null ? spec.target : spec.shaded || 1;
+    const wrap = actEl('div', 'frac-wrap');
+    const drawn = actEl('div', 'frac-drawn');
+    const value = actEl('div', 'frac-value');
+    const feedback = actEl('div', 'act-feedback');
+    let shaded = mode === 'read' ? (spec.shaded || 0) : 0;
+    let solved = false;
+
+    const renderFractionNumber = (num, den) => {
+        // Stacked fraction: numerator over a rule over denominator.
+        return '<span class="frac-num" dir="ltr">' + num + '</span>' +
+               '<span class="frac-den" dir="ltr">' + den + '</span>';
+    };
+
+    const refresh = () => {
+        value.innerHTML = '<span class="frac-display">' + renderFractionNumber(shaded, parts) + '</span>';
+    };
+
+    // --- bar shape ---
+    if (shape === 'bar') {
+        const bar = actEl('div', 'frac-bar');
+        bar.style.gridTemplateColumns = 'repeat(' + parts + ', 1fr)';
+        for (let i = 0; i < parts; i++) {
+            const cell = actEl('button', 'frac-part');
+            cell.type = 'button';
+            cell.dataset.index = String(i);
+            cell.setAttribute('aria-label', String(i + 1));
+            const toggle = () => {
+                if (mode !== 'shade' || solved) return;
+                cell.classList.toggle('on');
+                shaded = bar.querySelectorAll('.frac-part.on').length;
+                refresh();
+                if (shaded === target) {
+                    solved = true;
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else if (shaded > target) {
+                    feedback.className = 'act-feedback info';
+                    feedback.textContent = pick(spec.tooMany) || '';
+                }
+            };
+            cell.addEventListener('click', toggle);
+            bar.appendChild(cell);
+        }
+        drawn.appendChild(bar);
+    } else {
+        // --- pie shape: draw `parts` equal wedges, shade the first `shaded` ---
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '-110 -110 220 220');
+        svg.setAttribute('class', 'frac-pie');
+        const R = 100;
+        const wedge = (i) => {
+            const start = (i / parts) * Math.PI * 2 - Math.PI / 2;
+            const end = ((i + 1) / parts) * Math.PI * 2 - Math.PI / 2;
+            const x1 = Math.cos(start) * R, y1 = Math.sin(start) * R;
+            const x2 = Math.cos(end) * R, y2 = Math.sin(end) * R;
+            const large = (end - start) > Math.PI ? 1 : 0;
+            if (parts === 1) return 'M 0 0 L 0 ' + (-R) + ' A ' + R + ' ' + R + ' 0 1 1 0 ' + R + ' Z';
+            return 'M 0 0 L ' + x1.toFixed(2) + ' ' + y1.toFixed(2) +
+                   ' A ' + R + ' ' + R + ' 0 ' + large + ' 1 ' + x2.toFixed(2) + ' ' + y2.toFixed(2) + ' Z';
+        };
+        const pieRefresh = () => {
+            Array.from(svg.querySelectorAll('path')).forEach((p, i) => {
+                p.classList.toggle('on', i < shaded);
+            });
+        };
+        for (let i = 0; i < parts; i++) {
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', wedge(i));
+            path.setAttribute('class', 'frac-wedge');
+            path.dataset.index = String(i);
+            path.addEventListener('click', () => {
+                if (mode !== 'shade' || solved) return;
+                shaded = (shaded === i + 1) ? i : i + 1;
+                pieRefresh();
+                refresh();
+                if (shaded === target) {
+                    solved = true;
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                }
+            });
+            svg.appendChild(path);
+        }
+        drawn.appendChild(svg);
+        // expose the refresh to the outer scope before first paint
+        host._pieRefresh = pieRefresh;
+    }
+
+    if (mode === 'read') {
+        // The student must say what fraction is shaded.
+        const choices = actEl('div', 'frac-choices');
+        const correct = target;
+        const opts = [];
+        const seen = new Set([correct + '/' + parts]);
+        opts.push({ n: correct, d: parts });
+        while (opts.length < 4 && opts.length < parts + 1) {
+            const n = 1 + Math.floor(Math.random() * parts);
+            const key = n + '/' + parts;
+            if (!seen.has(key)) { seen.add(key); opts.push({ n, d: parts }); }
+        }
+        actShuffle(opts).forEach(o => {
+            const b = actEl('button', 'frac-choice');
+            b.type = 'button';
+            b.innerHTML = '<span class="frac-mini">' + renderFractionNumber(o.n, o.d) + '</span>';
+            b.addEventListener('click', () => {
+                if (solved) return;
+                const ok = (o.n === correct && o.d === parts);
+                b.classList.add(ok ? 'correct' : 'wrong');
+                if (ok) {
+                    solved = true;
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback bad';
+                    feedback.textContent = pick(spec.retry) || '✗';
+                    if (spec.onWrong) spec.onWrong();
+                }
+            });
+            choices.appendChild(b);
+        });
+        drawn.appendChild(choices);
+    }
+
+    refresh();
+    if (host._pieRefresh) host._pieRefresh();
+    wrap.appendChild(drawn);
+    wrap.appendChild(value);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+
+    return {
+        el: host,
+        value: () => shaded,
+        reset() {
+            solved = false;
+            shaded = mode === 'read' ? (spec.shaded || 0) : 0;
+            host.querySelectorAll('.frac-part').forEach(c => c.classList.remove('on'));
+            host.querySelectorAll('.frac-wedge').forEach(p => p.classList.remove('on'));
+            host.querySelectorAll('.frac-choice').forEach(c => c.classList.remove('correct', 'wrong'));
+            if (host._pieRefresh) host._pieRefresh();
+            refresh();
+            feedback.textContent = '';
+            feedback.className = 'act-feedback';
+        }
+    };
+}
+
+// ---------- 11. Decimal place-value chart ----------
+// spec: { places:['U','dixièmes','centièmes'], digits:{...} } or
+// spec: { mode:'build', number:'3,45' }  -> student places digits
+// spec: { mode:'compare', a:'3,45', b:'3,5' }
+function buildPlaceValue(spec, host) {
+    const labels = spec.places || ['U', 'dixièmes', 'centièmes'];
+    const wrap = actEl('div', 'pv-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const mode = spec.mode || 'build';
+
+    if (mode === 'compare') {
+        const row = actEl('div', 'pv-compare');
+        const readA = spec.a, readB = spec.b;
+        const a = Number(readA.replace(',', '.'));
+        const b = Number(readB.replace(',', '.'));
+        const mk = (val, cls) => {
+            const card = actEl('div', 'pv-card ' + cls);
+            card.innerHTML = '<span dir="ltr">' + val + '</span>';
+            return card;
+        };
+        row.appendChild(mk(readA, 'a'));
+        const slot = actEl('div', 'pv-sign');
+        slot.innerHTML = '?';
+        row.appendChild(slot);
+        row.appendChild(mk(readB, 'b'));
+        const choices = actEl('div', 'pv-choices');
+        ['&lt;', '&gt;', '='].forEach(sym => {
+            const btn = actEl('button', 'act-btn ghost', sym);
+            btn.type = 'button';
+            btn.innerHTML = sym;
+            btn.addEventListener('click', () => {
+                const correct = a < b ? '<' : (a > b ? '>' : '=');
+                const picked = btn.textContent.trim();
+                const ok = picked === correct;
+                slot.innerHTML = picked;
+                slot.className = 'pv-sign ' + (ok ? 'correct' : 'wrong');
+                if (ok) {
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback bad';
+                    feedback.textContent = pick(spec.retry) || '✗';
+                    if (spec.onWrong) spec.onWrong();
+                }
+            });
+            choices.appendChild(btn);
+        });
+        wrap.appendChild(row);
+        wrap.appendChild(choices);
+        host.appendChild(wrap);
+        host.appendChild(feedback);
+        return { el: host, reset() { slot.innerHTML = '?'; slot.className = 'pv-sign'; feedback.textContent = ''; feedback.className = 'act-feedback'; } };
+    }
+
+    // mode 'build': show a table; student taps the digit for each column.
+    const number = spec.number || '3,45';
+    const digits = number.replace(',', '.').split('');       // e.g. ['3','.','4','5']
+    const intPart = number.split(',')[0] || '';
+    const decPart = number.split(',')[1] || '';
+    const table = actEl('div', 'pv-table');
+    const header = actEl('div', 'pv-row pv-head');
+    const bodyRow = actEl('div', 'pv-row pv-body');
+    const tensRow = actEl('div', 'pv-row pv-parts');
+    const allLabels = ['C', 'D', 'U'].slice(-Math.max(1, intPart.length)).concat(['dixièmes', 'centièmes'].slice(0, decPart.length));
+    // Simpler: label columns for the digits we actually show.
+    const cols = intPart.split('').map((_, i, arr) => ['C', 'D', 'U'][3 - arr.length + i] || 'U').concat(decPart.split('').map((_, i) => i === 0 ? 'dixièmes' : 'centièmes'));
+
+    cols.forEach(lab => {
+        header.appendChild(actEl('div', 'pv-cell pv-cell-head', pick({ fr: lab, ar: lab })));
+    });
+    const inputs = [];
+    const allDigits = (intPart + decPart).split('');
+    allDigits.forEach((d, i) => {
+        const cell = actEl('button', 'pv-cell pv-input');
+        cell.type = 'button';
+        cell.dataset.index = String(i);
+        let cursor = 0;
+        cell.addEventListener('click', () => {
+            cursor = (cursor + 1) % 10;
+            cell.textContent = String(cursor);
+            cell.dataset.value = String(cursor);
+            const built = inputs.map(x => x.dataset.value || '0').join('');
+            const ok = built === allDigits.join('');
+            if (ok) {
+                feedback.className = 'act-feedback good';
+                feedback.textContent = pick(spec.success) || '✓';
+                if (spec.onComplete) spec.onComplete();
+            } else {
+                feedback.className = 'act-feedback';
+                feedback.textContent = '';
+            }
+        });
+        inputs.push(cell);
+        bodyRow.appendChild(cell);
+    });
+    table.appendChild(header);
+    table.appendChild(bodyRow);
+    tensRow.appendChild(actEl('div', 'pv-note', pick({ fr: 'Touche une case pour choisir le chiffre.', ar: 'المس مربعاً لاختيار الرقم.' })));
+    wrap.appendChild(table);
+    wrap.appendChild(tensRow);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+
+    return {
+        el: host,
+        reset() {
+            inputs.forEach(c => { c.textContent = ''; delete c.dataset.value; });
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
+// ---------- 12. Angle explorer (drag a ray, identify the angle) ----------
+// spec: { target:45|90|120, mode:'make'|'identify' }
+function buildAngle(spec, host) {
+    const wrap = actEl('div', 'angle-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const readout = actEl('div', 'angle-readout');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '-20 -20 260 180');
+    svg.setAttribute('class', 'angle-svg');
+    const cx = 40, cy = 140;
+    const armLen = 170;
+    let degrees = spec.mode === 'identify' ? (spec.angle || 90) : 0;
+    const mode = spec.mode || 'make';
+    const target = spec.target || 90;
+
+    // Fixed base ray (points right).
+    const base = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    base.setAttribute('x1', cx); base.setAttribute('y1', cy);
+    base.setAttribute('x2', cx + armLen); base.setAttribute('y2', cy);
+    base.setAttribute('class', 'angle-arm angle-base');
+
+    // Movable ray.
+    const ray = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    ray.setAttribute('class', 'angle-arm angle-move');
+
+    // Arc between the arms.
+    const arc = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    arc.setAttribute('class', 'angle-arc');
+
+    // Right-angle marker for 90°.
+    const corner = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    corner.setAttribute('class', 'angle-corner');
+
+    svg.appendChild(base); svg.appendChild(arc); svg.appendChild(corner); svg.appendChild(ray);
+    wrap.appendChild(svg);
+
+    const toXY = (deg) => {
+        const rad = deg * Math.PI / 180;
+        return { x: cx + Math.cos(rad) * armLen, y: cy - Math.sin(rad) * armLen };
+    };
+
+    const paint = () => {
+        const p = toXY(degrees);
+        ray.setAttribute('x1', cx); ray.setAttribute('y1', cy);
+        ray.setAttribute('x2', p.x); ray.setAttribute('y2', p.y);
+        const r = 42;
+        const s = toXY(0), e = toXY(degrees);
+        const large = degrees > 180 ? 1 : 0;
+        arc.setAttribute('d', 'M ' + (cx + r) + ' ' + cy + ' A ' + r + ' ' + r + ' 0 ' + large + ' 0 ' +
+            (cx + Math.cos(degrees * Math.PI / 180) * r).toFixed(2) + ' ' +
+            (cy - Math.sin(degrees * Math.PI / 180) * r).toFixed(2));
+        corner.setAttribute('d', degrees === 90
+            ? 'M ' + (cx + 22) + ' ' + cy + ' L ' + (cx + 22) + ' ' + (cy - 22) + ' L ' + cx + ' ' + (cy - 22)
+            : '');
+        readout.innerHTML = '<span dir="ltr">' + Math.round(degrees) + '°</span>';
+        if (mode === 'make') {
+            const ok = Math.abs(degrees - target) <= 4;
+            if (ok) {
+                feedback.className = 'act-feedback good';
+                feedback.textContent = pick(spec.success) || '✓';
+                if (spec.onComplete) spec.onComplete();
+            } else {
+                feedback.className = 'act-feedback';
+                feedback.textContent = '';
+            }
+        }
+    };
+
+    // Dragging on the SVG changes the angle.
+    let dragging = false;
+    const setFromPoint = (clientX, clientY) => {
+        const rect = svg.getBoundingClientRect();
+        const scale = 260 / rect.width;
+        const vx = (clientX - rect.left) * scale - 20;
+        const vy = (clientY - rect.top) * scale - 20;
+        const dx = vx + 20 - cx;
+        const dy = -(vy + 20 - cy);
+        let deg = Math.atan2(dy, dx) * 180 / Math.PI;
+        if (deg < 0) deg += 360;
+        degrees = deg;
+        paint();
+    };
+    const down = (e) => { if (mode !== 'make') return; dragging = true; const t = (e.touches && e.touches[0]) || e; setFromPoint(t.clientX, t.clientY); e.preventDefault(); };
+    const move = (e) => { if (!dragging) return; const t = (e.touches && e.touches[0]) || e; setFromPoint(t.clientX, t.clientY); e.preventDefault(); };
+    const up = () => { dragging = false; };
+    svg.addEventListener('pointerdown', down);
+    svg.addEventListener('mousedown', down);
+    document.addEventListener('mousemove', move);
+    document.addEventListener('mouseup', up);
+    svg.addEventListener('touchstart', down, { passive: false });
+    document.addEventListener('touchmove', move, { passive: false });
+    document.addEventListener('touchend', up);
+
+    wrap.appendChild(readout);
+
+    if (mode === 'identify') {
+        // Show an angle, student names it.
+        const kinds = ['droit', 'aigu', 'obtus'];
+        const names = {
+            droit: { fr: 'Angle droit (90°)', ar: 'زاوية قائمة (90°)' },
+            aigu: { fr: 'Angle aigu (< 90°)', ar: 'زاوية حادة (< 90°)' },
+            obtus: { fr: 'Angle obtus (> 90°)', ar: 'زاوية منفرجة (> 90°)' }
+        };
+        const correct = degrees === 90 ? 'droit' : (degrees < 90 ? 'aigu' : 'obtus');
+        const choices = actEl('div', 'angle-choices');
+        kinds.forEach(k => {
+            const b = actEl('button', 'act-btn ghost', pick(names[k]));
+            b.type = 'button';
+            b.addEventListener('click', () => {
+                const ok = k === correct;
+                b.classList.add(ok ? 'correct' : 'wrong');
+                if (ok) {
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback bad';
+                    feedback.textContent = pick(spec.retry) || '✗';
+                    if (spec.onWrong) spec.onWrong();
+                }
+            });
+            choices.appendChild(b);
+        });
+        wrap.appendChild(choices);
+    }
+
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+    paint();
+
+    return {
+        el: host,
+        value: () => degrees,
+        reset() {
+            degrees = mode === 'identify' ? (spec.angle || 90) : 0;
+            host.querySelectorAll('.angle-choices .act-btn').forEach(b => b.classList.remove('correct', 'wrong'));
+            paint();
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
+// ---------- 13. Column board: long multiplication and division ----------
+// spec: { op:'add'|'sub'|'mul'|'div', a, b, divisor }
+function buildColumnBoard(spec, host) {
+    const op = spec.op || 'add';
+    const wrap = actEl('div', 'colboard-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const board = actEl('div', 'col-sum colboard');
+
+    const rows = [];
+
+    const cellRow = (text, cls) => {
+        const row = actEl('div', 'row');
+        String(text).split('').forEach(ch => {
+            const c = actEl('span', 'cell' + (cls ? ' ' + cls : ''), ch === ' ' ? '' : ch);
+            row.appendChild(c);
+        });
+        return row;
+    };
+
+    if (op === 'mul') {
+        const a = spec.a, b = spec.b;
+        const partial1 = a * (b % 10);
+        const partial2 = b >= 10 ? a * Math.floor(b / 10) : null;
+        const total = a * b;
+        // Right-align everything by width.
+        const width = String(total).length;
+        const pad = (s) => String(s).padStart(width, ' ');
+        board.appendChild(cellRow(pad(a)));
+        board.appendChild(cellRow(pad('× ' + b).replace('× ', '×' + ' ').slice(0, width)));
+        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
+        board.appendChild(cellRow(pad(partial1)));
+        if (partial2 != null) board.appendChild(cellRow(pad(partial2)));
+        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
+        const answer = cellRow(pad(total), 'result');
+        answer.classList.add('colboard-answer');
+        board.appendChild(answer);
+        rows.push({ label: { fr: 'Produit', ar: 'الجداء' }, value: total });
+
+        // Student confirms the result by tapping digits (kept light: one button).
+        const actions = actEl('div', 'colboard-actions');
+        const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));
+        btn.type = 'button';
+        btn.addEventListener('click', () => {
+            feedback.className = 'act-feedback good';
+            feedback.textContent = (pick(spec.success) || '✓') + ' ' + a + ' × ' + b + ' = ' + total;
+            if (spec.onComplete) spec.onComplete();
+        });
+        actions.appendChild(btn);
+        wrap.appendChild(actions);
+    } else if (op === 'div') {
+        const a = spec.a, b = spec.b;
+        const q = Math.floor(a / b), r = a % b;
+        board.appendChild(cellRow('  ' + a));
+        board.appendChild(cellRow('÷' + b + ' '));
+        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(String(a).length)));
+        const ql = cellRow('  ' + q, 'result');
+        board.appendChild(ql);
+        const note = actEl('div', 'col-note',
+            '<span dir="ltr">' + a + ' = ' + b + ' × ' + q + ' + ' + r + '</span>');
+        board.appendChild(note);
+        rows.push({ label: { fr: 'Quotient', ar: 'الخارج' }, value: q });
+
+        const actions = actEl('div', 'colboard-actions');
+        const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));
+        btn.type = 'button';
+        btn.addEventListener('click', () => {
+            feedback.className = 'act-feedback good';
+            feedback.textContent = (pick(spec.success) || '✓') + ' ' + a + ' ÷ ' + b + ' = ' + q +
+                (r ? ' (' + pick({ fr: 'reste', ar: 'الباقي' }) + ' ' + r + ')' : '');
+            if (spec.onComplete) spec.onComplete();
+        });
+        actions.appendChild(btn);
+        wrap.appendChild(actions);
+    } else {
+        // add / sub with a carry or borrow row
+        const a = spec.a, b = spec.b;
+        const isAdd = op === 'add';
+        const sum = isAdd ? a + b : a - b;
+        const width = String(Math.max(a, b)).length;
+        const pad = (n) => String(Math.abs(n)).padStart(width, ' ');
+        board.appendChild(actEl('div', 'row carryrow', '<span class="cell blank"></span>'.repeat(width)));
+        board.appendChild(cellRow(pad(a)));
+        board.appendChild(cellRow(pad(b)));
+        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
+        const res = cellRow(pad(sum), 'result');
+        board.appendChild(res);
+        rows.push({ label: { fr: 'Résultat', ar: 'النتيجة' }, value: sum });
+
+        const actions = actEl('div', 'colboard-actions');
+        const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));
+        btn.type = 'button';
+        btn.addEventListener('click', () => {
+            feedback.className = 'act-feedback good';
+            feedback.textContent = (pick(spec.success) || '✓') + ' ' + a + ' ' + (isAdd ? '+' : '−') + ' ' + b + ' = ' + sum;
+            if (spec.onComplete) spec.onComplete();
+        });
+        actions.appendChild(btn);
+        wrap.appendChild(actions);
+    }
+
+    wrap.insertBefore(board, wrap.firstChild);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+    return { el: host, reset() { feedback.textContent = ''; feedback.className = 'act-feedback'; } };
+}
+
+// ---------- 14. Chart reader: bar chart / frequency table / mean ----------
+// spec: { labels:[..], values:[..], questions:[{kind, ...}] }
+function buildChart(spec, host) {
+    const labels = spec.labels || [];
+    const values = spec.values || [];
+    const max = Math.max.apply(null, values.concat([1]));
+    const wrap = actEl('div', 'chart-wrap');
+    const chart = actEl('div', 'chart-bars');
+    const feedback = actEl('div', 'act-feedback');
+
+    labels.forEach((lab, i) => {
+        const col = actEl('div', 'chart-col');
+        const v = values[i];
+        const bar = actEl('div', 'chart-bar');
+        bar.style.height = Math.round((v / max) * 140) + 'px';
+        bar.dataset.value = String(v);
+        bar.title = String(v);
+        const cap = actEl('span', 'chart-cap', pick(lab));
+        col.appendChild(bar);
+        col.appendChild(cap);
+        chart.appendChild(col);
+    });
+    wrap.appendChild(chart);
+
+    const mode = spec.mode || 'read';
+    if (mode === 'mean') {
+        const target = spec.target || Math.round(values.reduce((s, v) => s + v, 0) / values.length * 100) / 100;
+        const choices = actEl('div', 'chart-choices');
+        const correct = Math.round(target * 100) / 100;
+        const opts = new Set([correct]);
+        while (opts.size < 4) {
+            const cand = Math.max(0, correct + Math.floor(Math.random() * 9) - 4);
+            opts.add(cand);
+        }
+        actShuffle(Array.from(opts)).forEach(v => {
+            const b = actEl('button', 'act-btn ghost', '<span dir="ltr">' + v + '</span>');
+            b.type = 'button';
+            b.addEventListener('click', () => {
+                const ok = Number(v) === correct;
+                b.classList.add(ok ? 'correct' : 'wrong');
+                if (ok) {
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback bad';
+                    feedback.textContent = pick(spec.retry) || '✗';
+                    if (spec.onWrong) spec.onWrong();
+                }
+            });
+            choices.appendChild(b);
+        });
+        wrap.appendChild(choices);
+    } else if (mode === 'build') {
+        // Student taps a column to set its value to match a target list.
+        const targets = spec.targets || values;
+        const current = labels.map(() => 0);
+        const cols = chart.querySelectorAll('.chart-col');
+        cols.forEach((col, i) => {
+            const bar = col.querySelector('.chart-bar');
+            const valOut = actEl('span', 'chart-val', '0');
+            col.insertBefore(valOut, bar);
+            col.style.cursor = 'pointer';
+            col.addEventListener('click', () => {
+                current[i] = (current[i] + 1) % (max + 1);
+                bar.style.height = Math.round((current[i] / max) * 140) + 'px';
+                valOut.textContent = String(current[i]);
+                const ok = current.every((v, k) => v === targets[k]);
+                if (ok) {
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback';
+                    feedback.textContent = '';
+                }
+            });
+        });
+    } else {
+        const q = spec.question || {};
+        const correct = q.answer != null ? q.answer : values.indexOf(max);
+        const choices = actEl('div', 'chart-choices');
+        labels.forEach((lab, i) => {
+            const b = actEl('button', 'act-btn ghost', pick(lab));
+            b.type = 'button';
+            b.addEventListener('click', () => {
+                const ok = i === correct;
+                b.classList.add(ok ? 'correct' : 'wrong');
+                if (ok) {
+                    feedback.className = 'act-feedback good';
+                    feedback.textContent = pick(spec.success) || '✓';
+                    if (spec.onComplete) spec.onComplete();
+                } else {
+                    feedback.className = 'act-feedback bad';
+                    feedback.textContent = pick(spec.retry) || '✗';
+                    if (spec.onWrong) spec.onWrong();
+                }
+            });
+            choices.appendChild(b);
+        });
+        wrap.appendChild(choices);
+    }
+
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+    return { el: host, reset() { feedback.textContent = ''; feedback.className = 'act-feedback'; } };
+}
+
+// ---------- 15. Measurement ruler (drag an object, read its length) ----------
+// spec: { target:cm, tolerance:0.5 }
+function buildMeasure(spec, host) {
+    const wrap = actEl('div', 'measure-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const target = spec.target || 5;
+    const tol = spec.tolerance != null ? spec.tolerance : 0.4;
+    const maxCm = spec.maxCm || 10;
+    let cm = spec.start != null ? spec.start : 1;
+
+    const ruler = actEl('div', 'ruler');
+    ruler.style.width = (maxCm * 34) + 'px';
+    for (let i = 0; i <= maxCm; i++) {
+        const tick = actEl('span', 'ruler-tick' + (i % 5 === 0 ? ' major' : ''));
+        tick.style.left = (i * 34) + 'px';
+        if (i % 5 === 0) tick.textContent = String(i);
+        ruler.appendChild(tick);
+    }
+    const object = actEl('div', 'ruler-object');
+    const readout = actEl('div', 'measure-readout');
+    const apply = () => {
+        object.style.width = (cm * 34) + 'px';
+        readout.innerHTML = '<span dir="ltr">' + cm.toFixed(1) + ' cm</span>';
+        const ok = Math.abs(cm - target) <= tol;
+        if (ok) {
+            feedback.className = 'act-feedback good';
+            feedback.textContent = pick(spec.success) || '✓';
+            if (spec.onComplete) spec.onComplete();
+        } else {
+            feedback.className = 'act-feedback';
+            feedback.textContent = '';
+        }
+    };
+
+    // Drag the right edge of the object.
+    let dragging = false;
+    const handle = actEl('span', 'ruler-handle');
+    object.appendChild(handle);
+    const setFromX = (clientX) => {
+        const rect = ruler.getBoundingClientRect();
+        const px = clientX - rect.left;
+        cm = Math.max(0.5, Math.min(maxCm, Math.round((px / 34) * 2) / 2));
+        apply();
+    };
+    const down = (e) => { dragging = true; const t = (e.touches && e.touches[0]) || e; setFromX(t.clientX); e.preventDefault(); };
+    const move = (e) => { if (!dragging) return; const t = (e.touches && e.touches[0]) || e; setFromX(t.clientX); e.preventDefault(); };
+    const up = () => { dragging = false; };
+    handle.addEventListener('mousedown', down);
+    handle.addEventListener('touchstart', down, { passive: false });
+    document.addEventListener('mousemove', move);
+    document.addEventListener('touchend', up);
+    document.addEventListener('mouseup', up);
+
+    wrap.appendChild(ruler);
+    wrap.appendChild(object);
+    wrap.appendChild(readout);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+    apply();
+
+    return { el: host, value: () => cm, reset() { cm = 1; apply(); feedback.textContent = ''; feedback.className = 'act-feedback'; } };
+}
+
+// ---------- 16. Pattern / sequence builder ----------
+// spec: { start:n, step:n, length:n, choices:bool }
+function buildPattern(spec, host) {
+    const start = spec.start || 0;
+    const step = spec.step || 1;
+    const length = spec.length || 6;
+    const seq = [];
+    for (let i = 0; i < length; i++) seq.push(start + i * step);
+    const missingIndex = spec.missing != null ? spec.missing : length - 1;
+    const wrap = actEl('div', 'pattern-wrap');
+    const row = actEl('div', 'pattern-row');
+    const feedback = actEl('div', 'act-feedback');
+
+    seq.forEach((v, i) => {
+        if (i === missingIndex) {
+            const slot = actEl('div', 'pattern-slot', '?');
+            slot.dataset.answer = String(v);
+            slot.dataset.index = String(i);
+            row.appendChild(slot);
+        } else {
+            row.appendChild(actEl('div', 'pattern-num', actNumber(v)));
+        }
+    });
+    wrap.appendChild(row);
+
+    const correct = seq[missingIndex];
+    const opts = new Set([correct]);
+    let guard = 0;
+    while (opts.size < 4 && guard++ < 40) {
+        const cand = correct + (Math.floor(Math.random() * 11) - 5) * step;
+        if (cand !== correct && cand >= 0) opts.add(cand);
+    }
+    const choices = actEl('div', 'pattern-choices');
+    actShuffle(Array.from(opts)).forEach(v => {
+        const b = actEl('button', 'act-btn ghost', actNumber(v));
+        b.type = 'button';
+        b.dataset.value = String(v);
+        b.addEventListener('click', () => {
+            const ok = Number(v) === correct;
+            const slot = row.querySelector('.pattern-slot');
+            slot.textContent = String(v);
+            slot.className = 'pattern-slot ' + (ok ? 'correct' : 'wrong');
+            if (ok) {
+                feedback.className = 'act-feedback good';
+                feedback.textContent = pick(spec.success) || '✓';
+                if (spec.onComplete) spec.onComplete();
+            } else {
+                feedback.className = 'act-feedback bad';
+                feedback.textContent = pick(spec.retry) || '✗';
+                if (spec.onWrong) spec.onWrong();
+            }
+        });
+        choices.appendChild(b);
+    });
+    wrap.appendChild(choices);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+
+    return {
+        el: host,
+        reset() {
+            const slot = row.querySelector('.pattern-slot');
+            slot.textContent = '?'; slot.className = 'pattern-slot';
+            host.querySelectorAll('.pattern-choices .act-btn').forEach(b => b.classList.remove('correct', 'wrong'));
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
 // ---------- registry ----------
 const ACTIVITIES = {
     'count-tap': buildCountTap,
@@ -903,7 +1665,14 @@ const ACTIVITIES = {
     tenframe: buildTenFrame,
     quiz: buildQuiz,
     tables: buildTableGame,
-    sort: buildSort
+    sort: buildSort,
+    fraction: buildFraction,
+    'place-value': buildPlaceValue,
+    angle: buildAngle,
+    column: buildColumnBoard,
+    chart: buildChart,
+    measure: buildMeasure,
+    pattern: buildPattern
 };
 
 // Render one activity spec into a host element, wrapped in the standard card.
