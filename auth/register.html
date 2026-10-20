@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-key="page.title.register">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Apply the saved language direction before paint to avoid a layout flash.
+        (function () {
+            try {
+                if (localStorage.getItem('mathyxo_language') === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
     <title>Inscription - MatheuxMed</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/rtl.css">
+    <link rel="stylesheet" href="../css/language-switcher.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -15,66 +28,70 @@
     <main class="container">
         <div class="auth-container">
             <div class="auth-form">
-                <h2>Créer un Compte</h2>
-                <p class="auth-subtitle">Inscrivez-vous pour commencer à apprendre</p>
+                <h2 data-i18n="auth.register.title">Créer un Compte</h2>
+                <p class="auth-subtitle" data-i18n="auth.register.subtitle">Inscrivez-vous pour commencer à apprendre</p>
 
                 <form id="register-form">
                     <div class="form-group">
-                        <label for="register-name">Nom Complet</label>
-                        <input type="text" id="register-name" name="name" required placeholder="Ahmed Bennani">
+                        <label for="register-name" data-i18n="auth.field.name">Nom Complet</label>
+                        <input type="text" id="register-name" name="name" required
+                               data-i18n-placeholder="auth.placeholder.name" placeholder="Ahmed Bennani">
                     </div>
 
                     <div class="form-group">
-                        <label for="register-email">Email</label>
-                        <input type="email" id="register-email" name="email" required placeholder="ahmed@example.com">
+                        <label for="register-email" data-i18n="auth.field.email">Email</label>
+                        <input type="email" id="register-email" name="email" required
+                               data-i18n-placeholder="auth.placeholder.email" placeholder="ahmed@example.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="register-password">Mot de Passe</label>
-                        <input type="password" id="register-password" name="password" required placeholder="Minimum 6 caractères">
+                        <label for="register-password" data-i18n="auth.field.password">Mot de Passe</label>
+                        <input type="password" id="register-password" name="password" required
+                               data-i18n-placeholder="auth.placeholder.password" placeholder="Minimum 6 caractères">
                     </div>
 
                     <div class="form-group">
-                        <label for="register-level">Niveau</label>
+                        <label for="register-level" data-i18n="auth.field.level">Niveau</label>
                         <select id="register-level" name="level" required>
-                            <option value="">Sélectionnez votre niveau</option>
-                            <optgroup label="Primaire">
-                                <option value="1ère Année Primaire">1ère Année Primaire</option>
-                                <option value="2ème Année Primaire">2ème Année Primaire</option>
-                                <option value="3ème Année Primaire">3ème Année Primaire</option>
-                                <option value="4ème Année Primaire">4ème Année Primaire</option>
-                                <option value="5ème Année Primaire">5ème Année Primaire</option>
-                                <option value="6ème Année Primaire">6ème Année Primaire</option>
+                            <option value="" data-i18n="auth.placeholder.level">Sélectionnez votre niveau</option>
+                            <optgroup label="Primaire" data-i18n-label="reg.cycle.primary">
+                                <option value="1ère Année Primaire" data-i18n="reg.level.p1">1ère Année Primaire</option>
+                                <option value="2ème Année Primaire" data-i18n="reg.level.p2">2ème Année Primaire</option>
+                                <option value="3ème Année Primaire" data-i18n="reg.level.p3">3ème Année Primaire</option>
+                                <option value="4ème Année Primaire" data-i18n="reg.level.p4">4ème Année Primaire</option>
+                                <option value="5ème Année Primaire" data-i18n="reg.level.p5">5ème Année Primaire</option>
+                                <option value="6ème Année Primaire" data-i18n="reg.level.p6">6ème Année Primaire</option>
                             </optgroup>
-                            <optgroup label="Collège">
-                                <option value="1ère Année Collège">1ère Année Collège</option>
-                                <option value="2ème Année Collège">2ème Année Collège</option>
-                                <option value="3ème Année Collège">3ème Année Collège</option>
+                            <optgroup label="Collège" data-i18n-label="reg.cycle.middle">
+                                <option value="1ère Année Collège" data-i18n="reg.level.c1">1ère Année Collège</option>
+                                <option value="2ème Année Collège" data-i18n="reg.level.c2">2ème Année Collège</option>
+                                <option value="3ème Année Collège" data-i18n="reg.level.c3">3ème Année Collège</option>
                             </optgroup>
-                            <optgroup label="Lycée">
-                                <option value="Tronc Commun">Tronc Commun</option>
-                                <option value="1ère Année Bac (SE/SM)">1ère Année Bac (SE/SM)</option>
-                                <option value="2ème Année Bac (PC/SVT/SM)">2ème Année Bac (PC/SVT/SM)</option>
+                            <optgroup label="Lycée" data-i18n-label="reg.cycle.high">
+                                <option value="Tronc Commun" data-i18n="reg.level.tc">Tronc Commun</option>
+                                <option value="1ère Année Bac (SE/SM)" data-i18n="reg.level.b1">1ère Année Bac (SE/SM)</option>
+                                <option value="2ème Année Bac (PC/SVT/SM)" data-i18n="reg.level.b2">2ème Année Bac (PC/SVT/SM)</option>
                             </optgroup>
                         </select>
                     </div>
 
-                    <button type="button" onclick="handleRegister()" class="btn btn-primary">S'inscrire</button>
+                    <button type="button" onclick="handleRegister()" class="btn btn-primary" data-i18n="auth.register.button">S'inscrire</button>
                 </form>
 
                 <p class="auth-toggle">
-                    Vous avez déjà un compte? <a href="./login.html">Se connecter</a>
+                    <span data-i18n="auth.toggle.toLogin">Vous avez déjà un compte?</span>
+                    <a href="./login.html" data-i18n="auth.link.login">Se connecter</a>
                 </p>
             </div>
 
             <div class="auth-info">
-                <h3>Avantages de l'inscription</h3>
+                <h3 data-i18n="auth.benefits.title">Avantages de l'inscription</h3>
                 <ul>
-                    <li>✅ Sauvegardez votre progrès</li>
-                    <li>✅ Accédez aux quizzes interactifs</li>
-                    <li>✅ Suivez vos scores</li>
-                    <li>✅ Débloquez les leçons premium</li>
-                    <li>✅ Recevez des recommandations</li>
+                    <li>✅ <span data-i18n="auth.benefit1">Sauvegardez votre progrès</span></li>
+                    <li>✅ <span data-i18n="auth.benefit2">Accédez aux quizzes interactifs</span></li>
+                    <li>✅ <span data-i18n="auth.benefit3">Suivez vos scores</span></li>
+                    <li>✅ <span data-i18n="auth.benefit4">Débloquez les leçons premium</span></li>
+                    <li>✅ <span data-i18n="auth.benefit5">Recevez des recommandations</span></li>
                 </ul>
             </div>
         </div>
@@ -83,11 +100,12 @@
     <div id="footer-container"></div>
 
     <script src="../js/i18n.js"></script>
-    <script src="../js/components.js"></script>
+    <script src="../js/language-switcher.js"></script>
     <script>
         window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
+    <script src="../js/components.js"></script>
     <script src="../js/auth.js"></script>
 
     <script>
@@ -98,7 +116,7 @@
             const level = document.getElementById('register-level').value;
 
             if (!name || !email || !password || !level) {
-                alert('Veuillez remplir tous les champs');
+                alert(t('auth.alert.fillAll'));
                 return;
             }
 

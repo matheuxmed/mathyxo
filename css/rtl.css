@@ -1,71 +1,47 @@
 /* ===== RTL (Right-to-Left) Support Stylesheet ===== */
-/* Handles proper layout flipping and styling for Arabic and other RTL languages */
+/* Handles layout flipping and styling for Arabic and other RTL languages. */
 
-/* ===== HTML & Body Direction ===== */
+/* ===== Direction ===== */
 html[dir="rtl"],
 body[data-lang="ar"] {
     direction: rtl;
-    text-align: right;
 }
 
 html[dir="ltr"],
 body[data-lang="fr"] {
     direction: ltr;
-    text-align: left;
 }
 
-/* ===== Navigation Adjustments ===== */
-[dir="rtl"] .navbar {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .nav-left {
-    flex-direction: row-reverse;
-}
-
+/* ===== Navigation ===== */
+/* The navbar uses flexbox, which follows `direction` automatically, so the
+   items are laid out right-to-left without forcing row-reverse. */
 [dir="rtl"] .nav-menu {
-    text-align: right;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 [dir="rtl"] .nav-link {
     text-align: right;
 }
 
+/* Keep the hamburger on the opposite edge of the menu on small screens. */
 [dir="rtl"] .hamburger {
     order: 2;
 }
 
-/* ===== Flexbox Reversals ===== */
-[dir="rtl"] .level-card,
-[dir="rtl"] .feature,
-[dir="rtl"] .lesson-card,
-[dir="rtl"] .social-card {
-    flex-direction: column;
-}
-
-[dir="rtl"] .features-grid,
-[dir="rtl"] .levels,
-[dir="rtl"] .lessons-grid,
-[dir="rtl"] .social-links-grid {
-    flex-direction: row;
-}
-
-[dir="rtl"] .cta-buttons {
-    flex-direction: row-reverse;
-}
-
-/* ===== Text & Alignment =====*/
+/* ===== Text & Alignment ===== */
 [dir="rtl"] h1,
 [dir="rtl"] h2,
 [dir="rtl"] h3,
 [dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
 [dir="rtl"] p {
     text-align: right;
 }
 
 [dir="rtl"] ul,
 [dir="rtl"] ol {
-    text-align: right;
     margin-right: 0;
     margin-left: 0;
     padding-right: 1.5em;
@@ -74,55 +50,38 @@ body[data-lang="fr"] {
 
 [dir="rtl"] li {
     text-align: right;
-    margin-right: 0;
-    margin-left: 0;
 }
 
-/* ===== Margin & Padding Inversions ===== */
-[dir="rtl"] .btn {
-    margin-left: 10px;
-    margin-right: 0;
-}
-
+/* ===== Keep intentionally-centered blocks centered ===== */
+[dir="rtl"] .page-header,
+[dir="rtl"] .page-header h1,
+[dir="rtl"] .page-header p,
+[dir="rtl"] .section-title,
+[dir="rtl"] .hero,
+[dir="rtl"] .hero h2,
+[dir="rtl"] .hero p,
 [dir="rtl"] .level-card,
-[dir="rtl"] .feature,
-[dir="rtl"] .lesson-card {
-    margin-left: 15px;
-    margin-right: 0;
+[dir="rtl"] .level-card h3,
+[dir="rtl"] .level-card p,
+[dir="rtl"] .lesson-card .btn,
+[dir="rtl"] .profile-dropdown .btn,
+[dir="rtl"] .dashboard-header,
+[dir="rtl"] .dashboard-header h1,
+[dir="rtl"] .dashboard-header p,
+[dir="rtl"] footer,
+[dir="rtl"] footer p,
+[dir="rtl"] .text-center {
+    text-align: center;
 }
 
-[dir="rtl"] .nav-right {
-    order: -1;
-}
-
-/* ===== Button Arrow Directions ===== */
-[dir="rtl"] .btn::after {
-    content: "←";
-    margin-left: 5px;
-    margin-right: 0;
-}
-
-[dir="rtl"] .btn:not(:has(::after))::after {
-    margin-right: 5px;
-    margin-left: 0;
-}
-
-/* ===== Border Positioning ===== */
-[dir="rtl"] .level-card,
-[dir="rtl"] .feature,
-[dir="rtl"] .lesson-card,
-[dir="rtl"] .social-card {
-    border-right: none;
-    border-left: 4px solid #007bff;
-}
-
-[dir="rtl"] .social-card {
-    border-top: 3px solid;
-    border-right: none;
+/* ===== Border side inversions ===== */
+[dir="rtl"] .placeholder-note,
+[dir="rtl"] .auth-banner {
     border-left: none;
+    border-right: 4px solid var(--primary-color, #007bff);
 }
 
-/* ===== Input & Form Fields ===== */
+/* ===== Inputs & Form Fields ===== */
 [dir="rtl"] input,
 [dir="rtl"] textarea,
 [dir="rtl"] select {
@@ -135,43 +94,17 @@ body[data-lang="fr"] {
     text-align: right;
 }
 
-/* ===== Profile Section ===== */
-[dir="rtl"] .profile-section {
-    flex-direction: row-reverse;
-}
-
-[dir="rtl"] .profile-avatar {
-    margin-left: 10px;
-    margin-right: 0;
-}
-
-[dir="rtl"] .current-level {
-    flex-direction: row-reverse;
-}
-
 /* ===== Progress Bars ===== */
 [dir="rtl"] .level-progress-bar {
-    border-radius: 0 5px 5px 0;
-    background: linear-gradient(to left, #007bff, #0056b3);
+    background: linear-gradient(to left, var(--primary-color, #007bff), #0056b3);
 }
 
-/* ===== Hero Section ===== */
-[dir="rtl"] .hero {
-    text-align: center;
-}
-
-[dir="rtl"] .hero h2,
-[dir="rtl"] .hero p {
-    text-align: center;
-}
-
-/* ===== Footer ===== */
-[dir="rtl"] footer {
-    text-align: center;
-}
-
-[dir="rtl"] footer p {
-    text-align: center;
+/* ===== Numbers / Latin math tokens stay readable in RTL ===== */
+[dir="rtl"] .level-meta,
+[dir="rtl"] .xp-badge,
+[dir="rtl"] .stat-number,
+[dir="rtl"] .breadcrumb {
+    unicode-bidi: isolate;
 }
 
 /* ===== Arabic Typography ===== */
@@ -191,81 +124,30 @@ body[data-lang="fr"] {
     letter-spacing: 0.01em;
 }
 
-/* ===== Numbers in RTL (Preserve LTR for Math) ===== */
-[dir="rtl"] .xp-badge,
-[dir="rtl"] .level-meta {
-    unicode-bidi: embed;
-}
-
-/* ===== Smooth Transitions ===== */
-[dir="rtl"],
-[dir="ltr"] {
-    transition: direction 0.3s ease, text-align 0.3s ease;
-}
-
 /* ===== Mobile RTL Adjustments ===== */
 @media (max-width: 768px) {
-    [dir="rtl"] .navbar {
-        flex-wrap: wrap;
-    }
-
-    [dir="rtl"] .nav-menu {
-        right: 0;
-        left: auto;
-    }
-
     [dir="rtl"] .hamburger {
         margin-right: 0;
         margin-left: auto;
     }
-
-    [dir="rtl"] .levels,
-    [dir="rtl"] .features-grid,
-    [dir="rtl"] .social-links-grid {
-        flex-direction: column;
-    }
-
-    [dir="rtl"] .level-card,
-    [dir="rtl"] .feature,
-    [dir="rtl"] .social-card {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-    [dir="rtl"] .cta-buttons {
-        flex-direction: column;
-    }
-
-    [dir="rtl"] .btn {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
 }
 
-/* ===== Dark Mode RTL Support ===== */
-@media (prefers-color-scheme: dark) {
-    [dir="rtl"] body {
-        color: #e0e0e0;
-        background-color: #1a1a1a;
-    }
-
-    [dir="rtl"] .level-card,
-    [dir="rtl"] .feature,
-    [dir="rtl"] .lesson-card {
-        background-color: #2d2d2d;
-        border-left-color: #0099ff;
-    }
-
-    [dir="rtl"] input,
-    [dir="rtl"] textarea {
-        background-color: #333;
-        color: #e0e0e0;
-        border-color: #555;
-    }
+/* Keep inline numeric/Latin tokens intact inside RTL text. */
+.nt {
+    unicode-bidi: isolate;
+    white-space: nowrap;
 }
 
-/* ===== Utility Classes for RTL ===== */
+/* ===== Float inversions ===== */
+[dir="rtl"] .float-left {
+    float: right;
+}
+
+[dir="rtl"] .float-right {
+    float: left;
+}
+
+/* ===== Direction-scoped visibility helpers ===== */
 .rtl-only {
     display: none;
 }
@@ -280,19 +162,4 @@ body[data-lang="fr"] {
 
 [dir="rtl"] .ltr-only {
     display: none;
-}
-
-/* ===== Float Inversions ===== */
-[dir="rtl"] .float-left {
-    float: right;
-}
-
-[dir="rtl"] .float-right {
-    float: left;
-}
-
-/* ===== Center Alignment (Works in Both Directions) ===== */
-[dir="rtl"] .text-center,
-[dir="ltr"] .text-center {
-    text-align: center;
 }

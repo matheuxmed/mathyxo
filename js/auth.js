@@ -44,36 +44,36 @@ function siteBase() {
 }
 
 function authUnavailable() {
-    alert('Service d\'authentification indisponible. Veuillez rafraîchir la page.');
+    alert(t('auth.msg.unavailable'));
 }
 
-// Translate common Supabase auth errors into friendly French messages.
+// Translate common Supabase auth errors into friendly messages.
 function friendlyAuthError(error) {
     const code = (error && (error.code || error.error_code)) || '';
     const msg = (error && error.message ? error.message : '').toLowerCase();
 
     if (code === 'over_email_send_rate_limit' || msg.includes('rate limit')) {
-        return 'Trop de tentatives d\'inscription. Veuillez patienter quelques minutes puis réessayer.';
+        return t('auth.err.rateLimit');
     }
     if (code === 'user_already_exists' || msg.includes('already registered') || msg.includes('already been registered')) {
-        return 'Un compte existe déjà avec cet email. Connectez-vous plutôt.';
+        return t('auth.err.exists');
     }
     if (msg.includes('invalid email') || code === 'email_address_invalid' || code === 'validation_failed') {
-        return 'Adresse email invalide. Vérifiez le format (ex: nom@domaine.com).';
+        return t('auth.err.invalidEmail');
     }
     if (code === 'signup_disabled') {
-        return 'Les inscriptions sont temporairement désactivées.';
+        return t('auth.err.signupDisabled');
     }
     if (msg.includes('email not confirmed')) {
-        return 'Votre email n\'est pas encore confirmé. Vérifiez votre boîte de réception.';
+        return t('auth.err.emailNotConfirmed');
     }
     if (msg.includes('invalid login credentials')) {
-        return 'Email ou mot de passe incorrect.';
+        return t('auth.err.badCredentials');
     }
     if (msg.includes('password') && (msg.includes('at least') || msg.includes('short') || msg.includes('weak'))) {
-        return 'Le mot de passe est trop faible (6 caractères minimum).';
+        return t('auth.err.weakPassword');
     }
-    return error && error.message ? error.message : 'Inscription impossible. Réessayez plus tard.';
+    return error && error.message ? error.message : t('auth.err.registerFailed');
 }
 
 async function registerUser(email, password, displayName, level) {
@@ -99,7 +99,7 @@ async function registerUser(email, password, displayName, level) {
 
         // When email confirmation is enabled, signUp returns a user but no session.
         if (!data.session) {
-            alert('✅ Compte créé! Vérifiez votre boîte email (' + email + ') pour confirmer votre inscription, puis connectez-vous.');
+            alert(t('auth.msg.registerConfirm', { email: email }));
             setTimeout(() => {
                 window.location.href = siteBase() + 'auth/login.html';
             }, 2000);
@@ -118,7 +118,7 @@ async function registerUser(email, password, displayName, level) {
             console.warn('Profile could not be saved:', profileError.message);
         }
 
-        alert('✅ Inscription réussie! Bienvenue ' + displayName);
+        alert(t('auth.msg.registerSuccess', { name: displayName }));
         setTimeout(() => {
             window.location.href = siteBase() + 'student-dashboard/';
         }, 1500);
@@ -138,7 +138,8 @@ async function loginUser(email, password) {
         if (error) throw error;
 
         const user = data && data.user;
-        alert('✅ Connexion réussie! Bienvenue ' + ((user && user.user_metadata && user.user_metadata.display_name) || (user && user.email) || ''));
+        const name = (user && user.user_metadata && user.user_metadata.display_name) || (user && user.email) || '';
+        alert(t('auth.msg.loginSuccess', { name: name }));
         setTimeout(() => {
             window.location.href = siteBase() + 'student-dashboard/';
         }, 1500);
@@ -155,14 +156,14 @@ async function logoutUser() {
     try {
         const { error } = await SUPABASE.auth.signOut();
         if (error) throw error;
-        alert('✅ Déconnexion réussie');
+        alert(t('auth.msg.logoutSuccess'));
         setTimeout(() => {
             window.location.href = siteBase();
         }, 1000);
         return true;
     } catch (error) {
         console.error('Logout error:', error);
-        alert('❌ Erreur: ' + (error && error.message ? error.message : 'Déconnexion impossible'));
+        alert('❌ ' + (error && error.message ? error.message : t('auth.err.logoutFailed')));
         return false;
     }
 }
@@ -207,7 +208,7 @@ async function saveProgress(lessonId, quizScore) {
     try {
         const user = await getCurrentUser();
         if (!user) {
-            alert('Vous devez être connecté');
+            alert(t('auth.err.loginRequired'));
             return false;
         }
 

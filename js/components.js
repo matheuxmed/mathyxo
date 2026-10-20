@@ -30,6 +30,42 @@ function t(key, params) {
     return key;
 }
 
+// ===== Localize a data node field (uses <field>Ar in Arabic) =====
+function L(node, field) {
+    if (typeof I18N !== 'undefined' && typeof I18N.localize === 'function') {
+        return I18N.localize(node, field);
+    }
+    return node ? (node[field] || '') : '';
+}
+
+// ===== Apply translations to static markup via data-i18n* attributes =====
+function applyI18n(root) {
+    const scope = root || document;
+    const titleKey = scope === document ? document.documentElement.getAttribute('data-title-key') : null;
+    if (titleKey) document.title = t(titleKey);
+    scope.querySelectorAll('[data-i18n]').forEach(function (el) {
+        el.textContent = t(el.getAttribute('data-i18n'));
+    });
+    scope.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
+    });
+    scope.querySelectorAll('[data-i18n-label]').forEach(function (el) {
+        el.setAttribute('label', t(el.getAttribute('data-i18n-label')));
+    });
+    scope.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        el.innerHTML = t(el.getAttribute('data-i18n-html'));
+    });
+}
+
+// Wrap digits/latin runs so they stay readable inside RTL text.
+function nt(value) {
+    const text = String(value == null ? '' : value);
+    if (typeof I18N !== 'undefined' && I18N.currentLanguage === 'ar') {
+        return '<span class="nt" dir="ltr">' + text + '</span>';
+    }
+    return text;
+}
+
 // ===== Gamification System =====
 var GAMIFICATION = {
     userKey: 'mathyxo_user',
@@ -41,7 +77,7 @@ var GAMIFICATION = {
         }
 
         const newUser = {
-            username: t('gamif.profile') || 'Apprenant',
+            username: (typeof I18N !== 'undefined' && I18N.currentLanguage === 'ar') ? 'متعلّم' : 'Apprenant',
             avatar: '👤',
             xp: 0,
             level: 0,
@@ -121,7 +157,7 @@ function renderHeader() {
     return `
         <header>
             <div class="header-content">
-                <h1>📐 ${SITE_CONFIG.siteName}</h1>
+                <h1 data-i18n="header.siteName">📐 ${SITE_CONFIG.siteName}</h1>
             </div>
         </header>
     `;
@@ -161,13 +197,13 @@ function renderNavbar(activePath = '') {
                         <span id="dd-email">-</span>
                     </div>
                     <ul class="profile-dropdown-list">
-                        <li><span>Niveau</span><strong id="dd-level">-</strong></li>
-                        <li><span>Points</span><strong id="dd-points">0</strong></li>
-                        <li><span>Leçons complétées</span><strong id="dd-lessons">0</strong></li>
-                        <li><span>Membre depuis</span><strong id="dd-joined">-</strong></li>
+                        <li><span>${t('profile.level')}</span><strong id="dd-level">-</strong></li>
+                        <li><span>${t('profile.points')}</span><strong id="dd-points">0</strong></li>
+                        <li><span>${t('profile.lessonsCompleted')}</span><strong id="dd-lessons">0</strong></li>
+                        <li><span>${t('profile.memberSince')}</span><strong id="dd-joined">-</strong></li>
                     </ul>
-                    <a href="${MATHYXO_BASE}student-dashboard/" class="btn">📊 Tableau de bord</a>
-                    <button type="button" class="btn btn-danger" onclick="logoutUser()">🚪 Déconnexion</button>
+                    <a href="${MATHYXO_BASE}student-dashboard/" class="btn">${t('auth.nav.dashboard')}</a>
+                    <button type="button" class="btn btn-danger" onclick="logoutUser()">🚪 ${t('auth.nav.logout')}</button>
                 </div>
             </div>
         </div>
@@ -251,7 +287,7 @@ function renderLevelCards() {
 function selectLevel(levelId) {
     GAMIFICATION.setCurrentLevel(levelId);
     GAMIFICATION.addXP(5);
-    alert('Niveau sélectionné! +5 XP');
+    alert(t('level.selected'));
     location.reload();
 }
 
@@ -413,13 +449,13 @@ function renderAuthArea(container, loggedIn) {
 
     if (loggedIn) {
         container.innerHTML = `
-            <a href="${dashboardHref}" class="btn nav-auth-btn">📊 Tableau de bord</a>
-            <button type="button" class="btn btn-danger nav-auth-btn" onclick="logoutUser()">Déconnexion</button>
+            <a href="${dashboardHref}" class="btn nav-auth-btn">${t('auth.nav.dashboard')}</a>
+            <button type="button" class="btn btn-danger nav-auth-btn" onclick="logoutUser()">${t('auth.nav.logout')}</button>
         `;
     } else {
         container.innerHTML = `
-            <a href="${loginHref}" class="btn btn-outline nav-auth-btn">Connexion</a>
-            <a href="${registerHref}" class="btn nav-auth-btn">Inscription</a>
+            <a href="${loginHref}" class="btn btn-outline nav-auth-btn">${t('auth.nav.login')}</a>
+            <a href="${registerHref}" class="btn nav-auth-btn">${t('auth.nav.register')}</a>
         `;
     }
 }
@@ -470,7 +506,7 @@ async function renderProfile(user) {
     }
 
     const meta = user.user_metadata || {};
-    const displayName = info.display_name || meta.display_name || user.email || 'Étudiant';
+    const displayName = info.display_name || meta.display_name || user.email || t('profile.defaultStudent');
     const level = info.level || meta.level || '-';
     const points = Number(info.total_points || 0);
     const joined = info.created_at || user.created_at;
@@ -565,6 +601,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer) footerContainer.innerHTML = renderFooter();
 
+    applyI18n();
     refreshAuthUI();
     document.addEventListener('click', closeProfile);
     initSmoothScroll();

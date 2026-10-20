@@ -1,0 +1,69 @@
+/* ===== Language Switcher ===== */
+/* Rendered inside <header>, below the site title. Works in LTR and RTL. */
+
+.language-switcher {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+.lang-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+
+.lang-btn.active {
+    background: #fff;
+    color: var(--primary-color, #007bff);
+    border-color: #fff;
+}
+
+.lang-btn .flag {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.lang-btn .lang-name {
+    white-space: nowrap;
+}
+
+/* ===== RTL ===== */
+[dir="rtl"] .language-switcher {
+    direction: rtl;
+}
+
+/* Compact switcher on small screens */
+@media (max-width: 480px) {
+    .lang-btn {
+        padding: 6px 10px;
+    }
+
+    .lang-btn .lang-name {
+        display: none;
+    }
+}

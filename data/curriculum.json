@@ -3,169 +3,183 @@
     {
       "id": "primaire",
       "title": "Primaire",
+      "titleAr": "الابتدائي",
       "icon": "🎒",
       "description": "Les fondements des mathématiques, du CP à la 6ème année.",
+      "descriptionAr": "أساسيات الرياضيات، من السنة الأولى إلى السنة السادسة.",
       "levels": [
         {
           "id": "primaire-1",
           "title": "1ère Année Primaire",
+          "titleAr": "السنة الأولى ابتدائي",
           "icon": "📗",
           "description": "Découvrir les nombres, compter et les premières figures.",
+          "descriptionAr": "اكتشاف الأعداد والعد والأشكال الأولى.",
           "chapters": [
-            { "id": "nombres-0-9", "title": "Les nombres de 0 à 9", "description": "Lire, écrire et comparer les nombres de 0 à 9.", "lessons": [
-              { "id": "decouvrir-nombres", "title": "Découvrir les nombres", "description": "Reconnaître et nommer les nombres de 0 à 9.", "duration": 20, "difficulty": "beginner" },
-              { "id": "compter-objets", "title": "Compter des objets", "description": "Associer une quantité à un nombre.", "duration": 20, "difficulty": "beginner" },
-              { "id": "ecrire-nombres", "title": "Écrire les nombres", "description": "Tracer correctement les chiffres.", "duration": 20, "difficulty": "beginner" }
+            { "id": "nombres-0-9", "title": "Les nombres de 0 à 9", "titleAr": "الأعداد من 0 إلى 9", "description": "Lire, écrire et comparer les nombres de 0 à 9.", "descriptionAr": "قراءة وكتابة ومقارنة الأعداد من 0 إلى 9.", "lessons": [
+              { "id": "decouvrir-nombres", "title": "Découvrir les nombres", "titleAr": "التعرف على الأعداد", "description": "Reconnaître et nommer les nombres de 0 à 9.", "descriptionAr": "التعرف على الأعداد من 0 إلى 9 وتسميتها.", "duration": 20, "difficulty": "beginner" },
+              { "id": "compter-objets", "title": "Compter des objets", "titleAr": "عدّ الأشياء", "description": "Associer une quantité à un nombre.", "descriptionAr": "ربط الكمية بالعدد.", "duration": 20, "difficulty": "beginner" },
+              { "id": "ecrire-nombres", "title": "Écrire les nombres", "titleAr": "كتابة الأعداد", "description": "Tracer correctement les chiffres.", "descriptionAr": "رسم الأرقام بطريقة صحيحة.", "duration": 20, "difficulty": "beginner" }
             ]},
-            { "id": "addition-soustraction", "title": "Addition et soustraction", "description": "Premières opérations avec les petits nombres.", "lessons": [
-              { "id": "addition-simple", "title": "L'addition simple", "description": "Ajouter des nombres de 1 à 9.", "duration": 25, "difficulty": "beginner" },
-              { "id": "soustraction-simple", "title": "La soustraction simple", "description": "Retirer des objets et compter ce qui reste.", "duration": 25, "difficulty": "beginner" }
+            { "id": "addition-soustraction", "title": "Addition et soustraction", "titleAr": "الجمع والطرح", "description": "Premières opérations avec les petits nombres.", "descriptionAr": "العمليات الأولى مع الأعداد الصغيرة.", "lessons": [
+              { "id": "addition-simple", "title": "L'addition simple", "titleAr": "الجمع البسيط", "description": "Ajouter des nombres de 1 à 9.", "descriptionAr": "جمع الأعداد من 1 إلى 9.", "duration": 25, "difficulty": "beginner" },
+              { "id": "soustraction-simple", "title": "La soustraction simple", "titleAr": "الطرح البسيط", "description": "Retirer des objets et compter ce qui reste.", "descriptionAr": "إزالة الأشياء وعدّ ما تبقى.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "figures-geometriques", "title": "Les figures géométriques de base", "description": "Carré, rectangle, triangle, cercle.", "lessons": [
-              { "id": "reconnaitre-figures", "title": "Reconnaître les figures", "description": "Identifier les formes du quotidien.", "duration": 20, "difficulty": "beginner" },
-              { "id": "tracer-figures", "title": "Tracer les figures", "description": "Dessiner des figures simples.", "duration": 20, "difficulty": "beginner" }
+            { "id": "figures-geometriques", "title": "Les figures géométriques de base", "titleAr": "الأشكال الهندسية الأساسية", "description": "Carré, rectangle, triangle, cercle.", "descriptionAr": "المربع، المستطيل، المثلث، الدائرة.", "lessons": [
+              { "id": "reconnaitre-figures", "title": "Reconnaître les figures", "titleAr": "التعرف على الأشكال", "description": "Identifier les formes du quotidien.", "descriptionAr": "تحديد أشكال من الحياة اليومية.", "duration": 20, "difficulty": "beginner" },
+              { "id": "tracer-figures", "title": "Tracer les figures", "titleAr": "رسم الأشكال", "description": "Dessiner des figures simples.", "descriptionAr": "رسم أشكال بسيطة.", "duration": 20, "difficulty": "beginner" }
             ]},
-            { "id": "reperage-espace", "title": "Se repérer dans l'espace", "description": "Devant, derrière, à gauche, à droite.", "lessons": [
-              { "id": "positions-relatives", "title": "Les positions relatives", "description": "Utiliser le vocabulaire de position.", "duration": 20, "difficulty": "beginner" }
+            { "id": "reperage-espace", "title": "Se repérer dans l'espace", "titleAr": "التموقع في الفضاء", "description": "Devant, derrière, à gauche, à droite.", "descriptionAr": "أمام، خلف، يمين، يسار.", "lessons": [
+              { "id": "positions-relatives", "title": "Les positions relatives", "titleAr": "الأوضاع النسبية", "description": "Utiliser le vocabulaire de position.", "descriptionAr": "استعمال مفردات الموضع.", "duration": 20, "difficulty": "beginner" }
             ]},
-            { "id": "solides", "title": "Les solides", "description": "Cube, pavé, boule, cylindre.", "lessons": [
-              { "id": "reconnaitre-solides", "title": "Reconnaître les solides", "description": "Identifier les solides de l'espace.", "duration": 20, "difficulty": "beginner" }
+            { "id": "solides", "title": "Les solides", "titleAr": "المجسمات", "description": "Cube, pavé, boule, cylindre.", "descriptionAr": "المكعب، متوازي المستطيلات، الكرة، الأسطوانة.", "lessons": [
+              { "id": "reconnaitre-solides", "title": "Reconnaître les solides", "titleAr": "التعرف على المجسمات", "description": "Identifier les solides de l'espace.", "descriptionAr": "تحديد مجسمات الفضاء.", "duration": 20, "difficulty": "beginner" }
             ]}
           ]
         },
         {
           "id": "primaire-2",
           "title": "2ème Année Primaire",
+          "titleAr": "السنة الثانية ابتدائي",
           "icon": "📘",
           "description": "Les nombres jusqu'à 100 et les tables de multiplication.",
+          "descriptionAr": "الأعداد حتى 100 وجداول الضرب.",
           "chapters": [
-            { "id": "nombres-100", "title": "Les nombres jusqu'à 100", "description": "Lire, écrire et comparer jusqu'à 100.", "lessons": [
-              { "id": "dizaines-unites", "title": "Dizaines et unités", "description": "Décomposer les nombres en dizaines et unités.", "duration": 25, "difficulty": "beginner" },
-              { "id": "comparer-lignes-nombres", "title": "Comparer et ranger", "description": "Utiliser les symboles <, >, =.", "duration": 25, "difficulty": "beginner" }
+            { "id": "nombres-100", "title": "Les nombres jusqu'à 100", "titleAr": "الأعداد حتى 100", "description": "Lire, écrire et comparer jusqu'à 100.", "descriptionAr": "القراءة والكتابة والمقارنة حتى 100.", "lessons": [
+              { "id": "dizaines-unites", "title": "Dizaines et unités", "titleAr": "العشرات والوحدات", "description": "Décomposer les nombres en dizaines et unités.", "descriptionAr": "تفكيك الأعداد إلى عشرات ووحدات.", "duration": 25, "difficulty": "beginner" },
+              { "id": "comparer-lignes-nombres", "title": "Comparer et ranger", "titleAr": "المقارنة والترتيب", "description": "Utiliser les symboles <, >, =.", "descriptionAr": "استعمال الرموز <، >، =.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "addition-soustraction-2", "title": "Addition et soustraction", "description": "Opérations avec retenue.", "lessons": [
-              { "id": "addition-retenue", "title": "L'addition avec retenue", "description": "Additionner en colonnes.", "duration": 25, "difficulty": "beginner" },
-              { "id": "soustraction-retenue", "title": "La soustraction avec retenue", "description": "Soustraire en colonnes.", "duration": 25, "difficulty": "beginner" }
+            { "id": "addition-soustraction-2", "title": "Addition et soustraction", "titleAr": "الجمع والطرح", "description": "Opérations avec retenue.", "descriptionAr": "عمليات مع الاحتفاظ.", "lessons": [
+              { "id": "addition-retenue", "title": "L'addition avec retenue", "titleAr": "الجمع مع الاحتفاظ", "description": "Additionner en colonnes.", "descriptionAr": "الجمع عموديا.", "duration": 25, "difficulty": "beginner" },
+              { "id": "soustraction-retenue", "title": "La soustraction avec retenue", "titleAr": "الطرح مع الاحتفاظ", "description": "Soustraire en colonnes.", "descriptionAr": "الطرح عموديا.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "multiplication-tables", "title": "La multiplication", "description": "Sens de la multiplication et tables.", "lessons": [
-              { "id": "sens-multiplication", "title": "Le sens de la multiplication", "description": "Addition répétée.", "duration": 25, "difficulty": "beginner" },
-              { "id": "tables-2-5", "title": "Tables de 2 à 5", "description": "Mémoriser les premières tables.", "duration": 20, "difficulty": "beginner" }
+            { "id": "multiplication-tables", "title": "La multiplication", "titleAr": "الضرب", "description": "Sens de la multiplication et tables.", "descriptionAr": "معنى الضرب والجداول.", "lessons": [
+              { "id": "sens-multiplication", "title": "Le sens de la multiplication", "titleAr": "معنى الضرب", "description": "Addition répétée.", "descriptionAr": "الجمع المتكرر.", "duration": 25, "difficulty": "beginner" },
+              { "id": "tables-2-5", "title": "Tables de 2 à 5", "titleAr": "جداول من 2 إلى 5", "description": "Mémoriser les premières tables.", "descriptionAr": "حفظ الجداول الأولى.", "duration": 20, "difficulty": "beginner" }
             ]},
-            { "id": "grandeurs-mesures", "title": "Grandeurs et mesures", "description": "Longueurs et masses.", "lessons": [
-              { "id": "mesurer-longueur", "title": "Mesurer une longueur", "description": "Utiliser le mètre et le centimètre.", "duration": 25, "difficulty": "beginner" }
+            { "id": "grandeurs-mesures", "title": "Grandeurs et mesures", "titleAr": "المقادير والقياس", "description": "Longueurs et masses.", "descriptionAr": "الأطوال والكتل.", "lessons": [
+              { "id": "mesurer-longueur", "title": "Mesurer une longueur", "titleAr": "قياس الطول", "description": "Utiliser le mètre et le centimètre.", "descriptionAr": "استعمال المتر والسنتيمتر.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "figures-symetrie", "title": "Figures et symétrie", "description": "Premières notions de symétrie.", "lessons": [
-              { "id": "axe-symetrie", "title": "L'axe de symétrie", "description": "Trouver l'axe de symétrie d'une figure.", "duration": 25, "difficulty": "beginner" }
+            { "id": "figures-symetrie", "title": "Figures et symétrie", "titleAr": "الأشكال والتماثل", "description": "Premières notions de symétrie.", "descriptionAr": "المفاهيم الأولى للتماثل.", "lessons": [
+              { "id": "axe-symetrie", "title": "L'axe de symétrie", "titleAr": "محور التماثل", "description": "Trouver l'axe de symétrie d'une figure.", "descriptionAr": "إيجاد محور تماثل شكل.", "duration": 25, "difficulty": "beginner" }
             ]}
           ]
         },
         {
           "id": "primaire-3",
           "title": "3ème Année Primaire",
+          "titleAr": "السنة الثالثة ابتدائي",
           "icon": "📕",
           "description": "Multiplication, division et premières fractions.",
+          "descriptionAr": "الضرب والقسمة والكسور البسيطة.",
           "chapters": [
-            { "id": "nombres-1000", "title": "Les nombres jusqu'à 1000", "description": "Numération jusqu'à 1000.", "lessons": [
-              { "id": "centaines", "title": "Centaines, dizaines, unités", "description": "Décomposer les nombres à trois chiffres.", "duration": 25, "difficulty": "beginner" },
-              { "id": "encadrer", "title": "Encadrer un nombre", "description": "Trouver l'encadrement à la dizaine.", "duration": 25, "difficulty": "beginner" }
+            { "id": "nombres-1000", "title": "Les nombres jusqu'à 1000", "titleAr": "الأعداد حتى 1000", "description": "Numération jusqu'à 1000.", "descriptionAr": "الترقيم حتى 1000.", "lessons": [
+              { "id": "centaines", "title": "Centaines, dizaines, unités", "titleAr": "المئات والعشرات والوحدات", "description": "Décomposer les nombres à trois chiffres.", "descriptionAr": "تفكيك الأعداد ذات ثلاثة أرقام.", "duration": 25, "difficulty": "beginner" },
+              { "id": "encadrer", "title": "Encadrer un nombre", "titleAr": "تأطير عدد", "description": "Trouver l'encadrement à la dizaine.", "descriptionAr": "إيجاد التأطير إلى العشرات.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "multiplication-division", "title": "Multiplication et division", "description": "Tables et partage.", "lessons": [
-              { "id": "tables-6-9", "title": "Tables de 6 à 9", "description": "Mémoriser les tables restantes.", "duration": 25, "difficulty": "beginner" },
-              { "id": "division-partage", "title": "Le sens de la division", "description": "Partager en parts égales.", "duration": 25, "difficulty": "beginner" }
+            { "id": "multiplication-division", "title": "Multiplication et division", "titleAr": "الضرب والقسمة", "description": "Tables et partage.", "descriptionAr": "الجداول والتقسيم.", "lessons": [
+              { "id": "tables-6-9", "title": "Tables de 6 à 9", "titleAr": "جداول من 6 إلى 9", "description": "Mémoriser les tables restantes.", "descriptionAr": "حفظ الجداول المتبقية.", "duration": 25, "difficulty": "beginner" },
+              { "id": "division-partage", "title": "Le sens de la division", "titleAr": "معنى القسمة", "description": "Partager en parts égales.", "descriptionAr": "التقسيم إلى أجزاء متساوية.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "fractions-simples", "title": "Les fractions simples", "description": "Demi, tiers, quart.", "lessons": [
-              { "id": "lire-fractions", "title": "Lire une fraction", "description": "Comprendre numérateur et dénominateur.", "duration": 25, "difficulty": "beginner" }
+            { "id": "fractions-simples", "title": "Les fractions simples", "titleAr": "الكسور البسيطة", "description": "Demi, tiers, quart.", "descriptionAr": "النصف والثلث والربع.", "lessons": [
+              { "id": "lire-fractions", "title": "Lire une fraction", "titleAr": "قراءة الكسر", "description": "Comprendre numérateur et dénominateur.", "descriptionAr": "فهم البسط والمقام.", "duration": 25, "difficulty": "beginner" }
             ]},
-            { "id": "perimetre", "title": "Périmètre et longueurs", "description": "Calculer le périmètre.", "lessons": [
-              { "id": "perimetre-carre-rectangle", "title": "Périmètre du carré et du rectangle", "description": "Formules simples de périmètre.", "duration": 30, "difficulty": "beginner" }
+            { "id": "perimetre", "title": "Périmètre et longueurs", "titleAr": "المحيط والأطوال", "description": "Calculer le périmètre.", "descriptionAr": "حساب المحيط.", "lessons": [
+              { "id": "perimetre-carre-rectangle", "title": "Périmètre du carré et du rectangle", "titleAr": "محيط المربع والمستطيل", "description": "Formules simples de périmètre.", "descriptionAr": "صيغ بسيطة للمحيط.", "duration": 30, "difficulty": "beginner" }
             ]},
-            { "id": "droites-angles", "title": "Droites et angles", "description": "Droite, segment, angle droit.", "lessons": [
-              { "id": "droite-segment", "title": "Droite et segment", "description": "Distinguer droite et segment.", "duration": 25, "difficulty": "beginner" },
-              { "id": "angle-droit", "title": "L'angle droit", "description": "Reconnaître un angle droit.", "duration": 25, "difficulty": "beginner" }
+            { "id": "droites-angles", "title": "Droites et angles", "titleAr": "المستقيمات والزوايا", "description": "Droite, segment, angle droit.", "descriptionAr": "مستقيم، قطعة، زاوية قائمة.", "lessons": [
+              { "id": "droite-segment", "title": "Droite et segment", "titleAr": "المستقيم والقطعة", "description": "Distinguer droite et segment.", "descriptionAr": "التمييز بين المستقيم والقطعة.", "duration": 25, "difficulty": "beginner" },
+              { "id": "angle-droit", "title": "L'angle droit", "titleAr": "الزاوية القائمة", "description": "Reconnaître un angle droit.", "descriptionAr": "التعرف على الزاوية القائمة.", "duration": 25, "difficulty": "beginner" }
             ]}
           ]
         },
         {
           "id": "primaire-4",
           "title": "4ème Année Primaire",
+          "titleAr": "السنة الرابعة ابتدائي",
           "icon": "📗",
           "description": "Fractions décimales, aires et proportionnalité.",
+          "descriptionAr": "الكسور العشرية والمساحات والتناسبية.",
           "chapters": [
-            { "id": "nombres-grands", "title": "Les grands nombres", "description": "Nombres jusqu'au million.", "lessons": [
-              { "id": "lire-grands-nombres", "title": "Lire les grands nombres", "description": "Classes des mille et des millions.", "duration": 30, "difficulty": "beginner" }
+            { "id": "nombres-grands", "title": "Les grands nombres", "titleAr": "الأعداد الكبيرة", "description": "Nombres jusqu'au million.", "descriptionAr": "الأعداد حتى المليون.", "lessons": [
+              { "id": "lire-grands-nombres", "title": "Lire les grands nombres", "titleAr": "قراءة الأعداد الكبيرة", "description": "Classes des mille et des millions.", "descriptionAr": "صنف الآلاف والملايين.", "duration": 30, "difficulty": "beginner" }
             ]},
-            { "id": "fractions-decimales", "title": "Fractions décimales", "description": "Passer des fractions aux décimaux.", "lessons": [
-              { "id": "fraction-decimale", "title": "Fraction décimale", "description": "Dixièmes et centièmes.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "comparer-decimaux", "title": "Comparer des décimaux", "description": "Ranger des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "fractions-decimales", "title": "Fractions décimales", "titleAr": "الكسور العشرية", "description": "Passer des fractions aux décimaux.", "descriptionAr": "الانتقال من الكسور إلى الأعداد العشرية.", "lessons": [
+              { "id": "fraction-decimale", "title": "Fraction décimale", "titleAr": "الكسر العشري", "description": "Dixièmes et centièmes.", "descriptionAr": "الأعشار والأجزاء المائة.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "comparer-decimaux", "title": "Comparer des décimaux", "titleAr": "مقارنة الأعداد العشرية", "description": "Ranger des nombres décimaux.", "descriptionAr": "ترتيب الأعداد العشرية.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "division-euclidienne", "title": "La division", "description": "Division euclidienne.", "lessons": [
-              { "id": "division-entiere", "title": "La division entière", "description": "Quotient et reste.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "division-euclidienne", "title": "La division", "titleAr": "القسمة", "description": "Division euclidienne.", "descriptionAr": "القسمة الإقليدية.", "lessons": [
+              { "id": "division-entiere", "title": "La division entière", "titleAr": "القسمة الإقليدية", "description": "Quotient et reste.", "descriptionAr": "الخارج والباقي.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "aires", "title": "Les aires", "description": "Aire du carré et du rectangle.", "lessons": [
-              { "id": "aire-carre-rectangle", "title": "Aire du carré et du rectangle", "description": "Calculer des aires.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "aires", "title": "Les aires", "titleAr": "المساحات", "description": "Aire du carré et du rectangle.", "descriptionAr": "مساحة المربع والمستطيل.", "lessons": [
+              { "id": "aire-carre-rectangle", "title": "Aire du carré et du rectangle", "titleAr": "مساحة المربع والمستطيل", "description": "Calculer des aires.", "descriptionAr": "حساب المساحات.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "cercles-triangles", "title": "Cercles et triangles", "description": "Construire cercles et triangles.", "lessons": [
-              { "id": "construire-cercle", "title": "Construire un cercle", "description": "Utiliser le compas.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "triangles-particuliers", "title": "Triangles particuliers", "description": "Triangle rectangle, isocèle, équilatéral.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "cercles-triangles", "title": "Cercles et triangles", "titleAr": "الدوائر والمثلثات", "description": "Construire cercles et triangles.", "descriptionAr": "إنشاء الدوائر والمثلثات.", "lessons": [
+              { "id": "construire-cercle", "title": "Construire un cercle", "titleAr": "إنشاء دائرة", "description": "Utiliser le compas.", "descriptionAr": "استعمال الفرجار.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "triangles-particuliers", "title": "Triangles particuliers", "titleAr": "المثلثات الخاصة", "description": "Triangle rectangle, isocèle, équilatéral.", "descriptionAr": "المثلث القائم والمتساوي الساقين والمتساوي الأضلاع.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "proportionnalite", "title": "La proportionnalité", "description": "Tableaux de proportionnalité.", "lessons": [
-              { "id": "tableaux-proportion", "title": "Tableaux de proportionnalité", "description": "Reconnaître une situation de proportionnalité.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "proportionnalite", "title": "La proportionnalité", "titleAr": "التناسبية", "description": "Tableaux de proportionnalité.", "descriptionAr": "جداول التناسبية.", "lessons": [
+              { "id": "tableaux-proportion", "title": "Tableaux de proportionnalité", "titleAr": "جداول التناسبية", "description": "Reconnaître une situation de proportionnalité.", "descriptionAr": "التعرف على وضعية تناسبية.", "duration": 30, "difficulty": "intermediate" }
             ]}
           ]
         },
         {
           "id": "primaire-5",
           "title": "5ème Année Primaire",
+          "titleAr": "السنة الخامسة ابتدائي",
           "icon": "📘",
           "description": "Nombres décimaux, opérations et volumes.",
+          "descriptionAr": "الأعداد العشرية والعمليات والحجوم.",
           "chapters": [
-            { "id": "nombres-decimaux", "title": "Les nombres décimaux", "description": "Écriture et comparaison.", "lessons": [
-              { "id": "ecriture-decimale", "title": "Écriture décimale", "description": "Virgule et rangs.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "ranger-decimaux", "title": "Ranger les décimaux", "description": "Comparer des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "nombres-decimaux", "title": "Les nombres décimaux", "titleAr": "الأعداد العشرية", "description": "Écriture et comparaison.", "descriptionAr": "الكتابة والمقارنة.", "lessons": [
+              { "id": "ecriture-decimale", "title": "Écriture décimale", "titleAr": "الكتابة العشرية", "description": "Virgule et rangs.", "descriptionAr": "الفاصلة والمراتب.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "ranger-decimaux", "title": "Ranger les décimaux", "titleAr": "ترتيب الأعداد العشرية", "description": "Comparer des nombres décimaux.", "descriptionAr": "مقارنة الأعداد العشرية.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "operations-decimaux", "title": "Opérations sur les décimaux", "description": "Addition, soustraction, multiplication.", "lessons": [
-              { "id": "addition-decimaux", "title": "Addition et soustraction", "description": "Poser et calculer.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "multiplication-decimaux", "title": "Multiplication des décimaux", "description": "Multiplier des nombres décimaux.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "operations-decimaux", "title": "Opérations sur les décimaux", "titleAr": "العمليات على الأعداد العشرية", "description": "Addition, soustraction, multiplication.", "descriptionAr": "الجمع والطرح والضرب.", "lessons": [
+              { "id": "addition-decimaux", "title": "Addition et soustraction", "titleAr": "الجمع والطرح", "description": "Poser et calculer.", "descriptionAr": "الوضع والحساب.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "multiplication-decimaux", "title": "Multiplication des décimaux", "titleAr": "ضرب الأعداد العشرية", "description": "Multiplier des nombres décimaux.", "descriptionAr": "ضرب الأعداد العشرية.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "fractions-operations", "title": "Fractions", "description": "Addition de fractions et fractions égales.", "lessons": [
-              { "id": "fractions-egales", "title": "Fractions égales", "description": "Simplifier une fraction.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "addition-fractions", "title": "Additionner des fractions", "description": "Même dénominateur.", "duration": 35, "difficulty": "intermediate" }
+            { "id": "fractions-operations", "title": "Fractions", "titleAr": "الكسور", "description": "Addition de fractions et fractions égales.", "descriptionAr": "جمع الكسور والكسور المتساوية.", "lessons": [
+              { "id": "fractions-egales", "title": "Fractions égales", "titleAr": "الكسور المتساوية", "description": "Simplifier une fraction.", "descriptionAr": "اختزال كسر.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "addition-fractions", "title": "Additionner des fractions", "titleAr": "جمع الكسور", "description": "Même dénominateur.", "descriptionAr": "نفس المقام.", "duration": 35, "difficulty": "intermediate" }
             ]},
-            { "id": "aires-volumes", "title": "Aires et volumes", "description": "Aire et volume des solides.", "lessons": [
-              { "id": "volume-pave", "title": "Volume du pavé droit", "description": "Calculer un volume.", "duration": 35, "difficulty": "intermediate" }
+            { "id": "aires-volumes", "title": "Aires et volumes", "titleAr": "المساحات والحجوم", "description": "Aire et volume des solides.", "descriptionAr": "مساحة وحجم المجسمات.", "lessons": [
+              { "id": "volume-pave", "title": "Volume du pavé droit", "titleAr": "حجم متوازي المستطيلات", "description": "Calculer un volume.", "descriptionAr": "حساب الحجم.", "duration": 35, "difficulty": "intermediate" }
             ]},
-            { "id": "droites-perpendiculaires", "title": "Droites perpendiculaires et parallèles", "description": "Constructions géométriques.", "lessons": [
-              { "id": "perpendiculaires", "title": "Droites perpendiculaires", "description": "Tracer une perpendiculaire.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "paralleles", "title": "Droites parallèles", "description": "Tracer une parallèle.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "droites-perpendiculaires", "title": "Droites perpendiculaires et parallèles", "titleAr": "المستقيمات المتعامدة والمتوازية", "description": "Constructions géométriques.", "descriptionAr": "إنشاءات هندسية.", "lessons": [
+              { "id": "perpendiculaires", "title": "Droites perpendiculaires", "titleAr": "المستقيمات المتعامدة", "description": "Tracer une perpendiculaire.", "descriptionAr": "رسم مستقيم عمودي.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "paralleles", "title": "Droites parallèles", "titleAr": "المستقيمات المتوازية", "description": "Tracer une parallèle.", "descriptionAr": "رسم مستقيم موازٍ.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "statistiques-p5", "title": "Organisation de données", "description": "Tableaux et graphiques.", "lessons": [
-              { "id": "lire-graphiques", "title": "Lire un graphique", "description": "Diagrammes en bâtons.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "statistiques-p5", "title": "Organisation de données", "titleAr": "تنظيم البيانات", "description": "Tableaux et graphiques.", "descriptionAr": "الجداول والمبيانات.", "lessons": [
+              { "id": "lire-graphiques", "title": "Lire un graphique", "titleAr": "قراءة مبيان", "description": "Diagrammes en bâtons.", "descriptionAr": "المخططات بالأعمدة.", "duration": 30, "difficulty": "intermediate" }
             ]}
           ]
         },
         {
           "id": "primaire-6",
           "title": "6ème Année Primaire",
+          "titleAr": "السنة السادسة ابتدائي",
           "icon": "📕",
           "description": "Préparation au collège : décimaux, symétrie et statistiques.",
+          "descriptionAr": "الإعداد للإعدادي: العشرية والتماثل والإحصاء.",
           "chapters": [
-            { "id": "decimaux-operations", "title": "Opérations sur les décimaux", "description": "Division et priorités opératoires.", "lessons": [
-              { "id": "division-decimaux", "title": "Division des décimaux", "description": "Diviser par un décimal.", "duration": 35, "difficulty": "intermediate" },
-              { "id": "priorites", "title": "Priorités des opérations", "description": "Parenthèses et ordre des opérations.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "decimaux-operations", "title": "Opérations sur les décimaux", "titleAr": "العمليات على الأعداد العشرية", "description": "Division et priorités opératoires.", "descriptionAr": "القسمة وأولوية العمليات.", "lessons": [
+              { "id": "division-decimaux", "title": "Division des décimaux", "titleAr": "قسمة الأعداد العشرية", "description": "Diviser par un décimal.", "descriptionAr": "القسمة على عدد عشري.", "duration": 35, "difficulty": "intermediate" },
+              { "id": "priorites", "title": "Priorités des opérations", "titleAr": "أولوية العمليات", "description": "Parenthèses et ordre des opérations.", "descriptionAr": "الأقواس وترتيب العمليات.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "proportionnalite-pourcentage", "title": "Proportionnalité et pourcentages", "description": "Pourcentages et échelles.", "lessons": [
-              { "id": "pourcentages", "title": "Les pourcentages", "description": "Calculer un pourcentage.", "duration": 35, "difficulty": "intermediate" },
-              { "id": "echelles", "title": "Les échelles", "description": "Utiliser une échelle.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "proportionnalite-pourcentage", "title": "Proportionnalité et pourcentages", "titleAr": "التناسبية والنسب المئوية", "description": "Pourcentages et échelles.", "descriptionAr": "النسب المئوية والسلالم.", "lessons": [
+              { "id": "pourcentages", "title": "Les pourcentages", "titleAr": "النسب المئوية", "description": "Calculer un pourcentage.", "descriptionAr": "حساب نسبة مئوية.", "duration": 35, "difficulty": "intermediate" },
+              { "id": "echelles", "title": "Les échelles", "titleAr": "السلالم", "description": "Utiliser une échelle.", "descriptionAr": "استعمال سلم.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "volumes-solides", "title": "Volumes des solides", "description": "Cube, pavé, cylindre.", "lessons": [
-              { "id": "volume-cube", "title": "Volume du cube", "description": "Calculer le volume d'un cube.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "volumes-solides", "title": "Volumes des solides", "titleAr": "حجوم المجسمات", "description": "Cube, pavé, cylindre.", "descriptionAr": "المكعب، متوازي المستطيلات، الأسطوانة.", "lessons": [
+              { "id": "volume-cube", "title": "Volume du cube", "titleAr": "حجم المكعب", "description": "Calculer le volume d'un cube.", "descriptionAr": "حساب حجم مكعب.", "duration": 30, "difficulty": "intermediate" }
             ]},
-            { "id": "symetrie-axiale", "title": "Symétrie axiale", "description": "Construire le symétrique d'une figure.", "lessons": [
-              { "id": "symetrique-point", "title": "Symétrique d'un point", "description": "Construire un symétrique.", "duration": 35, "difficulty": "intermediate" }
+            { "id": "symetrie-axiale", "title": "Symétrie axiale", "titleAr": "التماثل المحوري", "description": "Construire le symétrique d'une figure.", "descriptionAr": "إنشاء مماثل شكل.", "lessons": [
+              { "id": "symetrique-point", "title": "Symétrique d'un point", "titleAr": "مماثل نقطة", "description": "Construire un symétrique.", "descriptionAr": "إنشاء مماثل نقطة.", "duration": 35, "difficulty": "intermediate" }
             ]},
-            { "id": "statistiques-p6", "title": "Statistiques", "description": "Effectifs et moyennes.", "lessons": [
-              { "id": "effectifs-frequences", "title": "Effectifs et fréquences", "description": "Organiser des données.", "duration": 30, "difficulty": "intermediate" },
-              { "id": "moyenne", "title": "La moyenne", "description": "Calculer une moyenne.", "duration": 30, "difficulty": "intermediate" }
+            { "id": "statistiques-p6", "title": "Statistiques", "titleAr": "الإحصاء", "description": "Effectifs et moyennes.", "descriptionAr": "التكرارات والمعدلات.", "lessons": [
+              { "id": "effectifs-frequences", "title": "Effectifs et fréquences", "titleAr": "التكرارات والترددات", "description": "Organiser des données.", "descriptionAr": "تنظيم البيانات.", "duration": 30, "difficulty": "intermediate" },
+              { "id": "moyenne", "title": "La moyenne", "titleAr": "المعدل", "description": "Calculer une moyenne.", "descriptionAr": "حساب معدل.", "duration": 30, "difficulty": "intermediate" }
             ]}
           ]
         }
@@ -174,112 +188,120 @@
     {
       "id": "college",
       "title": "Collège",
+      "titleAr": "الإعدادي",
       "icon": "🏫",
       "description": "L'enseignement secondaire collégial, de la 1ère à la 3ème année.",
+      "descriptionAr": "التعليم الثانوي الإعدادي، من السنة الأولى إلى الثالثة.",
       "levels": [
         {
           "id": "college-1",
           "title": "1ère Année Collège",
+          "titleAr": "السنة الأولى إعدادي",
           "icon": "📙",
           "description": "Nombres entiers et rationnels, premières notions de géométrie.",
+          "descriptionAr": "الأعداد الصحيحة والنسبية، والمفاهيم الأولى في الهندسة.",
           "chapters": [
-            { "id": "nombres-entiers", "title": "Nombres entiers et opérations", "description": "Opérations sur les entiers naturels.", "lessons": [
-              { "id": "addition-multiplication-entiers", "title": "Addition et multiplication", "description": "Propriétés des opérations.", "duration": 40, "difficulty": "beginner" },
-              { "id": "division-euclidienne-c1", "title": "Division euclidienne", "description": "Quotient et reste.", "duration": 40, "difficulty": "beginner" }
+            { "id": "nombres-entiers", "title": "Nombres entiers et opérations", "titleAr": "الأعداد الصحيحة والعمليات", "description": "Opérations sur les entiers naturels.", "descriptionAr": "العمليات على الأعداد الطبيعية.", "lessons": [
+              { "id": "addition-multiplication-entiers", "title": "Addition et multiplication", "titleAr": "الجمع والضرب", "description": "Propriétés des opérations.", "descriptionAr": "خصائص العمليات.", "duration": 40, "difficulty": "beginner" },
+              { "id": "division-euclidienne-c1", "title": "Division euclidienne", "titleAr": "القسمة الإقليدية", "description": "Quotient et reste.", "descriptionAr": "الخارج والباقي.", "duration": 40, "difficulty": "beginner" }
             ]},
-            { "id": "nombres-decimaux-c1", "title": "Nombres décimaux", "description": "Écriture, comparaison et opérations.", "lessons": [
-              { "id": "decimaux-ecriture", "title": "Écriture des décimaux", "description": "Écriture décimale et fractionnaire.", "duration": 40, "difficulty": "beginner" },
-              { "id": "decimaux-operations-c1", "title": "Opérations sur les décimaux", "description": "Addition, soustraction, multiplication.", "duration": 40, "difficulty": "beginner" }
+            { "id": "nombres-decimaux-c1", "title": "Nombres décimaux", "titleAr": "الأعداد العشرية", "description": "Écriture, comparaison et opérations.", "descriptionAr": "الكتابة والمقارنة والعمليات.", "lessons": [
+              { "id": "decimaux-ecriture", "title": "Écriture des décimaux", "titleAr": "كتابة الأعداد العشرية", "description": "Écriture décimale et fractionnaire.", "descriptionAr": "الكتابة العشرية والكسرية.", "duration": 40, "difficulty": "beginner" },
+              { "id": "decimaux-operations-c1", "title": "Opérations sur les décimaux", "titleAr": "العمليات على الأعداد العشرية", "description": "Addition, soustraction, multiplication.", "descriptionAr": "الجمع والطرح والضرب.", "duration": 40, "difficulty": "beginner" }
             ]},
-            { "id": "nombres-rationnels-c1", "title": "Nombres rationnels", "description": "Fractions et opérations.", "lessons": [
-              { "id": "fractions-intro", "title": "Introduction aux fractions", "description": "Représenter une fraction.", "duration": 40, "difficulty": "intermediate" },
-              { "id": "fractions-operations-c1", "title": "Opérations sur les fractions", "description": "Addition et multiplication.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "nombres-rationnels-c1", "title": "Nombres rationnels", "titleAr": "الأعداد النسبية", "description": "Fractions et opérations.", "descriptionAr": "الكسور والعمليات.", "lessons": [
+              { "id": "fractions-intro", "title": "Introduction aux fractions", "titleAr": "مقدمة في الكسور", "description": "Représenter une fraction.", "descriptionAr": "تمثيل كسر.", "duration": 40, "difficulty": "intermediate" },
+              { "id": "fractions-operations-c1", "title": "Opérations sur les fractions", "titleAr": "العمليات على الكسور", "description": "Addition et multiplication.", "descriptionAr": "الجمع والضرب.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "droites-angles-c1", "title": "Droites et angles", "description": "Positions relatives et angles.", "lessons": [
-              { "id": "droites-remarquables", "title": "Droites remarquables", "description": "Perpendiculaires et parallèles.", "duration": 40, "difficulty": "beginner" },
-              { "id": "angles-mesure", "title": "Mesurer un angle", "description": "Utiliser le rapporteur.", "duration": 40, "difficulty": "beginner" }
+            { "id": "droites-angles-c1", "title": "Droites et angles", "titleAr": "المستقيمات والزوايا", "description": "Positions relatives et angles.", "descriptionAr": "الأوضاع النسبية والزوايا.", "lessons": [
+              { "id": "droites-remarquables", "title": "Droites remarquables", "titleAr": "المستقيمات الخاصة", "description": "Perpendiculaires et parallèles.", "descriptionAr": "المتعامدة والمتوازية.", "duration": 40, "difficulty": "beginner" },
+              { "id": "angles-mesure", "title": "Mesurer un angle", "titleAr": "قياس زاوية", "description": "Utiliser le rapporteur.", "descriptionAr": "استعمال المنقلة.", "duration": 40, "difficulty": "beginner" }
             ]},
-            { "id": "symetrie-axiale-c1", "title": "Symétrie axiale", "description": "Symétrie par rapport à une droite.", "lessons": [
-              { "id": "symetrie-figures", "title": "Symétrie des figures", "description": "Construire des symétriques.", "duration": 40, "difficulty": "intermediate" }
+            { "id": "symetrie-axiale-c1", "title": "Symétrie axiale", "titleAr": "التماثل المحوري", "description": "Symétrie par rapport à une droite.", "descriptionAr": "التماثل بالنسبة لمستقيم.", "lessons": [
+              { "id": "symetrie-figures", "title": "Symétrie des figures", "titleAr": "تماثل الأشكال", "description": "Construire des symétriques.", "descriptionAr": "إنشاء مماثلات.", "duration": 40, "difficulty": "intermediate" }
             ]},
-            { "id": "proportionnalite-c1", "title": "Proportionnalité", "description": "Tableaux et graphiques.", "lessons": [
-              { "id": "proportionnalite-c1-les", "title": "Situations de proportionnalité", "description": "Reconnaître et résoudre.", "duration": 40, "difficulty": "intermediate" }
+            { "id": "proportionnalite-c1", "title": "Proportionnalité", "titleAr": "التناسبية", "description": "Tableaux et graphiques.", "descriptionAr": "الجداول والمبيانات.", "lessons": [
+              { "id": "proportionnalite-c1-les", "title": "Situations de proportionnalité", "titleAr": "وضعيات التناسبية", "description": "Reconnaître et résoudre.", "descriptionAr": "التعرف والحل.", "duration": 40, "difficulty": "intermediate" }
             ]},
-            { "id": "statistiques-c1", "title": "Statistiques", "description": "Effectifs, fréquences, moyennes.", "lessons": [
-              { "id": "series-statistiques", "title": "Séries statistiques", "description": "Organiser des données.", "duration": 40, "difficulty": "intermediate" }
+            { "id": "statistiques-c1", "title": "Statistiques", "titleAr": "الإحصاء", "description": "Effectifs, fréquences, moyennes.", "descriptionAr": "التكرارات والترددات والمعدلات.", "lessons": [
+              { "id": "series-statistiques", "title": "Séries statistiques", "titleAr": "المتتاليات الإحصائية", "description": "Organiser des données.", "descriptionAr": "تنظيم البيانات.", "duration": 40, "difficulty": "intermediate" }
             ]}
           ]
         },
         {
           "id": "college-2",
           "title": "2ème Année Collège",
+          "titleAr": "السنة الثانية إعدادي",
           "icon": "📗",
           "description": "Calcul littéral, équations et géométrie du triangle.",
+          "descriptionAr": "الحساب الحرفي والمعادلات وهندسة المثلث.",
           "chapters": [
-            { "id": "rationnels-c2", "title": "Nombres rationnels", "description": "Opérations et puissance.", "lessons": [
-              { "id": "rationnels-operations", "title": "Opérations sur les rationnels", "description": "Addition, soustraction, multiplication.", "duration": 45, "difficulty": "intermediate" },
-              { "id": "puissance-c2", "title": "Puissances", "description": "Puissances d'un nombre.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "rationnels-c2", "title": "Nombres rationnels", "titleAr": "الأعداد النسبية", "description": "Opérations et puissance.", "descriptionAr": "العمليات والقوى.", "lessons": [
+              { "id": "rationnels-operations", "title": "Opérations sur les rationnels", "titleAr": "العمليات على الأعداد النسبية", "description": "Addition, soustraction, multiplication.", "descriptionAr": "الجمع والطرح والضرب.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "puissance-c2", "title": "Puissances", "titleAr": "القوى", "description": "Puissances d'un nombre.", "descriptionAr": "قوى عدد.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "calcul-litteral-c2", "title": "Calcul littéral", "description": "Développer et réduire.", "lessons": [
-              { "id": "developper", "title": "Développer une expression", "description": "Distributivité.", "duration": 45, "difficulty": "intermediate" },
-              { "id": "reduire", "title": "Réduire une expression", "description": "Regrouper les termes semblables.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "calcul-litteral-c2", "title": "Calcul littéral", "titleAr": "الحساب الحرفي", "description": "Développer et réduire.", "descriptionAr": "النشر والاختزال.", "lessons": [
+              { "id": "developper", "title": "Développer une expression", "titleAr": "نشر تعبير", "description": "Distributivité.", "descriptionAr": "التوزيعية.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "reduire", "title": "Réduire une expression", "titleAr": "اختزال تعبير", "description": "Regrouper les termes semblables.", "descriptionAr": "تجميع الحدود المتشابهة.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "equations-c2", "title": "Équations du premier degré", "description": "Résoudre des équations.", "lessons": [
-              { "id": "equations-simples", "title": "Équations simples", "description": "Résoudre ax + b = 0.", "duration": 45, "difficulty": "intermediate" },
-              { "id": "problemes-equations", "title": "Problèmes et équations", "description": "Mettre en équation un problème.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "equations-c2", "title": "Équations du premier degré", "titleAr": "المعادلات من الدرجة الأولى", "description": "Résoudre des équations.", "descriptionAr": "حل المعادلات.", "lessons": [
+              { "id": "equations-simples", "title": "Équations simples", "titleAr": "معادلات بسيطة", "description": "Résoudre ax + b = 0.", "descriptionAr": "حل ax + b = 0.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "problemes-equations", "title": "Problèmes et équations", "titleAr": "مسائل ومعادلات", "description": "Mettre en équation un problème.", "descriptionAr": "وضع مسألة في معادلة.", "duration": 50, "difficulty": "intermediate" }
             ]},
-            { "id": "triangles-c2", "title": "Triangles et parallèles", "description": "Droites des milieux et triangles.", "lessons": [
-              { "id": "droite-milieux", "title": "Droite des milieux", "description": "Propriété des milieux.", "duration": 45, "difficulty": "intermediate" },
-              { "id": "triangles-egaux", "title": "Triangles égaux", "description": "Cas d'égalité des triangles.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "triangles-c2", "title": "Triangles et parallèles", "titleAr": "المثلثات والمتوازيات", "description": "Droites des milieux et triangles.", "descriptionAr": "المستقيم المنتصف والمثلثات.", "lessons": [
+              { "id": "droite-milieux", "title": "Droite des milieux", "titleAr": "المستقيم المنتصف", "description": "Propriété des milieux.", "descriptionAr": "خاصية المنتصفين.", "duration": 45, "difficulty": "intermediate" },
+              { "id": "triangles-egaux", "title": "Triangles égaux", "titleAr": "المثلثات المتقايسة", "description": "Cas d'égalité des triangles.", "descriptionAr": "حالات تقايس المثلثات.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "cercles-c2", "title": "Le cercle", "description": "Angles et cercles.", "lessons": [
-              { "id": "cercle-triangle-rect", "title": "Cercle et triangle rectangle", "description": "Cercle circonscrit.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "cercles-c2", "title": "Le cercle", "titleAr": "الدائرة", "description": "Angles et cercles.", "descriptionAr": "الزوايا والدوائر.", "lessons": [
+              { "id": "cercle-triangle-rect", "title": "Cercle et triangle rectangle", "titleAr": "الدائرة والمثلث القائم", "description": "Cercle circonscrit.", "descriptionAr": "الدائرة المحيطة.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "proportionnalite-c2", "title": "Proportionnalité et pourcentages", "description": "Applications.", "lessons": [
-              { "id": "pourcentages-c2", "title": "Pourcentages", "description": "Calculs de pourcentages.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "proportionnalite-c2", "title": "Proportionnalité et pourcentages", "titleAr": "التناسبية والنسب المئوية", "description": "Applications.", "descriptionAr": "تطبيقات.", "lessons": [
+              { "id": "pourcentages-c2", "title": "Pourcentages", "titleAr": "النسب المئوية", "description": "Calculs de pourcentages.", "descriptionAr": "حسابات النسب المئوية.", "duration": 45, "difficulty": "intermediate" }
             ]},
-            { "id": "statistiques-c2", "title": "Statistiques", "description": "Moyenne pondérée et graphiques.", "lessons": [
-              { "id": "moyenne-ponderee", "title": "Moyenne pondérée", "description": "Calculer une moyenne pondérée.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "statistiques-c2", "title": "Statistiques", "titleAr": "الإحصاء", "description": "Moyenne pondérée et graphiques.", "descriptionAr": "المعدل الموزون والمبيانات.", "lessons": [
+              { "id": "moyenne-ponderee", "title": "Moyenne pondérée", "titleAr": "المعدل الموزون", "description": "Calculer une moyenne pondérée.", "descriptionAr": "حساب معدل موزون.", "duration": 45, "difficulty": "intermediate" }
             ]}
           ]
         },
         {
           "id": "college-3",
           "title": "3ème Année Collège",
+          "titleAr": "السنة الثالثة إعدادي",
           "icon": "📘",
           "description": "Racines carrées, Pythagore, Thalès et trigonométrie.",
+          "descriptionAr": "الجذور المربعة وفيثاغورس وطاليس وحساب المثلثات.",
           "chapters": [
-            { "id": "nombres-reels-c3", "title": "Nombres réels et racines carrées", "description": "Racines carrées et calculs.", "lessons": [
-              { "id": "racines-carrees", "title": "Racines carrées", "description": "Propriétés des racines carrées.", "duration": 50, "difficulty": "intermediate" },
-              { "id": "calcul-racines", "title": "Calculs sur les racines", "description": "Simplifier et réduire.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "nombres-reels-c3", "title": "Nombres réels et racines carrées", "titleAr": "الأعداد الحقيقية والجذور المربعة", "description": "Racines carrées et calculs.", "descriptionAr": "الجذور المربعة والحسابات.", "lessons": [
+              { "id": "racines-carrees", "title": "Racines carrées", "titleAr": "الجذور المربعة", "description": "Propriétés des racines carrées.", "descriptionAr": "خصائص الجذور المربعة.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "calcul-racines", "title": "Calculs sur les racines", "titleAr": "حسابات على الجذور", "description": "Simplifier et réduire.", "descriptionAr": "التبسيط والاختزال.", "duration": 50, "difficulty": "intermediate" }
             ]},
-            { "id": "calcul-algebrique-c3", "title": "Calcul algébrique", "description": "Identités remarquables et factorisation.", "lessons": [
-              { "id": "identites-remarquables", "title": "Identités remarquables", "description": "(a+b)², (a-b)², (a+b)(a-b).", "duration": 50, "difficulty": "intermediate" },
-              { "id": "factorisation", "title": "Factorisation", "description": "Factoriser une expression.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "calcul-algebrique-c3", "title": "Calcul algébrique", "titleAr": "الحساب الجبري", "description": "Identités remarquables et factorisation.", "descriptionAr": "المتطابقات الهامة والتعميل.", "lessons": [
+              { "id": "identites-remarquables", "title": "Identités remarquables", "titleAr": "المتطابقات الهامة", "description": "(a+b)², (a-b)², (a+b)(a-b).", "descriptionAr": "(a+b)²، (a-b)²، (a+b)(a-b).", "duration": 50, "difficulty": "intermediate" },
+              { "id": "factorisation", "title": "Factorisation", "titleAr": "التعميل", "description": "Factoriser une expression.", "descriptionAr": "تعميل تعبير.", "duration": 50, "difficulty": "intermediate" }
             ]},
-            { "id": "equations-inequations-c3", "title": "Équations et inéquations", "description": "Équations et inéquations du 1er degré.", "lessons": [
-              { "id": "inequations", "title": "Inéquations", "description": "Résoudre une inéquation.", "duration": 50, "difficulty": "intermediate" },
-              { "id": "systemes-equations", "title": "Systèmes d'équations", "description": "Résoudre un système 2x2.", "duration": 55, "difficulty": "intermediate" }
+            { "id": "equations-inequations-c3", "title": "Équations et inéquations", "titleAr": "المعادلات والمتراجحات", "description": "Équations et inéquations du 1er degré.", "descriptionAr": "معادلات ومتراجحات من الدرجة الأولى.", "lessons": [
+              { "id": "inequations", "title": "Inéquations", "titleAr": "المتراجحات", "description": "Résoudre une inéquation.", "descriptionAr": "حل متراجحة.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "systemes-equations", "title": "Systèmes d'équations", "titleAr": "نظم المعادلات", "description": "Résoudre un système 2x2.", "descriptionAr": "حل نظمة 2×2.", "duration": 55, "difficulty": "intermediate" }
             ]},
-            { "id": "pythagore", "title": "Théorème de Pythagore", "description": "Calculer des longueurs.", "lessons": [
-              { "id": "pythagore-direct", "title": "Calcul de l'hypoténuse", "description": "Appliquer le théorème.", "duration": 50, "difficulty": "intermediate" },
-              { "id": "pythagore-reciproque", "title": "Réciproque de Pythagore", "description": "Démontrer qu'un triangle est rectangle.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "pythagore", "title": "Théorème de Pythagore", "titleAr": "مبرهنة فيثاغورس", "description": "Calculer des longueurs.", "descriptionAr": "حساب الأطوال.", "lessons": [
+              { "id": "pythagore-direct", "title": "Calcul de l'hypoténuse", "titleAr": "حساب الوتر", "description": "Appliquer le théorème.", "descriptionAr": "تطبيق المبرهنة.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "pythagore-reciproque", "title": "Réciproque de Pythagore", "titleAr": "عكس مبرهنة فيثاغورس", "description": "Démontrer qu'un triangle est rectangle.", "descriptionAr": "البرهان على أن مثلثا قائم الزاوية.", "duration": 50, "difficulty": "intermediate" }
             ]},
-            { "id": "thales", "title": "Théorème de Thalès", "description": "Configuration de Thalès.", "lessons": [
-              { "id": "thales-direct", "title": "Théorème de Thalès", "description": "Calculer des longueurs.", "duration": 50, "difficulty": "advanced" },
-              { "id": "thales-reciproque", "title": "Réciproque de Thalès", "description": "Montrer que des droites sont parallèles.", "duration": 50, "difficulty": "advanced" }
+            { "id": "thales", "title": "Théorème de Thalès", "titleAr": "مبرهنة طاليس", "description": "Configuration de Thalès.", "descriptionAr": "تشكيلة طاليس.", "lessons": [
+              { "id": "thales-direct", "title": "Théorème de Thalès", "titleAr": "مبرهنة طاليس", "description": "Calculer des longueurs.", "descriptionAr": "حساب الأطوال.", "duration": 50, "difficulty": "advanced" },
+              { "id": "thales-reciproque", "title": "Réciproque de Thalès", "titleAr": "عكس مبرهنة طاليس", "description": "Montrer que des droites sont parallèles.", "descriptionAr": "إثبات توازي مستقيمين.", "duration": 50, "difficulty": "advanced" }
             ]},
-            { "id": "trigonometrie-c3", "title": "Trigonométrie", "description": "Cosinus, sinus, tangente.", "lessons": [
-              { "id": "cosinus", "title": "Le cosinus", "description": "Calculer un cosinus.", "duration": 50, "difficulty": "advanced" },
-              { "id": "sinus-tangente", "title": "Sinus et tangente", "description": "Relations trigonométriques.", "duration": 55, "difficulty": "advanced" }
+            { "id": "trigonometrie-c3", "title": "Trigonométrie", "titleAr": "حساب المثلثات", "description": "Cosinus, sinus, tangente.", "descriptionAr": "جيب التمام والجيب والظل.", "lessons": [
+              { "id": "cosinus", "title": "Le cosinus", "titleAr": "جيب التمام", "description": "Calculer un cosinus.", "descriptionAr": "حساب جيب التمام.", "duration": 50, "difficulty": "advanced" },
+              { "id": "sinus-tangente", "title": "Sinus et tangente", "titleAr": "الجيب والظل", "description": "Relations trigonométriques.", "descriptionAr": "العلاقات المثلثية.", "duration": 55, "difficulty": "advanced" }
             ]},
-            { "id": "fonctions-c3", "title": "Fonctions linéaires et affines", "description": "Premières fonctions.", "lessons": [
-              { "id": "fonctions-lineaires", "title": "Fonctions linéaires", "description": "Représentation et coefficients.", "duration": 50, "difficulty": "advanced" },
-              { "id": "fonctions-affines-c3", "title": "Fonctions affines", "description": "Ordonnée à l'origine et coefficient.", "duration": 50, "difficulty": "advanced" }
+            { "id": "fonctions-c3", "title": "Fonctions linéaires et affines", "titleAr": "الدوال الخطية والتآلفية", "description": "Premières fonctions.", "descriptionAr": "الدوال الأولى.", "lessons": [
+              { "id": "fonctions-lineaires", "title": "Fonctions linéaires", "titleAr": "الدوال الخطية", "description": "Représentation et coefficients.", "descriptionAr": "التمثيل والمعاملات.", "duration": 50, "difficulty": "advanced" },
+              { "id": "fonctions-affines-c3", "title": "Fonctions affines", "titleAr": "الدوال التآلفية", "description": "Ordonnée à l'origine et coefficient.", "descriptionAr": "الأرتوب في الأصل والمعامل.", "duration": 50, "difficulty": "advanced" }
             ]},
-            { "id": "statistiques-c3", "title": "Statistiques et probabilités", "description": "Statistiques et introduction aux probabilités.", "lessons": [
-              { "id": "statistiques-c3-les", "title": "Statistiques", "description": "Moyenne, médiane, étendue.", "duration": 50, "difficulty": "intermediate" },
-              { "id": "probabilites-c3", "title": "Probabilités", "description": "Notion de probabilité.", "duration": 45, "difficulty": "intermediate" }
+            { "id": "statistiques-c3", "title": "Statistiques et probabilités", "titleAr": "الإحصاء والاحتمالات", "description": "Statistiques et introduction aux probabilités.", "descriptionAr": "الإحصاء ومقدمة في الاحتمالات.", "lessons": [
+              { "id": "statistiques-c3-les", "title": "Statistiques", "titleAr": "الإحصاء", "description": "Moyenne, médiane, étendue.", "descriptionAr": "المعدل والوسيط والمدى.", "duration": 50, "difficulty": "intermediate" },
+              { "id": "probabilites-c3", "title": "Probabilités", "titleAr": "الاحتمالات", "description": "Notion de probabilité.", "descriptionAr": "مفهوم الاحتمال.", "duration": 45, "difficulty": "intermediate" }
             ]}
           ]
         }
@@ -288,130 +310,138 @@
     {
       "id": "lycee",
       "title": "Lycée",
+      "titleAr": "الثانوي التأهيلي",
       "icon": "🎓",
       "description": "L'enseignement secondaire qualifiant : tronc commun et Baccalauréat.",
+      "descriptionAr": "التعليم الثانوي التأهيلي: الجذع المشترك والباكالوريا.",
       "levels": [
         {
           "id": "tronc-commun",
           "title": "Tronc Commun",
+          "titleAr": "الجذع المشترك",
           "icon": "📊",
           "description": "Les fondamentaux communs : fonctions, polynômes et géométrie.",
+          "descriptionAr": "الأساسيات المشتركة: الدوال والمتعددات والهندسة.",
           "chapters": [
-            { "id": "ensembles-logique", "title": "Ensembles et logique", "description": "Notions d'ensembles et raisonnement.", "lessons": [
-              { "id": "ensembles", "title": "Les ensembles", "description": "Appartenance, inclusion, opérations.", "duration": 55, "difficulty": "intermediate" },
-              { "id": "logique", "title": "Logique et raisonnement", "description": "Propositions, implication, quantificateurs.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "ensembles-logique", "title": "Ensembles et logique", "titleAr": "المجموعات والمنطق", "description": "Notions d'ensembles et raisonnement.", "descriptionAr": "مفاهيم المجموعات والاستدلال.", "lessons": [
+              { "id": "ensembles", "title": "Les ensembles", "titleAr": "المجموعات", "description": "Appartenance, inclusion, opérations.", "descriptionAr": "الانتماء والاحتواء والعمليات.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "logique", "title": "Logique et raisonnement", "titleAr": "المنطق والاستدلال", "description": "Propositions, implication, quantificateurs.", "descriptionAr": "القضايا والاستلزام والمكممات.", "duration": 50, "difficulty": "intermediate" }
             ]},
-            { "id": "calcul-algebrique-tc", "title": "Calcul algébrique", "description": "Identités et calcul littéral.", "lessons": [
-              { "id": "identites-tc", "title": "Identités remarquables", "description": "Développement et factorisation.", "duration": 55, "difficulty": "intermediate" },
-              { "id": "polynomes-tc", "title": "Polynômes", "description": "Degré, racines, division.", "duration": 60, "difficulty": "intermediate" }
+            { "id": "calcul-algebrique-tc", "title": "Calcul algébrique", "titleAr": "الحساب الجبري", "description": "Identités et calcul littéral.", "descriptionAr": "المتطابقات والحساب الحرفي.", "lessons": [
+              { "id": "identites-tc", "title": "Identités remarquables", "titleAr": "المتطابقات الهامة", "description": "Développement et factorisation.", "descriptionAr": "النشر والتعميل.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "polynomes-tc", "title": "Polynômes", "titleAr": "المتعددات", "description": "Degré, racines, division.", "descriptionAr": "الدرجة والجذور والقسمة.", "duration": 60, "difficulty": "intermediate" }
             ]},
-            { "id": "equations-inequations-tc", "title": "Équations, inéquations et systèmes", "description": "Degré 1 et 2, systèmes.", "lessons": [
-              { "id": "equations-degre2", "title": "Équations du second degré", "description": "Discriminant et racines.", "duration": 60, "difficulty": "intermediate" },
-              { "id": "inequations-tc", "title": "Inéquations", "description": "Tableaux de signes.", "duration": 60, "difficulty": "intermediate" }
+            { "id": "equations-inequations-tc", "title": "Équations, inéquations et systèmes", "titleAr": "المعادلات والمتراجحات والنظم", "description": "Degré 1 et 2, systèmes.", "descriptionAr": "الدرجة الأولى والثانية والنظم.", "lessons": [
+              { "id": "equations-degre2", "title": "Équations du second degré", "titleAr": "معادلات من الدرجة الثانية", "description": "Discriminant et racines.", "descriptionAr": "المميز والجذور.", "duration": 60, "difficulty": "intermediate" },
+              { "id": "inequations-tc", "title": "Inéquations", "titleAr": "المتراجحات", "description": "Tableaux de signes.", "descriptionAr": "جداول الإشارة.", "duration": 60, "difficulty": "intermediate" }
             ]},
-            { "id": "fonctions-generales", "title": "Généralités sur les fonctions", "description": "Domaine, variations, représentation.", "lessons": [
-              { "id": "domaine-fonction", "title": "Domaine de définition", "description": "Déterminer le domaine.", "duration": 55, "difficulty": "intermediate" },
-              { "id": "variations", "title": "Sens de variation", "description": "Étudier la monotonie.", "duration": 60, "difficulty": "intermediate" }
+            { "id": "fonctions-generales", "title": "Généralités sur les fonctions", "titleAr": "عموميات حول الدوال", "description": "Domaine, variations, représentation.", "descriptionAr": "مجموعة التعريف والتغيرات والتمثيل.", "lessons": [
+              { "id": "domaine-fonction", "title": "Domaine de définition", "titleAr": "مجموعة التعريف", "description": "Déterminer le domaine.", "descriptionAr": "تحديد مجموعة التعريف.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "variations", "title": "Sens de variation", "titleAr": "اتجاه التغير", "description": "Étudier la monotonie.", "descriptionAr": "دراسة الرتابة.", "duration": 60, "difficulty": "intermediate" }
             ]},
-            { "id": "fonctions-affines-tc", "title": "Fonctions affines", "description": "Étude et représentation.", "lessons": [
-              { "id": "affines-etude", "title": "Étude d'une fonction affine", "description": "Coefficient directeur.", "duration": 55, "difficulty": "intermediate" }
+            { "id": "fonctions-affines-tc", "title": "Fonctions affines", "titleAr": "الدوال التآلفية", "description": "Étude et représentation.", "descriptionAr": "الدراسة والتمثيل.", "lessons": [
+              { "id": "affines-etude", "title": "Étude d'une fonction affine", "titleAr": "دراسة دالة تآلفية", "description": "Coefficient directeur.", "descriptionAr": "المعامل الموجه.", "duration": 55, "difficulty": "intermediate" }
             ]},
-            { "id": "geometrie-analytique-tc", "title": "Géométrie analytique", "description": "Repérage et vecteurs.", "lessons": [
-              { "id": "repere-plan", "title": "Repère du plan", "description": "Coordonnées d'un point.", "duration": 55, "difficulty": "intermediate" },
-              { "id": "vecteurs-tc", "title": "Vecteurs", "description": "Opérations sur les vecteurs.", "duration": 60, "difficulty": "intermediate" }
+            { "id": "geometrie-analytique-tc", "title": "Géométrie analytique", "titleAr": "الهندسة التحليلية", "description": "Repérage et vecteurs.", "descriptionAr": "المعلم والمتجهات.", "lessons": [
+              { "id": "repere-plan", "title": "Repère du plan", "titleAr": "معلم المستوى", "description": "Coordonnées d'un point.", "descriptionAr": "إحداثيات نقطة.", "duration": 55, "difficulty": "intermediate" },
+              { "id": "vecteurs-tc", "title": "Vecteurs", "titleAr": "المتجهات", "description": "Opérations sur les vecteurs.", "descriptionAr": "العمليات على المتجهات.", "duration": 60, "difficulty": "intermediate" }
             ]},
-            { "id": "trigonometrie-tc", "title": "Trigonométrie", "description": "Cercle trigonométrique.", "lessons": [
-              { "id": "cercle-trigo", "title": "Cercle trigonométrique", "description": "Sinus, cosinus, angles.", "duration": 60, "difficulty": "advanced" }
+            { "id": "trigonometrie-tc", "title": "Trigonométrie", "titleAr": "حساب المثلثات", "description": "Cercle trigonométrique.", "descriptionAr": "الدائرة المثلثية.", "lessons": [
+              { "id": "cercle-trigo", "title": "Cercle trigonométrique", "titleAr": "الدائرة المثلثية", "description": "Sinus, cosinus, angles.", "descriptionAr": "الجيب وجيب التمام والزوايا.", "duration": 60, "difficulty": "advanced" }
             ]},
-            { "id": "statistiques-tc", "title": "Statistiques", "description": "Séries statistiques.", "lessons": [
-              { "id": "stats-tc", "title": "Séries statistiques", "description": "Moyenne, médiane, quartiles.", "duration": 55, "difficulty": "intermediate" }
+            { "id": "statistiques-tc", "title": "Statistiques", "titleAr": "الإحصاء", "description": "Séries statistiques.", "descriptionAr": "المتتاليات الإحصائية.", "lessons": [
+              { "id": "stats-tc", "title": "Séries statistiques", "titleAr": "المتتاليات الإحصائية", "description": "Moyenne, médiane, quartiles.", "descriptionAr": "المعدل والوسيط والربيعيات.", "duration": 55, "difficulty": "intermediate" }
             ]},
-            { "id": "probabilites-tc", "title": "Probabilités", "description": "Notion de probabilité.", "lessons": [
-              { "id": "probabilites-tc-les", "title": "Calcul de probabilités", "description": "Événements et probabilités.", "duration": 50, "difficulty": "intermediate" }
+            { "id": "probabilites-tc", "title": "Probabilités", "titleAr": "الاحتمالات", "description": "Notion de probabilité.", "descriptionAr": "مفهوم الاحتمال.", "lessons": [
+              { "id": "probabilites-tc-les", "title": "Calcul de probabilités", "titleAr": "حساب الاحتمالات", "description": "Événements et probabilités.", "descriptionAr": "الأحداث والاحتمالات.", "duration": 50, "difficulty": "intermediate" }
             ]}
           ]
         },
         {
           "id": "bac1",
           "title": "1ère Année Bac (SE/SM)",
+          "titleAr": "السنة الأولى بكالوريا (علوم تجريبية/رياضية)",
           "icon": "🔬",
           "description": "Analyse, suites, exponentielle, logarithme et complexes.",
+          "descriptionAr": "التحليل والمتتاليات والدالة الأسية واللوغاريتمية والأعداد العقدية.",
           "chapters": [
-            { "id": "limites-continuite-b1", "title": "Limites et continuité", "description": "Limites et continuité des fonctions.", "lessons": [
-              { "id": "limites-b1", "title": "Calcul de limites", "description": "Limites en un point et à l'infini.", "duration": 65, "difficulty": "advanced" },
-              { "id": "continuite-b1", "title": "Continuité", "description": "Théorème des valeurs intermédiaires.", "duration": 65, "difficulty": "advanced" }
+            { "id": "limites-continuite-b1", "title": "Limites et continuité", "titleAr": "النهايات والاتصال", "description": "Limites et continuité des fonctions.", "descriptionAr": "نهايات الدوال واتصالها.", "lessons": [
+              { "id": "limites-b1", "title": "Calcul de limites", "titleAr": "حساب النهايات", "description": "Limites en un point et à l'infini.", "descriptionAr": "النهايات في نقطة وفي ما لا نهاية.", "duration": 65, "difficulty": "advanced" },
+              { "id": "continuite-b1", "title": "Continuité", "titleAr": "الاتصال", "description": "Théorème des valeurs intermédiaires.", "descriptionAr": "مبرهنة القيم الوسيطية.", "duration": 65, "difficulty": "advanced" }
             ]},
-            { "id": "derivation-b1", "title": "Dérivation", "description": "Dérivabilité et calcul de dérivées.", "lessons": [
-              { "id": "derivabilite-b1", "title": "Dérivabilité", "description": "Nombre dérivé et tangente.", "duration": 65, "difficulty": "advanced" },
-              { "id": "derivees-b1", "title": "Fonction dérivée", "description": "Formules de dérivation.", "duration": 65, "difficulty": "advanced" }
+            { "id": "derivation-b1", "title": "Dérivation", "titleAr": "الاشتقاق", "description": "Dérivabilité et calcul de dérivées.", "descriptionAr": "قابلية الاشتقاق وحساب المشتقات.", "lessons": [
+              { "id": "derivabilite-b1", "title": "Dérivabilité", "titleAr": "قابلية الاشتقاق", "description": "Nombre dérivé et tangente.", "descriptionAr": "العدد المشتق والمماس.", "duration": 65, "difficulty": "advanced" },
+              { "id": "derivees-b1", "title": "Fonction dérivée", "titleAr": "الدالة المشتقة", "description": "Formules de dérivation.", "descriptionAr": "صيغ الاشتقاق.", "duration": 65, "difficulty": "advanced" }
             ]},
-            { "id": "suites-b1", "title": "Les suites numériques", "description": "Suites arithmétiques et géométriques.", "lessons": [
-              { "id": "suites-arithmetiques", "title": "Suites arithmétiques", "description": "Terme général et somme.", "duration": 65, "difficulty": "advanced" },
-              { "id": "suites-geometriques", "title": "Suites géométriques", "description": "Terme général et somme.", "duration": 65, "difficulty": "advanced" }
+            { "id": "suites-b1", "title": "Les suites numériques", "titleAr": "المتتاليات العددية", "description": "Suites arithmétiques et géométriques.", "descriptionAr": "المتتاليات الحسابية والهندسية.", "lessons": [
+              { "id": "suites-arithmetiques", "title": "Suites arithmétiques", "titleAr": "المتتاليات الحسابية", "description": "Terme général et somme.", "descriptionAr": "الحد العام والمجموع.", "duration": 65, "difficulty": "advanced" },
+              { "id": "suites-geometriques", "title": "Suites géométriques", "titleAr": "المتتاليات الهندسية", "description": "Terme général et somme.", "descriptionAr": "الحد العام والمجموع.", "duration": 65, "difficulty": "advanced" }
             ]},
-            { "id": "exponentielle-b1", "title": "Fonctions exponentielles", "description": "La fonction exponentielle.", "lessons": [
-              { "id": "exponentielle-proprietes", "title": "Propriétés de l'exponentielle", "description": "Équations et inéquations.", "duration": 70, "difficulty": "advanced" },
-              { "id": "exponentielle-etude", "title": "Étude de la fonction exp", "description": "Variations et limite.", "duration": 70, "difficulty": "advanced" }
+            { "id": "exponentielle-b1", "title": "Fonctions exponentielles", "titleAr": "الدوال الأسية", "description": "La fonction exponentielle.", "descriptionAr": "الدالة الأسية.", "lessons": [
+              { "id": "exponentielle-proprietes", "title": "Propriétés de l'exponentielle", "titleAr": "خصائص الدالة الأسية", "description": "Équations et inéquations.", "descriptionAr": "المعادلات والمتراجحات.", "duration": 70, "difficulty": "advanced" },
+              { "id": "exponentielle-etude", "title": "Étude de la fonction exp", "titleAr": "دراسة الدالة الأسية", "description": "Variations et limite.", "descriptionAr": "التغيرات والنهاية.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "logarithme-b1", "title": "Fonction logarithme népérien", "description": "La fonction ln.", "lessons": [
-              { "id": "logarithme-proprietes", "title": "Propriétés du logarithme", "description": "Équations et inéquations.", "duration": 70, "difficulty": "advanced" }
+            { "id": "logarithme-b1", "title": "Fonction logarithme népérien", "titleAr": "الدالة اللوغاريتمية النيبيرية", "description": "La fonction ln.", "descriptionAr": "الدالة ln.", "lessons": [
+              { "id": "logarithme-proprietes", "title": "Propriétés du logarithme", "titleAr": "خصائص اللوغاريتم", "description": "Équations et inéquations.", "descriptionAr": "المعادلات والمتراجحات.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "produit-scalaire-b1", "title": "Produit scalaire", "description": "Produit scalaire dans le plan.", "lessons": [
-              { "id": "produit-scalaire-plan", "title": "Produit scalaire dans le plan", "description": "Définition et applications.", "duration": 65, "difficulty": "advanced" }
+            { "id": "produit-scalaire-b1", "title": "Produit scalaire", "titleAr": "الجداء السلمي", "description": "Produit scalaire dans le plan.", "descriptionAr": "الجداء السلمي في المستوى.", "lessons": [
+              { "id": "produit-scalaire-plan", "title": "Produit scalaire dans le plan", "titleAr": "الجداء السلمي في المستوى", "description": "Définition et applications.", "descriptionAr": "التعريف والتطبيقات.", "duration": 65, "difficulty": "advanced" }
             ]},
-            { "id": "calcul-trigo-b1", "title": "Calcul trigonométrique", "description": "Formules trigonométriques.", "lessons": [
-              { "id": "formules-trigo", "title": "Formules d'addition", "description": "cos(a+b), sin(a+b).", "duration": 65, "difficulty": "advanced" },
-              { "id": "equations-trigo", "title": "Équations trigonométriques", "description": "Résoudre cos x = a.", "duration": 70, "difficulty": "advanced" }
+            { "id": "calcul-trigo-b1", "title": "Calcul trigonométrique", "titleAr": "الحساب المثلثي", "description": "Formules trigonométriques.", "descriptionAr": "الصيغ المثلثية.", "lessons": [
+              { "id": "formules-trigo", "title": "Formules d'addition", "titleAr": "صيغ الجمع", "description": "cos(a+b), sin(a+b).", "descriptionAr": "cos(a+b)، sin(a+b).", "duration": 65, "difficulty": "advanced" },
+              { "id": "equations-trigo", "title": "Équations trigonométriques", "titleAr": "المعادلات المثلثية", "description": "Résoudre cos x = a.", "descriptionAr": "حل cos x = a.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "nombres-complexes-b1", "title": "Nombres complexes", "description": "Introduction aux complexes.", "lessons": [
-              { "id": "complexes-forme-algebrique", "title": "Forme algébrique", "description": "Opérations sur les complexes.", "duration": 70, "difficulty": "advanced" },
-              { "id": "complexes-argument", "title": "Argument et module", "description": "Forme trigonométrique.", "duration": 70, "difficulty": "advanced" }
+            { "id": "nombres-complexes-b1", "title": "Nombres complexes", "titleAr": "الأعداد العقدية", "description": "Introduction aux complexes.", "descriptionAr": "مقدمة في الأعداد العقدية.", "lessons": [
+              { "id": "complexes-forme-algebrique", "title": "Forme algébrique", "titleAr": "الشكل الجبري", "description": "Opérations sur les complexes.", "descriptionAr": "العمليات على الأعداد العقدية.", "duration": 70, "difficulty": "advanced" },
+              { "id": "complexes-argument", "title": "Argument et module", "titleAr": "العمدة والقياس", "description": "Forme trigonométrique.", "descriptionAr": "الشكل المثلثي.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "geometrie-espace-b1", "title": "Géométrie dans l'espace", "description": "Droites et plans de l'espace.", "lessons": [
-              { "id": "droites-plans", "title": "Droites et plans", "description": "Positions relatives.", "duration": 70, "difficulty": "advanced" }
+            { "id": "geometrie-espace-b1", "title": "Géométrie dans l'espace", "titleAr": "الهندسة في الفضاء", "description": "Droites et plans de l'espace.", "descriptionAr": "المستقيمات والمستويات في الفضاء.", "lessons": [
+              { "id": "droites-plans", "title": "Droites et plans", "titleAr": "المستقيمات والمستويات", "description": "Positions relatives.", "descriptionAr": "الأوضاع النسبية.", "duration": 70, "difficulty": "advanced" }
             ]}
           ]
         },
         {
           "id": "bac2",
           "title": "2ème Année Bac (PC/SVT/SM)",
+          "titleAr": "السنة الثانية بكالوريا (فيزياء/علوم الحياة والأرض/رياضية)",
           "icon": "🏆",
           "description": "Intégrales, complexes, probabilités et équations différentielles.",
+          "descriptionAr": "التكاملات والأعداد العقدية والاحتمالات والمعادلات التفاضلية.",
           "chapters": [
-            { "id": "limites-continuite-b2", "title": "Limites et continuité", "description": "Révisions et approfondissements.", "lessons": [
-              { "id": "limites-b2", "title": "Limites", "description": "Techniques de calcul.", "duration": 70, "difficulty": "advanced" },
-              { "id": "continuite-b2", "title": "Continuité", "description": "Théorèmes fondamentaux.", "duration": 70, "difficulty": "advanced" }
+            { "id": "limites-continuite-b2", "title": "Limites et continuité", "titleAr": "النهايات والاتصال", "description": "Révisions et approfondissements.", "descriptionAr": "مراجعة وتعميق.", "lessons": [
+              { "id": "limites-b2", "title": "Limites", "titleAr": "النهايات", "description": "Techniques de calcul.", "descriptionAr": "تقنيات الحساب.", "duration": 70, "difficulty": "advanced" },
+              { "id": "continuite-b2", "title": "Continuité", "titleAr": "الاتصال", "description": "Théorèmes fondamentaux.", "descriptionAr": "المبرهنات الأساسية.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "derivees-etude-b2", "title": "Dérivées et étude de fonctions", "description": "Étude complète de fonctions.", "lessons": [
-              { "id": "etude-fonctions-b2", "title": "Étude de fonctions", "description": "Tableaux de variation.", "duration": 75, "difficulty": "advanced" },
-              { "id": "fonctions-reciproques-b2", "title": "Fonctions réciproques", "description": "Bijection et réciproque.", "duration": 70, "difficulty": "advanced" }
+            { "id": "derivees-etude-b2", "title": "Dérivées et étude de fonctions", "titleAr": "المشتقات ودراسة الدوال", "description": "Étude complète de fonctions.", "descriptionAr": "دراسة كاملة للدوال.", "lessons": [
+              { "id": "etude-fonctions-b2", "title": "Étude de fonctions", "titleAr": "دراسة الدوال", "description": "Tableaux de variation.", "descriptionAr": "جداول التغيرات.", "duration": 75, "difficulty": "advanced" },
+              { "id": "fonctions-reciproques-b2", "title": "Fonctions réciproques", "titleAr": "الدوال العكسية", "description": "Bijection et réciproque.", "descriptionAr": "التقابل والدالة العكسية.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "suites-b2", "title": "Les suites", "description": "Convergence des suites.", "lessons": [
-              { "id": "limites-suites", "title": "Limites de suites", "description": "Convergence et divergence.", "duration": 70, "difficulty": "advanced" }
+            { "id": "suites-b2", "title": "Les suites", "titleAr": "المتتاليات", "description": "Convergence des suites.", "descriptionAr": "تقارب المتتاليات.", "lessons": [
+              { "id": "limites-suites", "title": "Limites de suites", "titleAr": "نهايات المتتاليات", "description": "Convergence et divergence.", "descriptionAr": "التقارب والتباعد.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "primitives-b2", "title": "Primitives", "description": "Calcul de primitives.", "lessons": [
-              { "id": "primitives-usuelles", "title": "Primitives usuelles", "description": "Tableau des primitives.", "duration": 70, "difficulty": "advanced" }
+            { "id": "primitives-b2", "title": "Primitives", "titleAr": "الدوال الأصلية", "description": "Calcul de primitives.", "descriptionAr": "حساب الدوال الأصلية.", "lessons": [
+              { "id": "primitives-usuelles", "title": "Primitives usuelles", "titleAr": "الدوال الأصلية العادية", "description": "Tableau des primitives.", "descriptionAr": "جدول الدوال الأصلية.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "integrales-b2", "title": "Intégrales", "description": "Calcul intégral.", "lessons": [
-              { "id": "integrale-definie", "title": "Intégrale définie", "description": "Calcul d'aires.", "duration": 75, "difficulty": "advanced" },
-              { "id": "integration-parties", "title": "Intégration par parties", "description": "Technique d'intégration.", "duration": 75, "difficulty": "advanced" }
+            { "id": "integrales-b2", "title": "Intégrales", "titleAr": "التكاملات", "description": "Calcul intégral.", "descriptionAr": "حساب التكامل.", "lessons": [
+              { "id": "integrale-definie", "title": "Intégrale définie", "titleAr": "التكامل المحدد", "description": "Calcul d'aires.", "descriptionAr": "حساب المساحات.", "duration": 75, "difficulty": "advanced" },
+              { "id": "integration-parties", "title": "Intégration par parties", "titleAr": "التكامل بالأجزاء", "description": "Technique d'intégration.", "descriptionAr": "تقنية التكامل.", "duration": 75, "difficulty": "advanced" }
             ]},
-            { "id": "complexes-b2", "title": "Nombres complexes", "description": "Formes et transformations.", "lessons": [
-              { "id": "complexes-trigo-b2", "title": "Forme trigonométrique", "description": "Module et argument.", "duration": 75, "difficulty": "advanced" },
-              { "id": "complexes-exponentielle", "title": "Forme exponentielle", "description": "Écriture exponentielle.", "duration": 75, "difficulty": "advanced" }
+            { "id": "complexes-b2", "title": "Nombres complexes", "titleAr": "الأعداد العقدية", "description": "Formes et transformations.", "descriptionAr": "الأشكال والتحويلات.", "lessons": [
+              { "id": "complexes-trigo-b2", "title": "Forme trigonométrique", "titleAr": "الشكل المثلثي", "description": "Module et argument.", "descriptionAr": "القياس والعمدة.", "duration": 75, "difficulty": "advanced" },
+              { "id": "complexes-exponentielle", "title": "Forme exponentielle", "titleAr": "الشكل الأسي", "description": "Écriture exponentielle.", "descriptionAr": "الكتابة الأسية.", "duration": 75, "difficulty": "advanced" }
             ]},
-            { "id": "geometrie-espace-b2", "title": "Géométrie dans l'espace", "description": "Produit vectoriel et plans.", "lessons": [
-              { "id": "produit-vectoriel", "title": "Produit vectoriel", "description": "Applications géométriques.", "duration": 75, "difficulty": "advanced" }
+            { "id": "geometrie-espace-b2", "title": "Géométrie dans l'espace", "titleAr": "الهندسة في الفضاء", "description": "Produit vectoriel et plans.", "descriptionAr": "الجداء المتجهي والمستويات.", "lessons": [
+              { "id": "produit-vectoriel", "title": "Produit vectoriel", "titleAr": "الجداء المتجهي", "description": "Applications géométriques.", "descriptionAr": "تطبيقات هندسية.", "duration": 75, "difficulty": "advanced" }
             ]},
-            { "id": "probabilites-b2", "title": "Probabilités", "description": "Probabilités conditionnelles et lois.", "lessons": [
-              { "id": "probabilites-conditionnelles", "title": "Probabilités conditionnelles", "description": "Arbres et Bayes.", "duration": 70, "difficulty": "advanced" },
-              { "id": "lois-probabilite", "title": "Lois de probabilité", "description": "Binomiale et normale.", "duration": 75, "difficulty": "advanced" }
+            { "id": "probabilites-b2", "title": "Probabilités", "titleAr": "الاحتمالات", "description": "Probabilités conditionnelles et lois.", "descriptionAr": "الاحتمالات الشرطية والقوانين.", "lessons": [
+              { "id": "probabilites-conditionnelles", "title": "Probabilités conditionnelles", "titleAr": "الاحتمالات الشرطية", "description": "Arbres et Bayes.", "descriptionAr": "الأشجار وبيز.", "duration": 70, "difficulty": "advanced" },
+              { "id": "lois-probabilite", "title": "Lois de probabilité", "titleAr": "قوانين الاحتمال", "description": "Binomiale et normale.", "descriptionAr": "الثنائية والنظامية.", "duration": 75, "difficulty": "advanced" }
             ]},
-            { "id": "statistiques-b2", "title": "Statistiques inférentielles", "description": "Estimation et tests.", "lessons": [
-              { "id": "intervalle-confiance", "title": "Intervalle de confiance", "description": "Estimation d'une proportion.", "duration": 70, "difficulty": "advanced" }
+            { "id": "statistiques-b2", "title": "Statistiques inférentielles", "titleAr": "الإحصاء الاستدلالي", "description": "Estimation et tests.", "descriptionAr": "التقدير والاختبارات.", "lessons": [
+              { "id": "intervalle-confiance", "title": "Intervalle de confiance", "titleAr": "مجال الثقة", "description": "Estimation d'une proportion.", "descriptionAr": "تقدير نسبة.", "duration": 70, "difficulty": "advanced" }
             ]},
-            { "id": "equations-differentielles-b2", "title": "Équations différentielles", "description": "Équations différentielles linéaires.", "lessons": [
-              { "id": "equa-diff-ordre1", "title": "Équations du 1er ordre", "description": "y' = ay + b.", "duration": 75, "difficulty": "advanced" }
+            { "id": "equations-differentielles-b2", "title": "Équations différentielles", "titleAr": "المعادلات التفاضلية", "description": "Équations différentielles linéaires.", "descriptionAr": "المعادلات التفاضلية الخطية.", "lessons": [
+              { "id": "equa-diff-ordre1", "title": "Équations du 1er ordre", "titleAr": "معادلات من الرتبة الأولى", "description": "y' = ay + b.", "descriptionAr": "y' = ay + b.", "duration": 75, "difficulty": "advanced" }
             ]}
           ]
         }

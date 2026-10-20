@@ -19,14 +19,26 @@ function esc(value) {
         .replace(/"/g, '&quot;');
 }
 
+// Localized title/description of a curriculum node
+function cat(node, field) {
+    return esc(L(node, field));
+}
+
 function difficultyLabel(level) {
-    return { beginner: 'Débutant', intermediate: 'Intermédiaire', advanced: 'Avancé' }[level] || '';
+    const key = 'catalog.difficulty.' + level;
+    const label = t(key);
+    return label === key ? '' : label;
+}
+
+function lessonsLabel(count) {
+    if (count === 1) return t('catalog.lessonCountOne');
+    return t('catalog.lessonsCount', { n: nt(count) });
 }
 
 async function loadCurriculum() {
     if (CATALOG.data) return CATALOG.data;
     const res = await fetch(catalogBase() + 'data/curriculum.json');
-    if (!res.ok) throw new Error('Curriculum introuvable (' + res.status + ')');
+    if (!res.ok) throw new Error('Curriculum not found (' + res.status + ')');
     CATALOG.data = await res.json();
     return CATALOG.data;
 }
@@ -51,18 +63,18 @@ function setPageContent(headerHtml, bodyHtml) {
 }
 
 function errorBlock(message) {
-    return `<div class="page-header"><h1>Oups</h1><p>${esc(message)}</p></div>
-        <div style="text-align:center;margin-top:40px;"><a href="${catalogBase()}" class="btn">← Retour à l'accueil</a></div>`;
+    return `<div class="page-header"><h1>${t('catalog.errorTitle')}</h1><p>${esc(message)}</p></div>
+        <div style="text-align:center;margin-top:40px;"><a href="${catalogBase()}" class="btn">${t('catalog.backHome')}</a></div>`;
 }
 
-// ===== Levels page (chapters of a category) =====
+// ===== Levels page (levels of a category) =====
 async function renderLevelsPage() {
     const catId = queryParam('cat');
     try {
         const data = await loadCurriculum();
         const category = findCategory(data, catId);
         if (!category) {
-            setPageContent(errorBlock('Catégorie introuvable.'), '');
+            setPageContent(errorBlock(t('catalog.error.category')), '');
             return;
         }
 
@@ -72,25 +84,25 @@ async function renderLevelsPage() {
             return `
                 <a class="level-card" href="chapitres.html?niveau=${encodeURIComponent(level.id)}">
                     <div class="level-icon">${level.icon || '📘'}</div>
-                    <h3>${esc(level.title)}</h3>
-                    <p>${esc(level.description)}</p>
+                    <h3>${cat(level, 'title')}</h3>
+                    <p>${cat(level, 'description')}</p>
                     <div class="level-meta">
-                        <span>📖 ${chapterCount} chapitres</span>
-                        <span><strong>${lessonCount} leçons</strong></span>
+                        <span>📖 ${t('catalog.chaptersCount', { n: nt(chapterCount) })}</span>
+                        <span><strong>${lessonsLabel(lessonCount)}</strong></span>
                     </div>
-                    <span class="btn">Voir les chapitres →</span>
+                    <span class="btn">${t('catalog.viewChapters')}</span>
                 </a>
             `;
         }).join('');
 
         setPageContent(
-            `<div class="page-header"><h1>${category.icon || ''} ${esc(category.title)}</h1><p>${esc(category.description)}</p></div>`,
+            `<div class="page-header"><h1>${category.icon || ''} ${cat(category, 'title')}</h1><p>${cat(category, 'description')}</p></div>`,
             `<section class="levels">${cards}</section>
-             <div style="text-align:center;margin-top:40px;"><a href="${catalogBase()}" class="btn">← Retour à l'accueil</a></div>`
+             <div style="text-align:center;margin-top:40px;"><a href="${catalogBase()}" class="btn">${t('catalog.backHome')}</a></div>`
         );
     } catch (error) {
         console.error(error);
-        setPageContent(errorBlock('Impossible de charger le programme.'), '');
+        setPageContent(errorBlock(t('catalog.error.curriculum')), '');
     }
 }
 
@@ -101,7 +113,7 @@ async function renderChaptersPage() {
         const data = await loadCurriculum();
         const found = findLevel(data, levelId);
         if (!found) {
-            setPageContent(errorBlock('Niveau introuvable.'), '');
+            setPageContent(errorBlock(t('catalog.error.level')), '');
             return;
         }
         const { category, level } = found;
@@ -111,29 +123,29 @@ async function renderChaptersPage() {
             return `
                 <a class="level-card" href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}">
                     <div class="level-icon">${index + 1}️⃣</div>
-                    <h3>${esc(chapter.title)}</h3>
-                    <p>${esc(chapter.description)}</p>
+                    <h3>${cat(chapter, 'title')}</h3>
+                    <p>${cat(chapter, 'description')}</p>
                     <div class="level-meta">
-                        <span>${category.icon || ''} ${esc(level.title)}</span>
-                        <span><strong>${lessonCount} leçon${lessonCount > 1 ? 's' : ''}</strong></span>
+                        <span>${category.icon || ''} ${cat(level, 'title')}</span>
+                        <span><strong>${lessonsLabel(lessonCount)}</strong></span>
                     </div>
-                    <span class="btn">Voir les leçons →</span>
+                    <span class="btn">${t('catalog.viewLessons')}</span>
                 </a>
             `;
         }).join('');
 
         setPageContent(
             `<div class="page-header">
-                <p class="breadcrumb"><a href="niveaux.html?cat=${encodeURIComponent(category.id)}">${category.icon || ''} ${esc(category.title)}</a></p>
-                <h1>${level.icon || ''} ${esc(level.title)}</h1>
-                <p>${esc(level.description)}</p>
+                <p class="breadcrumb"><a href="niveaux.html?cat=${encodeURIComponent(category.id)}">${category.icon || ''} ${cat(category, 'title')}</a></p>
+                <h1>${level.icon || ''} ${cat(level, 'title')}</h1>
+                <p>${cat(level, 'description')}</p>
             </div>`,
             `<section class="levels">${cards}</section>
-             <div style="text-align:center;margin-top:40px;"><a href="niveaux.html?cat=${encodeURIComponent(category.id)}" class="btn">← Retour aux niveaux</a></div>`
+             <div style="text-align:center;margin-top:40px;"><a href="niveaux.html?cat=${encodeURIComponent(category.id)}" class="btn">${t('catalog.backLevels')}</a></div>`
         );
     } catch (error) {
         console.error(error);
-        setPageContent(errorBlock('Impossible de charger les chapitres.'), '');
+        setPageContent(errorBlock(t('catalog.error.chapters')), '');
     }
 }
 
@@ -145,43 +157,43 @@ async function renderLessonsPage() {
         const data = await loadCurriculum();
         const found = findLevel(data, levelId);
         if (!found) {
-            setPageContent(errorBlock('Niveau introuvable.'), '');
+            setPageContent(errorBlock(t('catalog.error.level')), '');
             return;
         }
         const { category, level } = found;
         const chapter = level.chapters.find(c => c.id === chapterId);
         if (!chapter) {
-            setPageContent(errorBlock('Chapitre introuvable.'), '');
+            setPageContent(errorBlock(t('catalog.error.chapter')), '');
             return;
         }
 
         const cards = chapter.lessons.map((lesson, index) => `
             <a class="lesson-card" href="lecon.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}&lecon=${encodeURIComponent(lesson.id)}">
-                <h3>${index + 1}. ${esc(lesson.title)}</h3>
-                <p>${esc(lesson.description)}</p>
+                <h3>${index + 1}. ${cat(lesson, 'title')}</h3>
+                <p>${cat(lesson, 'description')}</p>
                 <div class="level-meta">
-                    <span>⏱️ ${lesson.duration || 30} min</span>
+                    <span>⏱️ ${t('catalog.minutes', { n: nt(lesson.duration || 30) })}</span>
                     <span>🎯 ${difficultyLabel(lesson.difficulty)}</span>
                 </div>
-                <span class="btn">Accéder à la leçon →</span>
+                <span class="btn">${t('catalog.accessLesson')}</span>
             </a>
         `).join('');
 
         setPageContent(
             `<div class="page-header">
                 <p class="breadcrumb">
-                    <a href="niveaux.html?cat=${encodeURIComponent(category.id)}">${esc(category.title)}</a> ·
-                    <a href="chapitres.html?niveau=${encodeURIComponent(level.id)}">${esc(level.title)}</a>
+                    <a href="niveaux.html?cat=${encodeURIComponent(category.id)}">${cat(category, 'title')}</a> ·
+                    <a href="chapitres.html?niveau=${encodeURIComponent(level.id)}">${cat(level, 'title')}</a>
                 </p>
-                <h1>${esc(chapter.title)}</h1>
-                <p>${esc(chapter.description)}</p>
+                <h1>${cat(chapter, 'title')}</h1>
+                <p>${cat(chapter, 'description')}</p>
             </div>`,
             `<section class="lessons-grid">${cards}</section>
-             <div style="text-align:center;margin-top:40px;"><a href="chapitres.html?niveau=${encodeURIComponent(level.id)}" class="btn">← Retour aux chapitres</a></div>`
+             <div style="text-align:center;margin-top:40px;"><a href="chapitres.html?niveau=${encodeURIComponent(level.id)}" class="btn">${t('catalog.backChapters')}</a></div>`
         );
     } catch (error) {
         console.error(error);
-        setPageContent(errorBlock('Impossible de charger les leçons.'), '');
+        setPageContent(errorBlock(t('catalog.error.lessons')), '');
     }
 }
 
@@ -196,7 +208,7 @@ async function renderLessonPage() {
         const chapter = found && found.level.chapters.find(c => c.id === chapterId);
         const lesson = chapter && chapter.lessons.find(l => l.id === lessonId);
         if (!found || !chapter || !lesson) {
-            setPageContent(errorBlock('Leçon introuvable.'), '');
+            setPageContent(errorBlock(t('catalog.error.lesson')), '');
             return;
         }
         const { level } = found;
@@ -204,25 +216,25 @@ async function renderLessonPage() {
         setPageContent(
             `<div class="page-header">
                 <p class="breadcrumb">
-                    <a href="chapitres.html?niveau=${encodeURIComponent(level.id)}">${esc(level.title)}</a> ·
-                    <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}">${esc(chapter.title)}</a>
+                    <a href="chapitres.html?niveau=${encodeURIComponent(level.id)}">${cat(level, 'title')}</a> ·
+                    <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}">${cat(chapter, 'title')}</a>
                 </p>
-                <h1>${esc(lesson.title)}</h1>
-                <p>⏱️ ${lesson.duration || 30} min · 🎯 ${difficultyLabel(lesson.difficulty)}</p>
+                <h1>${cat(lesson, 'title')}</h1>
+                <p>⏱️ ${t('catalog.minutes', { n: nt(lesson.duration || 30) })} · 🎯 ${difficultyLabel(lesson.difficulty)}</p>
             </div>`,
             `<div id="lesson-auth-note"></div>
             <article class="lesson-content">
-                <p>${esc(lesson.description)}</p>
-                <div class="placeholder-note">📝 Le contenu détaillé de cette leçon sera bientôt disponible.</div>
+                <p>${cat(lesson, 'description')}</p>
+                <div class="placeholder-note">${t('catalog.lessonSoon')}</div>
             </article>
             <div style="text-align:center;margin-top:40px;">
-                <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}" class="btn">← Retour aux leçons</a>
+                <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}" class="btn">${t('catalog.backLessons')}</a>
             </div>`
         );
         applyLessonAuthNote();
     } catch (error) {
         console.error(error);
-        setPageContent(errorBlock('Impossible de charger la leçon.'), '');
+        setPageContent(errorBlock(t('catalog.error.lessonPage')), '');
     }
 }
 
@@ -250,10 +262,10 @@ async function applyLessonAuthNote() {
     const registerHref = (window.MATHYXO_BASE || '/') + 'auth/register.html';
     note.innerHTML = `
         <div class="auth-banner">
-            <span>💡 Connectez-vous pour sauvegarder votre progression et vos scores.</span>
+            <span>${t('catalog.signInBanner')}</span>
             <span class="auth-banner-actions">
-                <a href="${loginHref}" class="btn btn-ghost">Connexion</a>
-                <a href="${registerHref}" class="btn">Inscription</a>
+                <a href="${loginHref}" class="btn btn-ghost">${t('auth.nav.login')}</a>
+                <a href="${registerHref}" class="btn">${t('auth.nav.register')}</a>
             </span>
         </div>
     `;

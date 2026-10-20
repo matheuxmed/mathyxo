@@ -1,8 +1,19 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-key="page.title.home">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Apply the saved language direction before paint to avoid a layout flash.
+        (function () {
+            try {
+                if (localStorage.getItem('mathyxo_language') === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
     <title>MatheuxMed - Mathématiques Lycée Marocain</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/rtl.css">
@@ -45,32 +56,32 @@
             fetch('./data/curriculum.json')
                 .then(res => res.json())
                 .then(curriculum => {
-                    const cards = (curriculum.categories || []).map(cat => {
-                        const levelCount = cat.levels.length;
-                        const lessonCount = cat.levels.reduce(
+                    const cards = (curriculum.categories || []).map(category => {
+                        const levelCount = category.levels.length;
+                        const lessonCount = category.levels.reduce(
                             (n, l) => n + l.chapters.reduce((m, c) => m + c.lessons.length, 0), 0
                         );
                         return `
-                            <a class="level-card" href="./niveaux.html?cat=${encodeURIComponent(cat.id)}">
-                                <div class="level-icon">${cat.icon}</div>
-                                <h3>${cat.title}</h3>
-                                <p>${cat.description}</p>
+                            <a class="level-card" href="./niveaux.html?cat=${encodeURIComponent(category.id)}">
+                                <div class="level-icon">${category.icon}</div>
+                                <h3>${L(category, 'title')}</h3>
+                                <p>${L(category, 'description')}</p>
                                 <div class="level-meta">
-                                    <span>🏫 ${levelCount} niveaux</span>
-                                    <span><strong>${lessonCount} leçons</strong></span>
+                                    <span>🏫 ${t('catalog.levelsCount', { n: nt(levelCount) })}</span>
+                                    <span><strong>${lessonCount === 1 ? t('catalog.lessonCountOne') : t('catalog.lessonsCount', { n: nt(lessonCount) })}</strong></span>
                                 </div>
-                                <span class="btn">Explorer →</span>
+                                <span class="btn">${t('catalog.explore')}</span>
                             </a>
                         `;
                     }).join('');
                     container.innerHTML = `
-                        <h2 class="section-title">Choisissez votre cycle</h2>
+                        <h2 class="section-title">${t('catalog.chooseCycle')}</h2>
                         <section class="levels">${cards}</section>
                     `;
                 })
                 .catch(error => {
                     console.error('Homepage curriculum load failed:', error);
-                    container.innerHTML = '<p>Le programme n\'a pas pu être chargé.</p>';
+                    container.innerHTML = '<p>' + t('catalog.notLoaded') + '</p>';
                 });
         }
 

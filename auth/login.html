@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-key="page.title.login">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Apply the saved language direction before paint to avoid a layout flash.
+        (function () {
+            try {
+                if (localStorage.getItem('mathyxo_language') === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
     <title>Connexion - MatheuxMed</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/rtl.css">
+    <link rel="stylesheet" href="../css/language-switcher.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -15,36 +28,39 @@
     <main class="container">
         <div class="auth-container">
             <div class="auth-form">
-                <h2>Se Connecter</h2>
-                <p class="auth-subtitle">Connectez-vous à votre compte</p>
+                <h2 data-i18n="auth.login.title">Se Connecter</h2>
+                <p class="auth-subtitle" data-i18n="auth.login.subtitle">Connectez-vous à votre compte</p>
 
                 <form id="login-form">
                     <div class="form-group">
-                        <label for="login-email">Email</label>
-                        <input type="email" id="login-email" name="email" required placeholder="ahmed@example.com">
+                        <label for="login-email" data-i18n="auth.field.email">Email</label>
+                        <input type="email" id="login-email" name="email" required
+                               data-i18n-placeholder="auth.placeholder.email" placeholder="ahmed@example.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="login-password">Mot de Passe</label>
-                        <input type="password" id="login-password" name="password" required placeholder="Votre mot de passe">
+                        <label for="login-password" data-i18n="auth.field.password">Mot de Passe</label>
+                        <input type="password" id="login-password" name="password" required
+                               data-i18n-placeholder="auth.placeholder.password" placeholder="Votre mot de passe">
                     </div>
 
-                    <button type="button" onclick="handleLogin()" class="btn btn-primary">Se connecter</button>
+                    <button type="button" onclick="handleLogin()" class="btn btn-primary" data-i18n="auth.login.button">Se connecter</button>
                 </form>
 
                 <p class="auth-toggle">
-                    Vous n'avez pas de compte? <a href="./register.html">S'inscrire</a>
+                    <span data-i18n="auth.toggle.toRegister">Vous n'avez pas de compte?</span>
+                    <a href="./register.html" data-i18n="auth.link.register">S'inscrire</a>
                 </p>
             </div>
 
             <div class="auth-info">
-                <h3>Bienvenue sur MatheuxMed</h3>
-                <p>Connectez-vous pour:</p>
+                <h3 data-i18n="auth.login.infoTitle">Bienvenue sur MatheuxMed</h3>
+                <p data-i18n="auth.login.infoIntro">Connectez-vous pour:</p>
                 <ul>
-                    <li>📚 Accéder à tous les cours</li>
-                    <li>✅ Sauvegarder votre progrès</li>
-                    <li>📊 Voir vos statistiques</li>
-                    <li>🎯 Suivre vos objectifs</li>
+                    <li data-i18n="auth.login.infoItem1">📚 Accéder à tous les cours</li>
+                    <li data-i18n="auth.login.infoItem2">✅ Sauvegarder votre progrès</li>
+                    <li data-i18n="auth.login.infoItem3">📊 Voir vos statistiques</li>
+                    <li data-i18n="auth.login.infoItem4">🎯 Suivre vos objectifs</li>
                 </ul>
             </div>
         </div>
@@ -53,11 +69,12 @@
     <div id="footer-container"></div>
 
     <script src="../js/i18n.js"></script>
-    <script src="../js/components.js"></script>
+    <script src="../js/language-switcher.js"></script>
     <script>
         window.MATHYXO_SUPABASE_URL = 'https://sjuzppnrsdfxlvvugslq.supabase.co';
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
+    <script src="../js/components.js"></script>
     <script src="../js/auth.js"></script>
 
     <script>
@@ -66,7 +83,7 @@
             const password = document.getElementById('login-password').value;
 
             if (!email || !password) {
-                alert('Veuillez remplir tous les champs');
+                alert(t('auth.alert.fillAll'));
                 return;
             }
 

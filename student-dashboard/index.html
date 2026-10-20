@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-title-key="page.title.dashboard">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Apply the saved language direction before paint to avoid a layout flash.
+        (function () {
+            try {
+                if (localStorage.getItem('mathyxo_language') === 'ar') {
+                    document.documentElement.lang = 'ar';
+                    document.documentElement.dir = 'rtl';
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
     <title>Tableau de Bord - MatheuxMed</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/rtl.css">
+    <link rel="stylesheet" href="../css/language-switcher.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -14,63 +27,63 @@
 
     <main class="container">
         <div class="dashboard-header">
-            <h1>📊 Tableau de Bord</h1>
-            <p id="welcome-message">Bienvenue!</p>
+            <h1 data-i18n="dash.title">📊 Tableau de Bord</h1>
+            <p id="welcome-message"></p>
         </div>
 
         <div class="dashboard-grid">
             <!-- Student Info Card -->
             <div class="dashboard-card">
-                <h3>👤 Profil Étudiant</h3>
+                <h3 data-i18n="dash.profile">👤 Profil Étudiant</h3>
                 <div id="student-profile">
-                    <p><strong>Nom:</strong> <span id="student-name">-</span></p>
-                    <p><strong>Email:</strong> <span id="student-email">-</span></p>
-                    <p><strong>Niveau:</strong> <span id="student-level">-</span></p>
-                    <p><strong>Membre depuis:</strong> <span id="student-joined">-</span></p>
+                    <p><strong data-i18n="dash.name">Nom</strong>: <span id="student-name">-</span></p>
+                    <p><strong data-i18n="dash.email">Email</strong>: <span id="student-email">-</span></p>
+                    <p><strong data-i18n="dash.level">Niveau</strong>: <span id="student-level">-</span></p>
+                    <p><strong data-i18n="dash.memberSince">Membre depuis</strong>: <span id="student-joined">-</span></p>
                 </div>
             </div>
 
             <!-- Progress Stats -->
             <div class="dashboard-card">
-                <h3>📈 Statistiques</h3>
+                <h3 data-i18n="dash.stats">📈 Statistiques</h3>
                 <div class="stats">
                     <div class="stat-item">
                         <div class="stat-number" id="completed-lessons">0</div>
-                        <p>Leçons Complétées</p>
+                        <p data-i18n="dash.completedLessons">Leçons Complétées</p>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" id="total-points">0</div>
-                        <p>Points Totaux</p>
+                        <p data-i18n="dash.totalPoints">Points Totaux</p>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" id="avg-score">0%</div>
-                        <p>Score Moyen</p>
+                        <p data-i18n="dash.avgScore">Score Moyen</p>
                     </div>
                 </div>
             </div>
 
             <!-- Progress by Level -->
             <div class="dashboard-card full-width">
-                <h3>🎯 Progression par Niveau</h3>
+                <h3 data-i18n="dash.progressByLevel">🎯 Progression par Niveau</h3>
                 <div id="level-progress">
-                    <p style="text-align: center; color: #999;">Chargement de la progression…</p>
+                    <p style="text-align: center; color: #999;" data-i18n="dash.loadingProgress">Chargement de la progression…</p>
                 </div>
             </div>
 
             <!-- Recent Activity -->
             <div class="dashboard-card full-width">
-                <h3>📅 Activité Récente</h3>
+                <h3 data-i18n="dash.recentActivity">📅 Activité Récente</h3>
                 <div id="recent-activity">
-                    <p style="text-align: center; color: #999;">Pas d'activité récente</p>
+                    <p style="text-align: center; color: #999;" data-i18n="dash.noActivity">Pas d'activité récente</p>
                 </div>
             </div>
 
             <!-- Action Buttons -->
             <div class="dashboard-actions">
-                <a href="../niveaux.html?cat=primaire" class="btn btn-primary">🔢 Primaire</a>
-                <a href="../niveaux.html?cat=college" class="btn btn-primary">📐 Collège</a>
-                <a href="../niveaux.html?cat=lycee" class="btn btn-primary">🎓 Lycée</a>
-                <button onclick="logoutUser()" class="btn btn-danger">🚪 Déconnexion</button>
+                <a href="../niveaux.html?cat=primaire" class="btn btn-primary">🔢 <span data-i18n="reg.cycle.primary">Primaire</span></a>
+                <a href="../niveaux.html?cat=college" class="btn btn-primary">📐 <span data-i18n="reg.cycle.middle">Collège</span></a>
+                <a href="../niveaux.html?cat=lycee" class="btn btn-primary">🎓 <span data-i18n="reg.cycle.high">Lycée</span></a>
+                <button onclick="logoutUser()" class="btn btn-danger">🚪 <span data-i18n="auth.nav.logout">Déconnexion</span></button>
             </div>
         </div>
     </main>
@@ -82,13 +95,18 @@
         window.MATHYXO_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNqdXpwcG5yc2RmeGx2dnVnc2xxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE3MzE3NjUsImV4cCI6MjEwNzMwNzc2NX0.Xkpv_t6LehqFj5xeq5ALUE10BJjOtVyr_ye_8K46RCI';
     </script>
     <script src="../js/i18n.js"></script>
+    <script src="../js/language-switcher.js"></script>
     <script src="../js/components.js"></script>
     <script src="../js/auth.js"></script>
 
     <script>
+        function uiLocale() {
+            return (typeof I18N !== 'undefined' && I18N.currentLanguage === 'ar') ? 'ar-MA' : 'fr-FR';
+        }
+
         document.addEventListener('DOMContentLoaded', async function () {
             if (!SUPABASE) {
-                alert('Service d\'authentification indisponible. Veuillez rafraîchir la page.');
+                alert(t('dash.authUnavailable'));
                 return;
             }
 
@@ -96,7 +114,7 @@
             const session = sessionData && sessionData.session;
 
             if (!session) {
-                alert('Vous devez être connecté pour accéder au tableau de bord');
+                alert(t('dash.loginRequired'));
                 window.location.href = (window.MATHYXO_BASE || '/') + 'auth/login.html';
                 return;
             }
@@ -105,7 +123,7 @@
             const userData = await getCurrentUserData();
 
             const displayName = (userData && userData.display_name) ||
-                (user.user_metadata && user.user_metadata.display_name) || 'Étudiant';
+                (user.user_metadata && user.user_metadata.display_name) || t('profile.defaultStudent');
             const level = (userData && userData.level) ||
                 (user.user_metadata && user.user_metadata.level) || '-';
             const joined = (userData && userData.created_at) || user.created_at;
@@ -114,8 +132,8 @@
             document.getElementById('student-email').textContent = user.email || '-';
             document.getElementById('student-level').textContent = level;
             document.getElementById('student-joined').textContent =
-                joined ? new Date(joined).toLocaleDateString('fr-FR') : '-';
-            document.getElementById('welcome-message').textContent = 'Bienvenue ' + displayName + '!';
+                joined ? new Date(joined).toLocaleDateString(uiLocale()) : '-';
+            document.getElementById('welcome-message').textContent = t('dash.welcome', { name: displayName });
             document.getElementById('total-points').textContent = (userData && userData.total_points) || 0;
 
             const progress = (await getUserProgress(user.id)).slice().sort((a, b) =>
@@ -135,7 +153,7 @@
                 const recent = progress.slice(-5).reverse();
                 document.getElementById('recent-activity').innerHTML = recent.map(p => {
                     const date = p.completed_at
-                        ? new Date(p.completed_at).toLocaleDateString('fr-FR')
+                        ? new Date(p.completed_at).toLocaleDateString(uiLocale())
                         : '';
                     return `<p>📝 Quiz ${p.lesson_id}: ${p.quiz_score}% - ${date}</p>`;
                 }).join('');
@@ -155,8 +173,8 @@
                         lessons.forEach(lesson => { lessonToLevel[lesson.id] = level.id; });
                         levelEntries.push({
                             id: level.id,
-                            title: level.title,
-                            category: category.title,
+                            title: L(level, 'title'),
+                            category: L(category, 'title'),
                             total: lessons.length
                         });
                     });
@@ -172,14 +190,14 @@
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: ${pct}%"></div>
                             </div>
-                            <p>${done}/${entry.total} leçon(s) complétée(s)</p>
+                            <p>${t('dash.lessonsDone', { done: nt(done), total: nt(entry.total) })}</p>
                         </div>
                     `;
-                }).join('') || '<p style="text-align: center; color: #999;">Aucun niveau disponible</p>';
+                }).join('') || `<p style="text-align: center; color: #999;">${t('dash.noLevel')}</p>`;
             } catch (error) {
                 console.warn('Could not load curriculum for progress:', error);
                 document.getElementById('level-progress').innerHTML =
-                    '<p style="text-align: center; color: #999;">Progression indisponible</p>';
+                    `<p style="text-align: center; color: #999;">${t('dash.progressUnavailable')}</p>`;
             }
         });
     </script>
