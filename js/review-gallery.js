@@ -129,7 +129,7 @@ const ReviewGallery = (function () {
                 {
                     html: '<div class="compare-row"><span>7</span><span class="compare-slot">&gt;</span><span>4</span></div>' +
                           '<div class="compare-row" style="font-size:1.1rem;margin-top:14px"><span>4</span><span class="compare-slot">&lt;</span><span>7</span></div>',
-                    caption: { fr: 'Attention : 4 &lt; 7 revient au même, lu dans l\'autre sens.', ar: 'انتبه: 4 < 7 نفس المعنى لكن في الاتجاه الآخر.' }
+                    caption: { fr: 'Attention : 4 < 7 revient au même, lu dans l\'autre sens.', ar: 'انتبه: 4 < 7 نفس المعنى لكن في الاتجاه الآخر.' }
                 }
             ]
         }
@@ -181,9 +181,9 @@ const ReviewGallery = (function () {
             next: { fr: 'Suivant ›', ar: 'التالي ›' },
             replay: { fr: '↻ Revoir', ar: '↻ إعادة' },
             steps: [
-                { html: '<svg width="200" height="150" viewBox="0 0 200 150"><line x1="40" y1="110" x2="160" y2="110" stroke="#e5484d" stroke-width="3"/><text x="100" y="132" text-anchor="middle" fill="#64748b">4 cm</text></svg>', caption: { fr: 'On trace un premier segment de 4 cm.', ar: 'نرسم قطعة أولى بطول 4 سم.' } },
-                { html: '<svg width="200" height="150" viewBox="0 0 200 150"><line x1="40" y1="110" x2="160" y2="110" stroke="#e5484d" stroke-width="3"/><line x1="40" y1="110" x2="40" y2="30" stroke="#2b7fff" stroke-width="3" stroke-dasharray="5 4"/><path d="M40 92 h18 M22 110 v-18" stroke="#94a3b8" stroke-width="2"/></svg>', caption: { fr: 'On élève une perpendiculaire à l\'équerre.', ar: 'نرفع عمودياً باستعمال المسطرة القائمة.' } },
-                { html: '<svg width="200" height="150" viewBox="0 0 200 150"><rect x="40" y="30" width="120" height="80" fill="none" stroke="#22a06b" stroke-width="3"/></svg>', caption: { fr: 'On reporte 4 cm sur les côtés : le carré est fermé.', ar: 'ننقل 4 سم على الأضلاع: فيُغلق المربع.' } }
+                { html: '<svg width="200" height="170" viewBox="0 0 200 170"><line x1="50" y1="130" x2="150" y2="130" stroke="#e5484d" stroke-width="3"/><circle cx="50" cy="130" r="3.5" fill="#1f2d3d"/><circle cx="150" cy="130" r="3.5" fill="#1f2d3d"/><text x="100" y="152" text-anchor="middle" fill="#64748b" font-size="13">4 cm</text></svg>', caption: { fr: 'On trace un premier segment de 4 cm.', ar: 'نرسم قطعة أولى بطول 4 سم.' } },
+                { html: '<svg width="200" height="170" viewBox="0 0 200 170"><line x1="50" y1="130" x2="150" y2="130" stroke="#e5484d" stroke-width="3"/><line x1="50" y1="130" x2="50" y2="30" stroke="#2b7fff" stroke-width="3" stroke-dasharray="5 4"/><circle cx="50" cy="130" r="3.5" fill="#1f2d3d"/><circle cx="50" cy="30" r="3.5" fill="#2b7fff"/><path d="M50 112 h18 v-18" fill="none" stroke="#94a3b8" stroke-width="2"/><text x="26" y="84" text-anchor="middle" fill="#64748b" font-size="13">4 cm</text></svg>', caption: { fr: 'On élève une perpendiculaire à l\'équerre, de même longueur.', ar: 'نرفع عمودياً باستعمال المسطرة القائمة، بنفس الطول.' } },
+                { html: '<svg width="200" height="170" viewBox="0 0 200 170"><rect x="50" y="30" width="100" height="100" fill="none" stroke="#22a06b" stroke-width="3"/><path d="M50 112 h18 v-18" fill="none" stroke="#94a3b8" stroke-width="2"/><path d="M150 112 h-18 v-18" fill="none" stroke="#94a3b8" stroke-width="2"/><path d="M50 48 h18 v-18" fill="none" stroke="#94a3b8" stroke-width="2"/><path d="M150 48 h-18 v-18" fill="none" stroke="#94a3b8" stroke-width="2"/><text x="100" y="152" text-anchor="middle" fill="#64748b" font-size="13">4 cm</text><text x="26" y="84" text-anchor="middle" fill="#64748b" font-size="13">4 cm</text></svg>', caption: { fr: 'Les 4 côtés égaux et 4 angles droits : c\'est un carré.', ar: 'الأضلاع الأربعة متساوية والزوايا الأربع قائمة: هذا مربع.' } }
             ]
         }
     ];
@@ -199,20 +199,46 @@ const ReviewGallery = (function () {
             replay: { fr: '↻ Revoir', ar: '↻ إعادة' },
             steps: [
                 {
-                    html: '<div class="col-sum"><div class="row"><span class="cell">2</span><span class="cell">8</span></div><div class="row"><span class="cell">1</span><span class="cell">5</span></div></div>',
-                    caption: { fr: 'On aligne bien les unités sous les unités.', ar: 'نحاذي الوحدات تحت الوحدات جيداً.' }
+                    html: '<div class="col-sum">' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell blank"></span></div>' +
+                          '<div class="row"><span class="cell">2</span><span class="cell">8</span></div>' +
+                          '<div class="row"><span class="cell">1</span><span class="cell">5</span></div>' +
+                          '<div class="row rule"><span></span><span></span></div>' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell blank"></span></div>' +
+                          '</div>',
+                    caption: { fr: 'On pose l\'opération : unités sous unités, dizaines sous dizaines.', ar: 'نضع العملية: الوحدات تحت الوحدات والعشرات تحت العشرات.' }
                 },
                 {
-                    html: '<div class="col-sum"><div class="row"><span class="cell">2</span><span class="cell hot">8</span></div><div class="row"><span class="cell">1</span><span class="cell hot">5</span></div></div>',
-                    caption: { fr: 'Unités : 8 + 5 = 13. On écrit 3 et on retient 1 dizaine.', ar: 'الوحدات: 8 + 5 = 13. نكتب 3 ونحتفظ بعشرة واحدة.' }
+                    html: '<div class="col-sum">' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell blank"></span></div>' +
+                          '<div class="row"><span class="cell">2</span><span class="cell">8</span></div>' +
+                          '<div class="row"><span class="cell">1</span><span class="cell">5</span></div>' +
+                          '<div class="row rule"><span></span><span></span></div>' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell blank"></span></div>' +
+                          '</div>' +
+                          '<div class="col-note">8 + 5 = 13</div>',
+                    caption: { fr: 'On commence par les unités : 8 + 5 = 13.', ar: 'نبدأ بالوحدات: 8 + 5 = 13.' }
                 },
                 {
-                    html: '<div class="col-sum"><div class="row"><span class="cell carry">1</span></div><div class="row"><span class="cell hot">2</span><span class="cell result">3</span></div><div class="row"><span class="cell hot">1</span><span class="cell">5</span></div></div>',
-                    caption: { fr: 'On place la retenue au-dessus des dizaines.', ar: 'نضع المحتفظ به فوق العشرات.' }
+                    html: '<div class="col-sum">' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell carry">1</span></div>' +
+                          '<div class="row"><span class="cell">2</span><span class="cell hot">8</span></div>' +
+                          '<div class="row"><span class="cell">1</span><span class="cell hot">5</span></div>' +
+                          '<div class="row rule"><span></span><span></span></div>' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell result">3</span></div>' +
+                          '</div>',
+                    caption: { fr: '13, c\'est 1 dizaine et 3 unités : j\'écris 3 et je retiens 1.', ar: '13 هي عشرة واحدة و3 وحدات: أكتب 3 وأحتفظ بـ 1.' }
                 },
                 {
-                    html: '<div class="col-sum"><div class="row"><span class="cell carry">1</span></div><div class="row"><span class="cell hot">2</span><span class="cell result">3</span></div><div class="row"><span class="cell hot">1</span><span class="cell">5</span></div><div class="row"><span class="cell"></span><span class="cell result">4</span><span class="cell result">3</span></div></div>',
-                    caption: { fr: 'Dizaines : 1 + 2 + 1 = 4. Résultat : 43 ✔', ar: 'العشرات: 1 + 2 + 1 = 4. النتيجة: 43 ✔' }
+                    html: '<div class="col-sum">' +
+                          '<div class="row"><span class="cell blank"></span><span class="cell carry">1</span></div>' +
+                          '<div class="row"><span class="cell hot">2</span><span class="cell">8</span></div>' +
+                          '<div class="row"><span class="cell hot">1</span><span class="cell">5</span></div>' +
+                          '<div class="row rule"><span></span><span></span></div>' +
+                          '<div class="row"><span class="cell result">4</span><span class="cell result">3</span></div>' +
+                          '</div>' +
+                          '<div class="col-note">1 + 2 + 1 = 4</div>',
+                    caption: { fr: 'Dizaines : 1 (retenue) + 2 + 1 = 4. Résultat : 43 ✔', ar: 'العشرات: 1 (المحتفظ به) + 2 + 1 = 4. النتيجة: 43 ✔' }
                 }
             ]
         },

@@ -458,6 +458,25 @@ function buildSymmetry(spec, host) {
         }
     };
 
+    // Draw the fold line as a visible red edge on the cells beside it, so the
+    // child can see exactly where the paper would be folded.
+    const markAxis = () => {
+        const mid = size / 2;
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                const cell = cellAt(r, c);
+                cell.classList.remove('axis-left', 'axis-right', 'axis-top', 'axis-bottom');
+                if (axis === 'vertical') {
+                    if (c === mid - 1) cell.classList.add('axis-right');
+                    if (c === mid) cell.classList.add('axis-left');
+                } else {
+                    if (r === mid - 1) cell.classList.add('axis-bottom');
+                    if (r === mid) cell.classList.add('axis-top');
+                }
+            }
+        }
+    };
+
     for (let r = 0; r < size; r++) {
         for (let c = 0; c < size; c++) {
             const cell = actEl('div', 'sym-cell');
@@ -488,6 +507,7 @@ function buildSymmetry(spec, host) {
         axis = next;
         picker.querySelectorAll('button').forEach(b =>
             b.classList.toggle('selected', b.dataset.axis === next));
+        markAxis();
         refreshMirror();
     };
 
@@ -595,14 +615,12 @@ function buildTenFrame(spec, host) {
         row.appendChild(frame);
     }
 
+    // Total = every filled slot across all frames. Simple, honest, and matches
+    // what a child sees on screen (no hidden "tens" arithmetic).
     const readTotal = () => {
-        let full = 0;
-        frameEls.forEach(frame => {
-            const on = frame.querySelectorAll('.slot.on').length;
-            if (on === 10) full++;
-        });
-        const loose = frameEls[frameEls.length - 1].querySelectorAll('.slot.on').length;
-        return full * 10 + (full === frameEls.length ? 0 : loose);
+        let n = 0;
+        frameEls.forEach(frame => { n += frame.querySelectorAll('.slot.on').length; });
+        return n;
     };
 
     function updateTotal() {
@@ -620,6 +638,7 @@ function buildTenFrame(spec, host) {
     host.appendChild(row);
     host.appendChild(total);
     if (spec.target) host.appendChild(feedback);
+    updateTotal();
 
     return {
         el: host,
