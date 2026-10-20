@@ -144,15 +144,15 @@ const I18N = {
         // ===== Buttons & CTA =====
         'btn.start': {
             fr: 'Commencer →',
-            ar: '← ابدأ'
+            ar: 'ابدأ ←'
         },
         'btn.access_lesson': {
             fr: 'Accéder à la leçon →',
-            ar: '← الوصول إلى الدرس'
+            ar: 'الوصول إلى الدرس ←'
         },
         'btn.back': {
             fr: '← Retour à l\'accueil',
-            ar: 'العودة إلى الرئيسية ←'
+            ar: 'العودة إلى الرئيسية →'
         },
         'btn.discover': {
             fr: 'Découvrir les Niveaux',
@@ -505,18 +505,18 @@ const I18N = {
 
         // ===== Catalog (levels / chapters / lessons) =====
         'catalog.chooseCycle': { fr: 'Choisissez votre cycle', ar: 'اختر سلكك الدراسي' },
-        'catalog.explore': { fr: 'Explorer →', ar: '← استكشف' },
+        'catalog.explore': { fr: 'Explorer →', ar: 'استكشف ←' },
         'catalog.levelsCount': { fr: '{n} niveaux', ar: '{n} مستويات' },
         'catalog.chaptersCount': { fr: '{n} chapitres', ar: '{n} فصول' },
         'catalog.lessonsCount': { fr: '{n} leçons', ar: '{n} دروس' },
         'catalog.lessonCountOne': { fr: '1 leçon', ar: 'درس واحد' },
-        'catalog.viewChapters': { fr: 'Voir les chapitres →', ar: '← عرض الفصول' },
-        'catalog.viewLessons': { fr: 'Voir les leçons →', ar: '← عرض الدروس' },
-        'catalog.accessLesson': { fr: 'Accéder à la leçon →', ar: '← الوصول إلى الدرس' },
-        'catalog.backHome': { fr: '← Retour à l\'accueil', ar: '← العودة إلى الرئيسية' },
-        'catalog.backLevels': { fr: '← Retour aux niveaux', ar: '← العودة إلى المستويات' },
-        'catalog.backChapters': { fr: '← Retour aux chapitres', ar: '← العودة إلى الفصول' },
-        'catalog.backLessons': { fr: '← Retour aux leçons', ar: '← العودة إلى الدروس' },
+        'catalog.viewChapters': { fr: 'Voir les chapitres →', ar: 'عرض الفصول ←' },
+        'catalog.viewLessons': { fr: 'Voir les leçons →', ar: 'عرض الدروس ←' },
+        'catalog.accessLesson': { fr: 'Accéder à la leçon →', ar: 'الوصول إلى الدرس ←' },
+        'catalog.backHome': { fr: '← Retour à l\'accueil', ar: 'العودة إلى الرئيسية →' },
+        'catalog.backLevels': { fr: '← Retour aux niveaux', ar: 'العودة إلى المستويات →' },
+        'catalog.backChapters': { fr: '← Retour aux chapitres', ar: 'العودة إلى الفصول →' },
+        'catalog.backLessons': { fr: '← Retour aux leçons', ar: 'العودة إلى الدروس →' },
         'catalog.difficulty.beginner': { fr: 'Débutant', ar: 'مبتدئ' },
         'catalog.difficulty.intermediate': { fr: 'Intermédiaire', ar: 'متوسط' },
         'catalog.difficulty.advanced': { fr: 'Avancé', ar: 'متقدم' },
