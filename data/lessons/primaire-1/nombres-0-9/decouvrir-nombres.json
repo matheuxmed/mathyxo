@@ -1,0 +1,203 @@
+{
+  "id": "decouvrir-nombres",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "nombres-0-9",
+  "title": { "fr": "Découvrir les nombres", "ar": "التعرف على الأعداد" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "compter-jusqua-5",
+      "title": { "fr": "Compter jusqu'à 5", "ar": "العدّ حتى 5" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem;line-height:1.3\">🍎</div>",
+            "caption": { "fr": "Voici une pomme. On dit : 1.", "ar": "هذه تفاحة. نقول: 1." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem;line-height:1.3\">🍎 🍎</div>",
+            "caption": { "fr": "Deux pommes. On dit : 2.", "ar": "تفاحتان. نقول: 2." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem;line-height:1.3\">🍎 🍎 🍎</div>",
+            "caption": { "fr": "Trois pommes. On dit : 3.", "ar": "ثلاث تفاحات. نقول: 3." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem;line-height:1.3\">🍎 🍎 🍎 🍎</div>",
+            "caption": { "fr": "Quatre pommes. On dit : 4.", "ar": "أربع تفاحات. نقول: 4." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem;line-height:1.3\">🍎 🍎 🍎 🍎 🍎</div>",
+            "caption": { "fr": "Cinq pommes. On dit : 5.", "ar": "خمس تفاحات. نقول: 5." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🐤 🐤 🐤</div>",
+            "caption": { "fr": "Comptons ensemble : un, deux, trois canetons. Il y en a 3.", "ar": "لنعدّ معاً: واحد، اثنان، ثلاثة كتاكيت. عددها 3." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🐤 🐤 🐤<div style=\"font-size:1.4rem;margin-top:10px\">= 3</div></div>",
+            "caption": { "fr": "La dernière chose qu'on compte donne le nombre. Ici : 3.", "ar": "آخر شيء نعده يعطينا العدد. هنا: 3." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "count-tap",
+          "range": [2, 5],
+          "item": "🐤",
+          "title": { "fr": "Compte les canetons", "ar": "عُدّ الكتاكيت" },
+          "prompt": { "fr": "Touche chaque caneton pour le compter.", "ar": "المس كل كتكوت لتعده." },
+          "target": { "fr": "Combien de canetons ?", "ar": "كم عدد الكتاكيت؟" },
+          "success": { "fr": "Bravo, bien compté ! ✓", "ar": "أحسنت، عدّ صحيح! ✓" },
+          "why": { "fr": "On touche chaque image une seule fois pour ne pas se tromper.", "ar": "نلمس كل صورة مرة واحدة حتى لا نخطئ." }
+        },
+        {
+          "type": "matching",
+          "pairType": "number-quantity",
+          "max": 5,
+          "title": { "fr": "Relie le nombre et la quantité", "ar": "اربط العدد بالكمية" },
+          "prompt": { "fr": "Touche un nombre, puis la collection qui lui correspond.", "ar": "المس عدداً ثم المجموعة التي تناسبه." },
+          "pairCorrect": { "fr": "Bien relié ! ✓", "ar": "ربط صحيح! ✓" },
+          "pairWrong": { "fr": "Pas tout à fait, réessaie.", "ar": "ليس تماماً، حاول مرة أخرى." }
+        }
+      ]
+    },
+    {
+      "id": "le-zero",
+      "title": { "fr": "Le nombre 0", "ar": "العدد 0" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">🍽️</div><div style=\"font-size:1.3rem;margin-top:10px\">0 fruit</div></div>",
+            "caption": { "fr": "L'assiette est vide : il y a 0 fruit.", "ar": "الطبق فارغ: لا توجد أي فاكهة، أي 0." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">0️⃣</div><div style=\"font-size:1.3rem;margin-top:10px\">zéro</div></div>",
+            "caption": { "fr": "Zéro veut dire « rien du tout ». On l'écrit 0.", "ar": "الصفر يعني «لا شيء». نكتبه 0." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">⭐⭐⭐</div>",
+            "caption": { "fr": "Ici il y a 3 étoiles.", "ar": "هنا 3 نجوم." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">—</div>",
+            "caption": { "fr": "Ici il n'y a plus rien : cela fait 0.", "ar": "هنا لم يبق شيء: هذا يعني 0." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "count",
+          "range": [0, 5],
+          "title": { "fr": "Combien y en a-t-il ?", "ar": "كم عددها؟" },
+          "prompt": { "fr": "Regarde bien et choisis le bon nombre.", "ar": "انظر جيداً واختر العدد الصحيح." },
+          "correct": { "fr": "Oui ! ✓", "ar": "نعم! ✓" },
+          "incorrect": { "fr": "Regarde encore, tu vas y arriver.", "ar": "انظر مرة أخرى، ستنجح." },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كل شيء صحيح! 🌟" },
+          "tryAgain": { "fr": "Bien joué, continue ! 💪", "ar": "عمل جيد، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Combien d'étoiles ? ⭐⭐", "ar": "كم عدد النجوم؟ ⭐⭐" }, "options": ["1", "2", "3"], "answer": 1 },
+            { "prompt": { "fr": "Combien de ballons ? — (aucun)", "ar": "كم عدد البالونات؟ — (لا يوجد)" }, "options": ["0", "1", "2"], "answer": 0 }
+          ]
+        },
+        {
+          "type": "tenframe",
+          "mode": "fill",
+          "of": 5,
+          "frames": 1,
+          "title": { "fr": "Montre le nombre demandé", "ar": "أظهر العدد المطلوب" },
+          "prompt": { "fr": "Touche les cases pour montrer 5.", "ar": "المس المربعات لتظهر 5." },
+          "target": 5,
+          "success": { "fr": "Exactement 5 ! ✓", "ar": "بالضبط 5! ✓" }
+        }
+      ]
+    },
+    {
+      "id": "suite-des-nombres",
+      "title": { "fr": "L'ordre des nombres", "ar": "ترتيب الأعداد" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.6rem\"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>",
+            "caption": { "fr": "Les nombres ont un ordre : 0, 1, 2, 3, 4, 5…", "ar": "للأعداد ترتيب: 0، 1، 2، 3، 4، 5…" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">3 → 4</div>",
+            "caption": { "fr": "Après 3 vient 4. On dit que 4 est le suivant de 3.", "ar": "بعد 3 يأتي 4. نقول إن 4 هو التالي لـ 3." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">6 → ?</div>",
+            "caption": { "fr": "Quel nombre vient après 6 ? Comptons : 7.", "ar": "ما العدد الذي يأتي بعد 6؟ لنعدّ: 7." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">6 → 7</div>",
+            "caption": { "fr": "Voilà : le suivant de 6 est 7.", "ar": "ها هو: التالي لـ 6 هو 7." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "number-line",
+          "min": 0,
+          "max": 10,
+          "slots": [3, 5, 8],
+          "title": { "fr": "Place les nombres", "ar": "ضع الأعداد" },
+          "prompt": { "fr": "Glisse chaque nombre à sa place sur la ligne.", "ar": "اسحب كل عدد إلى مكانه على الخط." },
+          "success": { "fr": "Tous bien placés ! ✓", "ar": "كلها في مكانها الصحيح! ✓" },
+          "retry": { "fr": "Presque ! Regarde l'ordre et réessaie.", "ar": "تقريباً! انظر إلى الترتيب وحاول مجدداً." }
+        },
+        {
+          "type": "quiz",
+          "topic": "successor",
+          "range": [0, 8],
+          "title": { "fr": "Quel est le suivant ?", "ar": "ما العدد التالي؟" },
+          "prompt": { "fr": "Choisis le nombre qui vient juste après.", "ar": "اختر العدد الذي يأتي مباشرة بعد." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte à partir du nombre, tu trouveras.", "ar": "اعدّ انطلاقاً من العدد وستجده." },
+          "win": { "fr": "Super ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

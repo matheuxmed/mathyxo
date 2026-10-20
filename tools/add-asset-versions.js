@@ -20,12 +20,13 @@ function htmlFiles(dir, out) {
 }
 
 // Match local asset refs only: skip absolute http(s) URLs and the mathyxo base.
-const refRe = /(\b(?:src|href)=")((?:\.\.?\/)*)((?:js|css)\/[^"?]+\.(?:js|css))(")/g;
+// Also rewrites an existing ?v= token so re-releases always bust the cache.
+const refRe = /(\b(?:src|href)=")((?:\.\.?\/)*)((?:js|css)\/[^"?]+\.(?:js|css))(\?v=[^"]*)?(")/g;
 
 let touched = 0;
 for (const file of htmlFiles(root)) {
     const original = fs.readFileSync(file, 'utf8');
-    const updated = original.replace(refRe, (m, pre, prefix, asset, post) => {
+    const updated = original.replace(refRe, (m, pre, prefix, asset, _old, post) => {
         return pre + (prefix || '') + asset + '?v=' + token + post;
     });
     if (updated !== original) {

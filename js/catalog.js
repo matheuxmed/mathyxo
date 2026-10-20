@@ -225,17 +225,56 @@ async function renderLessonPage() {
             `<div id="lesson-auth-note"></div>
             <article class="lesson-content">
                 <p>${cat(lesson, 'description')}</p>
-                <div class="placeholder-note">${t('catalog.lessonSoon')}</div>
+                <div id="lesson-chunks"></div>
+                <div id="lesson-placeholder" hidden><div class="placeholder-note">${t('catalog.lessonSoon')}</div></div>
             </article>
             <div style="text-align:center;margin-top:40px;">
                 <a href="lecons.html?niveau=${encodeURIComponent(level.id)}&chapitre=${encodeURIComponent(chapter.id)}" class="btn">${t('catalog.backLessons')}</a>
             </div>`
         );
         applyLessonAuthNote();
+        await mountLessonContent(level.id, chapter.id, lesson.id);
     } catch (error) {
         console.error(error);
         setPageContent(errorBlock(t('catalog.error.lessonPage')), '');
     }
+}
+
+// Load the lesson's authored content, if it exists, and mount it as chunks.
+// Every lesson falls back to the placeholder until its JSON is written.
+async function mountLessonContent(levelId, chapterId, lessonId) {
+    const mount = document.getElementById('lesson-chunks');
+    const placeholder = document.getElementById('lesson-placeholder');
+    if (!mount) return;
+
+    const path = `${MATHYXO_BASE}data/lessons/${levelId}/${chapterId}/${lessonId}.json`;
+    let lesson = null;
+    try {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (response.ok) lesson = await response.json();
+    } catch (error) {
+        console.warn('Lesson content unavailable:', error);
+    }
+
+    if (!lesson || !lesson.concepts || !lesson.concepts.length) {
+        if (placeholder) placeholder.hidden = false;
+        return;
+    }
+
+    if (typeof ChunkEngine === 'undefined') {
+        // The engine script may not have finished evaluating yet on a cold load.
+        // Wait one frame and try again before giving up on the content.
+        await new Promise(resolve => setTimeout(resolve, 0));
+    }
+    if (typeof ChunkEngine === 'undefined') {
+        // Scripts failed to load; do not leave the student with a blank page.
+        console.warn('ChunkEngine not available');
+        if (placeholder) placeholder.hidden = false;
+        return;
+    }
+
+    lesson._query = `niveau=${encodeURIComponent(levelId)}&chapitre=${encodeURIComponent(chapterId)}`;
+    ChunkEngine.mount(lesson, mount);
 }
 
 // Non-blocking sign-in prompt for lessons viewed while signed out.

@@ -846,3 +846,140 @@
         transition-duration: 0.001ms !important;
     }
 }
+
+/* ===== Micro-learning chunk lesson ===== */
+
+.chunk-lesson { display: block; }
+
+.chunk-progress { margin: 0 0 10px; }
+.chunk-progress-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--act-muted);
+    margin-bottom: 6px;
+}
+
+/* Step rail: one chip per chunk, showing what is done, current and locked. */
+.chunk-rail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.chunk-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid var(--act-border);
+    background: var(--act-soft);
+    font-size: 1rem;
+    opacity: 0.55;
+}
+
+.chunk-chip.done {
+    border-color: var(--act-green);
+    background: #e7f7f0;
+    opacity: 1;
+}
+
+.chunk-chip.current {
+    border-color: var(--act-blue);
+    background: #e3eeff;
+    opacity: 1;
+    transform: scale(1.12);
+    box-shadow: 0 0 0 3px rgba(43, 127, 255, 0.18);
+}
+
+.chunk-chip.locked { filter: grayscale(1); }
+
+.chunk-card { margin-bottom: 18px; }
+
+.chunk-footer { margin-top: 16px; }
+.chunk-footer .act-btn { width: 100%; }
+
+/* Retry affordance after an encouraging message. */
+.chunk-retry-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+.chunk-retry-actions .act-btn { min-width: 180px; }
+
+/* Re-taught concept shown after repeated misses. */
+.chunk-help {
+    margin-top: 20px;
+    padding: 14px;
+    border: 2px dashed var(--act-amber);
+    border-radius: var(--act-radius);
+    background: #fffbf0;
+}
+.chunk-help-title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    color: #8a5a00;
+    text-align: center;
+}
+.chunk-help-body .activity {
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+/* Finish screen */
+.chunk-finish {
+    text-align: center;
+    padding: 28px 18px;
+    border: 2px solid var(--act-green);
+    border-radius: var(--act-radius);
+    background: linear-gradient(180deg, #f0fbf6 0%, #ffffff 100%);
+    margin-bottom: 22px;
+}
+
+.chunk-finish h2 {
+    margin: 0 0 10px;
+    font-size: 1.6rem;
+}
+
+.chunk-finish-stars {
+    font-size: 1.1rem;
+    color: var(--act-text);
+}
+
+.chunk-stars {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--act-amber);
+    margin: 8px 0;
+}
+
+.chunk-xp-good {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--act-green);
+    margin: 8px 0;
+}
+
+.chunk-keep {
+    color: var(--act-muted);
+    max-width: 420px;
+    margin: 8px auto 16px;
+}
+
+.chunk-auth-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+.chunk-auth-buttons .act-btn { text-decoration: none; }
+
+.chunk-finish-back { margin-top: 22px; }
+
+@media (max-width: 560px) {
+    .chunk-chip { width: 30px; height: 30px; font-size: 0.9rem; }
+    .chunk-finish h2 { font-size: 1.35rem; }
+    .chunk-stars { font-size: 1.25rem; }
+}

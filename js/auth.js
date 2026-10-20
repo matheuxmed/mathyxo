@@ -265,3 +265,45 @@ async function getUserProgress(userId) {
         return [];
     }
 }
+
+// Record a finished lesson and award its XP to the signed-in student.
+// Unlike saveProgress (which mirrors a quiz percentage), this is called when a
+// student masters every chunk of a lesson, so the lesson is always "completed".
+async function completeLesson(lessonId, xp) {
+    if (!SUPABASE) { authUnavailable(); return false; }
+    try {
+        const user = await getCurrentUser();
+        if (!user) { alert(t('auth.err.loginRequired')); return false; }
+
+        const award = Number(xp || 0);
+
+        const { error: progressError } = await SUPABASE.from('user_progress').insert({
+            user_id: user.id,
+            lesson_id: lessonId,
+            quiz_score: award,
+            completed_at: new Date().toISOString(),
+            completed: true
+        });
+        if (progressError) throw progressError;
+
+        const { data: profileData, error: profileError } = await SUPABASE
+            .from('profiles')
+            .select('total_points')
+            .eq('id', user.id)
+            .single();
+        if (profileError) throw profileError;
+
+        const nextTotal = ((profileData && profileData.total_points) || 0) + award;
+        const { error: updateError } = await SUPABASE
+            .from('profiles')
+            .update({ total_points: nextTotal })
+            .eq('id', user.id);
+        if (updateError) throw updateError;
+
+        console.log('Lesson completed, XP awarded:', award);
+        return true;
+    } catch (error) {
+        console.error('Error completing lesson:', error);
+        return false;
+    }
+}

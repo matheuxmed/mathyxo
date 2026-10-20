@@ -143,6 +143,7 @@ function buildCountTap(spec, host) {
             if (counted === total) {
                 feedback.className = 'act-feedback good';
                 feedback.textContent = pick(spec.success) || '✓';
+                if (spec.onComplete) spec.onComplete();
             }
         });
         board.appendChild(token);
@@ -198,6 +199,7 @@ function buildMatching(spec, host) {
             setTimeout(() => rightNode.classList.remove('wrong'), 420);
             feedback.className = 'act-feedback bad';
             feedback.textContent = pick(spec.pairWrong) || '✗';
+            if (spec.onWrong) spec.onWrong();
         }
     };
 
@@ -333,6 +335,7 @@ function buildNumberLine(spec, host) {
                 ? (pick(spec.success) || '✓')
                 : (pick(spec.retry) || '✗');
             if (good && spec.onComplete) spec.onComplete();
+            if (!good && spec.onWrong) spec.onWrong();
         }
     }
 
@@ -393,6 +396,7 @@ function buildShapeExplorer(spec, host) {
                     ? (pick(spec.success) || '✓')
                     : (pick(spec.retry) || '✗');
                 if (ok && spec.onComplete) spec.onComplete();
+                if (!ok && spec.onWrong) spec.onWrong();
             } else {
                 nameOut.innerHTML = '<strong>' + pick(shape.name) + '</strong>' +
                     (shape.note ? ' — ' + pick(shape.note) : '');
@@ -631,6 +635,8 @@ function buildTenFrame(spec, host) {
             feedback.className = 'act-feedback ' + (ok ? 'good' : 'info');
             feedback.textContent = ok ? (pick(spec.success) || '✓') : '';
             if (ok && spec.onComplete) spec.onComplete();
+            // The board is full but the total is wrong: that attempt failed.
+            if (!ok && v === frames * 10 && spec.onWrong) spec.onWrong();
             return ok;
         }
     }
@@ -711,6 +717,7 @@ function buildQuiz(spec, host) {
                 fb.textContent = (ok ? (pick(spec.correct) || '✓') : (pick(spec.incorrect) || '✗')) +
                     (q.explain ? ' ' + pick(q.explain) : '');
                 body.appendChild(fb);
+                if (!ok && spec.onWrong) spec.onWrong({ index, question: q });
                 setTimeout(() => { index++; updateHead(); render(); }, ok ? 700 : 1400);
             });
             opts.appendChild(b);
@@ -781,6 +788,7 @@ function buildTableGame(spec, host) {
                     streak = 0;
                     feedback.className = 'act-feedback bad';
                     feedback.textContent = (pick(spec.wrong) || '✗') + ' ' + a + ' × ' + b + ' = ' + correct;
+                    if (spec.onWrong) spec.onWrong({ a, b, correct });
                     pad.querySelectorAll('button').forEach(x => {
                         if (Number(x.textContent) === correct) x.classList.add('correct');
                     });
