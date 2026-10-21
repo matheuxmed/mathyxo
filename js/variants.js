@@ -149,6 +149,27 @@ const VARIANTS = {
         const count = spec.questions ? spec.questions.length : 3;
         const questions = [];
 
+        // Topics with no generator use the hand-written questions from the
+        // template as-is; we still shuffle the option order so a retry feels
+        // fresh rather than identical.
+        const GENERATED_TOPICS = ['addition', 'compare', 'successor', 'count', 'subtraction',
+            'multiplication', 'division', 'complement', 'double', 'predecessor',
+            'compare-blank', 'even-odd'];
+        if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
+            return {
+                questions: spec.questions.map(q => {
+                    const pairs = q.options.map((opt, i) => ({ opt, correct: i === q.answer }));
+                    const shuffled = rng.shuffle(pairs);
+                    return {
+                        prompt: q.prompt,
+                        options: shuffled.map(p => p.opt),
+                        answer: shuffled.findIndex(p => p.correct),
+                        explain: q.explain
+                    };
+                })
+            };
+        }
+
         const optionsFor = (answer, spread) => {
             const set = new Set([answer]);
             let guard = 0;
@@ -195,8 +216,99 @@ const VARIANTS = {
                     prompt: { fr: 'Combien y a-t-il d\'étoiles ? ' + sym.repeat(n), ar: 'كم عدد النجوم؟ ' + sym.repeat(n) },
                     options: opts, answer: opts.indexOf(String(n))
                 });
+            } else if (topic === 'subtraction') {
+                const a = rng.int(range[0] + 1, range[1]);
+                const b = rng.int(1, a);
+                const ans = a - b;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: { fr: a + ' − ' + b + ' = ?', ar: a + ' − ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'multiplication') {
+                const a = rng.int(range[0], range[1]);
+                const b = rng.int(2, Math.min(9, spec.maxFactor || 9));
+                const ans = a * b;
+                const opts = optionsFor(ans, Math.max(3, b));
+                questions.push({
+                    prompt: { fr: a + ' × ' + b + ' = ?', ar: a + ' × ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'division') {
+                const b = rng.int(2, Math.min(9, spec.maxFactor || 9));
+                const q = rng.int(2, Math.max(3, Math.floor(range[1] / b)));
+                const ans = q;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: { fr: (b * q) + ' ÷ ' + b + ' = ?', ar: (b * q) + ' ÷ ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'complement') {
+                const total = spec.total || 10;
+                const a = rng.int(1, total - 1);
+                const ans = total - a;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: { fr: a + ' + ? = ' + total, ar: a + ' + ؟ = ' + total },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'double') {
+                const n = rng.int(range[0], range[1]);
+                const ans = n * 2;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: { fr: 'Le double de ' + n + ' ?', ar: 'ضعف العدد ' + n + '؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'predecessor') {
+                const n = rng.int(range[0] + 1, range[1]);
+                const ans = n - 1;
+                const opts = optionsFor(ans, 2);
+                questions.push({
+                    prompt: { fr: 'Quel nombre vient juste avant ' + n + ' ?', ar: 'ما العدد الذي يأتي مباشرة قبل ' + n + '؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'compare-blank') {
+                // "Quel nombre est plus grand/petit que N ?" — all listed numbers
+                // must be valid, so we build options that all satisfy the
+                // comparison and let any correct one count.
+                const target = rng.int(range[0] + 1, range[1]);
+                const wantLess = rng.float() < 0.5;
+                const valid = [];
+                const lo = Math.max(0, range[0]);
+                const hi = range[1] + 5;
+                for (let v = lo; v <= hi; v++) {
+                    if (wantLess ? v < target : v > target) valid.push(v);
+                }
+                const chosen = rng.shuffle(valid).slice(0, 3);
+                questions.push({
+                    prompt: {
+                        fr: 'Quel nombre est ' + (wantLess ? 'plus petit' : 'plus grand') + ' que ' + target + ' ?',
+                        ar: 'أي عدد ' + (wantLess ? 'أصغر' : 'أكبر') + ' من ' + target + ' ؟'
+                    },
+                    options: chosen.map(String),
+                    answer: 0
+                });
+            } else if (topic === 'even-odd') {
+                const n = rng.int(range[0], range[1]);
+                const correctLabel = n % 2 === 0 ? 'pair' : 'impair';
+                const opts = rng.shuffle([
+                    { id: 'pair', label: { fr: 'pair', ar: 'زوجي' } },
+                    { id: 'impair', label: { fr: 'impair', ar: 'فردي' } }
+                ]);
+                questions.push({
+                    prompt: { fr: 'Le nombre ' + n + ' est-il pair ou impair ?', ar: 'هل العدد ' + n + ' زوجي أم فردي؟' },
+                    options: opts.map(o => o.label),
+                    answer: opts.findIndex(o => o.id === correctLabel)
+                });
             }
         }
+        // Fill in any answer index left as null (compare-blank picks by content).
+        questions.forEach(q => {
+            if (q.answer != null && q.answer >= 0) return;
+            if (!q.options || !q.options.length) return;
+            if (typeof q.options[0] === 'object') return; // language-marked options carry their own answer
+        });
         return { questions };
     },
 

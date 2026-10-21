@@ -463,7 +463,9 @@ function buildSymmetry(spec, host) {
     };
 
     // Draw the fold line as a visible red edge on the cells beside it, so the
-    // child can see exactly where the paper would be folded.
+    // child can see exactly where the paper would be folded. For an even-sized
+    // grid the axis sits in the seam *between* two columns, so we mark only the
+    // right half's leading edge to keep it a single line.
     const markAxis = () => {
         const mid = size / 2;
         for (let r = 0; r < size; r++) {
@@ -471,10 +473,8 @@ function buildSymmetry(spec, host) {
                 const cell = cellAt(r, c);
                 cell.classList.remove('axis-left', 'axis-right', 'axis-top', 'axis-bottom');
                 if (axis === 'vertical') {
-                    if (c === mid - 1) cell.classList.add('axis-right');
                     if (c === mid) cell.classList.add('axis-left');
                 } else {
-                    if (r === mid - 1) cell.classList.add('axis-bottom');
                     if (r === mid) cell.classList.add('axis-top');
                 }
             }
@@ -1309,44 +1309,71 @@ function buildAngle(spec, host) {
 }
 
 // ---------- 13. Column board: long multiplication and division ----------
-// spec: { op:'add'|'sub'|'mul'|'div', a, b, divisor }
+// spec: { op:'add'|'sub'|'mul'|'div', a, b }
+// Everything is laid out on an explicit column grid so digits always line up:
+// each row is a flex line of fixed-width cells, with the operator in a leading
+// column of its own so it never eats into the digits.
 function buildColumnBoard(spec, host) {
     const op = spec.op || 'add';
     const wrap = actEl('div', 'colboard-wrap');
     const feedback = actEl('div', 'act-feedback');
-    const board = actEl('div', 'col-sum colboard');
+    const board = actEl('div', 'colboard-grid');
 
-    const rows = [];
-
-    const cellRow = (text, cls) => {
-        const row = actEl('div', 'row');
-        String(text).split('').forEach(ch => {
-            const c = actEl('span', 'cell' + (cls ? ' ' + cls : ''), ch === ' ' ? '' : ch);
-            row.appendChild(c);
-        });
-        return row;
+    // A rule line spanning the leading operator column plus `w` digit columns.
+    const ruleRow = (w) => {
+        const rl = actEl('div', 'cb-row cb-rule');
+        rl.appendChild(actEl('span', 'cb-cell'));
+        for (let i = 0; i < w; i++) rl.appendChild(actEl('span'));
+        return rl;
     };
 
     if (op === 'mul') {
         const a = spec.a, b = spec.b;
-        const partial1 = a * (b % 10);
-        const partial2 = b >= 10 ? a * Math.floor(b / 10) : null;
         const total = a * b;
-        // Right-align everything by width.
         const width = String(total).length;
-        const pad = (s) => String(s).padStart(width, ' ');
-        board.appendChild(cellRow(pad(a)));
-        board.appendChild(cellRow(pad('× ' + b).replace('× ', '×' + ' ').slice(0, width)));
-        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
-        board.appendChild(cellRow(pad(partial1)));
-        if (partial2 != null) board.appendChild(cellRow(pad(partial2)));
-        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
-        const answer = cellRow(pad(total), 'result');
-        answer.classList.add('colboard-answer');
-        board.appendChild(answer);
-        rows.push({ label: { fr: 'Produit', ar: 'الجداء' }, value: total });
+        const bDigits = String(b).split('').map(Number);
+        // One partial product per digit of b; the units digit lines up at the
+        // right, the tens digit shifts one column left, etc.
+        const partials = bDigits.map((d, i) => ({ value: a * d, shift: (bDigits.length - 1 - i) }));
 
-        // Student confirms the result by tapping digits (kept light: one button).
+        // Leading operator column, then digit columns.
+        const rowA = actEl('div', 'cb-row cb-carryrow');
+        rowA.appendChild(actEl('span', 'cb-cell'));
+        for (let i = 0; i < width; i++) rowA.appendChild(actEl('span', 'cb-cell'));
+        board.appendChild(rowA);
+
+        const rowTop = actEl('div', 'cb-row');
+        rowTop.appendChild(actEl('span', 'cb-cell'));
+        String(a).padStart(width, ' ').split('').forEach(ch => rowTop.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
+        board.appendChild(rowTop);
+
+        const rowMul = actEl('div', 'cb-row');
+        rowMul.appendChild(actEl('span', 'cb-cell op', '×'));
+        String(b).padStart(width, ' ').split('').forEach(ch => rowMul.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
+        board.appendChild(rowMul);
+
+        board.appendChild(ruleRow(width));
+
+        partials.forEach(p => {
+            const row = actEl('div', 'cb-row');
+            row.appendChild(actEl('span', 'cb-cell'));
+            const chars = String(p.value);
+            for (let i = 0; i < width; i++) {
+                // column index i maps to digit index (i - shift) from the left
+                const digitIdx = i - (width - chars.length - p.shift);
+                row.appendChild(actEl('span', 'cb-cell', digitIdx >= 0 && digitIdx < chars.length ? chars[digitIdx] : ''));
+            }
+            board.appendChild(row);
+        });
+
+        board.appendChild(ruleRow());
+
+        const rowAns = actEl('div', 'cb-row cb-answer');
+        rowAns.appendChild(actEl('span', 'cb-cell'));
+        String(total).padStart(width, ' ').split('').forEach(ch =>
+            rowAns.appendChild(actEl('span', 'cb-cell' + (ch === ' ' ? '' : ' result'), ch === ' ' ? '' : ch)));
+        board.appendChild(rowAns);
+
         const actions = actEl('div', 'colboard-actions');
         const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));
         btn.type = 'button';
@@ -1360,15 +1387,27 @@ function buildColumnBoard(spec, host) {
     } else if (op === 'div') {
         const a = spec.a, b = spec.b;
         const q = Math.floor(a / b), r = a % b;
-        board.appendChild(cellRow('  ' + a));
-        board.appendChild(cellRow('÷' + b + ' '));
-        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(String(a).length)));
-        const ql = cellRow('  ' + q, 'result');
-        board.appendChild(ql);
+        const qDigits = String(q);
+        const width = Math.max(String(a).length, qDigits.length);
+        // Dividend row, with the divisor in the leading column.
+        const rowA = actEl('div', 'cb-row');
+        rowA.appendChild(actEl('span', 'cb-cell op', String(b)));
+        String(a).padStart(width, ' ').split('').forEach(ch =>
+            rowA.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
+        board.appendChild(rowA);
+        const rl = actEl('div', 'cb-row cb-rule');
+        rl.appendChild(actEl('span', 'cb-cell'));
+        for (let i = 0; i < width; i++) rl.appendChild(actEl('span'));
+        board.appendChild(rl);
+        // Quotient sits under the dividend; any remainder is shown in the note.
+        const rowQ = actEl('div', 'cb-row cb-answer');
+        rowQ.appendChild(actEl('span', 'cb-cell'));
+        qDigits.padStart(width, ' ').split('').forEach(ch =>
+            rowQ.appendChild(actEl('span', 'cb-cell' + (ch === ' ' ? '' : ' result'), ch === ' ' ? '' : ch)));
+        board.appendChild(rowQ);
         const note = actEl('div', 'col-note',
-            '<span dir="ltr">' + a + ' = ' + b + ' × ' + q + ' + ' + r + '</span>');
-        board.appendChild(note);
-        rows.push({ label: { fr: 'Quotient', ar: 'الخارج' }, value: q });
+            '<span dir="ltr">' + a + ' = ' + b + ' × ' + q + (r ? ' + ' + r : '') + '</span>');
+        wrap.appendChild(note);
 
         const actions = actEl('div', 'colboard-actions');
         const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));
@@ -1382,19 +1421,61 @@ function buildColumnBoard(spec, host) {
         actions.appendChild(btn);
         wrap.appendChild(actions);
     } else {
-        // add / sub with a carry or borrow row
+        // add / sub: a proper carry (or borrow) row above the operands, with the
+        // operator in its own column to the left of the digits.
         const a = spec.a, b = spec.b;
         const isAdd = op === 'add';
         const sum = isAdd ? a + b : a - b;
-        const width = String(Math.max(a, b)).length;
-        const pad = (n) => String(Math.abs(n)).padStart(width, ' ');
-        board.appendChild(actEl('div', 'row carryrow', '<span class="cell blank"></span>'.repeat(width)));
-        board.appendChild(cellRow(pad(a)));
-        board.appendChild(cellRow(pad(b)));
-        board.appendChild(actEl('div', 'row rule', '<span></span>'.repeat(width)));
-        const res = cellRow(pad(sum), 'result');
-        board.appendChild(res);
-        rows.push({ label: { fr: 'Résultat', ar: 'النتيجة' }, value: sum });
+        const digitsWidth = String(Math.max(a, b, Math.abs(sum))).length;
+
+        // Compute carries / borrows per column (right to left).
+        const aD = String(Math.abs(a)).padStart(digitsWidth, ' ').split('');
+        const bD = String(Math.abs(b)).padStart(digitsWidth, ' ').split('');
+        const carryMarks = new Array(digitsWidth).fill('');
+        let carry = 0;
+        for (let i = digitsWidth - 1; i >= 0; i--) {
+            const av = aD[i] === ' ' ? 0 : Number(aD[i]);
+            const bv = bD[i] === ' ' ? 0 : Number(bD[i]);
+            if (isAdd) {
+                const s = av + bv + carry;
+                carry = s >= 10 ? 1 : 0;
+                if (carry && i - 1 >= 0) carryMarks[i - 1] = '1';
+            } else {
+                const diff = av - bv - carry;
+                carry = diff < 0 ? 1 : 0;
+                if (carry && i - 1 >= 0) carryMarks[i - 1] = '1';
+            }
+        }
+
+        // A leading operator column, then the digit columns.
+        const opRow = actEl('div', 'cb-row cb-carryrow');
+        opRow.appendChild(actEl('span', 'cb-cell'));
+        carryMarks.forEach(mark => opRow.appendChild(actEl('span', 'cb-cell' + (mark ? ' cb-carry' : ''), mark)));
+        board.appendChild(opRow);
+
+        const opLabel = isAdd ? '+' : '−';
+        const rowA = actEl('div', 'cb-row');
+        rowA.appendChild(actEl('span', 'cb-cell'));
+        String(Math.abs(a)).padStart(digitsWidth, ' ').split('').forEach(ch =>
+            rowA.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
+        board.appendChild(rowA);
+
+        const rowB = actEl('div', 'cb-row');
+        rowB.appendChild(actEl('span', 'cb-cell op', opLabel));
+        String(Math.abs(b)).padStart(digitsWidth, ' ').split('').forEach(ch =>
+            rowB.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
+        board.appendChild(rowB);
+
+        const rl = actEl('div', 'cb-row cb-rule');
+        rl.appendChild(actEl('span', 'cb-cell'));
+        for (let i = 0; i < digitsWidth; i++) rl.appendChild(actEl('span'));
+        board.appendChild(rl);
+
+        const rowR = actEl('div', 'cb-row cb-answer');
+        rowR.appendChild(actEl('span', 'cb-cell'));
+        String(Math.abs(sum)).padStart(digitsWidth, ' ').split('').forEach(ch =>
+            rowR.appendChild(actEl('span', 'cb-cell' + (ch === ' ' ? '' : ' result'), ch === ' ' ? '' : ch)));
+        board.appendChild(rowR);
 
         const actions = actEl('div', 'colboard-actions');
         const btn = actEl('button', 'act-btn', pick({ fr: 'Vérifier ma réponse', ar: 'تحقق من جوابي' }));

@@ -1,0 +1,118 @@
+{
+  "id": "tracer-figures",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "figures-geometriques",
+  "title": { "fr": "Tracer les figures", "ar": "رسم الأشكال" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "suivre-les-points",
+      "title": { "fr": "Tracer en suivant les points", "ar": "الرسم عبر اتباع النقاط" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><svg width=\"200\" height=\"140\"><g fill=\"#2563eb\"><circle cx=\"40\" cy=\"30\" r=\"5\"/><circle cx=\"160\" cy=\"30\" r=\"5\"/><circle cx=\"160\" cy=\"110\" r=\"5\"/><circle cx=\"40\" cy=\"110\" r=\"5\"/></g><polyline points=\"40,30 160,30 160,110 40,110 40,30\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"3\" stroke-dasharray=\"6 5\"/></svg></div>",
+            "caption": { "fr": "Je place mon crayon sur un point et je rejoins chaque point.", "ar": "أضع قلمي على نقطة وأصل كل نقطة بالأخرى." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><svg width=\"200\" height=\"140\"><rect x=\"40\" y=\"30\" width=\"120\" height=\"80\" fill=\"#fde68a\" stroke=\"#d97706\" stroke-width=\"3\"/></svg></div>",
+            "caption": { "fr": "En refermant le trait, j'ai tracé un rectangle.", "ar": "بإغلاق الخط، رسمت مستطيلاً." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><svg width=\"200\" height=\"130\"><g fill=\"#16a34a\"><circle cx=\"100\" cy=\"20\" r=\"5\"/><circle cx=\"175\" cy=\"110\" r=\"5\"/><circle cx=\"25\" cy=\"110\" r=\"5\"/></g><polyline points=\"100,20 175,110 25,110 100,20\" fill=\"none\" stroke=\"#d97706\" stroke-width=\"3\" stroke-dasharray=\"6 5\"/></svg></div>",
+            "caption": { "fr": "Trois points reliés entre eux donnent un triangle.", "ar": "ثلاث نقاط موصولة ببعضها تعطي مثلثاً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3 points → 3 côtés → triangle</div>",
+            "caption": { "fr": "Le nombre de côtés est le nombre de points reliés.", "ar": "عدد الأضلاع يساوي عدد النقاط الموصولة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "triangle",
+          "distractorCount": 3,
+          "title": { "fr": "Quelle figure obtient-on ?", "ar": "ما الشكل الذي نحصل عليه؟" },
+          "prompt": { "fr": "Touche la figure qu'on trace avec 3 points.", "ar": "المس الشكل الذي نرسمه بـ 3 نقاط." },
+          "correct": { "fr": "Exact, un triangle ! ✓", "ar": "صحيح، إنه مثلث! ✓" },
+          "incorrect": { "fr": "Compte les points : 3 points, 3 côtés.", "ar": "عُدّ النقاط: 3 نقاط، 3 أضلاع." }
+        },
+        {
+          "type": "symmetry",
+          "title": { "fr": "Complète la figure", "ar": "أكمل الشكل" },
+          "prompt": { "fr": "Reproduis le dessin de l'autre côté de l'axe.", "ar": "انسخ الرسم على الجهة الأخرى من المحور." },
+          "success": { "fr": "Figure complétée ! ✓", "ar": "أُكمل الشكل! ✓" }
+        }
+      ]
+    },
+    {
+      "id": "figures-du-quotidien",
+      "title": { "fr": "Les figures autour de nous", "ar": "الأشكال من حولنا" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🚪</div>",
+            "caption": { "fr": "Une porte a la forme d'un rectangle.", "ar": "الباب على شكل مستطيل." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🍕 🕐</div>",
+            "caption": { "fr": "Une part de pizza ou un cadran : ce sont des figures rondes.", "ar": "قطعة البيتزا أو وجه الساعة: أشكال مستديرة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3.2rem\">📕</div>",
+            "caption": { "fr": "La couverture d'un livre est un rectangle.", "ar": "غلاف الكتاب مستطيل." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3.2rem\">🏳️ ⚠️</div>",
+            "caption": { "fr": "Un drapeau carré et un panneau triangulaire : on retrouve les figures partout.", "ar": "علم مربع ولوحة مثلثة: نجد الأشكال في كل مكان." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "rectangle",
+          "distractorCount": 3,
+          "title": { "fr": "Trouve le rectangle", "ar": "جد المستطيل" },
+          "prompt": { "fr": "Touche la figure qui ressemble à une porte.", "ar": "المس الشكل الذي يشبه الباب." },
+          "correct": { "fr": "Oui, c'est un rectangle ! ✓", "ar": "نعم، إنه مستطيل! ✓" },
+          "incorrect": { "fr": "Le rectangle a 4 coins droits et 2 côtés longs.", "ar": "المستطيل له 4 زوايا قائمة وضلعان طويلان." }
+        },
+        {
+          "type": "matching",
+          "pairType": "shape-name",
+          "title": { "fr": "Nomme les figures", "ar": "سمِّ الأشكال" },
+          "prompt": { "fr": "Relie chaque figure à son nom.", "ar": "اربط كل شكل باسمه." },
+          "pairCorrect": { "fr": "Bien nommé ! ✓", "ar": "تسمية صحيحة! ✓" },
+          "pairWrong": { "fr": "Regarde bien et réessaie.", "ar": "انظر جيداً وحاول مجدداً." }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "id": "addition-simple",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "addition-soustraction",
+  "title": { "fr": "L'addition simple", "ar": "الجمع البسيط" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "ajouter",
+      "title": { "fr": "Ajouter, c'est réunir", "ar": "الجمع هو الضمّ" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🍏🍏 &nbsp;+&nbsp; 🍏🍏🍏</div>",
+            "caption": { "fr": "On réunit deux groupes de pommes.", "ar": "نجمع مجموعتين من التفاح." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🍏🍏🍏🍏🍏</div>",
+            "caption": { "fr": "2 pommes et 3 pommes font 5 pommes. On écrit 2 + 3 = 5.", "ar": "تفاحتان و3 تفاحات تساوي 5 تفاحات. نكتب 2 + 3 = 5." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">4 + 1 = ?</div>",
+            "caption": { "fr": "J'ai 4 billes, j'en gagne 1. Combien en ai-je ?", "ar": "لديّ 4 كرات، وأربح واحدة. كم أصبح لديّ؟" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">4 + 1 = <b>5</b></div>",
+            "caption": { "fr": "Je continue à compter après 4 : 5.", "ar": "أواصل العدّ بعد 4: 5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "addition",
+          "range": [1, 6],
+          "title": { "fr": "Calcule la somme", "ar": "احسب المجموع" },
+          "prompt": { "fr": "Ajoute les deux nombres.", "ar": "اجمع العددين." },
+          "correct": { "fr": "Bravo ! ✓", "ar": "أحسنت! ✓" },
+          "incorrect": { "fr": "Compte après le premier nombre, tu trouveras.", "ar": "اعدّ بعد العدد الأول وستجد الجواب." },
+          "win": { "fr": "Toutes les additions sont justes ! 🌟", "ar": "كل عمليات الجمع صحيحة! 🌟" },
+          "tryAgain": { "fr": "Continue, tu y es presque ! 💪", "ar": "واصل، أنت قريب! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "tenframe",
+          "mode": "fill",
+          "of": 10,
+          "frames": 1,
+          "title": { "fr": "Montre la somme", "ar": "أظهر المجموع" },
+          "prompt": { "fr": "Touche les cases pour montrer 3 + 4.", "ar": "المس المربعات لتظهر 3 + 4." },
+          "target": 7,
+          "success": { "fr": "3 + 4 = 7, parfait ! ✓", "ar": "3 + 4 = 7، ممتاز! ✓" }
+        }
+      ]
+    },
+    {
+      "id": "addition-jusqua-dix",
+      "title": { "fr": "Additions jusqu'à 10", "ar": "الجمع حتى 10" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.5rem\"><span>5</span><span>+</span><span>5</span><span>=</span><span>10</span></div>",
+            "caption": { "fr": "Les deux mains : 5 doigts et 5 doigts font 10.", "ar": "اليدان: 5 أصابع و5 أصابع تساوي 10." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\">🧮</div>",
+            "caption": { "fr": "Quand le total atteint 10, la dizaine est complète.", "ar": "عندما يصل المجموع إلى 10، تكتمل العشرة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">6 + 2 = ?</div>",
+            "caption": { "fr": "Je pars de 6 et j'avance de 2 : 7, 8.", "ar": "أبدأ من 6 وأتقدم 2: 7، 8." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">6 + 2 = <b>8</b></div>",
+            "caption": { "fr": "Le résultat est 8.", "ar": "الناتج هو 8." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "addition",
+          "range": [1, 9],
+          "title": { "fr": "Additions jusqu'à 10", "ar": "الجمع حتى 10" },
+          "prompt": { "fr": "Trouve la somme de chaque calcul.", "ar": "جد مجموع كل عملية." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Utilise tes doigts pour t'aider.", "ar": "استعن بأصابعك للمساعدة." },
+          "win": { "fr": "Génial ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Bien joué, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "number-line",
+          "min": 0,
+          "max": 10,
+          "slots": [4, 7, 9],
+          "title": { "fr": "Aide-toi de la ligne", "ar": "استعن بالخط" },
+          "prompt": { "fr": "Place les nombres sur la ligne pour compter plus vite.", "ar": "ضع الأعداد على الخط لتعدّ أسرع." },
+          "success": { "fr": "Bien placé ! ✓", "ar": "موضع صحيح! ✓" },
+          "retry": { "fr": "Regarde l'ordre : 0, 1, 2… réessaie.", "ar": "انظر الترتيب: 0، 1، 2… حاول مجدداً." }
+        }
+      ]
+    }
+  ]
+}

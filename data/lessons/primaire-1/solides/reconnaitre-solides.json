@@ -1,0 +1,124 @@
+{
+  "id": "reconnaitre-solides",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "solides",
+  "title": { "fr": "Reconnaître les solides", "ar": "التعرف على المجسمات" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "cube-pave",
+      "title": { "fr": "Le cube et le pavé", "ar": "المكعب ومتوازي المستطيلات" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3.4rem\">🎲</div>",
+            "caption": { "fr": "Le dé est un cube : ses 6 faces sont des carrés.", "ar": "حجر النرد مكعب: أوجهه الستة مربعات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3.4rem\">📦</div>",
+            "caption": { "fr": "La boîte est un pavé : ses faces sont des rectangles.", "ar": "الصندوق متوازي مستطيلات: أوجهه مستطيلات." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><svg width=\"150\" height=\"150\"><g fill=\"#c7d2fe\" stroke=\"#4f46e5\" stroke-width=\"3\"><rect x=\"30\" y=\"40\" width=\"70\" height=\"70\"/><polygon points=\"30,40 50,20 120,20 100,40\"/><polygon points=\"100,40 120,20 120,90 100,110\"/></g></svg></div>",
+            "caption": { "fr": "Un cube a 6 faces carrées, 12 arêtes et 8 sommets.", "ar": "للمكعب 6 أوجه مربعة و12 حرفاً و8 رؤوس." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><svg width=\"170\" height=\"140\"><g fill=\"#bbf7d0\" stroke=\"#16a34a\" stroke-width=\"3\"><rect x=\"20\" y=\"50\" width=\"110\" height=\"60\"/><polygon points=\"20,50 45,25 155,25 130,50\"/><polygon points=\"130,50 155,25 155,85 130,110\"/></g></svg></div>",
+            "caption": { "fr": "Un pavé a aussi 6 faces, mais elles ne sont pas toutes identiques.", "ar": "لمتوازي المستطيلات أيضاً 6 أوجه، لكنها ليست كلها متطابقة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "carre",
+          "distractorCount": 3,
+          "title": { "fr": "Quelle face du cube ?", "ar": "أي وجه للمكعب؟" },
+          "prompt": { "fr": "Touche la forme d'une face de cube.", "ar": "المس شكل وجه المكعب." },
+          "correct": { "fr": "Oui, une face de cube est un carré ! ✓", "ar": "نعم، وجه المكعب مربع! ✓" },
+          "incorrect": { "fr": "Regarde bien : les faces du cube sont des carrés.", "ar": "انظر جيداً: أوجه المكعب مربعات." }
+        },
+        {
+          "type": "quiz",
+          "topic": "count",
+          "range": [1, 6],
+          "title": { "fr": "Combien de faces ?", "ar": "كم عدد الأوجه؟" },
+          "prompt": { "fr": "Compte les faces comme sur un dé.", "ar": "اعدّ الأوجه كما في حجر النرد." },
+          "correct": { "fr": "C'est ça ! ✓", "ar": "هذا هو! ✓" },
+          "incorrect": { "fr": "Pense à un dé : compte ses faces.", "ar": "تخيّل حجر نرد: عدّ أوجهه." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "boule-cylindre",
+      "title": { "fr": "La boule et le cylindre", "ar": "الكرة والأسطوانة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3.4rem\">⚽</div>",
+            "caption": { "fr": "Le ballon est une boule : elle roule dans tous les sens.", "ar": "الكرة كروية الشكل: تتدحرج في كل الاتجاهات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3.4rem\">🥫</div>",
+            "caption": { "fr": "La boîte de conserve est un cylindre : deux disques et une surface arrondie.", "ar": "علبة الطعام أسطوانة: قرصان وسطح منحنٍ." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:3rem\"><span>⚽</span><span>🥫</span><span>🎲</span></div>",
+            "caption": { "fr": "La boule roule partout, le cylindre roule tout droit, le cube ne roule pas.", "ar": "الكرة تتدحرج في كل مكان، والأسطوانة تتدحرج في خط مستقيم، والمكعب لا يتدحرج." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Roule / Glisse / Reste</div>",
+            "caption": { "fr": "On reconnaît les solides en observant comment ils bougent.", "ar": "نتعرف على المجسمات بملاحظة كيف تتحرك." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "cercle",
+          "distractorCount": 3,
+          "title": { "fr": "Quelle trace laisse le cylindre ?", "ar": "ما الأثر الذي تتركه الأسطوانة؟" },
+          "prompt": { "fr": "Touche la forme que laisse un cylindre posé à plat.", "ar": "المس الشكل الذي تتركه الأسطوانة عند وضعها مسطحة." },
+          "correct": { "fr": "Oui, un disque rond ! ✓", "ar": "نعم، إنه قرص مستدير! ✓" },
+          "incorrect": { "fr": "Ses bases ont la forme d'un cercle.", "ar": "قاعدتاها على شكل دائرة." }
+        },
+        {
+          "type": "matching",
+          "pairType": "shape-name",
+          "title": { "fr": "Relie l'objet et sa forme", "ar": "اربط الجسم بشكله" },
+          "prompt": { "fr": "Touche un objet, puis la figure qui lui correspond.", "ar": "المس جسماً ثم الشكل الذي يناسبه." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Observe bien l'objet et réessaie.", "ar": "لاحظ الجسم جيداً وحاول مجدداً." }
+        }
+      ]
+    }
+  ]
+}

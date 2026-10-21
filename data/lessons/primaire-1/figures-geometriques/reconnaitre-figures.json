@@ -1,0 +1,121 @@
+{
+  "id": "reconnaitre-figures",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "figures-geometriques",
+  "title": { "fr": "Reconnaître les figures", "ar": "التعرف على الأشكال" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "carre-rectangle",
+      "title": { "fr": "Le carré et le rectangle", "ar": "المربع والمستطيل" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"110\" height=\"110\"><rect x=\"10\" y=\"10\" width=\"90\" height=\"90\" fill=\"#fde68a\" stroke=\"#d97706\" stroke-width=\"4\"/></svg><div style=\"font-size:1.2rem\">Carré</div></div>",
+            "caption": { "fr": "Le carré a 4 côtés égaux et 4 coins droits.", "ar": "المربع له 4 أضلاع متساوية و4 زوايا قائمة." }
+          },
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"140\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"120\" height=\"80\" fill=\"#bfdbfe\" stroke=\"#2563eb\" stroke-width=\"4\"/></svg><div style=\"font-size:1.2rem\">Rectangle</div></div>",
+            "caption": { "fr": "Le rectangle a 4 coins droits, mais 2 côtés plus longs.", "ar": "المستطيل له 4 زوايا قائمة، لكن ضلعين أطول." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"120\" height=\"120\"><rect x=\"10\" y=\"10\" width=\"100\" height=\"100\" fill=\"#fde68a\" stroke=\"#d97706\" stroke-width=\"4\"/></svg></div>",
+            "caption": { "fr": "Ce panneau est un carré : ses quatre côtés ont la même longueur.", "ar": "هذه اللوحة مربع: أضلاعه الأربعة بالطول نفسه." }
+          },
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"150\" height=\"100\"><rect x=\"10\" y=\"10\" width=\"130\" height=\"80\" fill=\"#bfdbfe\" stroke=\"#2563eb\" stroke-width=\"4\"/></svg></div>",
+            "caption": { "fr": "Cette porte est un rectangle : plus large que haute.", "ar": "هذا الباب مستطيل: أعرض من ارتفاعه." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "carre",
+          "distractorCount": 3,
+          "title": { "fr": "Trouve le carré", "ar": "جد المربع" },
+          "prompt": { "fr": "Touche la figure qui est un carré.", "ar": "المس الشكل الذي هو مربع." },
+          "correct": { "fr": "C'est bien un carré ! ✓", "ar": "إنه مربع بالفعل! ✓" },
+          "incorrect": { "fr": "Un carré a 4 côtés égaux.", "ar": "المربع له 4 أضلاع متساوية." }
+        },
+        {
+          "type": "matching",
+          "pairType": "shape-name",
+          "title": { "fr": "Relie la figure à son nom", "ar": "اربط الشكل باسمه" },
+          "prompt": { "fr": "Touche une figure, puis son nom.", "ar": "المس شكلاً ثم اسمه." },
+          "pairCorrect": { "fr": "Bien reconnu ! ✓", "ar": "تعرف صحيح! ✓" },
+          "pairWrong": { "fr": "Regarde les côtés et réessaie.", "ar": "انظر إلى الأضلاع وحاول مجدداً." }
+        }
+      ]
+    },
+    {
+      "id": "triangle-cercle",
+      "title": { "fr": "Le triangle et le cercle", "ar": "المثلث والدائرة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"130\" height=\"115\"><polygon points=\"65,10 120,105 10,105\" fill=\"#fecaca\" stroke=\"#dc2626\" stroke-width=\"4\"/></svg><div style=\"font-size:1.2rem\">Triangle</div></div>",
+            "caption": { "fr": "Le triangle a 3 côtés et 3 coins.", "ar": "المثلث له 3 أضلاع و3 زوايا." }
+          },
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"120\" height=\"120\"><circle cx=\"60\" cy=\"60\" r=\"50\" fill=\"#bbf7d0\" stroke=\"#16a34a\" stroke-width=\"4\"/></svg><div style=\"font-size:1.2rem\">Cercle</div></div>",
+            "caption": { "fr": "Le cercle est tout rond, sans coin ni côté droit.", "ar": "الدائرة مستديرة تماماً، بلا زوايا ولا أضلاع مستقيمة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"130\" height=\"115\"><polygon points=\"65,10 120,105 10,105\" fill=\"#fecaca\" stroke=\"#dc2626\" stroke-width=\"4\"/></svg></div>",
+            "caption": { "fr": "Ce panneau est un triangle : je compte 1, 2, 3 côtés.", "ar": "هذه اللوحة مثلث: أعدّ 1، 2، 3 أضلاع." }
+          },
+          {
+            "html": "<div class=\"shape-demo\"><svg width=\"120\" height=\"120\"><circle cx=\"60\" cy=\"60\" r=\"50\" fill=\"#bbf7d0\" stroke=\"#16a34a\" stroke-width=\"4\"/></svg></div>",
+            "caption": { "fr": "Cette roue est un cercle : elle roule parfaitement.", "ar": "هذه العجلة دائرة: تتدحرج بسلاسة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "shapes",
+          "target": "cercle",
+          "distractorCount": 3,
+          "title": { "fr": "Trouve le cercle", "ar": "جد الدائرة" },
+          "prompt": { "fr": "Touche la figure toute ronde.", "ar": "المس الشكل المستدير تماماً." },
+          "correct": { "fr": "Oui, c'est un cercle ! ✓", "ar": "نعم، إنها دائرة! ✓" },
+          "incorrect": { "fr": "Le cercle n'a aucun coin.", "ar": "الدائرة ليس لها أي زاوية." }
+        },
+        {
+          "type": "shapes",
+          "target": "triangle",
+          "distractorCount": 3,
+          "title": { "fr": "Trouve le triangle", "ar": "جد المثلث" },
+          "prompt": { "fr": "Touche la figure qui a 3 côtés.", "ar": "المس الشكل الذي له 3 أضلاع." },
+          "correct": { "fr": "Bravo, 3 côtés ! ✓", "ar": "أحسنت، 3 أضلاع! ✓" },
+          "incorrect": { "fr": "Un triangle a exactement 3 côtés.", "ar": "المثلث له 3 أضلاع بالضبط." }
+        }
+      ]
+    }
+  ]
+}

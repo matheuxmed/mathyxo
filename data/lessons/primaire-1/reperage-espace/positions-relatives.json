@@ -1,0 +1,141 @@
+{
+  "id": "positions-relatives",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "reperage-espace",
+  "title": { "fr": "Les positions relatives", "ar": "المواضع النسبية" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "devant-derriere",
+      "title": { "fr": "Devant et derrière", "ar": "أمام وخلف" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🐰 🥕</div>",
+            "caption": { "fr": "Le lapin est devant la carotte (il la voit en premier).", "ar": "الأرنب أمام الجزرة (يراها أولاً)." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🌳 🐰</div>",
+            "caption": { "fr": "Le lapin est derrière l'arbre (l'arbre est devant lui).", "ar": "الأرنب خلف الشجرة (الشجرة أمامه)." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">👦 👧 🎈</div>",
+            "caption": { "fr": "Le garçon est devant la fille, la fille est devant le ballon.", "ar": "الولد أمام البنت، والبنت أمام البالون." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:3rem\">🎈 👧 👦</div>",
+            "caption": { "fr": "Si on retourne la file, c'est le ballon qui est devant.", "ar": "إذا عكسنا الصف، يصبح البالون في المقدمة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "position",
+          "title": { "fr": "Devant ou derrière ?", "ar": "أمام أم خلف؟" },
+          "prompt": { "fr": "Observe la scène et choisis la bonne réponse.", "ar": "لاحظ المشهد واختر الجواب الصحيح." },
+          "correct": { "fr": "Bien observé ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "incorrect": { "fr": "Regarde qui vient en premier dans la file.", "ar": "انظر من يأتي أولاً في الصف." },
+          "win": { "fr": "Parfait ! 🌟", "ar": "ممتاز! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "🐰 est ___ 🥕", "ar": "🐰 ___ 🥕" }, "options": [{ "fr": "devant", "ar": "أمام" }, { "fr": "derrière", "ar": "خلف" }], "answer": 0 },
+            { "prompt": { "fr": "🐰 est ___ 🌳", "ar": "🐰 ___ 🌳" }, "options": [{ "fr": "devant", "ar": "أمام" }, { "fr": "derrière", "ar": "خلف" }], "answer": 1 }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "position",
+          "title": { "fr": "À gauche ou à droite ?", "ar": "يسار أم يمين؟" },
+          "prompt": { "fr": "Touche la bonne position.", "ar": "المس الموضع الصحيح." },
+          "correct": { "fr": "C'est ça ! ✓", "ar": "هذا هو! ✓" },
+          "incorrect": { "fr": "Repère bien les deux côtés.", "ar": "ميّز الجانبين جيداً." },
+          "win": { "fr": "Super ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "🍎 est à ___ du panier 🧺", "ar": "🍎 على ___ السلة 🧺" }, "options": [{ "fr": "gauche", "ar": "اليسار" }, { "fr": "droite", "ar": "اليمين" }], "answer": 0 },
+            { "prompt": { "fr": "🧺 est à ___ de la pomme 🍎", "ar": "🧺 على ___ التفاحة 🍎" }, "options": [{ "fr": "gauche", "ar": "اليسار" }, { "fr": "droite", "ar": "اليمين" }], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sur-sous",
+      "title": { "fr": "Sur, sous et entre", "ar": "فوق، تحت، وبين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:2.6rem\">🐦</div><div style=\"font-size:3rem\">🏠</div></div>",
+            "caption": { "fr": "L'oiseau est sur le toit, au-dessus de la maison.", "ar": "الطائر فوق السطح، أي أعلى المنزل." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">🌳</div><div style=\"font-size:2.6rem\">🐒</div><div style=\"font-size:1.3rem\">sous l'arbre</div></div>",
+            "caption": { "fr": "Le singe est sous l'arbre, en dessous.", "ar": "القرد تحت الشجرة، أي في الأسفل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:2.6rem\"><span>🔴</span><span>🔵</span><span>🟢</span></div>",
+            "caption": { "fr": "Le bleu est entre le rouge et le vert.", "ar": "الأزرق بين الأحمر والأخضر." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:2.6rem\"><span>🟢</span><span>🔵</span><span>🔴</span></div>",
+            "caption": { "fr": "Le bleu est toujours entre les deux autres.", "ar": "الأزرق لا يزال بين الاثنين الآخرين." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "position",
+          "title": { "fr": "Sur, sous ou entre ?", "ar": "فوق أم تحت أم بين؟" },
+          "prompt": { "fr": "Choisis la bonne position.", "ar": "اختر الموضع الصحيح." },
+          "correct": { "fr": "Bravo ! ✓", "ar": "أحسنت! ✓" },
+          "incorrect": { "fr": "Imagine la chose en vrai.", "ar": "تخيّل الشيء في الواقع." },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Continue, tu y es presque ! 💪", "ar": "واصل، أنت قريب! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "🐦 est ___ 🏠", "ar": "🐦 ___ 🏠" }, "options": [{ "fr": "sur", "ar": "فوق" }, { "fr": "sous", "ar": "تحت" }], "answer": 0 },
+            { "prompt": { "fr": "🐒 est ___ 🌳", "ar": "🐒 ___ 🌳" }, "options": [{ "fr": "sur", "ar": "فوق" }, { "fr": "sous", "ar": "تحت" }], "answer": 1 },
+            { "prompt": { "fr": "🔵 est ___ 🔴 et 🟢", "ar": "🔵 ___ 🔴 و 🟢" }, "options": [{ "fr": "sur", "ar": "فوق" }, { "fr": "entre", "ar": "بين" }], "answer": 1 }
+          ]
+        },
+        {
+          "type": "matching",
+          "pairType": "number-quantity",
+          "max": 6,
+          "title": { "fr": "Relie et repère", "ar": "اربط وحدّد" },
+          "prompt": { "fr": "Touche un nombre, puis la collection correspondante.", "ar": "المس عدداً ثم المجموعة المقابلة." },
+          "pairCorrect": { "fr": "Bien repéré ! ✓", "ar": "تحديد جيد! ✓" },
+          "pairWrong": { "fr": "Essaie encore, tu y arriveras.", "ar": "حاول مجدداً، ستنجح." }
+        }
+      ]
+    }
+  ]
+}

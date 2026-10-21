@@ -1,0 +1,127 @@
+{
+  "id": "compter-objets",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "nombres-0-9",
+  "title": { "fr": "Compter des objets", "ar": "عدّ الأشياء" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "compter-tactile",
+      "title": { "fr": "Toucher chaque objet une fois", "ar": "المس كل شيء مرة واحدة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.6rem;line-height:1.4\">🐝 🐝 🐝 🐝</div>",
+            "caption": { "fr": "Pour bien compter, on touche chaque objet une seule fois.", "ar": "لكي نعدّ جيداً، نلمس كل شيء مرة واحدة فقط." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.5rem;gap:6px\"><span class=\"pin\">①</span><span class=\"pin\">②</span><span class=\"pin\">③</span><span class=\"pin\">④</span></div>",
+            "caption": { "fr": "On dit les nombres dans l'ordre : 1, 2, 3, 4. Il y a 4 abeilles.", "ar": "نقول الأعداد بالترتيب: 1، 2، 3، 4. عدد النحل 4." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.6rem;line-height:1.4\">⚽ ⚽ ⚽<br>⚽ ⚽</div>",
+            "caption": { "fr": "Comptons les ballons : un, deux, trois, quatre, cinq. Il y a 5 ballons.", "ar": "لنعدّ الكرات: واحد، اثنان، ثلاثة، أربعة، خمسة. عددها 5." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">5 ballons = <b>5</b></div>",
+            "caption": { "fr": "Le dernier nombre dit est le nombre total : 5.", "ar": "آخر عدد نقوله هو العدد الإجمالي: 5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "count-tap",
+          "range": [3, 9],
+          "item": "🐝",
+          "title": { "fr": "Compte les abeilles", "ar": "عُدّ النحل" },
+          "prompt": { "fr": "Touche chaque abeille une fois, dans l'ordre.", "ar": "المس كل نحلة مرة واحدة، بالترتيب." },
+          "target": { "fr": "Combien d'abeilles ?", "ar": "كم عدد النحل؟" },
+          "success": { "fr": "Parfait, tu comptes comme un pro ! ✓", "ar": "ممتاز، تعدّ كالمحترفين! ✓" },
+          "why": { "fr": "Toucher chaque objet évite de compter deux fois le même.", "ar": "لمس كل شيء يمنع عدّ الشيء نفسه مرتين." }
+        },
+        {
+          "type": "quiz",
+          "topic": "count",
+          "range": [2, 8],
+          "title": { "fr": "Combien y en a-t-il ?", "ar": "كم عددها؟" },
+          "prompt": { "fr": "Compte vite et choisis le bon nombre.", "ar": "اعدّ بسرعة واختر العدد الصحيح." },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة رائعة! ✓" },
+          "incorrect": { "fr": "Recompte doucement, tu vas trouver.", "ar": "أعدّ بهدوء وستجد الجواب." },
+          "win": { "fr": "Tout juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "compter-en-croisant",
+      "title": { "fr": "Compter sans se tromper", "ar": "العدّ دون خطأ" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.6rem;line-height:1.5\">🍓🍓🍓<br>🍓🍓<br>🍓🍓🍓</div>",
+            "caption": { "fr": "Quand les objets sont mélangés, on les compte ligne par ligne.", "ar": "عندما تكون الأشياء مبعثرة، نعدّها سطراً سطراً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">3 + 2 + 3 = 8</div>",
+            "caption": { "fr": "3 puis 2 puis 3 : cela fait 8 fraises.", "ar": "3 ثم 2 ثم 3: المجموع 8 فراولات." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">Comptons par groupes de 2 :</div><div style=\"text-align:center;font-size:2.4rem\">🐞🐞 &nbsp; 🐞🐞 &nbsp; 🐞🐞</div>",
+            "caption": { "fr": "2, 4, 6 : six coccinelles. Compter par paquets va plus vite.", "ar": "2، 4، 6: ست دعسوقات. العدّ بالمجموعات أسرع." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">3 paquets de 2 = <b>6</b></div>",
+            "caption": { "fr": "Trois paquets de deux, cela fait six.", "ar": "ثلاث مجموعات من اثنين تساوي ستة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "count-tap",
+          "range": [4, 9],
+          "item": "🍓",
+          "title": { "fr": "Compte les fraises", "ar": "عُدّ الفراولات" },
+          "prompt": { "fr": "Compte-les toutes, sans en oublier.", "ar": "اعددها كلها دون أن تنسى إحداها." },
+          "target": { "fr": "Combien de fraises ?", "ar": "كم عدد الفراولات؟" },
+          "success": { "fr": "Excellent comptage ! ✓", "ar": "عدّ ممتاز! ✓" }
+        },
+        {
+          "type": "tenframe",
+          "mode": "fill",
+          "of": 9,
+          "frames": 1,
+          "title": { "fr": "Montre 7", "ar": "أظهر 7" },
+          "prompt": { "fr": "Touche les cases pour montrer 7.", "ar": "المس المربعات لتظهر 7." },
+          "target": 7,
+          "success": { "fr": "C'est bien 7 ! ✓", "ar": "إنه 7 بالفعل! ✓" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "ecrire-nombres",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "nombres-0-9",
+  "title": { "fr": "Écrire les nombres", "ar": "كتابة الأعداد" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "chiffre-et-mot",
+      "title": { "fr": "Chiffre et mot", "ar": "الرقم والكلمة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">3</div><div style=\"font-size:1.4rem\">trois</div></div>",
+            "caption": { "fr": "Chaque nombre a un chiffre (3) et un mot (trois).", "ar": "لكل عدد رقم (3) وكلمة (ثلاثة)." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.5rem\"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>",
+            "caption": { "fr": "On écrit les chiffres dans ce sens, de gauche à droite.", "ar": "نكتب الأرقام في هذا الاتجاه، من اليسار إلى اليمين." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.6rem\">🍇🍇🍇🍇🍇🍇🍇</div>",
+            "caption": { "fr": "Il y a 7 grains. J'écris le chiffre 7, et je lis « sept ».", "ar": "هناك 7 حبات. أكتب الرقم 7 وأقرأ «سبعة»." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">7</div><div style=\"font-size:1.4rem\">sept</div></div>",
+            "caption": { "fr": "Le chiffre se dessine, le mot se lit. Les deux disent 7.", "ar": "الرقم يُرسَم، والكلمة تُقرأ. كلاهما يعني 7." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "number-word",
+          "title": { "fr": "Relie le chiffre et son mot", "ar": "اربط الرقم بكلمته" },
+          "prompt": { "fr": "Touche un chiffre, puis le mot qui lui correspond.", "ar": "المس رقماً ثم الكلمة التي تناسبه." },
+          "pairCorrect": { "fr": "Bien joué ! ✓", "ar": "أحسنت! ✓" },
+          "pairWrong": { "fr": "Presque ! Essaie encore.", "ar": "تقريباً! حاول مجدداً." }
+        },
+        {
+          "type": "quiz",
+          "topic": "count",
+          "range": [1, 9],
+          "title": { "fr": "Écris le nombre en chiffres", "ar": "اكتب العدد بالأرقام" },
+          "prompt": { "fr": "Compte puis choisis le bon chiffre.", "ar": "اعدّ ثم اختر الرقم الصحيح." },
+          "correct": { "fr": "C'est ça ! ✓", "ar": "هذا هو! ✓" },
+          "incorrect": { "fr": "Compte encore une fois, doucement.", "ar": "اعدّ مرة أخرى بهدوء." },
+          "win": { "fr": "Bravo, tout est écrit ! 🌟", "ar": "أحسنت، كُتب كل شيء! 🌟" },
+          "tryAgain": { "fr": "Tu progresses bien ! 💪", "ar": "أنت تتقدم جيداً! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "tracer-les-chiffres",
+      "title": { "fr": "Bien tracer les chiffres", "ar": "رسم الأرقام بشكل صحيح" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">1️⃣</div><div style=\"font-size:1.3rem\">un trait droit</div></div>",
+            "caption": { "fr": "Le 1 se trace avec un seul trait droit.", "ar": "الرقم 1 يُرسم بخط مستقيم واحد." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">0️⃣</div><div style=\"font-size:1.3rem\">un rond fermé</div></div>",
+            "caption": { "fr": "Le 0 est un rond fermé, comme un œuf.", "ar": "الصفر دائرة مغلقة، مثل البيضة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:3rem\">5️⃣</div></div>",
+            "caption": { "fr": "Le 5 : une barre en haut, un petit ventre en bas.", "ar": "الرقم 5: خط في الأعلى وبطن صغير في الأسفل." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">1 · 2 · 3 · 4 · 5</div>",
+            "caption": { "fr": "En traçant, on apprend à reconnaître chaque chiffre du premier coup d'œil.", "ar": "بالرسم نتعلم تمييز كل رقم من النظرة الأولى." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "number-quantity",
+          "max": 9,
+          "title": { "fr": "Chiffre ou quantité ?", "ar": "رقم أم كمية؟" },
+          "prompt": { "fr": "Relie chaque chiffre à sa collection.", "ar": "اربط كل رقم بمجموعته." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Observe bien et réessaie.", "ar": "لاحظ جيداً وحاول مجدداً." }
+        },
+        {
+          "type": "tenframe",
+          "mode": "fill",
+          "of": 9,
+          "frames": 1,
+          "title": { "fr": "Représente le nombre", "ar": "مثّل العدد" },
+          "prompt": { "fr": "Touche les cases pour montrer le nombre demandé.", "ar": "المس المربعات لتظهر العدد المطلوب." },
+          "target": 8,
+          "success": { "fr": "Bravo, c'est exact ! ✓", "ar": "أحسنت، إنه صحيح! ✓" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "id": "soustraction-simple",
+  "category": "primaire",
+  "level": "primaire-1",
+  "chapter": "addition-soustraction",
+  "title": { "fr": "La soustraction simple", "ar": "الطرح البسيط" },
+  "xp": 40,
+  "concepts": [
+    {
+      "id": "enlever",
+      "title": { "fr": "Enlever, c'est retirer", "ar": "الطرح هو الإزالة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🍪🍪🍪🍪🍪</div>",
+            "caption": { "fr": "J'ai 5 biscuits.", "ar": "لديّ 5 بسكويتات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🍪🍪🍪</div>",
+            "caption": { "fr": "J'en mange 2. Il en reste 3. On écrit 5 − 2 = 3.", "ar": "آكل اثنتين. تبقى 3. نكتب 5 − 2 = 3." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">7 − 3 = ?</div>",
+            "caption": { "fr": "7 ballons, 3 s'envolent. Combien restent ?", "ar": "7 بالونات، طارت 3. كم تبقّى؟" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">7 − 3 = <b>4</b></div>",
+            "caption": { "fr": "Je recule de 3 depuis 7 : 6, 5, 4. Il reste 4.", "ar": "أرجع 3 من 7: 6، 5، 4. يبقى 4." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "count-tap",
+          "range": [4, 9],
+          "item": "🎈",
+          "title": { "fr": "Compte ce qui reste", "ar": "عُدّ ما تبقّى" },
+          "prompt": { "fr": "Compte les ballons encore là.", "ar": "اعدّ البالونات المتبقية." },
+          "target": { "fr": "Combien de ballons ?", "ar": "كم عدد البالونات؟" },
+          "success": { "fr": "Bien compté ! ✓", "ar": "عدّ صحيح! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "subtraction",
+          "range": [1, 9],
+          "title": { "fr": "Calcule la différence", "ar": "احسب الفرق" },
+          "prompt": { "fr": "Enlève le deuxième nombre.", "ar": "اطرح العدد الثاني." },
+          "correct": { "fr": "C'est juste ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Recule doucement sur tes doigts.", "ar": "ارجع بهدوء على أصابعك." },
+          "win": { "fr": "Superbe ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "difference",
+      "title": { "fr": "Trouver la différence", "ar": "إيجاد الفرق" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🐟🐟🐟🐟🐟🐟</div>",
+            "caption": { "fr": "6 poissons dans le bocal.", "ar": "6 أسماك في الحوض." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:2.4rem\">🐟🐟</div><div style=\"font-size:1.3rem;margin-top:8px\">3 s'en vont</div></div>",
+            "caption": { "fr": "Combien en reste-t-il ? 6 − 3 = 3.", "ar": "كم تبقّى؟ 6 − 3 = 3." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">9 − 4 = ?</div>",
+            "caption": { "fr": "Il y avait 9 cerises, on en a mangé 4.", "ar": "كان هناك 9 كرزات، أكلنا 4." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">9 − 4 = <b>5</b></div>",
+            "caption": { "fr": "Il reste 5 cerises.", "ar": "تبقّت 5 كرزات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "subtraction",
+          "range": [1, 9],
+          "title": { "fr": "Soustraction jusqu'à 10", "ar": "الطرح حتى 10" },
+          "prompt": { "fr": "Trouve le résultat de chaque soustraction.", "ar": "جد ناتج كل عملية طرح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte à l'envers depuis le premier nombre.", "ar": "اعدّ تنازلياً من العدد الأول." },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "number-quantity",
+          "max": 9,
+          "title": { "fr": "Relie le résultat et les objets", "ar": "اربط الناتج بالأشياء" },
+          "prompt": { "fr": "Relie chaque nombre à sa collection.", "ar": "اربط كل عدد بمجموعته." },
+          "pairCorrect": { "fr": "Bien relié ! ✓", "ar": "ربط صحيح! ✓" },
+          "pairWrong": { "fr": "Pas tout à fait, essaie encore.", "ar": "ليس تماماً، حاول مجدداً." }
+        }
+      ]
+    }
+  ]
+}
