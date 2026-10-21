@@ -1332,16 +1332,11 @@ function buildColumnBoard(spec, host) {
         const total = a * b;
         const width = String(total).length;
         const bDigits = String(b).split('').map(Number);
-        // One partial product per digit of b; the units digit lines up at the
-        // right, the tens digit shifts one column left, etc.
-        const partials = bDigits.map((d, i) => ({ value: a * d, shift: (bDigits.length - 1 - i) }));
+        // One partial product per digit of b, units digit first (conventional
+        // long multiplication order); later digits shift one column left each.
+        const partials = bDigits.slice().reverse().map((d, i) => ({ value: a * d, shift: i }));
 
-        // Leading operator column, then digit columns.
-        const rowA = actEl('div', 'cb-row cb-carryrow');
-        rowA.appendChild(actEl('span', 'cb-cell'));
-        for (let i = 0; i < width; i++) rowA.appendChild(actEl('span', 'cb-cell'));
-        board.appendChild(rowA);
-
+        // Digit columns only for the product layout (no carry row needed here).
         const rowTop = actEl('div', 'cb-row');
         rowTop.appendChild(actEl('span', 'cb-cell'));
         String(a).padStart(width, ' ').split('').forEach(ch => rowTop.appendChild(actEl('span', 'cb-cell', ch === ' ' ? '' : ch)));
@@ -1366,7 +1361,7 @@ function buildColumnBoard(spec, host) {
             board.appendChild(row);
         });
 
-        board.appendChild(ruleRow());
+        board.appendChild(ruleRow(width));
 
         const rowAns = actEl('div', 'cb-row cb-answer');
         rowAns.appendChild(actEl('span', 'cb-cell'));
@@ -1802,3 +1797,4 @@ function renderActivities(specs, container) {
     container.innerHTML = '';
     return specs.map(spec => renderActivity(spec, container)).filter(Boolean);
 }
+
