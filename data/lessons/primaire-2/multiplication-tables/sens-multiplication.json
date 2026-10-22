@@ -1,0 +1,129 @@
+{
+  "id": "sens-multiplication",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "multiplication-tables",
+  "title": { "fr": "Le sens de la multiplication", "ar": "معنى الضرب" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "addition-repetee",
+      "title": { "fr": "Une addition répétée", "ar": "جمع متكرر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">🍬🍬 &nbsp; 🍬🍬 &nbsp; 🍬🍬</div>",
+            "caption": { "fr": "3 groupes de 2 bonbons. On peut additionner : 2 + 2 + 2.", "ar": "3 مجموعات من 2 حلويات. يمكن الجمع: 2 + 2 + 2." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">2 + 2 + 2 = 3 × 2 = 6</div>",
+            "caption": { "fr": "3 fois 2, c'est 6. On écrit 3 × 2.", "ar": "3 مرات 2 تساوي 6. نكتب 3 × 2." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">⚽⚽⚽⚽ &nbsp; ⚽⚽⚽⚽</div>",
+            "caption": { "fr": "2 groupes de 4 ballons : 2 × 4.", "ar": "مجموعتان من 4 كرات: 2 × 4." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">4 + 4 = 2 × 4 = 8</div>",
+            "caption": { "fr": "4 + 4 = 8, donc 2 × 4 = 8.", "ar": "4 + 4 = 8، إذن 2 × 4 = 8." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "fraction",
+          "shape": "bar",
+          "parts": 3,
+          "mode": "shade",
+          "target": 3,
+          "title": { "fr": "Fais 3 groupes", "ar": "اصنع 3 مجموعات" },
+          "prompt": { "fr": "Touche les parts pour colorier les 3 groupes.", "ar": "المس الأجزاء لتلوين المجموعات الثلاث." },
+          "success": { "fr": "3 groupes coloriés : c'est ça ! ✓", "ar": "3 مجموعات ملونة: هذا صحيح! ✓" },
+          "tooMany": { "fr": "Tu as colorié trop de parts. Décoche-en une !", "ar": "لوّنت أجزاءً كثيرة. أزل واحدة!" }
+        },
+        {
+          "type": "quiz",
+          "topic": "multiplication-sense",
+          "title": { "fr": "Combien en tout ?", "ar": "كم في المجموع؟" },
+          "prompt": { "fr": "Choisis le bon résultat.", "ar": "اختر الناتج الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte les groupes, puis les objets de chaque groupe.", "ar": "عدّ المجموعات ثم العناصر في كل مجموعة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "le-signe-fois",
+      "title": { "fr": "Le signe ×", "ar": "رمز الضرب ×" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">4 × 3</div>",
+            "caption": { "fr": "Le premier nombre dit combien de groupes. Le deuxième dit combien dans chaque groupe.", "ar": "العدد الأول يحدد عدد المجموعات، والثاني يحدد ما في كل مجموعة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">4 × 3 = 3 + 3 + 3 + 3 = 12</div>",
+            "caption": { "fr": "4 groupes de 3, cela fait 12.", "ar": "4 مجموعات من 3 تساوي 12." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">5 × 2 = 2 + 2 + 2 + 2 + 2</div>",
+            "caption": { "fr": "5 groupes de 2 : 5 × 2 = 10.", "ar": "5 مجموعات من 2: 5 × 2 = 10." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">2 × 5 = 5 + 5 = 10</div>",
+            "caption": { "fr": "On peut échanger les deux nombres : le résultat est le même !", "ar": "يمكننا تبديل العددين: الناتج نفسه!" }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "multiplication-pairs",
+          "title": { "fr": "Relie l'addition et la multiplication", "ar": "اربط الجمع بالضرب" },
+          "prompt": { "fr": "Touche une addition, puis la multiplication qui va avec.", "ar": "المس جمعاً ثم الضرب المقابل." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Compte les groupes et les objets.", "ar": "عدّ المجموعات والعناصر." }
+        },
+        {
+          "type": "pattern",
+          "start": 2,
+          "step": 2,
+          "length": 6,
+          "maxStart": 2,
+          "maxStep": 2,
+          "pinStart": true,
+          "title": { "fr": "Compte de 2 en 2", "ar": "اعدّ بمقدار 2" },
+          "prompt": { "fr": "Quel nombre vient ensuite ?", "ar": "ما العدد التالي؟" },
+          "success": { "fr": "Oui, de 2 en 2 ! ✓", "ar": "نعم، بمقدار 2! ✓" },
+          "retry": { "fr": "Ajoute 2 à chaque fois.", "ar": "أضف 2 في كل مرة." }
+        }
+      ]
+    }
+  ]
+}

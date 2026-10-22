@@ -1,0 +1,128 @@
+{
+  "id": "addition-retenue",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "addition-soustraction-2",
+  "title": { "fr": "L'addition avec retenue", "ar": "الجمع مع الاحتفاظ" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "quand-il-y-a-retenue",
+      "title": { "fr": "Quand la somme dépasse 9", "ar": "عندما يتجاوز المجموع 9" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">8 + 5 = 13</div>",
+            "caption": { "fr": "8 plus 5 font 13 : c'est plus que 9, donc il y a une retenue.", "ar": "8 زائد 5 يساوي 13: أكثر من 9، لذا هناك احتفاظ." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:1.4rem\">1 dizaine</div><div style=\"font-size:1.6rem\">et 3 unités</div></div>",
+            "caption": { "fr": "13, c'est 1 dizaine et 3 unités. La dizaine part dans la colonne des dizaines.", "ar": "13 تعني عشرة واحدة و3 وحدات. تنتقل العشرة إلى عمود العشرات." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">28 + 15 = ?</div>",
+            "caption": { "fr": "D'abord les unités : 8 + 5 = 13. J'écris 3 et je retiens 1 dizaine.", "ar": "أولاً الوحدات: 8 + 5 = 13. أكتب 3 وأحتفظ بعشرة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">1 + 2 + 1 = 4</div>",
+            "caption": { "fr": "Les dizaines : 2 + 1 + la retenue 1 = 4 dizaines. Total : 43.", "ar": "العشرات: 2 + 1 + الاحتفاظ 1 = 4 عشرات. المجموع: 43." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "column",
+          "op": "add",
+          "a": 28,
+          "b": 15,
+          "title": { "fr": "Pose et calcule 28 + 15", "ar": "رتّب واحسب 28 + 15" },
+          "prompt": { "fr": "Observe la retenue au-dessus de la colonne des dizaines.", "ar": "لاحظ الاحتفاظ فوق عمود العشرات." },
+          "success": { "fr": "28 + 15 = 43, la retenue est bien placée ! ✓", "ar": "28 + 15 = 43، الاحتفاظ في مكانه الصحيح! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "addition-large",
+          "range": [11, 49],
+          "title": { "fr": "Calcule avec retenue", "ar": "احسب مع الاحتفاظ" },
+          "prompt": { "fr": "Trouve la somme de chaque calcul.", "ar": "جد مجموع كل عملية." },
+          "correct": { "fr": "Bravo ! ✓", "ar": "أحسنت! ✓" },
+          "incorrect": { "fr": "N'oublie pas la retenue !", "ar": "لا تنسَ الاحتفاظ!" },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "addition-colonnes",
+      "title": { "fr": "Additionner en colonnes", "ar": "الجمع بالترتيب العمودي" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">  47</div><div dir=\"ltr\">+ 25</div></div>",
+            "caption": { "fr": "On aligne bien les unités sous les unités et les dizaines sous les dizaines.", "ar": "نضع الوحدات تحت الوحدات والعشرات تحت العشرات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">&nbsp;1&nbsp;</div><div dir=\"ltr\">  47</div><div dir=\"ltr\">+ 25</div><div dir=\"ltr\">———</div><div dir=\"ltr\">  72</div></div>",
+            "caption": { "fr": "7 + 5 = 12 : j'écris 2 et je retiens 1. Puis 4 + 2 + 1 = 7.", "ar": "7 + 5 = 12: أكتب 2 وأحتفظ بـ 1. ثم 4 + 2 + 1 = 7." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">  36</div><div dir=\"ltr\">+ 48</div></div>",
+            "caption": { "fr": "Les unités : 6 + 8 = 14. J'écris 4, je retiens 1.", "ar": "الوحدات: 6 + 8 = 14. أكتب 4 وأحتفظ بـ 1." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">1 + 3 + 4 = 8</div>",
+            "caption": { "fr": "Les dizaines : 3 + 4 + 1 = 8. Résultat : 84.", "ar": "العشرات: 3 + 4 + 1 = 8. الناتج: 84." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "column",
+          "op": "add",
+          "a": 47,
+          "b": 25,
+          "title": { "fr": "Pose 47 + 25", "ar": "رتّب 47 + 25" },
+          "prompt": { "fr": "Regarde comment la retenue monte dans la colonne des dizaines.", "ar": "لاحظ كيف يصعد الاحتفاظ إلى عمود العشرات." },
+          "success": { "fr": "47 + 25 = 72, bien posé ! ✓", "ar": "47 + 25 = 72، ترتيب صحيح! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "addition-large",
+          "range": [21, 78],
+          "title": { "fr": "Additions à deux chiffres", "ar": "جمع الأعداد ذات الرقمين" },
+          "prompt": { "fr": "Calcule chaque somme.", "ar": "احسب كل مجموع." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Reprends colonne par colonne.", "ar": "أعد المحاولة عموداً بعمود." },
+          "win": { "fr": "Génial ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

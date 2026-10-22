@@ -1,0 +1,128 @@
+{
+  "id": "soustraction-retenue",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "addition-soustraction-2",
+  "title": { "fr": "La soustraction avec retenue", "ar": "الطرح مع الاحتفاظ" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "quand-il-faut-emprunter",
+      "title": { "fr": "Quand on ne peut pas soustraire", "ar": "عندما لا نستطيع الطرح" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">2 − 7 = ?</div>",
+            "caption": { "fr": "On ne peut pas enlever 7 quand on n'a que 2 unités.", "ar": "لا يمكننا إزالة 7 عندما لدينا وحدتان فقط." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:1.4rem\">1 dizaine = 10 unités</div></div>",
+            "caption": { "fr": "Alors on emprunte une dizaine : elle devient 10 unités.", "ar": "لذا نستعير عشرة: تصبح 10 وحدات." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">52 − 27 = ?</div>",
+            "caption": { "fr": "Les unités : 2 − 7, impossible. J'emprunte 1 dizaine.", "ar": "الوحدات: 2 − 7، غير ممكن. أستعير عشرة واحدة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">12 − 7 = 5</div>",
+            "caption": { "fr": "12 − 7 = 5. Il reste 4 dizaines. Résultat : 25.", "ar": "12 − 7 = 5. تبقى 4 عشرات. الناتج: 25." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "column",
+          "op": "sub",
+          "a": 52,
+          "b": 27,
+          "title": { "fr": "Pose et calcule 52 − 27", "ar": "رتّب واحسب 52 − 27" },
+          "prompt": { "fr": "Regarde la retenue au-dessus de la colonne des dizaines.", "ar": "لاحظ الاحتفاظ فوق عمود العشرات." },
+          "success": { "fr": "52 − 27 = 25, l'emprunt est bien fait ! ✓", "ar": "52 − 27 = 25، الاستعارة صحيحة! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "subtraction-large",
+          "range": [21, 89],
+          "title": { "fr": "Calcule avec retenue", "ar": "احسب مع الاحتفاظ" },
+          "prompt": { "fr": "Trouve la différence de chaque calcul.", "ar": "جد الفرق في كل عملية." },
+          "correct": { "fr": "Bravo ! ✓", "ar": "أحسنت! ✓" },
+          "incorrect": { "fr": "N'oublie pas d'emprunter une dizaine !", "ar": "لا تنسَ استعارة عشرة!" },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "soustraction-colonnes",
+      "title": { "fr": "Soustraire en colonnes", "ar": "الطرح بالترتيب العمودي" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">  63</div><div dir=\"ltr\">− 28</div></div>",
+            "caption": { "fr": "On aligne bien les unités sous les unités et les dizaines sous les dizaines.", "ar": "نضع الوحدات تحت الوحدات والعشرات تحت العشرات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">  5 13</div><div dir=\"ltr\">−  2 8</div><div dir=\"ltr\">————</div><div dir=\"ltr\">   3 5</div></div>",
+            "caption": { "fr": "3 − 8 impossible : j'emprunte 1 dizaine. 13 − 8 = 5, puis 5 − 2 = 3.", "ar": "3 − 8 غير ممكن: أستعير عشرة. 13 − 8 = 5، ثم 5 − 2 = 3." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div dir=\"ltr\">  74</div><div dir=\"ltr\">− 36</div></div>",
+            "caption": { "fr": "Les unités : 4 − 6 impossible. J'emprunte 1 dizaine : 14 − 6 = 8.", "ar": "الوحدات: 4 − 6 غير ممكن. أستعير عشرة: 14 − 6 = 8." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">6 − 3 = 3</div>",
+            "caption": { "fr": "Les dizaines : 6 − 3 = 3. Résultat : 38.", "ar": "العشرات: 6 − 3 = 3. الناتج: 38." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "column",
+          "op": "sub",
+          "a": 74,
+          "b": 36,
+          "title": { "fr": "Pose 74 − 36", "ar": "رتّب 74 − 36" },
+          "prompt": { "fr": "Regarde la retenue dans la colonne des dizaines.", "ar": "لاحظ الاحتفاظ في عمود العشرات." },
+          "success": { "fr": "74 − 36 = 38, bien posé ! ✓", "ar": "74 − 36 = 38، ترتيب صحيح! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "subtraction-large",
+          "range": [31, 95],
+          "title": { "fr": "Soustractions à deux chiffres", "ar": "طرح الأعداد ذات الرقمين" },
+          "prompt": { "fr": "Calcule chaque différence.", "ar": "احسب كل فرق." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Reprends colonne par colonne.", "ar": "أعد المحاولة عموداً بعمود." },
+          "win": { "fr": "Génial ! 🌟", "ar": "رائع! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

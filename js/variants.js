@@ -7,6 +7,9 @@
 
 function makeRng(seed) {
     let s = seed == null ? Math.floor(Math.random() * 1e9) : seed;
+    // xorshift32 collapses to zero forever if it starts at zero, so never
+    // allow an empty state.
+    s = (s >>> 0) || 0x9e3779b9;
     const next = () => {
         // xorshift32 — deterministic and good enough for small ranges.
         s ^= s << 13; s >>>= 0;
@@ -109,6 +112,85 @@ const VARIANTS = {
             return { pairs: nums.map(v => ({ left: String(v), right: words[v] })) };
         }
 
+        // number-words-large: two-digit numbers matched to their word form.
+        // Covers the full 20–99 range, including the irregular French tens
+        // (70s use soixante-dix…, 80s/90s use quatre-vingt(s)…).
+        if (kind === 'number-words-large') {
+            const units = {
+                0: { fr: '', ar: '' }, 1: { fr: 'un', ar: 'واحد' }, 2: { fr: 'deux', ar: 'اثنان' },
+                3: { fr: 'trois', ar: 'ثلاثة' }, 4: { fr: 'quatre', ar: 'أربعة' }, 5: { fr: 'cinq', ar: 'خمسة' },
+                6: { fr: 'six', ar: 'ستة' }, 7: { fr: 'sept', ar: 'سبعة' }, 8: { fr: 'huit', ar: 'ثمانية' },
+                9: { fr: 'neuf', ar: 'تسعة' }
+            };
+            const tens = {
+                2: { fr: 'vingt', ar: 'عشرون' }, 3: { fr: 'trente', ar: 'ثلاثون' },
+                4: { fr: 'quarante', ar: 'أربعون' }, 5: { fr: 'cinquante', ar: 'خمسون' },
+                6: { fr: 'soixante', ar: 'ستون' }, 7: { fr: 'soixante', ar: 'سبعون' },
+                8: { fr: 'quatre-vingt', ar: 'ثمانون' }, 9: { fr: 'quatre-vingt', ar: 'تسعون' }
+            };
+            const phrase = (t, u) => {
+                const base = tens[t];
+                if (u === 0) {
+                    // 70 and 90 are spoken as "soixante-dix" / "quatre-vingt-dix";
+                    // 80 takes an s ("quatre-vingts") when nothing follows.
+                    let fr = base.fr;
+                    if (t === 7) fr = 'soixante-dix';
+                    else if (t === 8) fr = 'quatre-vingts';
+                    else if (t === 9) fr = 'quatre-vingt-dix';
+                    return { fr, ar: base.ar };
+                }
+                const uu = units[u];
+                // French spellings for 11–19, needed by the 70s and 90s.
+                const teens = ['', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize',
+                    'dix-sept', 'dix-huit', 'dix-neuf'];
+                let fr;
+                if (t === 7) {
+                    // 71 = "soixante et onze", 72–79 = "soixante-douze"…
+                    fr = u === 1 ? 'soixante et onze' : 'soixante-' + teens[u];
+                } else if (t === 9) {
+                    // 91 = "quatre-vingt-onze", 92–99 = "quatre-vingt-douze"…
+                    fr = 'quatre-vingt-' + teens[u];
+                } else if (t === 8) {
+                    fr = 'quatre-vingt-' + uu.fr;
+                } else if (u === 1) {
+                    fr = base.fr + ' et un';
+                } else if (t === 6) {
+                    fr = 'soixante-' + uu.fr;
+                } else {
+                    fr = base.fr + '-' + uu.fr;
+                }
+                return { fr, ar: uu.ar + ' و' + base.ar };
+            };
+            const nums = [];
+            let guard = 0;
+            while (nums.length < n && guard++ < 400) {
+                const t = rng.int(2, 9);
+                const u = rng.int(0, 9);
+                const v = t * 10 + u;
+                if (!nums.includes(v)) nums.push(v);
+            }
+            return { pairs: nums.map(v => ({ left: String(v), right: phrase(Math.floor(v / 10), v % 10) })) };
+        }
+
+        // multiplication-pairs: a repeated addition matched to its multiplication.
+        if (kind === 'multiplication-pairs') {
+            const pairs = [];
+            const used = new Set();
+            while (pairs.length < n) {
+                const a = rng.int(2, 5);
+                const b = rng.int(2, 5);
+                const key = a + 'x' + b;
+                if (used.has(key)) continue;
+                used.add(key);
+                const add = Array.from({ length: a }, () => String(b)).join(' + ');
+                pairs.push({
+                    left: { fr: add, ar: add },
+                    right: { fr: a + ' × ' + b, ar: a + ' × ' + b }
+                });
+            }
+            return { pairs };
+        }
+
         // number-quantity: number on the left, that many symbols on the right.
         const want = spec.max != null ? spec.max : 9;
         const nums = [];
@@ -154,7 +236,9 @@ const VARIANTS = {
         // fresh rather than identical.
         const GENERATED_TOPICS = ['addition', 'compare', 'successor', 'count', 'subtraction',
             'multiplication', 'division', 'complement', 'double', 'predecessor',
-            'compare-blank', 'even-odd'];
+            'compare-blank', 'even-odd', 'tens-units', 'compare-large',
+            'addition-large', 'subtraction-large', 'multiplication-sense',
+            'measure-units', 'measure-compare', 'symmetry-axes', 'tables'];
         if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
             return {
                 questions: spec.questions.map(q => {
@@ -301,6 +385,126 @@ const VARIANTS = {
                     options: opts.map(o => o.label),
                     answer: opts.findIndex(o => o.id === correctLabel)
                 });
+            } else if (topic === 'tens-units') {
+                const n = rng.int(10, 99);
+                const t = Math.floor(n / 10), u = n % 10;
+                const askTens = rng.float() < 0.5;
+                const ans = askTens ? t : u;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: askTens
+                        ? { fr: 'Dans ' + n + ', combien de dizaines ?', ar: 'في ' + n + '، كم عدد العشرات؟' }
+                        : { fr: 'Dans ' + n + ', combien d\'unités ?', ar: 'في ' + n + '، كم عدد الوحدات؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'compare-large') {
+                let a = rng.int(range[0], range[1]);
+                let b = rng.int(range[0], range[1]);
+                while (a === b) b = rng.int(range[0], range[1]);
+                const opts = rng.shuffle(['<', '>', '=']);
+                questions.push({
+                    prompt: { fr: 'Quel signe va entre ' + a + ' et ' + b + ' ?', ar: 'أي رمز يوضع بين ' + a + ' و' + b + '؟' },
+                    options: opts, answer: opts.indexOf(Math.max(a, b) === a ? '>' : '<')
+                });
+            } else if (topic === 'addition-large') {
+                const a = rng.int(range[0], range[1]);
+                const b = rng.int(range[0], range[1]);
+                const ans = a + b;
+                const opts = optionsFor(ans, 5);
+                questions.push({
+                    prompt: { fr: a + ' + ' + b + ' = ?', ar: a + ' + ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'subtraction-large') {
+                let a = rng.int(range[0], range[1]);
+                let b = rng.int(range[0], range[1]);
+                if (b > a) { const t = a; a = b; b = t; }
+                const ans = a - b;
+                const opts = optionsFor(ans, 5);
+                questions.push({
+                    prompt: { fr: a + ' − ' + b + ' = ?', ar: a + ' − ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'multiplication-sense') {
+                const groups = rng.int(2, 5);
+                const per = rng.int(2, 5);
+                const ans = groups * per;
+                const opts = optionsFor(ans, 4);
+                const sym = rng.pick(VARIANT_POOLS.stars);
+                const row = new Array(groups).fill(sym.repeat(per)).join(' ');
+                questions.push({
+                    prompt: {
+                        fr: row + ' — ' + groups + ' groupes de ' + per + ', combien en tout ?',
+                        ar: row + ' — ' + groups + ' مجموعات من ' + per + '، كم المجموع؟'
+                    },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'measure-units') {
+                const pl = rng.pick([
+                    { label: { fr: 'un crayon', ar: 'قلم الرصاص' }, unit: 'cm' },
+                    { label: { fr: 'une porte', ar: 'باب' }, unit: 'm' },
+                    { label: { fr: 'un livre', ar: 'كتاب' }, unit: 'cm' },
+                    { label: { fr: 'un tableau', ar: 'سبورة' }, unit: 'm' },
+                    { label: { fr: 'une gomme', ar: 'ممحاة' }, unit: 'cm' },
+                    { label: { fr: 'une cour', ar: 'ساحة' }, unit: 'm' }
+                ]);
+                const opts = rng.shuffle([
+                    { id: 'm', label: { fr: 'm (mètre)', ar: 'م (متر)' } },
+                    { id: 'cm', label: { fr: 'cm (centimètre)', ar: 'سم (سنتيمتر)' } }
+                ]);
+                questions.push({
+                    prompt: { fr: 'On mesure ' + pl.label.fr + ' en…', ar: 'نقيس ' + pl.label.ar + ' بوحدة…' },
+                    options: opts.map(o => o.label),
+                    answer: opts.findIndex(o => o.id === pl.unit)
+                });
+            } else if (topic === 'measure-compare') {
+                const a = rng.int(5, 90);
+                let b = rng.int(5, 90);
+                while (b === a) b = rng.int(5, 90);
+                const longer = rng.float() < 0.5;
+                const big = Math.max(a, b), small = Math.min(a, b);
+                const opts = rng.shuffle([
+                    { id: 'big', label: { fr: 'le plus long', ar: 'الأطول' } },
+                    { id: 'small', label: { fr: 'le plus court', ar: 'الأقصر' } }
+                ]);
+                questions.push({
+                    prompt: {
+                        fr: 'Un ruban de ' + a + ' cm et un de ' + b + ' cm : lequel est ' + (longer ? 'plus long' : 'plus court') + ' ?',
+                        ar: 'شريط ' + a + ' سم وآخر ' + b + ' سم: أيهما ' + (longer ? 'أطول' : 'أقصر') + '؟'
+                    },
+                    options: opts.map(o => o.label),
+                    answer: opts.findIndex(o => o.id === (longer ? 'big' : 'small'))
+                });
+            } else if (topic === 'symmetry-axes') {
+                const pl = rng.pick([
+                    { label: { fr: 'un carré', ar: 'مربع' }, axes: 4, opts: ['1', '2', '4'] },
+                    { label: { fr: 'un rectangle', ar: 'مستطيل' }, axes: 2, opts: ['1', '2', '4'] },
+                    { label: { fr: 'un cercle', ar: 'دائرة' }, axes: 'beaucoup', opts: ['1', '2', 'beaucoup'] },
+                    { label: { fr: 'un triangle équilatéral', ar: 'مثلث متساوي الأضلاع' }, axes: 3, opts: ['1', '3', '4'] }
+                ]);
+                const labels = {
+                    '1': { fr: '1 axe', ar: 'محور واحد' },
+                    '2': { fr: '2 axes', ar: 'محوران' },
+                    '3': { fr: '3 axes', ar: '3 محاور' },
+                    '4': { fr: '4 axes', ar: '4 محاور' },
+                    beaucoup: { fr: 'beaucoup d\'axes', ar: 'محاور كثيرة' }
+                };
+                const opts = rng.shuffle(pl.opts);
+                questions.push({
+                    prompt: { fr: 'Combien d\'axes de symétrie a ' + pl.label.fr + ' ?', ar: 'كم عدد محاور التماثل في ' + pl.label.ar + '؟' },
+                    options: opts.map(o => labels[o]),
+                    answer: opts.indexOf(String(pl.axes))
+                });
+            } else if (topic === 'tables') {
+                const pool = spec.tables || [2, 3, 4, 5];
+                const t = rng.pick(pool);
+                const a = rng.int(1, 9);
+                const ans = a * t;
+                const opts = optionsFor(ans, Math.max(3, t));
+                questions.push({
+                    prompt: { fr: a + ' × ' + t + ' = ?', ar: a + ' × ' + t + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
             }
         }
         // Fill in any answer index left as null (compare-blank picks by content).
@@ -328,6 +532,14 @@ const VARIANTS = {
 
     // spec: { type:'fraction', shape:'bar'|'pie', mode:'shade'|'read', maxParts:n }
     fraction(spec, rng) {
+        // When the lesson pins both parts and target, honour them as written.
+        // Some activities mean "shade every part" (e.g. build 3 equal groups),
+        // which a random target smaller than parts would silently break.
+        if (spec.fixed || (spec.parts != null && spec.target != null)) {
+            const parts = spec.parts || 4;
+            const target = Math.min(spec.target != null ? spec.target : 1, parts);
+            return { parts, target, shaded: spec.mode === 'read' ? target : 0 };
+        }
         const maxParts = spec.maxParts || 8;
         const minParts = spec.minParts || 2;
         const parts = rng.pick([2, 3, 4, 5, 6, 8].filter(v => v >= minParts && v <= maxParts));
@@ -423,13 +635,16 @@ const VARIANTS = {
         return { target: rng.pick(choices), maxCm };
     },
 
-    // spec: { type:'pattern', maxStep:n, maxStart:n, length:n }
+    // spec: { type:'pattern', maxStep:n, maxStart:n, length:n, pinStart:bool }
     pattern(spec, rng) {
         const maxStep = spec.maxStep || 5;
         const maxStart = spec.maxStart || 10;
         const length = spec.length || 6;
-        const start = rng.int(0, maxStart);
         const step = spec.step || rng.int(1, maxStep);
+        // When the lesson pins both the step and the start (e.g. "count by 2"
+        // starting on an even number), keep them fixed so the sequence stays
+        // valid; otherwise pick a fresh starting point for each attempt.
+        const start = spec.pinStart ? (spec.start || 0) : rng.int(0, maxStart);
         return { start, step, length, missing: length - 1 };
     }
 };
@@ -437,8 +652,26 @@ const VARIANTS = {
 // Build a concrete spec from a chunk's static activity template, with fresh
 // content for this attempt. Falls back to the template when no generator exists.
 function buildVariant(template, attempt, seed) {
-    const rng = makeRng(seed == null ? undefined : seed + attempt * 7919);
+    // The seed may arrive as a string (e.g. a lesson id). Coerce it to a
+    // 32-bit integer: a non-numeric seed would otherwise degenerate the
+    // xorshift state to 0 and spin forever in generators that loop until
+    // they have enough distinct values.
+    let s = null;
+    if (seed != null) {
+        s = typeof seed === 'number' ? seed : hashSeed(String(seed));
+    }
+    const rng = makeRng(s == null ? undefined : s + attempt * 7919);
     const gen = VARIANTS[template.type];
     const overlap = gen ? gen(template, rng) : {};
     return Object.assign({}, template, overlap, { _attempt: attempt });
+}
+
+// Turn an arbitrary string into a non-zero 32-bit integer seed.
+function hashSeed(str) {
+    let h = 2166136261;
+    for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0) || 1;
 }

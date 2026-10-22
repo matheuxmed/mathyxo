@@ -434,12 +434,39 @@ function buildSymmetry(spec, host) {
     const mirror = Array.from({ length: size }, () => Array(size).fill(false));
     let painting = false;
     let paintValue = true;
+    let solved = false;
+    const feedback = actEl('div', 'act-feedback');
+    // How many painted cells count as "a figure" for grading. The child paints a
+    // few cells on one side; the mirror then reflects them, so the picture is
+    // symmetric by construction.
+    const MIRROR_GOAL = spec.goal || 3;
 
     const cellAt = (r, c) => grid.children[r * size + c];
 
     const mirrorIndex = (r, c) => axis === 'vertical'
         ? [r, size - 1 - c]
         : [size - 1 - r, c];
+
+    // Grade it: at least MIRROR_GOAL cells painted, all on the same side of the
+    // axis plus their reflections. Fires onComplete so lessons can advance.
+    const checkSolved = () => {
+        if (solved) return;
+        let sideA = 0, sideB = 0;
+        for (let r = 0; r < size; r++) {
+            for (let c = 0; c < size; c++) {
+                if (!state[r][c]) continue;
+                if (axis === 'vertical') { if (c * 2 < size) sideA++; else sideB++; }
+                else { if (r * 2 < size) sideA++; else sideB++; }
+            }
+        }
+        const total = sideA + sideB;
+        if (total >= MIRROR_GOAL) {
+            solved = true;
+            feedback.className = 'act-feedback good';
+            feedback.textContent = pick(spec.success) || '✓';
+            if (spec.onComplete) spec.onComplete();
+        }
+    };
 
     const paint = (r, c, on) => {
         state[r][c] = on;
@@ -448,6 +475,7 @@ function buildSymmetry(spec, host) {
         else if (!state[mr][mc] && mirror[r][c]) mirror[mr][mc] = false;
         cellAt(r, c).classList.toggle('on', on);
         refreshMirror();
+        checkSolved();
     };
 
     // Mirror shading is derived, never stored per-cell: a cell shows the pale
@@ -530,11 +558,15 @@ function buildSymmetry(spec, host) {
             state[r][c] = false; mirror[r][c] = false;
             cellAt(r, c).className = 'sym-cell';
         }
+        markAxis();
+        feedback.textContent = ''; feedback.className = 'act-feedback';
+        solved = false;
     });
     picker.appendChild(clear);
 
     left.appendChild(picker);
     left.appendChild(grid);
+    left.appendChild(feedback);
     right.innerHTML = '<div class="placeholder-note">' + (pick(spec.hint) || '') + '</div>';
     wrap.appendChild(left);
     wrap.appendChild(right);
@@ -701,6 +733,11 @@ function buildQuiz(spec, host) {
         q.options.forEach((opt, i) => {
             const b = actEl('button', 'quiz-option', pick(opt));
             b.type = 'button';
+            // Expose the option index and whether it is the answer. The answer is
+            // already in the client payload; this just lets the review harness and
+            // assistive tooling identify the right choice.
+            b.dataset.option = String(i);
+            if (i === q.answer) b.dataset.correct = '1';
             b.addEventListener('click', () => {
                 opts.querySelectorAll('.quiz-option').forEach(x => x.disabled = true);
                 const ok = i === q.answer;
@@ -753,6 +790,11 @@ function buildTableGame(spec, host) {
     const feedback = actEl('div', 'act-feedback');
     let table = spec.tables[0];
     let a = 1, b = table, streak = 0, best = 0, locked = false;
+    // Mastery contract: the streak game counts as mastered once the child hits
+    // the goal streak. Without this the widget never fires onComplete, which
+    // would deadlock any lesson that puts it in a graded application slot.
+    const goal = spec.goal || 5;
+    let mastered = false;
 
     const newQuestion = () => {
         locked = false;
@@ -783,6 +825,11 @@ function buildTableGame(spec, host) {
                     streakOut.textContent = pick(spec.streakLabel) + ' ' + streak +
                         (best > streak ? '' : ' ' + (pick(spec.bestLabel) || ''));
                     if (spec.onCorrect) spec.onCorrect(streak);
+                    // Fire the mastery callback once the goal streak is reached.
+                    if (!mastered && streak >= goal) {
+                        mastered = true;
+                        if (spec.onComplete) spec.onComplete(streak, goal);
+                    }
                     setTimeout(newQuestion, 700);
                 } else {
                     streak = 0;
@@ -819,7 +866,7 @@ function buildTableGame(spec, host) {
     host.appendChild(streakOut);
     newQuestion();
 
-    return { el: host, reset() { streak = 0; streakOut.textContent = ''; newQuestion(); } };
+    return { el: host, reset() { streak = 0; mastered = false; streakOut.textContent = ''; newQuestion(); } };
 }
 
 // ---------- 9. Sort into buckets ----------
@@ -1752,7 +1799,10 @@ const ACTIVITIES = {
 };
 
 // Render one activity spec into a host element, wrapped in the standard card.
-function renderActivity(spec, container) {
+// opts.validate turns on the review-mode status badge: the activity's mastery
+// callbacks are wrapped so the badge lights up when they actually fire.
+function renderActivity(spec, container, opts) {
+    opts = opts || {};
     const card = actEl('div', 'activity');
     const builder = ACTIVITIES[spec.type];
     if (!builder) {
@@ -1764,10 +1814,69 @@ function renderActivity(spec, container) {
     const head = actEl('div', 'activity-head');
     head.appendChild(actEl('h3', 'activity-title', pick(spec.title)));
     head.appendChild(actEl('span', 'activity-kind', spec.type));
+
+    // ---- review-mode validator ----
+    let validator = null;
+    if (opts.validate) {
+        const badge = actEl('span', 'activity-validate-badge idle');
+        const count = actEl('span', 'activity-validate-count');
+        badge.textContent = '● ' + pick({ fr: 'à tester', ar: 'للتجربة' });
+        const wrap = actEl('span', 'activity-validate');
+        wrap.appendChild(badge);
+        wrap.appendChild(count);
+        head.appendChild(wrap);
+
+        const original = {
+            onComplete: spec.onComplete,
+            onWrong: spec.onWrong
+        };
+        validator = { completed: 0, wrong: 0, badge, count, original };
+
+        const paint = () => {
+            const bits = [];
+            if (validator.completed) bits.push('✓ ' + validator.completed);
+            if (validator.wrong) bits.push('✗ ' + validator.wrong);
+            count.textContent = bits.join('  ');
+        };
+
+        // Wrap callbacks so a real mastery signal flips the badge, then hand the
+        // signal on to whatever the spec originally wanted to do.
+        spec.onComplete = function () {
+            validator.completed++;
+            badge.className = 'activity-validate-badge pass';
+            badge.textContent = '✓ ' + pick({ fr: 'valide', ar: 'صحيح' });
+            paint();
+            if (original.onComplete) original.onComplete.apply(this, arguments);
+        };
+        spec.onWrong = function () {
+            validator.wrong++;
+            badge.className = 'activity-validate-badge fail';
+            badge.textContent = '✗ ' + pick({ fr: 'erreur signalée', ar: 'خطأ' });
+            paint();
+            if (original.onWrong) original.onWrong.apply(this, arguments);
+        };
+    }
+
     card.appendChild(head);
     if (spec.prompt) card.appendChild(actEl('p', 'activity-prompt', pick(spec.prompt)));
 
     const stage = actEl('div', 'activity-stage');
+    // Review mode: publish the answer key on the stage so the validation
+    // harness can drive the widget deterministically, whatever its type.
+    if (opts.validate) {
+        const key = {
+            type: spec.type,
+            target: spec.target,
+            answer: spec.answer,
+            shape: spec.shape,
+            mode: spec.mode,
+            parts: spec.parts,
+            shaded: spec.shaded,
+            number: spec.number,
+            op: spec.op, a: spec.a, b: spec.b
+        };
+        try { stage.dataset.key = JSON.stringify(key); } catch (e) { /* ignore */ }
+    }
     card.appendChild(stage);
 
     if (spec.why) {
@@ -1784,17 +1893,29 @@ function renderActivity(spec, container) {
         const actions = actEl('div', 'activity-actions');
         const again = actEl('button', 'act-btn ghost', '↻ ' + pick({ fr: 'Recommencer', ar: 'إعادة' }));
         again.type = 'button';
-        again.addEventListener('click', () => api && api.reset && api.reset());
+        again.addEventListener('click', () => {
+            if (api && api.reset) api.reset();
+            if (validator) {
+                validator.badge.className = 'activity-validate-badge idle';
+                validator.badge.textContent = '● ' + pick({ fr: 'à tester', ar: 'للتجربة' });
+                validator.count.textContent = '';
+            }
+        });
         actions.appendChild(again);
         card.appendChild(actions);
     }
 
+    if (api && validator) {
+        api._validator = validator;
+        api._validatorSpec = spec;
+        api._card = card;
+    }
     return api;
 }
 
 // Render a list of specs.
-function renderActivities(specs, container) {
+function renderActivities(specs, container, opts) {
     container.innerHTML = '';
-    return specs.map(spec => renderActivity(spec, container)).filter(Boolean);
+    return specs.map(spec => renderActivity(spec, container, opts)).filter(Boolean);
 }
 

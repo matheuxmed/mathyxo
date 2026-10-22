@@ -1,0 +1,126 @@
+{
+  "id": "mesurer-longueur",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "grandeurs-mesures",
+  "title": { "fr": "Mesurer une longueur", "ar": "قياس الطول" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "unites-de-longueur",
+      "title": { "fr": "Le mètre et le centimètre", "ar": "المتر والسنتيمتر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\">📏</div>",
+            "caption": { "fr": "Pour mesurer, on utilise une règle graduée.", "ar": "للقياس نستخدم مسطرة مدرّجة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\"><div>1 m = 100 cm</div><div style=\"margin-top:8px\">m = mètre · cm = centimètre</div></div>",
+            "caption": { "fr": "Le mètre sert pour les grandes longueurs, le centimètre pour les petites.", "ar": "المتر للأطوال الكبيرة والسنتيمتر للأطوال الصغيرة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">✏️ environ 15 cm</div>",
+            "caption": { "fr": "Un crayon mesure environ 15 centimètres.", "ar": "قلم الرصاص يقيس حوالي 15 سنتيمتراً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">🚪 environ 2 m</div>",
+            "caption": { "fr": "Une porte mesure environ 2 mètres.", "ar": "الباب يقيس حوالي مترين." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "measure",
+          "maxCm": 10,
+          "target": 6,
+          "title": { "fr": "Règle l'objet à 6 cm", "ar": "اضبط الجسم على 6 سم" },
+          "prompt": { "fr": "Glisse le curseur jusqu'à ce que l'objet mesure 6 cm.", "ar": "اسحب المؤشر حتى يقيس الجسم 6 سم." },
+          "success": { "fr": "6 cm, bien mesuré ! ✓", "ar": "6 سم، قياس صحيح! ✓" },
+          "retry": { "fr": "Compte les graduations depuis le 0.", "ar": "عدّ التدريجات من الصفر." }
+        },
+        {
+          "type": "quiz",
+          "topic": "measure-units",
+          "title": { "fr": "La bonne unité", "ar": "الوحدة المناسبة" },
+          "prompt": { "fr": "Choisis m ou cm.", "ar": "اختر م أو سم." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Pense à la taille de l'objet.", "ar": "فكّر في حجم الجسم." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "mesurer-avec-regle",
+      "title": { "fr": "Mesurer avec la règle", "ar": "القياس بالمسطرة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">0 ───────── 8</div>",
+            "caption": { "fr": "On place le 0 de la règle au début de l'objet.", "ar": "نضع صفر المسطرة عند بداية الجسم." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">La longueur est 8 cm</div>",
+            "caption": { "fr": "On lit le nombre qui est à l'autre bout de l'objet.", "ar": "نقرأ العدد الموجود عند الطرف الآخر للجسم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">0 ──────── 6</div>",
+            "caption": { "fr": "L'objet va de 0 à 6 : il mesure 6 cm.", "ar": "الجسم يمتد من 0 إلى 6: طوله 6 سم." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">0 ─── 3 puis ───── 6</div>",
+            "caption": { "fr": "Un objet deux fois plus long mesure 12 cm.", "ar": "جسم أطول بمرتين يقيس 12 سم." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "measure",
+          "maxCm": 10,
+          "target": 9,
+          "title": { "fr": "Règle l'objet à 9 cm", "ar": "اضبط الجسم على 9 سم" },
+          "prompt": { "fr": "Glisse le curseur jusqu'à 9 cm.", "ar": "اسحب المؤشر حتى 9 سم." },
+          "success": { "fr": "9 cm, bien mesuré ! ✓", "ar": "9 سم، قياس صحيح! ✓" },
+          "retry": { "fr": "Pars bien de 0.", "ar": "ابدأ من الصفر." }
+        },
+        {
+          "type": "quiz",
+          "topic": "measure-compare",
+          "title": { "fr": "Plus long ou plus court ?", "ar": "أطول أم أقصر؟" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "incorrect": { "fr": "Compare les deux nombres.", "ar": "قارن العددين." },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Bravo, continue ! 💪", "ar": "أحسنت، واصل! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

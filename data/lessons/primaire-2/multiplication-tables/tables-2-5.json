@@ -1,0 +1,130 @@
+{
+  "id": "tables-2-5",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "multiplication-tables",
+  "title": { "fr": "Tables de 2 à 5", "ar": "جداول من 2 إلى 5" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "table-de-2",
+      "title": { "fr": "La table de 2", "ar": "جدول 2" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">2 · 4 · 6 · 8 · 10</div>",
+            "caption": { "fr": "Les résultats de la table de 2 sont les nombres pairs.", "ar": "نتائج جدول 2 هي الأعداد الزوجية." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\" dir=\"ltr\">2 × 6 = 12</div>",
+            "caption": { "fr": "2 fois 6, c'est 6 + 6 = 12.", "ar": "2 في 6 تساوي 6 + 6 = 12." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">2 × 0 = 0<br>2 × 1 = 2<br>2 × 2 = 4</div>",
+            "caption": { "fr": "On ajoute 2 à chaque fois : 0, 2, 4…", "ar": "نضيف 2 في كل مرة: 0، 2، 4…" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">2 × 7 = 14<br>2 × 8 = 16<br>2 × 9 = 18</div>",
+            "caption": { "fr": "…et on continue : 14, 16, 18.", "ar": "…ونواصل: 14، 16، 18." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "tables",
+          "tables": [2],
+          "title": { "fr": "La table de 2", "ar": "جدول 2" },
+          "prompt": { "fr": "Choisis le bon résultat.", "ar": "اختر الناتج الصحيح." },
+          "correct": { "fr": "Table de 2 réussie ! ✓", "ar": "أتقنت جدول 2! ✓" },
+          "wrong": { "fr": "Ajoute 2 à chaque fois.", "ar": "أضف 2 في كل مرة." },
+          "streakLabel": { "fr": "Série :", "ar": "سلسلة:" },
+          "bestLabel": { "fr": "record !", "ar": "أفضل نتيجة!" }
+        },
+        {
+          "type": "quiz",
+          "topic": "tables",
+          "tables": [2],
+          "title": { "fr": "Entraîne-toi avec la table de 2", "ar": "تدرّب على جدول 2" },
+          "prompt": { "fr": "Trouve le résultat de chaque multiplication.", "ar": "جد ناتج كل ضرب." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Repense à 2 + 2 + 2…", "ar": "تذكّر 2 + 2 + 2…" },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "tables-de-3-4-5",
+      "title": { "fr": "Les tables de 3, 4 et 5", "ar": "جداول 3 و4 و5" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">3 × 4 = 12</div>",
+            "caption": { "fr": "Table de 3 : 3, 6, 9, 12, 15, 18, 21…", "ar": "جدول 3: 3، 6، 9، 12، 15، 18، 21…" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">5 × 6 = 30</div>",
+            "caption": { "fr": "Table de 5 : les résultats finissent par 0 ou 5.", "ar": "جدول 5: تنتهي النتائج بـ 0 أو 5." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">4 × 3 = 3 × 4 = 12</div>",
+            "caption": { "fr": "4 fois 3, c'est pareil que 3 fois 4 : 12.", "ar": "4 في 3 مثل 3 في 4: 12." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\" dir=\"ltr\">5 × 5 = 25</div>",
+            "caption": { "fr": "5 fois 5 font 25. C'est un carré !", "ar": "5 في 5 تساوي 25. إنها مربع!" }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "tables",
+          "tables": [5],
+          "title": { "fr": "La table de 5", "ar": "جدول 5" },
+          "prompt": { "fr": "Choisis le bon résultat.", "ar": "اختر الناتج الصحيح." },
+          "correct": { "fr": "Table de 5 réussie ! ✓", "ar": "أتقنت جدول 5! ✓" },
+          "wrong": { "fr": "Compte de 5 en 5.", "ar": "اعدّ بمقدار 5." },
+          "streakLabel": { "fr": "Série :", "ar": "سلسلة:" },
+          "bestLabel": { "fr": "record !", "ar": "أفضل نتيجة!" }
+        },
+        {
+          "type": "quiz",
+          "topic": "tables",
+          "tables": [2, 3, 4, 5],
+          "title": { "fr": "Mélange des tables", "ar": "خلط الجداول" },
+          "prompt": { "fr": "Trouve le résultat de chaque multiplication.", "ar": "جد ناتج كل ضرب." },
+          "correct": { "fr": "Bien joué ! ✓", "ar": "عمل جيد! ✓" },
+          "incorrect": { "fr": "Repense à ta table.", "ar": "تذكّر جدولك." },
+          "win": { "fr": "Toutes les tables ! 🌟", "ar": "كل الجداول! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

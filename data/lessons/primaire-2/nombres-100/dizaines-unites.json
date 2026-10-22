@@ -1,0 +1,125 @@
+{
+  "id": "dizaines-unites",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "nombres-100",
+  "title": { "fr": "Dizaines et unités", "ar": "العشرات والوحدات" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "grouper-en-dizaines",
+      "title": { "fr": "Grouper par paquets de 10", "ar": "التجميع في مجموعات من 10" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.2rem\">🔴🔴🔴🔴🔴🔴🔴🔴🔴🔴</div>",
+            "caption": { "fr": "Dix unités, c'est une dizaine. On peut les ranger ensemble.", "ar": "عشر وحدات تساوي عشرة. يمكن جمعها معاً." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:2.2rem\">📦</div><div style=\"font-size:1.3rem;margin-top:8px\">1 dizaine = 10</div></div>",
+            "caption": { "fr": "On fait un paquet de 10 : c'est 1 dizaine.", "ar": "نصنع حزمة من 10: إنها عشرة واحدة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:2rem\">📦📦📦 &nbsp; 🔴🔴</div></div>",
+            "caption": { "fr": "3 paquets de 10 et 2 unités : cela fait 30 + 2 = 32.", "ar": "3 حزم من 10 و2 وحدات: أي 30 + 2 = 32." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.6rem\"><span>3</span><span>2</span></div><div style=\"text-align:center;font-size:1.1rem\">dizaines · unités</div>",
+            "caption": { "fr": "Dans 32, le 3 dit les dizaines et le 2 dit les unités.", "ar": "في 32، الرقم 3 يمثل العشرات والرقم 2 يمثل الوحدات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "32",
+          "title": { "fr": "Écris 32 dans le tableau", "ar": "اكتب 32 في الجدول" },
+          "prompt": { "fr": "Touche chaque case pour placer le bon chiffre.", "ar": "المس كل مربع لتضع الرقم الصحيح." },
+          "success": { "fr": "3 dizaines et 2 unités : parfait ! ✓", "ar": "3 عشرات و2 وحدات: ممتاز! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "tens-units",
+          "title": { "fr": "Combien de dizaines ?", "ar": "كم عدد العشرات؟" },
+          "prompt": { "fr": "Choisis le bon nombre de dizaines.", "ar": "اختر عدد العشرات الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Regarde le chiffre des dizaines.", "ar": "انظر إلى رقم العشرات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Dans 47, combien de dizaines ?", "ar": "في 47، كم عدد العشرات؟" }, "options": ["4", "7", "40"], "answer": 0 },
+            { "prompt": { "fr": "Dans 85, combien d'unités ?", "ar": "في 85، كم عدد الوحدات؟" }, "options": ["8", "5", "80"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nombre-en-lettres-jusqua-100",
+      "title": { "fr": "Lire les nombres jusqu'à 100", "ar": "قراءة الأعداد حتى 100" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.5rem\"><span>10</span><span>20</span><span>30</span><span>40</span><span>50</span></div>",
+            "caption": { "fr": "Les dizaines : dix, vingt, trente, quarante, cinquante…", "ar": "العشرات: عشرة، عشرون، ثلاثون، أربعون، خمسون…" }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.5rem\"><span>60</span><span>70</span><span>80</span><span>90</span><span>100</span></div>",
+            "caption": { "fr": "… soixante, soixante-dix, quatre-vingts, quatre-vingt-dix, cent.", "ar": "… ستون، سبعون، ثمانون، تسعون، مئة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">65 = 60 + 5</div>",
+            "caption": { "fr": "Soixante-cinq, c'est six dizaines et cinq unités.", "ar": "خمسة وستون، أي ست عشرات وخمس وحدات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">82 = 80 + 2</div>",
+            "caption": { "fr": "Quatre-vingt-deux, c'est huit dizaines et deux unités.", "ar": "اثنان وثمانون، أي ثماني عشرات ووحدتان." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "number-words-large",
+          "title": { "fr": "Relie le nombre et son mot", "ar": "اربط العدد بكلمته" },
+          "prompt": { "fr": "Touche un nombre, puis son écriture en lettres.", "ar": "المس عدداً ثم كتابته بالحروف." },
+          "pairCorrect": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "pairWrong": { "fr": "Relis les dizaines et les unités.", "ar": "أعد قراءة العشرات والوحدات." }
+        },
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "76",
+          "title": { "fr": "Écris 76", "ar": "اكتب 76" },
+          "prompt": { "fr": "Place chaque chiffre dans sa colonne.", "ar": "ضع كل رقم في عموده." },
+          "success": { "fr": "76, c'est bien 7 dizaines et 6 unités ! ✓", "ar": "76، أي 7 عشرات و6 وحدات! ✓" }
+        }
+      ]
+    }
+  ]
+}

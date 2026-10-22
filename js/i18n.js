@@ -569,6 +569,8 @@ const I18N = {
         'review.subtitle': { fr: 'Prototype interactif : manipulation, micro-apprentissage et gamification.', ar: 'نموذج تفاعلي: التلاعب بالأشياء، التعلم المصغّر، واللعب.' },
         'review.resetAll': { fr: 'Tout réinitialiser', ar: 'إعادة تعيين الكل' },
         'review.note': { fr: 'Ces activités sont des <strong>prototypes à valider</strong>. Testez-les sur téléphone.', ar: 'هذه الأنشطة <strong>نماذج للمراجعة</strong>. جرّبها على الهاتف.' },
+        'review.validateHint': { fr: 'Jouez chaque activité : le badge passe au vert (✓) quand elle valide une bonne réponse, au rouge (✗) quand elle signale une erreur.', ar: 'جرّب كل نشاط: تتحول الشارة إلى الأخضر (✓) عند تأكيد إجابة صحيحة، وإلى الأحمر (✗) عند الإشارة إلى خطأ.' },
+        'review.testAll': { fr: '▶ Tester toutes les activités', ar: '▶ اختبار كل الأنشطة' },
         'review.section.manipulatives': { fr: '🧮 Manipulation & dénombrement', ar: '🧮 التلاعب والعدّ' },
         'review.section.compare': { fr: '📏 Comparer, ranger, mesurer', ar: '📏 المقارنة والترتيب والقياس' },
         'review.section.geometry': { fr: '🔷 Géométrie & espace', ar: '🔷 الهندسة والفضاء' },

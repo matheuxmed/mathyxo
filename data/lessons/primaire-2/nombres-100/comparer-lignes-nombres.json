@@ -1,0 +1,134 @@
+{
+  "id": "comparer-lignes-nombres",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "nombres-100",
+  "title": { "fr": "Comparer et ranger", "ar": "المقارنة والترتيب" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "signes-comparaison",
+      "title": { "fr": "Les signes < et >", "ar": "الرمزان < و >" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\" dir=\"ltr\">28 &lt; 43</div>",
+            "caption": { "fr": "Le petit bout du signe regarde le plus petit nombre.", "ar": "الطرف الصغير من الرمز يتجه إلى العدد الأصغر." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\" dir=\"ltr\">43 &gt; 28</div>",
+            "caption": { "fr": "La grande ouverture regarde le plus grand nombre.", "ar": "الفتحة الكبيرة تتجه إلى العدد الأكبر." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">56 et 65 : lequel est plus grand ?</div>",
+            "caption": { "fr": "On compare d'abord les dizaines : 5 et 6.", "ar": "نقارن العشرات أولاً: 5 و6." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\" dir=\"ltr\">56 &lt; 65</div>",
+            "caption": { "fr": "6 dizaines, c'est plus que 5 dizaines : donc 65 est plus grand.", "ar": "6 عشرات أكثر من 5 عشرات: إذن 65 هو الأكبر." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "compare-large",
+          "range": [1, 99],
+          "title": { "fr": "Choisis le bon signe", "ar": "اختر الرمز الصحيح" },
+          "prompt": { "fr": "Quel signe va entre les deux nombres ?", "ar": "أي رمز يوضع بين العددين؟" },
+          "correct": { "fr": "Bien comparé ! ✓", "ar": "مقارنة صحيحة! ✓" },
+          "incorrect": { "fr": "Compare d'abord les dizaines.", "ar": "قارن العشرات أولاً." },
+          "win": { "fr": "Tout est juste ! 🌟", "ar": "كله صحيح! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "place-value",
+          "mode": "compare",
+          "a": "56",
+          "b": "65",
+          "title": { "fr": "Compare 56 et 65", "ar": "قارن 56 و 65" },
+          "prompt": { "fr": "Touche le signe qui convient.", "ar": "المس الرمز المناسب." },
+          "success": { "fr": "56 < 65, c'est ça ! ✓", "ar": "56 < 65، هذا صحيح! ✓" },
+          "retry": { "fr": "Regarde les dizaines, puis réessaie.", "ar": "انظر إلى العشرات ثم حاول مجدداً." }
+        }
+      ]
+    },
+    {
+      "id": "ranger-les-nombres",
+      "title": { "fr": "Ranger dans l'ordre", "ar": "الترتيب" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>31</span><span>45</span><span>62</span></div>",
+            "caption": { "fr": "Du plus petit au plus grand : 31, 45, 62 (ordre croissant).", "ar": "من الأصغر إلى الأكبر: 31، 45، 62 (ترتيب تصاعدي)." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>62</span><span>45</span><span>31</span></div>",
+            "caption": { "fr": "Du plus grand au plus petit : 62, 45, 31 (ordre décroissant).", "ar": "من الأكبر إلى الأصغر: 62، 45، 31 (ترتيب تنازلي)." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">Ranger : 27 · 72 · 20</div>",
+            "caption": { "fr": "Cherchons d'abord les dizaines : 2, 7, 2.", "ar": "نبحث أولاً عن العشرات: 2، 7، 2." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">20 · 27 · 72</div>",
+            "caption": { "fr": "Entre 20 et 27, on regarde les unités : 0 unité puis 7 unités.", "ar": "بين 20 و27، ننظر إلى الوحدات: 0 ثم 7." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "threshold": 50,
+          "perBucket": 2,
+          "title": { "fr": "Plus petit ou plus grand que 50 ?", "ar": "أصغر أم أكبر من 50؟" },
+          "prompt": { "fr": "Classe chaque nombre dans le bon panier.", "ar": "صنّف كل عدد في السلة المناسبة." },
+          "success": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "retry": { "fr": "Regarde le chiffre des dizaines.", "ar": "انظر إلى رقم العشرات." },
+          "buckets": [
+            { "id": "lt", "label": { "fr": "Plus petit que 50", "ar": "أصغر من 50" }, "test": "lt", "value": 50 },
+            { "id": "gt", "label": { "fr": "Plus grand que 50", "ar": "أكبر من 50" }, "test": "gt", "value": 50 }
+          ]
+        },
+        {
+          "type": "pattern",
+          "start": 10,
+          "step": 10,
+          "length": 6,
+          "maxStart": 10,
+          "maxStep": 10,
+          "pinStart": true,
+          "title": { "fr": "Compte de 10 en 10", "ar": "اعدّ بالعشرات" },
+          "prompt": { "fr": "Quel nombre vient ensuite ?", "ar": "ما العدد التالي؟" },
+          "success": { "fr": "Exact, de 10 en 10 ! ✓", "ar": "صحيح، بالعشرات! ✓" },
+          "retry": { "fr": "Ajoute 10 à chaque fois.", "ar": "أضف 10 في كل مرة." }
+        }
+      ]
+    }
+  ]
+}

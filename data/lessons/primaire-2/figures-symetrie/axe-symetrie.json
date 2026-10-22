@@ -1,0 +1,128 @@
+{
+  "id": "axe-symetrie",
+  "category": "primaire",
+  "level": "primaire-2",
+  "chapter": "figures-symetrie",
+  "title": { "fr": "L'axe de symétrie", "ar": "محور التماثل" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "plier-une-figure",
+      "title": { "fr": "Plier une figure en deux", "ar": "طيّ الشكل إلى نصفين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.2rem\">🦋</div>",
+            "caption": { "fr": "Le papillon a deux moitiés qui se ressemblent exactement.", "ar": "الفراشة لها نصفان متشابهان تماماً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">|🦋|</div>",
+            "caption": { "fr": "La ligne qui sépare les deux moitiés s'appelle l'axe de symétrie.", "ar": "الخط الذي يفصل النصفين يسمى محور التماثل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.6rem\"><span>◻</span><span>▭</span></div>",
+            "caption": { "fr": "Si on plie le carré, les deux moitiés se superposent exactement.", "ar": "إذا طوينا المربع، ينطبق النصفان تماماً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Un carré a 4 axes de symétrie</div>",
+            "caption": { "fr": "Un carré a plusieurs axes : vertical, horizontal et deux obliques.", "ar": "للمربع عدة محاور: عمودي وأفقي وقطريان." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "symmetry",
+          "size": 8,
+          "axis": "vertical",
+          "title": { "fr": "Le miroir vertical", "ar": "المرآة العمودية" },
+          "prompt": { "fr": "Colorie à gauche, puis colorie le reflet à droite du trait rouge.", "ar": "لوّن على اليسار ثم لوّن الانعكاس على يمين الخط الأحمر." },
+          "success": { "fr": "Le reflet est parfait ! ✓", "ar": "الانعكاس مثالي! ✓" },
+          "retry": { "fr": "Compte les cases depuis l'axe.", "ar": "عدّ المربعات من المحور." }
+        },
+        {
+          "type": "quiz",
+          "topic": "symmetry-axes",
+          "title": { "fr": "Combien d'axes ?", "ar": "كم عدد المحاور؟" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Imagine la figure pliée.", "ar": "تخيّل الشكل مطوياً." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "trouver-un-axe",
+      "title": { "fr": "Trouver l'axe de symétrie", "ar": "إيجاد محور التماثل" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">| A</div>",
+            "caption": { "fr": "Certaines figures ont un axe vertical.", "ar": "بعض الأشكال لها محور عمودي." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">Une figure peut aussi ne pas avoir d'axe du tout.</div>",
+            "caption": { "fr": "Si les moitiés ne sont pas identiques, il n'y a pas de symétrie.", "ar": "إذا لم يكن النصفان متطابقين فلا يوجد تماثل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">À À</div>",
+            "caption": { "fr": "Face à face, ces deux figures sont symétriques.", "ar": "متقابلتان، هذان الشكلان متماثلان." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">A B</div>",
+            "caption": { "fr": "Ici, les deux moitiés sont différentes : pas de symétrie.", "ar": "هنا النصفان مختلفان: لا يوجد تماثل." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "symmetry",
+          "size": 8,
+          "axis": "horizontal",
+          "title": { "fr": "Le miroir horizontal", "ar": "المرآة الأفقية" },
+          "prompt": { "fr": "Colorie en haut, puis colorie le reflet en bas du trait rouge.", "ar": "لوّن في الأعلى ثم لوّن الانعكاس أسفل الخط الأحمر." },
+          "success": { "fr": "Le reflet est parfait ! ✓", "ar": "الانعكاس مثالي! ✓" },
+          "retry": { "fr": "Le reflet va vers le bas.", "ar": "الانعكاس يتجه نحو الأسفل." }
+        },
+        {
+          "type": "shapes",
+          "target": "carre",
+          "shapes": [
+            { "id": "carre", "name": { "fr": "Carré", "ar": "مربع" } },
+            { "id": "triangle", "name": { "fr": "Triangle", "ar": "مثلث" } },
+            { "id": "cercle", "name": { "fr": "Cercle", "ar": "دائرة" } }
+          ],
+          "title": { "fr": "Quelle figure a plusieurs axes ?", "ar": "أي شكل له عدة محاور؟" },
+          "prompt": { "fr": "Touche la figure qui a 4 axes de symétrie.", "ar": "المس الشكل الذي له 4 محاور تماثل." },
+          "correct": { "fr": "Oui, le carré a 4 axes ! ✓", "ar": "نعم، للمربع 4 محاور! ✓" },
+          "incorrect": { "fr": "Compte les façons de le plier en deux.", "ar": "عدّ الطرق لطيّه إلى نصفين." }
+        }
+      ]
+    }
+  ]
+}
