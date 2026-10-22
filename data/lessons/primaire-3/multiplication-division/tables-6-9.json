@@ -1,0 +1,141 @@
+{
+  "id": "tables-6-9",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "multiplication-division",
+  "title": { "fr": "Tables de 6 à 9", "ar": "جداول من 6 إلى 9" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "table-de-6-et-7",
+      "title": { "fr": "Les tables de 6 et de 7", "ar": "جدولا 6 و7" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.15rem\"><span>6×1=6</span><span>6×2=12</span><span>6×3=18</span></div><div class=\"compare-row\" style=\"font-size:1.15rem\"><span>6×4=24</span><span>6×5=30</span><span>6×6=36</span></div>",
+            "caption": { "fr": "La table de 6 : on ajoute 6 à chaque fois.", "ar": "جدول 6: نضيف 6 في كل مرة." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.15rem\"><span>7×1=7</span><span>7×2=14</span><span>7×3=21</span></div><div class=\"compare-row\" style=\"font-size:1.15rem\"><span>7×4=28</span><span>7×5=35</span><span>7×6=42</span></div>",
+            "caption": { "fr": "La table de 7 : on ajoute 7 à chaque fois.", "ar": "جدول 7: نضيف 7 في كل مرة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">6 × 7 = 42</div><div style=\"text-align:center;font-size:1.1rem;margin-top:8px\">6 × 7 = 7 × 6</div>",
+            "caption": { "fr": "6 × 7 = 42. L'ordre ne change pas le résultat : si tu connais 7 × 6, tu connais 6 × 7.", "ar": "6 × 7 = 42. الترتيب لا يغيّر النتيجة: إذا عرفت 7 × 6 فعرفت 6 × 7." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">7 × 8 = 56</div><div style=\"text-align:center;font-size:1.1rem;margin-top:8px\">7 × 8 = (7 × 4) + (7 × 4)</div>",
+            "caption": { "fr": "Pour 7 × 8, on peut doubler 7 × 4 = 28 : 28 + 28 = 56.", "ar": "لحساب 7 × 8، نضاعف 7 × 4 = 28: 28 + 28 = 56." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "tables",
+          "tables": [6, 7],
+          "goal": 5,
+          "title": { "fr": "Entraînement : tables de 6 et 7", "ar": "تدريب: جدولا 6 و7" },
+          "prompt": { "fr": "Trouve le bon résultat. Réussis 5 fois de suite !", "ar": "جد النتيجة الصحيحة. انجح 5 مرات متتالية!" },
+          "correct": { "fr": "Bien joué ! ✓", "ar": "أحسنت! ✓" },
+          "wrong": { "fr": "Presque ! La réponse était", "ar": "قريب جداً! الجواب كان" },
+          "streakLabel": { "fr": "Série :", "ar": "السلسلة:" },
+          "bestLabel": { "fr": "🏆", "ar": "🏆" }
+        },
+        {
+          "type": "quiz",
+          "topic": "tables-6-9",
+          "tables": [6, 7],
+          "title": { "fr": "Vérifie ce que tu sais", "ar": "تحقق مما تعرفه" },
+          "prompt": { "fr": "Choisis le bon produit.", "ar": "اختر الجداء الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte de 6 en 6 ou de 7 en 7.", "ar": "اعدّ بالستات أو بالسبعات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "6 × 8 = ?", "ar": "6 × 8 = ؟" }, "options": ["42", "48", "54"], "answer": 1 },
+            { "prompt": { "fr": "7 × 7 = ?", "ar": "7 × 7 = ؟" }, "options": ["49", "42", "56"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "table-de-8-et-9",
+      "title": { "fr": "Les tables de 8 et de 9", "ar": "جدولا 8 و9" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.15rem\"><span>8×1=8</span><span>8×2=16</span><span>8×3=24</span></div><div class=\"compare-row\" style=\"font-size:1.15rem\"><span>8×4=32</span><span>8×5=40</span><span>8×6=48</span></div>",
+            "caption": { "fr": "La table de 8 : on ajoute 8 à chaque fois.", "ar": "جدول 8: نضيف 8 في كل مرة." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.15rem\"><span>9×1=9</span><span>9×2=18</span><span>9×3=27</span></div><div class=\"compare-row\" style=\"font-size:1.15rem\"><span>9×4=36</span><span>9×5=45</span><span>9×6=54</span></div>",
+            "caption": { "fr": "La table de 9 : on ajoute 9 à chaque fois.", "ar": "جدول 9: نضيف 9 في كل مرة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">9 × 4 = 36</div><div style=\"text-align:center;font-size:1.1rem;margin-top:8px\">(10 × 4) − 4 = 40 − 4 = 36</div>",
+            "caption": { "fr": "Astuce pour la table de 9 : on fait 10 fois le nombre, puis on enlève le nombre.", "ar": "حيلة جدول 9: نحسب 10 مرات العدد ثم نطرح العدد." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">8 × 9 = 72 &nbsp; · &nbsp; 9 × 9 = 81</div>",
+            "caption": { "fr": "Dans la table de 9, les chiffres du résultat font toujours 9 quand on les additionne : 7 + 2 = 9.", "ar": "في جدول 9، مجموع رقمي النتيجة يساوي 9 دائماً: 7 + 2 = 9." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "tables",
+          "tables": [8, 9],
+          "goal": 5,
+          "title": { "fr": "Entraînement : tables de 8 et 9", "ar": "تدريب: جدولا 8 و9" },
+          "prompt": { "fr": "Trouve le bon résultat. Réussis 5 fois de suite !", "ar": "جد النتيجة الصحيحة. انجح 5 مرات متتالية!" },
+          "correct": { "fr": "Bien joué ! ✓", "ar": "أحسنت! ✓" },
+          "wrong": { "fr": "Presque ! La réponse était", "ar": "قريب جداً! الجواب كان" },
+          "streakLabel": { "fr": "Série :", "ar": "السلسلة:" },
+          "bestLabel": { "fr": "🏆", "ar": "🏆" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Résultats de la table de 9", "ar": "نتائج جدول 9" },
+          "prompt": { "fr": "Range chaque résultat dans le bon panier.", "ar": "ضع كل نتيجة في السلة الصحيحة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "lt50", "label": { "fr": "Moins de 50", "ar": "أقل من 50" } },
+            { "id": "gt50", "label": { "fr": "Plus de 50", "ar": "أكثر من 50" } }
+          ],
+          "items": [
+            { "label": { "fr": "9 × 4 = 36", "ar": "9 × 4 = 36" }, "bucket": "lt50" },
+            { "label": { "fr": "9 × 6 = 54", "ar": "9 × 6 = 54" }, "bucket": "gt50" },
+            { "label": { "fr": "9 × 5 = 45", "ar": "9 × 5 = 45" }, "bucket": "lt50" },
+            { "label": { "fr": "9 × 8 = 72", "ar": "9 × 8 = 72" }, "bucket": "gt50" }
+          ]
+        }
+      ]
+    }
+  ]
+}

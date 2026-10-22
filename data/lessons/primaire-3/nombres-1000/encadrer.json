@@ -1,0 +1,143 @@
+{
+  "id": "encadrer",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "nombres-1000",
+  "title": { "fr": "Encadrer un nombre", "ar": "تأطير عدد" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "encadrer-a-la-dizaine",
+      "title": { "fr": "Encadrer entre deux dizaines", "ar": "التأطير بين عشرتين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>40</span><span>50</span></div><div style=\"text-align:center;font-size:1.6rem;margin-top:10px\">47</div>",
+            "caption": { "fr": "47 est entre 40 et 50. On dit : 40 < 47 < 50.", "ar": "47 يقع بين 40 و50. نقول: 40 < 47 < 50." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">40 &nbsp; &nbsp; 47 &nbsp; &nbsp; 50</div><div style=\"text-align:center;margin-top:8px;font-size:1.2rem\">← plus petit &nbsp; · &nbsp; plus grand →</div>",
+            "caption": { "fr": "40 est la dizaine juste avant, 50 la dizaine juste après.", "ar": "40 هي العشرة التي قبله، و50 هي العشرة التي بعده." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">120 &nbsp; 123 &nbsp; 130</div>",
+            "caption": { "fr": "123 est entre 120 et 130 : 120 < 123 < 130.", "ar": "123 يقع بين 120 و130: 120 < 123 < 130." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">290 &nbsp; 296 &nbsp; 300</div>",
+            "caption": { "fr": "296 est entre 290 et 300 : 290 < 296 < 300.", "ar": "296 يقع بين 290 و300: 290 < 296 < 300." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "bound-ten",
+          "title": { "fr": "Encadre entre deux dizaines", "ar": "أطّر بين عشرتين" },
+          "prompt": { "fr": "Choisis le bon encadrement.", "ar": "اختر التأطير الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Regarde le chiffre des dizaines et celui qui suit.", "ar": "انظر إلى رقم العشرات والرقم الذي يليه." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Encadre 47 entre deux dizaines :", "ar": "أطّر 47 بين عشرتين:" }, "options": ["40 < 47 < 50", "30 < 47 < 40", "40 < 47 < 60"], "answer": 0 },
+            { "prompt": { "fr": "Encadre 82 entre deux dizaines :", "ar": "أطّر 82 بين عشرتين:" }, "options": ["70 < 82 < 80", "80 < 82 < 90", "80 < 82 < 100"], "answer": 1 }
+          ]
+        },
+        {
+          "type": "number-line",
+          "min": 40,
+          "max": 50,
+          "slots": [43, 46, 48],
+          "title": { "fr": "Place les nombres sur la ligne", "ar": "ضع الأعداد على المستقيم" },
+          "prompt": { "fr": "Glisse chaque nombre au bon endroit entre 40 et 50.", "ar": "اسحب كل عدد إلى مكانه الصحيح بين 40 و50." },
+          "correct": { "fr": "Bien placé ! ✓", "ar": "موضع صحيح! ✓" },
+          "retry": { "fr": "Compte les graduations depuis 40.", "ar": "اعدّ التدريجات من 40." }
+        }
+      ]
+    },
+    {
+      "id": "encadrer-a-la-centaine",
+      "title": { "fr": "Encadrer entre deux centaines", "ar": "التأطير بين مئتين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>300</span><span>400</span></div><div style=\"text-align:center;font-size:1.6rem;margin-top:10px\">347</div>",
+            "caption": { "fr": "347 est entre 300 et 400. On dit : 300 < 347 < 400.", "ar": "347 يقع بين 300 و400. نقول: 300 < 347 < 400." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">On regarde le chiffre des centaines, puis le suivant.</div>",
+            "caption": { "fr": "3 centaines : le nombre est entre 300 et 400.", "ar": "3 مئات: العدد يقع بين 300 و400." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "↻ إعادة" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">600 &nbsp; 628 &nbsp; 700</div>",
+            "caption": { "fr": "628 est entre 600 et 700 : 600 < 628 < 700.", "ar": "628 يقع بين 600 و700: 600 < 628 < 700." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">800 &nbsp; 805 &nbsp; 900</div>",
+            "caption": { "fr": "805 est entre 800 et 900, même s'il y a un zéro aux dizaines.", "ar": "805 يقع بين 800 و900، حتى مع وجود صفر في العشرات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "compare-1000",
+          "title": { "fr": "Encadre entre deux centaines", "ar": "أطّر بين مئتين" },
+          "prompt": { "fr": "Choisis le bon signe de comparaison.", "ar": "اختر رمز المقارنة الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compare d'abord le chiffre des centaines.", "ar": "قارن أولاً رقم المئات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Quel signe va entre 347 et 374 ?", "ar": "أي رمز يوضع بين 347 و374؟" }, "options": ["<", ">", "="], "answer": 0 },
+            { "prompt": { "fr": "Quel signe va entre 805 et 799 ?", "ar": "أي رمز يوضع بين 805 و799؟" }, "options": ["<", ">", "="], "answer": 1 }
+          ]
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Classe les nombres", "ar": "صنّف الأعداد" },
+          "prompt": { "fr": "Range chaque nombre dans le bon panier.", "ar": "ضع كل عدد في السلة الصحيحة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "lt500", "label": { "fr": "Moins de 500", "ar": "أقل من 500" } },
+            { "id": "gt500", "label": { "fr": "Plus de 500", "ar": "أكثر من 500" } }
+          ],
+          "items": [
+            { "label": { "fr": "347", "ar": "347" }, "bucket": "lt500" },
+            { "label": { "fr": "628", "ar": "628" }, "bucket": "gt500" },
+            { "label": { "fr": "499", "ar": "499" }, "bucket": "lt500" },
+            { "label": { "fr": "805", "ar": "805" }, "bucket": "gt500" }
+          ]
+        }
+      ]
+    }
+  ]
+}

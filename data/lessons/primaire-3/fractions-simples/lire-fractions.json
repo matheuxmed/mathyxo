@@ -1,0 +1,140 @@
+{
+  "id": "lire-fractions",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "fractions-simples",
+  "title": { "fr": "Lire une fraction", "ar": "قراءة الكسر" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "numerateur-denominateur",
+      "title": { "fr": "Numérateur et dénominateur", "ar": "البسط والمقام" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2.4rem\">🟦🟦🟦⬜</div><div style=\"text-align:center;font-size:1.3rem;margin-top:10px\">3 parts coloriées sur 4</div>",
+            "caption": { "fr": "On partage la bande en 4 parts égales et on en colorie 3. Cela s'écrit 3/4.", "ar": "نقسم الشريط إلى 4 أجزاء متساوية ونلوّن 3 منها. نكتب ذلك 3/4." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\"><span style=\"color:#2b7fff\">3</span> / <span style=\"color:#f5a524\">4</span></div><div style=\"text-align:center;font-size:1.05rem;margin-top:8px\">numérateur / dénominateur</div>",
+            "caption": { "fr": "En haut, le numérateur dit combien de parts on prend. En bas, le dénominateur dit en combien de parts on a coupé.", "ar": "في الأعلى البسط يقول كم جزءاً نأخذ. في الأسفل المقام يقول إلى كم جزء قسمنا." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">1/2 &nbsp; = &nbsp; 🟦⬜ &nbsp; une part sur deux</div>",
+            "caption": { "fr": "1/2, c'est la moitié : on a coupé en 2 et on prend 1 part.", "ar": "1/2 هو النصف: قسمنا إلى 2 وأخذنا جزءاً واحداً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">1/4 &nbsp; = &nbsp; 🟦⬜⬜⬜ &nbsp; une part sur quatre</div>",
+            "caption": { "fr": "1/4, c'est le quart : on a coupé en 4 et on prend 1 part.", "ar": "1/4 هو الربع: قسمنا إلى 4 وأخذنا جزءاً واحداً." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "fraction",
+          "shape": "bar",
+          "mode": "read",
+          "parts": 4,
+          "shaded": 3,
+          "target": 3,
+          "title": { "fr": "Quelle fraction est coloriée ?", "ar": "ما الكسر الملوّن؟" },
+          "prompt": { "fr": "Compte les parts coloriées et toutes les parts.", "ar": "اعدّ الأجزاء الملوّنة وكل الأجزاء." },
+          "correct": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "retry": { "fr": "Regarde le nombre total de parts, puis celles qui sont coloriées.", "ar": "انظر إلى العدد الكلي للأجزاء ثم الملوّنة منها." }
+        },
+        {
+          "type": "quiz",
+          "topic": "fraction-parts",
+          "title": { "fr": "Combien de parts en tout ?", "ar": "كم عدد الأجزاء كلها؟" },
+          "prompt": { "fr": "Regarde le dénominateur.", "ar": "انظر إلى المقام." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Le dénominateur est le chiffre du bas.", "ar": "المقام هو الرقم السفلي." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Dans 1/4, combien de parts égales en tout ?", "ar": "في 1/4، كم عدد الأجزاء المتساوية؟" }, "options": ["1", "3", "4"], "answer": 2 },
+            { "prompt": { "fr": "Dans 2/3, combien de parts égales en tout ?", "ar": "في 2/3، كم عدد الأجزاء المتساوية؟" }, "options": ["2", "3", "5"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "colorier-une-fraction",
+      "title": { "fr": "Colorier une fraction", "ar": "تلوين كسر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">1/2 &nbsp; · &nbsp; 2/4 &nbsp; · &nbsp; 3/6</div>",
+            "caption": { "fr": "Toutes ces fractions représentent la même moitié !", "ar": "كل هذه الكسور تمثل النصف نفسه!" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2.2rem\">🟦🟦⬜⬜</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">2/4 = 1/2</div>",
+            "caption": { "fr": "Colorier 1 part sur 2 revient à colorier 2 parts sur 4.", "ar": "تلوين جزء من 2 يساوي تلوين جزأين من 4." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Colorie 3/4 de la bande</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">🟦🟦🟦⬜</div>",
+            "caption": { "fr": "3/4 : je colorie 3 parts sur 4.", "ar": "3/4: ألوّن 3 أجزاء من 4." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Colorie 2/5 du disque</div><div style=\"text-align:center;font-size:1.05rem;margin-top:8px\">2 parts sur 5 au total</div>",
+            "caption": { "fr": "2/5 : je colorie 2 parts du disque qui en a 5.", "ar": "2/5: ألوّن جزأين من قرص فيه 5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "fraction",
+          "shape": "pie",
+          "mode": "shade",
+          "parts": 5,
+          "target": 2,
+          "title": { "fr": "Colorie 2/5 du disque", "ar": "لوّن 2/5 من الدائرة" },
+          "prompt": { "fr": "Touche les parts pour en colorier deux sur cinq.", "ar": "المس الأجزاء لتلوّن اثنين من خمسة." },
+          "correct": { "fr": "Bravo, c'est bien 2/5 ! ✓", "ar": "أحسنت، إنه 2/5! ✓" },
+          "retry": { "fr": "Colorie d'abord une part, puis une deuxième.", "ar": "لوّن جزءاً أولاً ثم جزءاً ثانياً." },
+          "tooMany": { "fr": "Attention, tu en as colorié trop !", "ar": "انتبه، لوّنت أكثر من اللازم!" }
+        },
+        {
+          "type": "quiz",
+          "topic": "fraction-read",
+          "title": { "fr": "Lis la fraction coloriée", "ar": "اقرأ الكسر الملوّن" },
+          "prompt": { "fr": "Choisis la bonne fraction.", "ar": "اختر الكسر الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte les parts coloriées, puis toutes les parts.", "ar": "اعدّ الأجزاء الملوّنة ثم كل الأجزاء." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Quelle fraction est coloriée ? 🟦🟦⬜⬜", "ar": "ما الكسر الملوّن؟ 🟦🟦⬜⬜" }, "options": ["2/4", "3/4", "3/5"], "answer": 0 },
+            { "prompt": { "fr": "Quelle fraction est coloriée ? 🟦⬜⬜", "ar": "ما الكسر الملوّن؟ 🟦⬜⬜" }, "options": ["2/3", "1/3", "1/2"], "answer": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}

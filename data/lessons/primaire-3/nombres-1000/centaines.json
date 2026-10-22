@@ -1,0 +1,132 @@
+{
+  "id": "centaines",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "nombres-1000",
+  "title": { "fr": "Centaines, dizaines, unités", "ar": "المئات والعشرات والوحدات" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "grouper-en-centaines",
+      "title": { "fr": "Grouper par paquets de 100", "ar": "التجميع في مجموعات من 100" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦</div><div style=\"text-align:center;font-size:1.6rem\">🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦</div>",
+            "caption": { "fr": "Un carré de 10 sur 10 vaut 100. Dix dizaines font une centaine.", "ar": "مربع من 10 في 10 يساوي 100. عشر عشرات تساوي مئة." }
+          },
+          {
+            "html": "<div style=\"text-align:center\"><div style=\"font-size:2rem\">💯</div><div style=\"font-size:1.3rem;margin-top:8px\">1 centaine = 100</div></div>",
+            "caption": { "fr": "On fait un grand paquet de 100 : c'est 1 centaine.", "ar": "نصنع حزمة كبيرة من 100: إنها مئة واحدة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">💯💯 &nbsp; 📦📦📦 &nbsp; 🔴🔴🔴</div>",
+            "caption": { "fr": "2 centaines, 3 dizaines et 3 unités : cela fait 200 + 30 + 3 = 233.", "ar": "مئتان و3 عشرات و3 وحدات: أي 200 + 30 + 3 = 233." }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.6rem\"><span>2</span><span>3</span><span>3</span></div><div style=\"text-align:center;font-size:1.1rem\">centaines · dizaines · unités</div>",
+            "caption": { "fr": "Dans 233, le 2 dit les centaines, le 3 les dizaines et le 3 les unités.", "ar": "في 233، الرقم 2 يمثل المئات، والرقم 3 العشرات، والرقم 3 الوحدات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "233",
+          "title": { "fr": "Écris 233 dans le tableau", "ar": "اكتب 233 في الجدول" },
+          "prompt": { "fr": "Touche chaque case pour placer le bon chiffre.", "ar": "المس كل مربع لتضع الرقم الصحيح." },
+          "success": { "fr": "2 centaines, 3 dizaines, 3 unités : parfait ! ✓", "ar": "مئتان و3 عشرات و3 وحدات: ممتاز! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "hundreds-units",
+          "title": { "fr": "Quelle est la valeur du chiffre ?", "ar": "ما قيمة الرقم؟" },
+          "prompt": { "fr": "Regarde bien la position du chiffre.", "ar": "انظر جيداً إلى موضع الرقم." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte les positions depuis la droite.", "ar": "اعدّ المراتب من اليمين." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Dans 472, combien de centaines ?", "ar": "في 472، كم عدد المئات؟" }, "options": ["4", "7", "2"], "answer": 0 },
+            { "prompt": { "fr": "Dans 305, combien de dizaines ?", "ar": "في 305، كم عدد العشرات؟" }, "options": ["3", "0", "5"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lire-ranger-jusqua-1000",
+      "title": { "fr": "Lire et comparer jusqu'à 1000", "ar": "القراءة والمقارنة حتى 1000" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>100</span><span>200</span><span>300</span><span>400</span><span>500</span></div>",
+            "caption": { "fr": "Les centaines : cent, deux cents, trois cents, quatre cents, cinq cents…", "ar": "المئات: مئة، مئتان، ثلاثمئة، أربعمئة، خمسمئة…" }
+          },
+          {
+            "html": "<div class=\"compare-row\" style=\"font-size:1.4rem\"><span>600</span><span>700</span><span>800</span><span>900</span><span>1000</span></div>",
+            "caption": { "fr": "… six cents, sept cents, huit cents, neuf cents, mille.", "ar": "… ستمئة، سبعمئة، ثمانمئة، تسعمئة، ألف." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">347 = 300 + 40 + 7</div>",
+            "caption": { "fr": "Trois cent quarante-sept, c'est 3 centaines, 4 dizaines et 7 unités.", "ar": "ثلاثمئة وسبعة وأربعون، أي 3 مئات و4 عشرات و7 وحدات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.5rem\">507 = 500 + 7</div>",
+            "caption": { "fr": "Attention : dans 507, il n'y a aucune dizaine !", "ar": "انتبه: في 507 لا توجد عشرات!" }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "number-words-3digit",
+          "title": { "fr": "Relie le nombre et son mot", "ar": "اربط العدد بكلمته" },
+          "prompt": { "fr": "Touche un nombre, puis son écriture en lettres.", "ar": "المس عدداً ثم كتابته بالحروف." },
+          "pairCorrect": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "pairWrong": { "fr": "Relis les centaines, les dizaines et les unités.", "ar": "أعد قراءة المئات والعشرات والوحدات." }
+        },
+        {
+          "type": "quiz",
+          "topic": "compare-1000",
+          "title": { "fr": "Compare les nombres", "ar": "قارن الأعداد" },
+          "prompt": { "fr": "Choisis le bon signe.", "ar": "اختر الرمز الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Commence par comparer les centaines.", "ar": "ابدأ بمقارنة المئات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Quel signe va entre 456 et 465 ?", "ar": "أي رمز يوضع بين 456 و465?" }, "options": ["<", ">", "="], "answer": 0 },
+            { "prompt": { "fr": "Quel signe va entre 700 et 690 ?", "ar": "أي رمز يوضع بين 700 و690?" }, "options": ["<", ">", "="], "answer": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}

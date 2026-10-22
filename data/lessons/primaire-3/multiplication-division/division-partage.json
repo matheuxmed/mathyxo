@@ -1,0 +1,135 @@
+{
+  "id": "division-partage",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "multiplication-division",
+  "title": { "fr": "Le sens de la division", "ar": "معنى القسمة" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "partager-en-parts-egales",
+      "title": { "fr": "Partager en parts égales", "ar": "التقسيم إلى أجزاء متساوية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">🍎🍎🍎🍎🍎🍎</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">6 pommes à partager en 2 assiettes</div>",
+            "caption": { "fr": "On a 6 pommes et 2 assiettes. On veut la même chose dans chaque assiette.", "ar": "لدينا 6 تفاحات وطبقان. نريد نفس العدد في كل طبق." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">🍎🍎🍎 &nbsp; | &nbsp; 🍎🍎🍎</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">6 ÷ 2 = 3</div>",
+            "caption": { "fr": "3 pommes dans chaque assiette : 6 partagé en 2, cela fait 3.", "ar": "3 تفاحات في كل طبق: 6 مقسومة على 2 تساوي 3." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">🎈🎈🎈🎈🎈🎈🎈🎈 &nbsp;|&nbsp; <span style=\"font-size:1.2rem\">4 enfants</span></div>",
+            "caption": { "fr": "8 ballons à partager entre 4 enfants.", "ar": "8 بالونات توزع على 4 أطفال." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">🎈🎈 &nbsp; 🎈🎈 &nbsp; 🎈🎈 &nbsp; 🎈🎈</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">8 ÷ 4 = 2</div>",
+            "caption": { "fr": "2 ballons chacun : 8 ÷ 4 = 2. La division, c'est l'inverse de la multiplication : 4 × 2 = 8.", "ar": "بالونان لكل طفل: 8 ÷ 4 = 2. القسمة عكس الضرب: 4 × 2 = 8." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "divide",
+          "groups": 3,
+          "maxPer": 5,
+          "exact": true,
+          "item": "🍎",
+          "title": { "fr": "Partage les pommes", "ar": "وزّع التفاحات" },
+          "prompt": { "fr": "Mets le même nombre de pommes dans chaque groupe.", "ar": "ضع نفس عدد التفاحات في كل مجموعة." },
+          "success": { "fr": "Parts égales ! ✓", "ar": "أجزاء متساوية! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "division-sense",
+          "title": { "fr": "Combien chacun ?", "ar": "كم لكل واحد؟" },
+          "prompt": { "fr": "Trouve combien chaque enfant reçoit.", "ar": "جد كم يحصل كل طفل." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compte les groupes, puis partage un par un.", "ar": "اعدّ المجموعات ثم وزّع واحداً واحداً." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "On partage 12 bonbons entre 3 enfants. Combien chacun ?", "ar": "نوزع 12 حلوى على 3 أطفال. كم لكل واحد؟" }, "options": ["3", "4", "6"], "answer": 1 },
+            { "prompt": { "fr": "On partage 20 images entre 5 enfants. Combien chacun ?", "ar": "نوزع 20 صورة على 5 أطفال. كم لكل واحد؟" }, "options": ["4", "5", "10"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lien-avec-multiplication",
+      "title": { "fr": "Le lien avec la multiplication", "ar": "العلاقة بالضرب" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">4 × 3 = 12 &nbsp; ⇄ &nbsp; 12 ÷ 4 = 3</div>",
+            "caption": { "fr": "Si je sais que 4 × 3 = 12, alors je sais que 12 ÷ 4 = 3.", "ar": "إذا عرفت أن 4 × 3 = 12، فإنني أعرف أن 12 ÷ 4 = 3." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5 × 4 = 20 &nbsp; ⇄ &nbsp; 20 ÷ 5 = 4 &nbsp; ⇄ &nbsp; 20 ÷ 4 = 5</div>",
+            "caption": { "fr": "La multiplication et la division forment une famille de nombres.", "ar": "الضرب والقسمة عائلة واحدة من الأعداد." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">7 × 6 = 42</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">donc 42 ÷ 6 = 7</div>",
+            "caption": { "fr": "On cherche dans la table : combien de fois 6 dans 42 ? 7 fois.", "ar": "نبحث في الجدول: كم مرة يوجد 6 في 42؟ سبع مرات." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">9 × 8 = 72</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">donc 72 ÷ 9 = 8</div>",
+            "caption": { "fr": "La division exacte utilise les tables que tu connais.", "ar": "القسمة بالتساوي تستعمل الجداول التي تعرفها." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "division-quotient",
+          "title": { "fr": "Calcule la division", "ar": "احسب القسمة" },
+          "prompt": { "fr": "Trouve le quotient exact.", "ar": "جد الخارج بالضبط." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Demande-toi : le nombre × combien ?", "ar": "اسأل نفسك: العدد × كم؟" },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "15 ÷ 3 = ?", "ar": "15 ÷ 3 = ؟" }, "options": ["4", "5", "6"], "answer": 1 },
+            { "prompt": { "fr": "24 ÷ 4 = ?", "ar": "24 ÷ 4 = ؟" }, "options": ["6", "8", "12"], "answer": 0 }
+          ]
+        },
+        {
+          "type": "matching",
+          "pairType": "multiplication-pairs",
+          "pairs": [1, 2, 3],
+          "title": { "fr": "Relie l'addition et la multiplication", "ar": "اربط الجمع بالضرب" },
+          "prompt": { "fr": "Touche une addition, puis la multiplication qui lui correspond.", "ar": "المس جمعاً ثم الضرب المقابل له." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Compte les groupes et ce qu'il y a dans chaque groupe.", "ar": "اعدّ المجموعات وما فيها." }
+        }
+      ]
+    }
+  ]
+}

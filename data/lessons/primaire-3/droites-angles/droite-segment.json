@@ -1,0 +1,132 @@
+{
+  "id": "droite-segment",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "droites-angles",
+  "title": { "fr": "Droite et segment", "ar": "المستقيم والقطعة" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "reconnaitre-les-lignes",
+      "title": { "fr": "Droite, demi-droite, segment", "ar": "المستقيم ونصف المستقيم والقطعة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un <b>segment</b> est limité par deux points.</div><div style=\"text-align:center;font-size:1.2rem;margin-top:10px\">A ●——————● B</div>",
+            "caption": { "fr": "Le segment [AB] a un début et une fin : on peut mesurer sa longueur.", "ar": "القطعة [AB] لها بداية ونهاية: يمكن قياس طولها." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Une <b>droite</b> n'a ni début ni fin.</div><div style=\"text-align:center;font-size:1.2rem;margin-top:10px\">←————————→</div>",
+            "caption": { "fr": "La droite est illimitée des deux côtés : on ne peut pas la mesurer.", "ar": "المستقيم غير محدود من الطرفين: لا يمكن قياسه." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">●——————→</div><div style=\"text-align:center;font-size:1.1rem;margin-top:8px\">demi-droite : un seul côté s'arrête</div>",
+            "caption": { "fr": "La demi-droite part d'un point et continue sans fin d'un seul côté.", "ar": "نصف المستقيم يبدأ من نقطة ويستمر بلا نهاية من جهة واحدة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">●——————●</div><div style=\"text-align:center;font-size:1.1rem;margin-top:8px\">segment : les deux côtés s'arrêtent</div>",
+            "caption": { "fr": "Le segment est la partie de droite entre deux points.", "ar": "القطعة هي جزء من المستقيم بين نقطتين." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "lines",
+          "mode": "identify",
+          "kind": "segment",
+          "title": { "fr": "Reconnais la ligne", "ar": "تعرّف على الخط" },
+          "prompt": { "fr": "Regarde les extrémités : que vois-tu ?", "ar": "انظر إلى الأطراف: ماذا ترى؟" },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "retry": { "fr": "Compte les points et regarde les flèches.", "ar": "اعدّ النقاط وانظر إلى الأسهم." }
+        },
+        {
+          "type": "quiz",
+          "topic": "lines-kind",
+          "title": { "fr": "Comment appelle-t-on ces lignes ?", "ar": "ماذا نسمي هذه الخطوط؟" },
+          "prompt": { "fr": "Choisis le bon nom.", "ar": "اختر الاسم الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Pense aux extrémités de la ligne.", "ar": "فكّر في أطراف الخط." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Une ligne limitée par deux points, c'est…", "ar": "خط محدود بنقطتين هو…" }, "options": ["une droite", "un segment", "une demi-droite"], "answer": 1 },
+            { "prompt": { "fr": "Une ligne illimitée des deux côtés, c'est…", "ar": "خط غير محدود من الطرفين هو…" }, "options": ["une droite", "un segment", "une demi-droite"], "answer": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "point-alignement",
+      "title": { "fr": "Points alignés", "ar": "نقاط على استقامة واحدة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">●———●———●</div>",
+            "caption": { "fr": "Ces trois points sont alignés : on peut les relier avec une règle, sans tourner.", "ar": "هذه النقاط الثلاث على استقامة واحدة: يمكن وصلها بالمسطرة دون دوران." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">●———●<br> &nbsp; &nbsp; &nbsp; ●</div>",
+            "caption": { "fr": "Ces points ne sont pas alignés : la ligne doit tourner.", "ar": "هذه النقاط ليست على استقامة واحدة: الخط يجب أن ينحني." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Pour tracer un segment, on utilise une règle.</div><div style=\"text-align:center;font-size:1.6rem;margin-top:10px\">📏</div>",
+            "caption": { "fr": "On pose la règle sur les deux points et on trace le long du bord.", "ar": "نضع المسطرة على النقطتين ونرسم على طول الحافة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "lines",
+          "mode": "identify",
+          "kind": "droite",
+          "title": { "fr": "Droite ou segment ?", "ar": "مستقيم أم قطعة؟" },
+          "prompt": { "fr": "Cette ligne s'arrête-t-elle quelque part ?", "ar": "هل يتوقف هذا الخط في مكان ما؟" },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "retry": { "fr": "Regarde s'il y a des points aux extrémités.", "ar": "انظر إن كانت هناك نقاط في الأطراف." }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Droite ou segment ?", "ar": "مستقيم أم قطعة؟" },
+          "prompt": { "fr": "Range chaque description dans le bon panier.", "ar": "ضع كل وصف في السلة الصحيحة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "seg", "label": { "fr": "Segment", "ar": "قطعة" } },
+            { "id": "droite", "label": { "fr": "Droite", "ar": "مستقيم" } }
+          ],
+          "items": [
+            { "label": { "fr": "Je peux mesurer sa longueur", "ar": "أستطيع قياس طوله" }, "bucket": "seg" },
+            { "label": { "fr": "Elle est illimitée des deux côtés", "ar": "غير محدود من الطرفين" }, "bucket": "droite" },
+            { "label": { "fr": "Elle a deux extrémités A et B", "ar": "له طرفان A و B" }, "bucket": "seg" },
+            { "label": { "fr": "On ne peut pas la mesurer", "ar": "لا يمكن قياسه" }, "bucket": "droite" }
+          ]
+        }
+      ]
+    }
+  ]
+}

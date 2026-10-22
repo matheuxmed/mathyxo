@@ -1,0 +1,136 @@
+{
+  "id": "angle-droit",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "droites-angles",
+  "title": { "fr": "L'angle droit", "ar": "الزاوية القائمة" },
+  "xp": 45,
+  "concepts": [
+    {
+      "id": "reconnaitre-angle-droit",
+      "title": { "fr": "Reconnaître un angle droit", "ar": "التعرف على الزاوية القائمة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un angle droit mesure exactement 90°.</div><div style=\"text-align:center;font-size:2rem;margin-top:12px\">📐</div>",
+            "caption": { "fr": "L'angle droit forme un « coin » bien droit, comme le coin d'une feuille.", "ar": "الزاوية القائمة تشكل \"زاوية\" مستقيمة تماماً، مثل زاوية الورقة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">└─</div><div style=\"text-align:center;font-size:1.05rem;margin-top:8px\">On marque un petit carré dans le coin.</div>",
+            "caption": { "fr": "En géométrie, on marque l'angle droit par un petit carré dans le coin.", "ar": "في الهندسة نرمز للزاوية القائمة بمربع صغير في الزاوية." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.15rem\">Angle aigu : plus « fermé » que l'angle droit.</div><div style=\"text-align:center;font-size:1.15rem;margin-top:8px\">&lt; 90°</div>",
+            "caption": { "fr": "Un angle aigu est plus petit qu'un angle droit : il est plus fermé.", "ar": "الزاوية الحادة أصغر من القائمة: أكثر انغلاقاً." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.15rem\">Angle obtus : plus « ouvert » que l'angle droit.</div><div style=\"text-align:center;font-size:1.15rem;margin-top:8px\">&gt; 90°</div>",
+            "caption": { "fr": "Un angle obtus est plus grand qu'un angle droit : il est plus ouvert.", "ar": "الزاوية المنفرجة أكبر من القائمة: أكثر انفتاحاً." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "angle",
+          "mode": "identify",
+          "angle": 90,
+          "title": { "fr": "Quel angle vois-tu ?", "ar": "أي زاوية ترى؟" },
+          "prompt": { "fr": "Regarde l'angle et nomme-le.", "ar": "انظر إلى الزاوية وسمّها." },
+          "correct": { "fr": "Exact, c'est un angle droit ! ✓", "ar": "صحيح، إنها زاوية قائمة! ✓" },
+          "retry": { "fr": "Regarde si le rayon est bien vertical.", "ar": "تحقق إن كان الشعاع عمودياً تماماً." }
+        },
+        {
+          "type": "quiz",
+          "topic": "right-angle",
+          "title": { "fr": "Aigu, droit ou obtus ?", "ar": "حادة أم قائمة أم منفرجة؟" },
+          "prompt": { "fr": "Choisis la bonne nature de l'angle.", "ar": "اختر نوع الزاوية الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Compare l'angle à l'angle droit (90°).", "ar": "قارن الزاوية بالزاوية القائمة (90°)." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Un angle de 90° est…", "ar": "زاوية قياسها 90° هي…" }, "options": ["aigu", "droit", "obtus"], "answer": 1 },
+            { "prompt": { "fr": "Un angle de 45° est…", "ar": "زاوية قياسها 45° هي…" }, "options": ["aigu", "droit", "obtus"], "answer": 0 },
+            { "prompt": { "fr": "Un angle de 130° est…", "ar": "زاوية قياسها 130° هي…" }, "options": ["aigu", "droit", "obtus"], "answer": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "construire-angle-droit",
+      "title": { "fr": "Construire un angle droit", "ar": "إنشاء زاوية قائمة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">On utilise une équerre.</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">📐</div>",
+            "caption": { "fr": "L'équerre a un angle droit : on pose son coin sur le sommet de l'angle.", "ar": "المثلث القائم فيه زاوية قائمة: نضع زاويته على رأس الزاوية." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.15rem\">Déplace le rayon jusqu'à obtenir exactement 90°.</div>",
+            "caption": { "fr": "Quand les deux bras suivent les côtés de l'équerre, l'angle est droit.", "ar": "عندما يتبع الشعاعان ضلعي المثلث القائم، تكون الزاوية قائمة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Les coins d'un carré et d'un rectangle sont des angles droits.</div>",
+            "caption": { "fr": "Dans un carré, il y a 4 angles droits. Dans un rectangle aussi !", "ar": "في المربع 4 زوايا قائمة. وفي المستطيل أيضاً!" }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.15rem\">Une feuille a 4 angles droits : ses 4 coins.</div>",
+            "caption": { "fr": "Regarde autour de toi : les coins de la porte, de la table, du tableau sont droits.", "ar": "انظر حولك: زوايا الباب والطاولة والسبورة قائمة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "angle",
+          "mode": "make",
+          "target": 90,
+          "title": { "fr": "Construis un angle droit", "ar": "أنشئ زاوية قائمة" },
+          "prompt": { "fr": "Glisse le rayon bleu pour former un angle de 90°.", "ar": "اسحب الشعاع الأزرق لتكوين زاوية 90°." },
+          "success": { "fr": "Angle droit parfait ! ✓", "ar": "زاوية قائمة مثالية! ✓" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Angle droit ou non ?", "ar": "زاوية قائمة أم لا؟" },
+          "prompt": { "fr": "Range chaque objet selon ses angles.", "ar": "ضع كل شيء حسب زواياه." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "droit", "label": { "fr": "A des angles droits", "ar": "فيه زوايا قائمة" } },
+            { "id": "pas", "label": { "fr": "Pas d'angle droit", "ar": "لا زوايا قائمة" } }
+          ],
+          "items": [
+            { "label": { "fr": "Un carré", "ar": "مربع" }, "bucket": "droit" },
+            { "label": { "fr": "Un cercle", "ar": "دائرة" }, "bucket": "pas" },
+            { "label": { "fr": "Un rectangle", "ar": "مستطيل" }, "bucket": "droit" },
+            { "label": { "fr": "Un triangle aigu", "ar": "مثلث حاد" }, "bucket": "pas" }
+          ]
+        }
+      ]
+    }
+  ]
+}

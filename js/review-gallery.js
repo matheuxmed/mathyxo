@@ -399,6 +399,27 @@ const ReviewGallery = (function () {
             prompt: { fr: 'Quel nombre vient ensuite ?', ar: 'ما العدد التالي؟' },
             correct: S.correct, retry: S.tryAgain,
             start: 3, step: 2, length: 6, missing: 5
+        },
+        {
+            type: 'divide',
+            title: { fr: 'Partage en 3 groupes égaux', ar: 'وزّع على 3 مجموعات متساوية' },
+            prompt: { fr: 'Mets le même nombre de pommes sur chaque assiette.', ar: 'ضع نفس عدد التفاحات في كل طبق.' },
+            correct: S.correct,
+            total: 12, groups: 3, item: '🍎', exact: true
+        },
+        {
+            type: 'perimeter',
+            title: { fr: 'Périmètre d\'un rectangle', ar: 'محيط مستطيل' },
+            prompt: { fr: 'Touche chaque côté pour trouver le périmètre.', ar: 'المس كل ضلع لإيجاد المحيط.' },
+            correct: S.correct,
+            shape: 'rectangle', width: 6, height: 4, unit: 'cm'
+        },
+        {
+            type: 'lines',
+            title: { fr: 'Reconnais la ligne', ar: 'تعرّف على الخط' },
+            prompt: { fr: 'Est-ce une droite, une demi-droite ou un segment ?', ar: 'هل هو مستقيم أم نصف مستقيم أم قطعة؟' },
+            correct: S.correct, retry: S.tryAgain,
+            mode: 'identify', kind: 'segment'
         }
     ];
 
@@ -604,6 +625,32 @@ const ReviewGallery = (function () {
                 }
             }
             return painted > 0;
+        }
+        if (type === 'divide') {
+            // Tap each item once; the widget sends it to the emptiest plate, so
+            // tapping every item in turn fills the plates evenly.
+            const items = Array.from(q('.div-item')).filter(vis);
+            if (!items.length) return false;
+            items.forEach(n => n.click());
+            return true;
+        }
+        if (type === 'perimeter') {
+            // Reveal every side; the widget grades once all four are tapped.
+            const sides = Array.from(q('.per-side')).filter(vis);
+            if (!sides.length) return false;
+            sides.forEach(s => s.click());
+            return true;
+        }
+        if (type === 'lines') {
+            const choices = Array.from(q('.lines-choices .act-btn')).filter(vis);
+            if (!choices.length) return false;
+            // The drawn kind is the spec's kind; reading the answer key is
+            // safest because the generator may replace it with a fresh one.
+            let want = spec.kind;
+            try { const k = JSON.parse(card.querySelector('.activity-stage').dataset.key || '{}'); if (k.kind) want = k.kind; } catch (e) { /* ignore */ }
+            const o = choices.find(b => b.dataset.kind === want) || choices[0];
+            o.click();
+            return true;
         }
         if (type === 'quiz') {
             // Answer the *current* question correctly. The option carries

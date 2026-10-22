@@ -172,6 +172,71 @@ const VARIANTS = {
             return { pairs: nums.map(v => ({ left: String(v), right: phrase(Math.floor(v / 10), v % 10) })) };
         }
 
+        // number-words-3digit: three-digit numbers matched to their French
+        // wording (cent, deux cents, trois cent quarante-deux…).
+        if (kind === 'number-words-3digit') {
+            const units = ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
+            const teens = ['dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize',
+                'dix-sept', 'dix-huit', 'dix-neuf'];
+            const tensW = ['', '', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante', 'quatre-vingt', 'quatre-vingt'];
+            // Words for 0-99, reusing the irregular French tens.
+            const under100 = (v) => {
+                if (v < 10) return units[v];
+                if (v < 20) return teens[v - 10];
+                const t = Math.floor(v / 10), u = v % 10;
+                const base = tensW[t];
+                if (u === 0) return (t === 7 ? 'soixante-dix' : t === 9 ? 'quatre-vingt-dix' : t === 8 ? 'quatre-vingts' : base);
+                if (t === 7) return u === 1 ? 'soixante et onze' : 'soixante-' + teens[u];
+                if (t === 9) return 'quatre-vingt-' + teens[u];
+                if (u === 1 && (t === 2 || t === 3 || t === 4 || t === 5 || t === 6)) return base + ' et un';
+                return base + '-' + units[u];
+            };
+            const wordOf = (v) => {
+                const h = Math.floor(v / 100), rest = v % 100;
+                if (h === 0) return under100(rest);
+                let head = h === 1 ? 'cent' : units[h] + ' cent' + (rest === 0 ? 's' : '');
+                if (rest === 0) return head;
+                return head + ' ' + under100(rest);
+            };
+            // Arabic wording: مئة، مئتان، ثلاثمئة … plus the 0-99 part.
+            const arUnits = ['صفر', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة'];
+            const arUnder100 = (v) => {
+                if (v < 10) return arUnits[v];
+                if (v < 20) {
+                    const arTeens = ['عشرة', 'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر',
+                        'خمسة عشر', 'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر'];
+                    return arTeens[v - 10];
+                }
+                const t = Math.floor(v / 10), u = v % 10;
+                const tensAr = { 2: 'عشرون', 3: 'ثلاثون', 4: 'أربعون', 5: 'خمسون', 6: 'ستون', 7: 'سبعون', 8: 'ثمانون', 9: 'تسعون' };
+                const base = tensAr[t];
+                if (u === 0) return base;
+                // Arabic puts the unit first: خمسة وأربعون
+                return arUnits[u] + ' و' + base;
+            };
+            const arWordOf = (v) => {
+                const h = Math.floor(v / 100), rest = v % 100;
+                if (h === 0) return arUnder100(rest);
+                const arHundreds = ['', 'مئة', 'مئتان', 'ثلاثمئة', 'أربعمئة', 'خمسمئة',
+                    'ستمئة', 'سبعمئة', 'ثمانمئة', 'تسعمئة'];
+                const head = arHundreds[h];
+                if (rest === 0) return head;
+                return head + ' و' + arUnder100(rest);
+            };
+            const nums = [];
+            let guard = 0;
+            while (nums.length < n && guard++ < 400) {
+                const v = rng.int(100, 999);
+                if (!nums.includes(v)) nums.push(v);
+            }
+            return {
+                pairs: nums.map(v => ({
+                    left: String(v),
+                    right: { fr: wordOf(v), ar: arWordOf(v) }
+                }))
+            };
+        }
+
         // multiplication-pairs: a repeated addition matched to its multiplication.
         if (kind === 'multiplication-pairs') {
             const pairs = [];
@@ -212,9 +277,16 @@ const VARIANTS = {
         return { target, shapes: chosen.map(s => ({ id: s.id, name: s.name })) };
     },
 
-    // spec: { type:'sort', buckets:[{id, test:'lt'|'gt', value:n}] }
+    // spec: { type:'sort', buckets:[{id,label}], items:[{label,bucket}] }
+    //
+    // Two ways to drive a sort:
+    //   1. Hand-authored buckets and items in the lesson JSON. These are the
+    //      authoritative content, so they pass through untouched.
+    //   2. `threshold` asks the generator to invent fresh numbers around a
+    //      cut-off, using the bucket ids 'lt'/'gt'.
     sort(spec, rng) {
-        const threshold = spec.threshold != null ? spec.threshold : 10;
+        if (spec.threshold == null) return {};
+        const threshold = spec.threshold;
         const perBucket = spec.perBucket || 2;
         const items = [];
         for (let i = 0; i < perBucket; i++) {
@@ -238,7 +310,10 @@ const VARIANTS = {
             'multiplication', 'division', 'complement', 'double', 'predecessor',
             'compare-blank', 'even-odd', 'tens-units', 'compare-large',
             'addition-large', 'subtraction-large', 'multiplication-sense',
-            'measure-units', 'measure-compare', 'symmetry-axes', 'tables'];
+            'measure-units', 'measure-compare', 'symmetry-axes', 'tables',
+            'hundreds-units', 'decompose-1000', 'compare-1000', 'bound-ten',
+            'tables-6-9', 'division-sense', 'division-quotient',
+            'fraction-read', 'fraction-parts', 'perimeter', 'lines-kind', 'right-angle'];
         if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
             return {
                 questions: spec.questions.map(q => {
@@ -505,7 +580,167 @@ const VARIANTS = {
                     prompt: { fr: a + ' × ' + t + ' = ?', ar: a + ' × ' + t + ' = ؟' },
                     options: opts, answer: opts.indexOf(String(ans))
                 });
+            } else if (topic === 'hundreds-units') {
+                // 3-digit place value: which digit is worth hundreds/tens/ones.
+                const h = rng.int(1, 9), t = rng.int(0, 9), u = rng.int(0, 9);
+                const n = h * 100 + t * 10 + u;
+                const which = rng.pick(['centaines', 'dizaines', 'unites']);
+                const ans = which === 'centaines' ? h : which === 'dizaines' ? t : u;
+                const opts = optionsFor(ans, 3);
+                const ask = {
+                    centaines: { fr: 'Dans ' + n + ', combien de centaines ?', ar: 'في ' + n + '، كم عدد المئات؟' },
+                    dizaines: { fr: 'Dans ' + n + ', combien de dizaines ?', ar: 'في ' + n + '، كم عدد العشرات؟' },
+                    unites: { fr: 'Dans ' + n + ', combien d\'unités ?', ar: 'في ' + n + '، كم عدد الوحدات؟' }
+                };
+                questions.push({ prompt: ask[which], options: opts, answer: opts.indexOf(String(ans)) });
+            } else if (topic === 'decompose-1000') {
+                // 347 = 300 + 40 + 7
+                const h = rng.int(1, 9), t = rng.int(1, 9), u = rng.int(1, 9);
+                const n = h * 100 + t * 10 + u;
+                const ans = (h * 100) + ' + ' + (t * 10) + ' + ' + u;
+                const opts = rng.shuffle([
+                    ans,
+                    (h * 100 + t * 10) + ' + ' + u + ' + ' + 0,
+                    String(h) + ' + ' + t + ' + ' + u
+                ].filter((v, i, a) => a.indexOf(v) === i));
+                questions.push({
+                    prompt: { fr: 'Décompose ' + n + ' :', ar: 'فكك ' + n + ':' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'compare-1000') {
+                let a = rng.int(100, 999);
+                let b = rng.int(100, 999);
+                while (a === b) b = rng.int(100, 999);
+                const opts = rng.shuffle(['<', '>', '=']);
+                questions.push({
+                    prompt: { fr: 'Quel signe va entre ' + a + ' et ' + b + ' ?', ar: 'أي رمز يوضع بين ' + a + ' و' + b + '؟' },
+                    options: opts, answer: opts.indexOf(a > b ? '>' : '<')
+                });
+            } else if (topic === 'bound-ten') {
+                // Encadrer à la dizaine : d×10 < n < (d+1)×10
+                const n = rng.int(11, 989);
+                const lo = Math.floor(n / 10) * 10;
+                const hi = lo + 10;
+                const ans = lo + ' < ' + n + ' < ' + hi;
+                const opts = rng.shuffle([
+                    ans,
+                    (lo - 10) + ' < ' + n + ' < ' + lo,
+                    lo + ' < ' + n + ' < ' + (hi + 10)
+                ]);
+                questions.push({
+                    prompt: { fr: 'Encadre ' + n + ' entre deux dizaines :', ar: 'أطّر ' + n + ' بين عشرتين:' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'tables-6-9') {
+                const pool = spec.tables || [6, 7, 8, 9];
+                const t = rng.pick(pool);
+                const a = rng.int(2, 9);
+                const ans = a * t;
+                const opts = optionsFor(ans, Math.max(4, t));
+                questions.push({
+                    prompt: { fr: a + ' × ' + t + ' = ?', ar: a + ' × ' + t + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'division-sense') {
+                // "Share 12 sweets between 3 children" → how many each.
+                const g = rng.int(2, 5);
+                const per = rng.int(2, 6);
+                const total = g * per;
+                const sym = rng.pick(['🍬', '🍏', '⭐', '🎈']);
+                const ans = per;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: {
+                        fr: 'On partage ' + total + ' ' + sym + ' entre ' + g + ' enfants. Combien chacun ?',
+                        ar: 'نوزع ' + total + ' ' + sym + ' على ' + g + ' أطفال. كم لكل واحد؟'
+                    },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'division-quotient') {
+                // Exact division read as a quotient.
+                const b = rng.int(2, 5);
+                const q = rng.int(2, 9);
+                const a = b * q;
+                const ans = q;
+                const opts = optionsFor(ans, 3);
+                questions.push({
+                    prompt: { fr: a + ' ÷ ' + b + ' = ?', ar: a + ' ÷ ' + b + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'fraction-read') {
+                // Read the shaded part of a bar. All options share the same
+                // denominator so no two answers are equivalent fractions.
+                const den = rng.pick([2, 3, 4, 5]);
+                const num = rng.int(1, den - 1);
+                const ans = num + '/' + den;
+                const opts = [];
+                for (let k = 1; k <= den && opts.length < 4; k++) opts.push(k + '/' + den);
+                const shuffled = rng.shuffle(opts);
+                const bar = Array.from({ length: den }, (_, i) => i < num ? '🟦' : '⬜').join('');
+                questions.push({
+                    prompt: { fr: 'Quelle fraction est coloriée ? ' + bar, ar: 'ما الكسر الملوّن؟ ' + bar },
+                    options: shuffled, answer: shuffled.indexOf(ans)
+                });
+            } else if (topic === 'fraction-parts') {
+                const den = rng.pick([2, 3, 4, 5]);
+                const opts = rng.shuffle([2, 3, 4, 5]);
+                questions.push({
+                    prompt: {
+                        fr: 'Dans la fraction 1/' + den + ', combien de parts égales en tout ?',
+                        ar: 'في الكسر 1/' + den + '، كم عدد الأجزاء المتساوية؟'
+                    },
+                    options: opts.map(String), answer: opts.indexOf(den)
+                });
+            } else if (topic === 'perimeter') {
+                const shape = rng.pick(['carre', 'rectangle']);
+                let ans, label;
+                if (shape === 'carre') {
+                    const s = rng.int(2, 9);
+                    ans = 4 * s;
+                    label = { fr: 'un carré de côté ' + s + ' cm', ar: 'مربع ضلعه ' + s + ' سم' };
+                } else {
+                    const w = rng.int(3, 9), h = rng.int(2, w - 1);
+                    ans = 2 * (w + h);
+                    label = { fr: 'un rectangle de ' + w + ' cm sur ' + h + ' cm', ar: 'مستطيل ' + w + ' سم في ' + h + ' سم' };
+                }
+                const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.4)));
+                questions.push({
+                    prompt: { fr: 'Quel est le périmètre de ' + label.fr + ' ?', ar: 'ما محيط ' + label.ar + '؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'lines-kind') {
+                const pl = rng.pick([
+                    { fr: 'limitée par deux points', ar: 'محدود بنقطتين', id: 'segment' },
+                    { fr: 'illimitée des deux côtés', ar: 'غير محدود من الطرفين', id: 'droite' },
+                    { fr: 'avec un seul point de départ', ar: 'له نقطة بداية واحدة فقط', id: 'demi-droite' }
+                ]);
+                const names = {
+                    segment: { fr: 'un segment', ar: 'قطعة' },
+                    droite: { fr: 'une droite', ar: 'مستقيم' },
+                    'demi-droite': { fr: 'une demi-droite', ar: 'نصف مستقيم' }
+                };
+                const order = rng.shuffle(['segment', 'droite', 'demi-droite']);
+                questions.push({
+                    prompt: { fr: 'Comment appelle-t-on une ligne ' + pl.fr + ' ?', ar: 'ماذا نسمي خطاً ' + pl.ar + '؟' },
+                    options: order.map(k => names[k]),
+                    answer: order.indexOf(pl.id)
+                });
+            } else if (topic === 'right-angle') {
+                const deg = rng.pick([30, 45, 60, 90, 90, 120, 135, 150]);
+                const kind = deg === 90 ? 'droit' : (deg < 90 ? 'aigu' : 'obtus');
+                const names = {
+                    droit: { fr: 'un angle droit', ar: 'زاوية قائمة' },
+                    aigu: { fr: 'un angle aigu', ar: 'زاوية حادة' },
+                    obtus: { fr: 'un angle obtus', ar: 'زاوية منفرجة' }
+                };
+                const order = rng.shuffle(['droit', 'aigu', 'obtus']);
+                questions.push({
+                    prompt: { fr: 'Un angle de ' + deg + '° est…', ar: 'زاوية قياسها ' + deg + '° هي…' },
+                    options: order.map(k => names[k]),
+                    answer: order.indexOf(kind)
+                });
             }
+
         }
         // Fill in any answer index left as null (compare-blank picks by content).
         questions.forEach(q => {
@@ -646,6 +881,30 @@ const VARIANTS = {
         // valid; otherwise pick a fresh starting point for each attempt.
         const start = spec.pinStart ? (spec.start || 0) : rng.int(0, maxStart);
         return { start, step, length, missing: length - 1 };
+    },
+
+    // spec: { type:'divide', groups:n, maxPer:n }
+    // Picks a fresh total that is always an exact multiple of the group count,
+    // so a graded sharing step can always be completed.
+    divide(spec, rng) {
+        const groups = spec.groups || 3;
+        const perGroup = rng.int(2, Math.max(2, spec.maxPer || 5));
+        return { total: groups * perGroup, groups };
+    },
+
+    // spec: { type:'perimeter', shape:'carre'|'rectangle' }
+    perimeter(spec, rng) {
+        if (spec.shape === 'rectangle') {
+            const w = rng.int(3, 9);
+            const h = rng.int(2, w - 1);
+            return { shape: 'rectangle', width: w, height: h };
+        }
+        return { shape: 'carre', side: rng.int(2, 9) };
+    },
+
+    // spec: { type:'lines' } — draw a fresh kind each attempt.
+    lines(spec, rng) {
+        return { kind: rng.pick(['droite', 'demi-droite', 'segment']) };
     }
 };
 

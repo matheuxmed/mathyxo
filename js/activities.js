@@ -893,10 +893,16 @@ function buildSort(spec, host) {
                 if (spec.onComplete) spec.onComplete();
             }
         } else {
+            // Encouraging feedback, then the item returns to the pool so the
+            // child is never stuck with a wrong classification.
+            itemNode.classList.remove('selected');
             itemNode.classList.add('wrong');
             setTimeout(() => itemNode.classList.remove('wrong'), 420);
             feedback.className = 'act-feedback bad';
-            feedback.textContent = pick(spec.incorrect) || '✗';
+            feedback.textContent = pick(spec.incorrect) || pick({
+                fr: 'Presque ! Essaie un autre panier. 💪',
+                ar: 'قريب جداً! جرّب سلة أخرى. 💪'
+            });
         }
     };
 
@@ -910,15 +916,28 @@ function buildSort(spec, host) {
         bucket.addEventListener('click', () => {
             const sel = pool.querySelector('.match-item.selected');
             if (sel) tryPlace(sel, b.id);
+            return;
         });
         row.appendChild(bucket);
     });
+
+    const allBuckets = () => Array.from(row.querySelectorAll('[data-bucket]'));
 
     spec.items.forEach((item, i) => {
         const node = actEl('button', 'match-item', (item.emoji || '') + ' ' + pick(item.label));
         node.type = 'button';
         node.dataset.item = String(i);
         node.addEventListener('click', () => {
+            // Tapping a pool item picks it up; tapping a placed item sends it
+            // back to the pool so a misclassification can be undone.
+            if (node.classList.contains('matched') && node.parentElement &&
+                node.parentElement.classList.contains('items')) {
+                pool.appendChild(node);
+                node.classList.remove('matched');
+                placed = Math.max(0, placed - 1);
+                feedback.textContent = ''; feedback.className = 'act-feedback';
+                return;
+            }
             pool.querySelectorAll('.match-item').forEach(x => x.classList.remove('selected'));
             node.classList.add('selected');
         });
@@ -1778,6 +1797,284 @@ function buildPattern(spec, host) {
 }
 
 // ---------- registry ----------
+// ---------- 18. Share into equal groups (the meaning of division) ----------
+// spec: { total:n, groups:n, item:'🍎', mode:'share'|'read' }
+// The child drags each item into a plate until every plate holds the same
+// number. Sharing is a *mastery* activity: it fires onComplete once all groups
+// are equal and non-empty.
+function buildDivision(spec, host) {
+    const total = spec.total || 12;
+    const groupCount = spec.groups || 3;
+    const item = spec.item || '🍎';
+    const perGroup = Math.floor(total / groupCount);
+    const wrap = actEl('div', 'div-wrap');
+    const pool = actEl('div', 'div-pool');
+    const plates = actEl('div', 'div-plates');
+    const feedback = actEl('div', 'act-feedback');
+    const readout = actEl('div', 'div-readout');
+    let solved = false;
+
+    const held = Array.from({ length: groupCount }, () => 0);
+
+    // Off-by-a-few totals are the interesting teaching case, so never pad the
+    // pool: the child sees the remainder and the caption can explain it.
+    for (let i = 0; i < total; i++) {
+        const node = actEl('button', 'div-item', item);
+        node.type = 'button';
+        node.dataset.item = String(i);
+        node.addEventListener('click', () => move(node));
+        makeDraggable(node, i, (kind, idx, pt) => {
+            if (kind !== 'drop') return;
+            const target = dropTargetAt(pt.x, pt.y);
+            const plate = target && target.closest('[data-group]');
+            if (plate) place(pool.querySelector('[data-item="' + idx + '"]'), plate);
+        });
+        pool.appendChild(node);
+    }
+
+    plates.innerHTML = '';
+    for (let g = 0; g < groupCount; g++) {
+        const plate = actEl('div', 'div-plate');
+        plate.dataset.group = String(g);
+        plate.appendChild(actEl('div', 'div-plate-head', pick({ fr: 'Groupe ' + (g + 1), ar: 'مجموعة ' + (g + 1) })));
+        plate.appendChild(actEl('div', 'div-drop'));
+        plate.appendChild(actEl('span', 'div-count', '0'));
+        plate.addEventListener('click', () => {
+            // Tapping a plate sends its LAST item back to the pool.
+            const drop = plate.querySelector('.div-drop');
+            const last = drop.lastElementChild;
+            if (last) returnToPool(last);
+        });
+        plates.appendChild(plate);
+    }
+
+    const refresh = () => {
+        // Keep the per-plate counters in step with the DOM.
+        plates.querySelectorAll('.div-plate').forEach((plate, g) => {
+            const n = plate.querySelectorAll('.div-drop .div-item').length;
+            held[g] = n;
+            plate.querySelector('.div-count').textContent = String(n);
+        });
+        const filled = held.filter(n => n > 0);
+        const equal = filled.length === groupCount && held.every(n => n === held[0]);
+        readout.textContent = held.join(' + ') + (equal ? ' = ' + total : '');
+        if (equal && !solved) {
+            solved = true;
+            feedback.className = 'act-feedback good';
+            feedback.textContent = pick(spec.success) ||
+                pick({ fr: 'Parts égales : ' + perGroup + ' chacun ! ✓',
+                       ar: 'أجزاء متساوية: ' + perGroup + ' لكل واحد! ✓' });
+            if (spec.onComplete) spec.onComplete();
+        } else {
+            feedback.className = 'act-feedback';
+            feedback.textContent = '';
+        }
+    };
+
+    const place = (node, plate) => {
+        if (!node) return;
+        plate.querySelector('.div-drop').appendChild(node);
+        node.classList.add('matched');
+        refresh();
+    };
+
+    const returnToPool = (node) => {
+        pool.appendChild(node);
+        node.classList.remove('matched');
+        refresh();
+    };
+
+    const move = (node) => {
+        // Tap-to-place: put the item on the emptiest plate, so sharing spreads
+        // out naturally one-by-one.
+        if (node.closest('.div-drop')) {
+            returnToPool(node);
+            return;
+        }
+        const plate = Array.from(plates.querySelectorAll('.div-plate'))
+            .sort((a, b) => a.querySelectorAll('.div-item').length - b.querySelectorAll('.div-item').length)[0];
+        if (plate) place(node, plate);
+    };
+
+    wrap.appendChild(pool);
+    wrap.appendChild(plates);
+    wrap.appendChild(readout);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+
+    // Pre-fill nothing; the child does the sharing.
+    return {
+        el: host,
+        reset() {
+            solved = false;
+            plates.querySelectorAll('.div-drop .div-item').forEach(n => returnToPool(n));
+            refresh();
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
+// ---------- 19. Perimeter explorer ----------
+// spec: { shape:'carre'|'rectangle', side:n, width:n, height:n, unit:'cm' }
+// Every side is a tappable chip. Tapping shows its length; the sum appears as
+// the child walks the whole outline. Mastery once every side is tapped.
+function buildPerimeter(spec, host) {
+    const unit = spec.unit || 'cm';
+    const isSquare = (spec.shape || 'carre') === 'carre';
+    const side = spec.side || 4;
+    const width = spec.width || spec.side || 6;
+    const height = spec.height || spec.side || 4;
+    const sides = isSquare ? [side, side, side, side] : [width, height, width, height];
+    const wrap = actEl('div', 'per-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const sum = actEl('div', 'per-sum');
+    let solved = false;
+
+    const figure = actEl('div', 'per-figure');
+    const total = sides.reduce((a, b) => a + b, 0);
+
+    // Four side bars laid out as a rectangle outline.
+    const order = ['top', 'right', 'bottom', 'left'];
+    const tapped = new Set();
+    const bars = {};
+    order.forEach((pos, i) => {
+        const bar = actEl('button', 'per-side per-' + pos);
+        bar.type = 'button';
+        bar.dataset.side = String(i);
+        bar.innerHTML = '<span class="per-len">' + sides[i] + ' ' + unit + '</span>';
+        bar.addEventListener('click', () => {
+            bar.classList.add('on');
+            tapped.add(i);
+            refresh();
+        });
+        bars[pos] = bar;
+        figure.appendChild(bar);
+    });
+    // A centre label reminds the child what shape they are measuring.
+    figure.appendChild(actEl('div', 'per-label', pick(isSquare
+        ? { fr: 'Carré', ar: 'مربع' }
+        : { fr: 'Rectangle', ar: 'مستطيل' })));
+
+    const refresh = () => {
+        const shown = order.map((_, i) => tapped.has(i) ? sides[i] : '?');
+        sum.innerHTML = '<span dir="ltr">' + shown.join(' + ') + ' = ' +
+            (tapped.size === 4 ? total : '?') + ' ' + (tapped.size === 4 ? unit : '') + '</span>';
+        if (tapped.size === 4 && !solved) {
+            solved = true;
+            feedback.className = 'act-feedback good';
+            feedback.textContent = pick(spec.success) ||
+                pick({ fr: 'Périmètre : ' + total + ' ' + unit + ' ✓',
+                       ar: 'المحيط: ' + total + ' ' + unit + ' ✓' });
+            if (spec.onComplete) spec.onComplete();
+        }
+    };
+
+    wrap.appendChild(figure);
+    wrap.appendChild(sum);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+    refresh();
+
+    return {
+        el: host,
+        reset() {
+            solved = false;
+            tapped.clear();
+            order.forEach(p => bars[p].classList.remove('on'));
+            refresh();
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
+// ---------- 20. Lines: droite, demi-droite, segment ----------
+// spec: { mode:'identify', kind:'droite'|'demi-droite'|'segment' }
+// A single figure is drawn with the right arrowheads, and the child names it.
+function buildLines(spec, host) {
+    const KIND = spec.kind || 'droite';
+    const wrap = actEl('div', 'lines-wrap');
+    const feedback = actEl('div', 'act-feedback');
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 300 90');
+    svg.setAttribute('class', 'lines-svg');
+
+    const y = 45, x1 = 40, x2 = 260;
+    const NS = 'http://www.w3.org/2000/svg';
+    const mk = (tag, attrs, cls) => {
+        const n = document.createElementNS(NS, tag);
+        Object.keys(attrs).forEach(k => n.setAttribute(k, attrs[k]));
+        if (cls) n.setAttribute('class', cls);
+        return n;
+    };
+
+    // The drawn line itself.
+    svg.appendChild(mk('line', { x1, y1: y, x2, y2: y }, 'line-body'));
+
+    // Arrowheads: a segment has none, a half-line has one, a full line has two.
+    const arrow = (x, dir) => {
+        const pts = dir > 0
+            ? (x - 12) + ',' + (y - 7) + ' ' + (x - 12) + ',' + (y + 7) + ' ' + x + ',' + y
+            : (x + 12) + ',' + (y - 7) + ' ' + (x + 12) + ',' + (y + 7) + ' ' + x + ',' + y;
+        return mk('polygon', { points: pts }, 'line-arrow');
+    };
+    if (KIND === 'droite') { svg.appendChild(arrow(x1, -1)); svg.appendChild(arrow(x2, 1)); }
+    if (KIND === 'demi-droite') { svg.appendChild(arrow(x2, 1)); }
+
+    // Endpoints: a full line has none, the others have them.
+    if (KIND !== 'droite') {
+        svg.appendChild(mk('circle', { cx: x1, cy: y, r: 4 }, 'line-dot'));
+        if (KIND === 'segment') svg.appendChild(mk('circle', { cx: x2, cy: y, r: 4 }, 'line-dot'));
+    }
+    // Name the endpoints so a segment reads as AB.
+    if (KIND !== 'droite') {
+        const a = mk('text', { x: x1 - 4, y: y - 14 }, 'line-label'); a.textContent = 'A';
+        svg.appendChild(a);
+        if (KIND === 'segment') {
+            const b = mk('text', { x: x2 - 4, y: y - 14 }, 'line-label'); b.textContent = 'B';
+            svg.appendChild(b);
+        }
+    }
+
+    wrap.appendChild(svg);
+
+    const names = {
+        droite: { fr: 'Une droite (illimitée des deux côtés)', ar: 'مستقيم (غير محدود من الطرفين)' },
+        'demi-droite': { fr: 'Une demi-droite (un seul côté)', ar: 'نصف مستقيم (من جهة واحدة)' },
+        segment: { fr: 'Un segment (limité par A et B)', ar: 'قطعة (محدودة بـ A و B)' }
+    };
+    const choices = actEl('div', 'lines-choices');
+    ['droite', 'demi-droite', 'segment'].forEach(k => {
+        const b = actEl('button', 'act-btn ghost', pick(names[k]));
+        b.type = 'button';
+        b.dataset.kind = k;
+        b.addEventListener('click', () => {
+            const ok = k === KIND;
+            b.classList.add(ok ? 'correct' : 'wrong');
+            if (ok) {
+                feedback.className = 'act-feedback good';
+                feedback.textContent = pick(spec.success) || '✓';
+                if (spec.onComplete) spec.onComplete();
+            } else {
+                feedback.className = 'act-feedback bad';
+                feedback.textContent = pick(spec.retry) || '✗';
+                if (spec.onWrong) spec.onWrong();
+            }
+        });
+        choices.appendChild(b);
+    });
+    wrap.appendChild(choices);
+    host.appendChild(wrap);
+    host.appendChild(feedback);
+
+    return {
+        el: host,
+        reset() {
+            choices.querySelectorAll('.act-btn').forEach(b => b.classList.remove('correct', 'wrong'));
+            feedback.textContent = ''; feedback.className = 'act-feedback';
+        }
+    };
+}
+
 const ACTIVITIES = {
     'count-tap': buildCountTap,
     matching: buildMatching,
@@ -1795,7 +2092,10 @@ const ACTIVITIES = {
     column: buildColumnBoard,
     chart: buildChart,
     measure: buildMeasure,
-    pattern: buildPattern
+    pattern: buildPattern,
+    divide: buildDivision,
+    perimeter: buildPerimeter,
+    lines: buildLines
 };
 
 // Render one activity spec into a host element, wrapped in the standard card.
@@ -1869,6 +2169,7 @@ function renderActivity(spec, container, opts) {
             target: spec.target,
             answer: spec.answer,
             shape: spec.shape,
+            kind: spec.kind,
             mode: spec.mode,
             parts: spec.parts,
             shaded: spec.shaded,

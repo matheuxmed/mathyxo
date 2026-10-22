@@ -1,0 +1,137 @@
+{
+  "id": "perimetre-carre-rectangle",
+  "category": "primaire",
+  "level": "primaire-3",
+  "chapter": "perimetre",
+  "title": { "fr": "Périmètre du carré et du rectangle", "ar": "محيط المربع والمستطيل" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "suivre-le-contour",
+      "title": { "fr": "Suivre le contour", "ar": "تتبع المحيط" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Le périmètre, c'est la longueur du contour.</div><div style=\"text-align:center;font-size:2rem;margin-top:12px\">📏🔲📏</div>",
+            "caption": { "fr": "Imagine que tu fais le tour de la figure avec une ficelle : la longueur de la ficelle, c'est le périmètre.", "ar": "تخيل أنك تدور حول الشكل بخيط: طول الخيط هو المحيط." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">4 côtés → on additionne les 4 longueurs</div>",
+            "caption": { "fr": "Pour un carré ou un rectangle, il y a 4 côtés à additionner.", "ar": "في المربع والمستطيل، هناك 4 أضلاع نجمعها." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Carré de côté 4 cm</div><div style=\"text-align:center;font-size:1.25rem;margin-top:8px\">4 + 4 + 4 + 4 = 16 cm</div>",
+            "caption": { "fr": "Les 4 côtés d'un carré sont égaux : 4 + 4 + 4 + 4 = 16 cm.", "ar": "أضلاع المربع الأربعة متساوية: 4 + 4 + 4 + 4 = 16 سم." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Rectangle de 6 cm sur 4 cm</div><div style=\"text-align:center;font-size:1.25rem;margin-top:8px\">6 + 4 + 6 + 4 = 20 cm</div>",
+            "caption": { "fr": "Dans un rectangle, les côtés opposés sont égaux : 6 + 4 + 6 + 4 = 20 cm.", "ar": "في المستطيل، الضلعان المتقابلان متساويان: 6 + 4 + 6 + 4 = 20 سم." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "perimeter",
+          "shape": "rectangle",
+          "width": 6,
+          "height": 4,
+          "unit": "cm",
+          "title": { "fr": "Trouve le périmètre du rectangle", "ar": "جد محيط المستطيل" },
+          "prompt": { "fr": "Touche chaque côté pour révéler sa longueur, puis additionne.", "ar": "المس كل ضلع لكشف طوله ثم اجمع." },
+          "success": { "fr": "Périmètre trouvé ! ✓", "ar": "تم إيجاد المحيط! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "perimeter",
+          "title": { "fr": "Calcule le périmètre", "ar": "احسب المحيط" },
+          "prompt": { "fr": "Choisis le bon périmètre.", "ar": "اختر المحيط الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Additionne bien les 4 côtés.", "ar": "اجمع الأضلاع الأربعة جيداً." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Un carré de côté 5 cm : quel périmètre ?", "ar": "مربع ضلعه 5 سم: ما محيطه؟" }, "options": ["10 cm", "20 cm", "25 cm"], "answer": 1 },
+            { "prompt": { "fr": "Un rectangle de 7 cm sur 3 cm : quel périmètre ?", "ar": "مستطيل 7 سم في 3 سم: ما محيطه؟" }, "options": ["10 cm", "21 cm", "20 cm"], "answer": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "formules-perimetre",
+      "title": { "fr": "Les formules", "ar": "الصيغ" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Périmètre du carré</div><div style=\"text-align:center;font-size:1.5rem;margin-top:8px\">P = côté × 4</div>",
+            "caption": { "fr": "Pour un carré, on multiplie un côté par 4 : c'est plus rapide que l'addition.", "ar": "في المربع نضرب الضلع في 4: أسرع من الجمع." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Périmètre du rectangle</div><div style=\"text-align:center;font-size:1.5rem;margin-top:8px\">P = (longueur + largeur) × 2</div>",
+            "caption": { "fr": "Pour un rectangle, on additionne la longueur et la largeur, puis on double.", "ar": "في المستطيل نجمع الطول والعرض ثم نضاعف." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Carré de côté 7 cm</div><div style=\"text-align:center;font-size:1.25rem;margin-top:8px\">P = 7 × 4 = 28 cm</div>",
+            "caption": { "fr": "Avec la formule : 7 × 4 = 28 cm. C'est pareil que 7 + 7 + 7 + 7.", "ar": "بالصيغة: 7 × 4 = 28 سم. نفس 7 + 7 + 7 + 7." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">Rectangle de 8 cm sur 3 cm</div><div style=\"text-align:center;font-size:1.25rem;margin-top:8px\">P = (8 + 3) × 2 = 11 × 2 = 22 cm</div>",
+            "caption": { "fr": "On fait d'abord 8 + 3 = 11, puis on double : 22 cm.", "ar": "نحسب أولاً 8 + 3 = 11 ثم نضاعف: 22 سم." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "perimeter",
+          "shape": "carre",
+          "side": 7,
+          "unit": "cm",
+          "title": { "fr": "Périmètre d'un carré", "ar": "محيط مربع" },
+          "prompt": { "fr": "Touche les 4 côtés : ils sont tous égaux !", "ar": "المس الأضلاع الأربعة: كلها متساوية!" },
+          "success": { "fr": "Les 4 côtés égaux, périmètre au complet ! ✓", "ar": "الأضلاع الأربعة متساوية، اكتمل المحيط! ✓" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Périmètre ou pas ?", "ar": "محيط أم لا؟" },
+          "prompt": { "fr": "Range chaque calcul dans le bon panier.", "ar": "ضع كل حساب في السلة الصحيحة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "perim", "label": { "fr": "Calcul de périmètre", "ar": "حساب المحيط" } },
+            { "id": "aire", "label": { "fr": "Autre calcul", "ar": "حساب آخر" } }
+          ],
+          "items": [
+            { "label": { "fr": "5 × 4", "ar": "5 × 4" }, "bucket": "perim" },
+            { "label": { "fr": "5 + 5", "ar": "5 + 5" }, "bucket": "aire" },
+            { "label": { "fr": "(6 + 2) × 2", "ar": "(6 + 2) × 2" }, "bucket": "perim" },
+            { "label": { "fr": "6 × 2", "ar": "6 × 2" }, "bucket": "aire" }
+          ]
+        }
+      ]
+    }
+  ]
+}
