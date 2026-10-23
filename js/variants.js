@@ -313,7 +313,8 @@ const VARIANTS = {
             'measure-units', 'measure-compare', 'symmetry-axes', 'tables',
             'hundreds-units', 'decompose-1000', 'compare-1000', 'bound-ten',
             'tables-6-9', 'division-sense', 'division-quotient',
-            'fraction-read', 'fraction-parts', 'perimeter', 'lines-kind', 'right-angle'];
+            'fraction-read', 'fraction-parts', 'perimeter', 'lines-kind', 'right-angle',
+            'thousands-5', 'decimal-words', 'division-remainder', 'area', 'proportion'];
         if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
             return {
                 questions: spec.questions.map(q => {
@@ -739,8 +740,95 @@ const VARIANTS = {
                     options: order.map(k => names[k]),
                     answer: order.indexOf(kind)
                 });
+            } else if (topic === 'thousands-5') {
+                // Reading numbers in the thousands: "23 456" → "23 mille 456".
+                const a = rng.int(10, 99), b = rng.int(1, 999);
+                const ans = a + ' mille ' + b;
+                const opts = rng.shuffle([
+                    ans,
+                    a + ' cent ' + b,
+                    a + ' mille ' + (b + 1)
+                ]);
+                questions.push({
+                    prompt: { fr: 'Comment lit-on ' + a + ' ' + String(b).padStart(3, '0') + ' ?', ar: 'كيف نقرأ ' + (a * 1000 + b) + '؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'decimal-words') {
+                // Fraction → decimal: t/10 = 0,t and t/100 = 0,0t.
+                const t = rng.int(1, 9);
+                const useC = rng.float() < 0.5;
+                const ans = useC ? ('0,0' + t) : ('0,' + t);
+                const opts = rng.shuffle([
+                    ans,
+                    useC ? ('0,' + t) : ('0,0' + t),
+                    (t + ',' + (useC ? 0 : 1))
+                ]);
+                const frac = useC ? (t + '/100') : (t + '/10');
+                questions.push({
+                    prompt: { fr: frac + ' = ?', ar: frac + ' = ؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'division-remainder') {
+                // Euclidean division: a = d × q + r with r < d.
+                const d = rng.int(3, 9), q = rng.int(2, 9), r = rng.int(1, d - 1);
+                const a = d * q + r;
+                const ans = q + ' reste ' + r;
+                const opts = rng.shuffle([
+                    ans,
+                    q + ' reste ' + (r + 1 <= d - 1 ? r + 1 : r - 1),
+                    (q + 1) + ' reste ' + 0
+                ]);
+                questions.push({
+                    prompt: { fr: a + ' ÷ ' + d + ' = ?', ar: a + ' ÷ ' + d + ' = ؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'area') {
+                // Aire = côté × côté (carré) ou longueur × largeur (rectangle).
+                const shape = rng.pick(['carre', 'rectangle']);
+                let ans, label;
+                if (shape === 'carre') {
+                    const s = rng.int(2, 9); ans = s * s;
+                    label = { fr: 'un carré de côté ' + s + ' cm', ar: 'مربع ضلعه ' + s + ' سم' };
+                } else {
+                    const w = rng.int(3, 8), h = rng.int(2, 7); ans = w * h;
+                    label = { fr: 'un rectangle de ' + w + ' cm sur ' + h + ' cm', ar: 'مستطيل ' + w + ' سم في ' + h + ' سم' };
+                }
+                const opts = rng.shuffle([
+                    ans + ' cm²',
+                    (ans + 2) + ' cm²',
+                    Math.max(1, ans - 4) + ' cm²',
+                    (ans * 2) + ' cm²'
+                ]);
+                questions.push({
+                    prompt: { fr: 'Quelle est l\'aire de ' + label.fr + ' ?', ar: 'ما مساحة ' + label.ar + '؟' },
+                    options: opts, answer: opts.indexOf(ans + ' cm²')
+                });
+            } else if (topic === 'proportion') {
+                // u stylos coûtent price → p stylos coûtent p × unit price.
+                // Distractors are pooled and deduplicated so no two options
+                // ever carry the same value.
+                const u = rng.int(2, 6), p = rng.int(2, 5), unit = rng.int(2, 5);
+                const price = u * unit;
+                const ans = p * unit;
+                const cand = [ans, ans + unit, ans - unit, ans + 2 * unit, ans - 2 * unit, ans + u];
+                const seen = new Set();
+                const opts = [];
+                for (const c of cand) {
+                    if (c > 0 && !seen.has(c)) { seen.add(c); opts.push(c + ' €'); }
+                    if (opts.length === 4) break;
+                }
+                let pad = 1;
+                while (opts.length < 4) {
+                    const c = ans + pad;
+                    if (!seen.has(c)) { seen.add(c); opts.push(c + ' €'); }
+                    pad++;
+                }
+                const optsShuffled = rng.shuffle(opts);
+                questions.push({
+                    prompt: { fr: u + ' stylos coûtent ' + price + ' €. Combien coûtent ' + p + ' stylos ?', ar: 'تكلّف ' + u + ' أقلام ' + price + ' €. كم تكلف ' + p + ' أقلام؟' },
+                    options: optsShuffled, answer: optsShuffled.indexOf(ans + ' €')
+                });
             }
-
         }
         // Fill in any answer index left as null (compare-blank picks by content).
         questions.forEach(q => {
