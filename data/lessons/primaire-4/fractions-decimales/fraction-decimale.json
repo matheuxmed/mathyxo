@@ -1,0 +1,109 @@
+{
+  "id": "fraction-decimale",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "fractions-decimales",
+  "title": { "fr": "Fraction décimale", "ar": "الكسر العشري" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "dixiemes-centiemes",
+      "title": { "fr": "Dixièmes et centièmes", "ar": "الأعشار والأجزاء المائة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\">🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">1/10 = 0,1</div>",
+            "caption": { "fr": "Si on partage une unité en 10 parts égales, chaque part vaut 1/10 ou 0,1.", "ar": "إذا قسمنا الوحدة إلى 10 أجزاء متساوية، كل جزء يساوي 1/10 أو 0,1." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:2rem\">🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜<br>🟦⬜⬜⬜⬜⬜⬜⬜⬜⬜</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">2/10 = 0,2</div>",
+            "caption": { "fr": "Deux dixièmes s'écrivent 2/10 ou 0,2.", "ar": "عشران يكتبان 2/10 أو 0,2." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">3/100 = 0,03</div>", "caption": { "fr": "Partager en 100 : 3 centièmes s'écrivent 0,03.", "ar": "القسمة إلى 100: ثلاثة أجزاء من مئة تكتب 0,03." } },
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">25/100 = 0,25</div>", "caption": { "fr": "25 centièmes = 0,25 (vingt-cinq centièmes).", "ar": "25 جزءاً من مئة = 0,25." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "fraction",
+          "shape": "bar",
+          "mode": "read",
+          "parts": 10,
+          "shaded": 3,
+          "target": 3,
+          "title": { "fr": "Fractions décimales en dixièmes", "ar": "كسور عشرية بالأعشار" },
+          "prompt": { "fr": "Lis la fraction décimale.", "ar": "اقرأ الكسر العشري." },
+          "correct": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "retry": { "fr": "Compte les parts coloriées sur 10.", "ar": "اعدّ الأجزاء الملوّنة من 10." }
+        },
+        {
+          "type": "quiz",
+          "topic": "decimal-words",
+          "title": { "fr": "Passer fraction → nombre décimal", "ar": "تحويل الكسر إلى عدد عشري" },
+          "prompt": { "fr": "Trouve l'écriture décimale.", "ar": "جد الكتابة العشرية." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "1/10 = 0,1 ; 1/100 = 0,01.", "ar": "1/10 = 0,1 ؛ 1/100 = 0,01." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "3/10 = ?", "ar": "3/10 = ؟" }, "options": ["0,03", "0,3", "3,0"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tableau-decimal",
+      "title": { "fr": "Le tableau des nombres décimaux", "ar": "جدول الأعداد العشرية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">Partie entière , Partie décimale</div><div style=\"text-align:center;font-size:1.2rem;margin-top:10px\">unités , dixièmes centièmes</div>", "caption": { "fr": "On sépare avec une virgule : à gauche les unités, à droite les dixièmes et centièmes.", "ar": "نفصل بالفاصلة: يسارها الوحدات، يمينها الأعشار والأجزاء المائة." } },
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">12,3 = 12 + 3/10</div>", "caption": { "fr": "12,3 se lit « douze virgule trois » ou « douze unités et trois dixièmes ».", "ar": "12,3 تقرأ «اثنا عشر فاصلة ثلاثة» أو «اثنا عشر وحدة وثلاثة أعشار»." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">0,25 = 25 centièmes</div>", "caption": { "fr": "0,25 signifie 0 unité, 2 dixièmes et 5 centièmes.", "ar": "0,25 تعني 0 وحدة، و2 أعشار، و5 أجزاء من مئة." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "3,45",
+          "title": { "fr": "Place les décimaux", "ar": "ضع الأعداد العشرية" },
+          "prompt": { "fr": "Place unités, dixièmes et centièmes.", "ar": "ضع الوحدات والأعشار والأجزاء المائة." },
+          "success": { "fr": "Bien placé ! ✓", "ar": "موضع صحيح! ✓" }
+        },
+        {
+          "type": "matching",
+          "pairType": "decimal-fraction",
+          "title": { "fr": "Relie fraction et décimal", "ar": "اربط الكسر بالعدد العشري" },
+          "prompt": { "fr": "Touche une fraction décimale, puis son écriture à virgule.", "ar": "المس كسر عشري ثم كتابته بالفاصلة." },
+          "pairCorrect": { "fr": "Juste ! ✓", "ar": "صحيح! ✓" },
+          "pairWrong": { "fr": "1/10 = 0,1, 1/100 = 0,01.", "ar": "1/10 = 0,1، 1/100 = 0,01." }
+        }
+      ]
+    }
+  ]
+}

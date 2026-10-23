@@ -1,0 +1,113 @@
+{
+  "id": "division-entiere",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "division-euclidienne",
+  "title": { "fr": "La division entière", "ar": "القسمة الإقليدية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "quotient-reste",
+      "title": { "fr": "Quotient et reste", "ar": "الخارج والباقي" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">On partage 17 bonbons entre 3 enfants.</div><div style=\"text-align:center;font-size:1.6rem;margin-top:10px\">17 ÷ 3</div>", "caption": { "fr": "On ne peut pas toujours partager exactement.", "ar": "لا يمكننا دائماً القسمة بالتساوي تماماً." } },
+          { "html": "<div style=\"text-align:center;font-size:1.6rem\">5 × 3 = 15 &nbsp; reste 2</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">17 = (5 × 3) + 2</div>", "caption": { "fr": "Chaque enfant reçoit 5 bonbons, il en reste 2. Le reste est toujours plus petit que le diviseur.", "ar": "يحصل كل طفل على 5 حلويات، يبقى 2. الباقي دائماً أصغر من المقسوم عليه." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">23 ÷ 4 = 5 reste 3</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">car 5 × 4 = 20, 23 - 20 = 3</div>", "caption": { "fr": "23 divisé par 4 donne 5 fois, reste 3.", "ar": "23 مقسومة على 4 تعطينا 5 مرات، والباقي 3." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "division-remainder",
+          "title": { "fr": "Quotient et reste", "ar": "الخارج والباقي" },
+          "prompt": { "fr": "Trouve le quotient et le reste.", "ar": "جد الخارج والباقي." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Calcule le plus grand multiple inférieur au dividende.", "ar": "احسب أكبر مضاعف أصغر من المقسوم." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "17 ÷ 3 = ?", "ar": "17 ÷ 3 = ؟" }, "options": ["5 reste 2", "6 reste -1", "4 reste 5"], "answer": 0 }
+          ]
+        },
+        {
+          "type": "matching",
+          "pairType": "division-pairs",
+          "title": { "fr": "Relie division et résultat", "ar": "اربط القسمة بالنتيجة" },
+          "prompt": { "fr": "Touche une division, puis son quotient et son reste.", "ar": "المس قسمة ثم خارجها وباقيها." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Vérifie : reste < diviseur.", "ar": "تحقق: الباقي أصغر من المقسوم عليه." }
+        }
+      ]
+    },
+    {
+      "id": "poser-division",
+      "title": { "fr": "Poser une division", "ar": "إجراء القسمة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">On cherche combien de fois 4 dans 23.</div><div style=\"text-align:center;font-size:1.5rem;margin-top:8px\">4 × 5 = 20, reste 3</div>", "caption": { "fr": "On pose 5 au quotient, on soustrait 20, il reste 3.", "ar": "نضع 5 في الخارج، نطرح 20، يبقى 3." } },
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">Le reste 3 est plus petit que 4. On s'arrête.</div>", "caption": { "fr": "Quand le reste est plus petit que le diviseur, la division est terminée.", "ar": "عندما يكون الباقي أصغر من المقسوم عليه، تنتهي القسمة." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">38 ÷ 5 = 7 reste 3</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">5 × 7 = 35, 38 - 35 = 3</div>", "caption": { "fr": "7 fois 5 = 35, il reste 3. 3 < 5 donc terminé.", "ar": "7 × 5 = 35، يبقى 3. 3 < 5 إذن انتهت القسمة." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Exacte ou avec reste ?", "ar": "بالتمام أم بباقي؟" },
+          "prompt": { "fr": "Classe chaque division.", "ar": "صنّف كل قسمة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "exact", "label": { "fr": "Division exacte", "ar": "قسمة تامة" } },
+            { "id": "reste", "label": { "fr": "Avec un reste", "ar": "مع باقٍ" } }
+          ],
+          "items": [
+            { "label": { "fr": "12 ÷ 3", "ar": "12 ÷ 3" }, "bucket": "exact" },
+            { "label": { "fr": "17 ÷ 3", "ar": "17 ÷ 3" }, "bucket": "reste" },
+            { "label": { "fr": "20 ÷ 4", "ar": "20 ÷ 4" }, "bucket": "exact" },
+            { "label": { "fr": "23 ÷ 4", "ar": "23 ÷ 4" }, "bucket": "reste" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "division-remainder",
+          "title": { "fr": "Trouve reste et quotient", "ar": "جد الخارج والباقي" },
+          "prompt": { "fr": "Attention au reste.", "ar": "انتبه للباقي." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Le reste doit être plus petit que le diviseur.", "ar": "يجب أن يكون الباقي أصغر من المقسوم عليه." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "26 ÷ 5 = ?", "ar": "26 ÷ 5 = ؟" }, "options": ["5 reste 1", "4 reste 6", "6 reste -4"], "answer": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

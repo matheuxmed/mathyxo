@@ -1,0 +1,114 @@
+{
+  "id": "lire-grands-nombres",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "nombres-grands",
+  "title": { "fr": "Lire les grands nombres", "ar": "قراءة الأعداد الكبيرة" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "classes-mille",
+      "title": { "fr": "La classe des mille", "ar": "فئة الآلاف" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.25rem\">On regroupe les nombres par 3 en allant de la droite vers la gauche.</div>",
+            "caption": { "fr": "On sépare milliers et unités : 12 345 se lit « douze mille trois cent quarante-cinq ».", "ar": "نفصل الآلاف والوحدات: 12 345 تقرأ «اثنا عشر ألفاً وثلاثمئة وخمسة وأربعون»." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.6rem\">12 <span style='color:#f5a524'>000</span></div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">12 mille</div>",
+            "caption": { "fr": "Tout ce qui est avant les trois derniers chiffres forme la classe des mille.", "ar": "كل ما قبل الأرقام الثلاثة الأخيرة يشكل فئة الآلاف." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">23 456 = 23 milliers + 456 unités</div>", "caption": { "fr": "23 456 se lit « vingt-trois mille quatre cent cinquante-six ».", "ar": "23 456 تقرأ «ثلاثة وعشرون ألفاً وأربعمئة وستة وخمسون»." } },
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">105 000 = 105 milliers</div>", "caption": { "fr": "105 000 se lit « cent cinq mille ».", "ar": "105 000 تقرأ «مئة وخمسة آلاف»." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "number-words-5digit",
+          "title": { "fr": "Relie le nombre et son nom", "ar": "اربط العدد باسمه" },
+          "prompt": { "fr": "Lis bien les milliers.", "ar": "اقرأ الآلاف جيداً." },
+          "pairCorrect": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "pairWrong": { "fr": "Sépare le nombre par groupes de 3 depuis la droite.", "ar": "افصل العدد إلى مجموعات من 3 من اليمين." }
+        },
+        {
+          "type": "quiz",
+          "topic": "thousands-5",
+          "title": { "fr": "Lis un grand nombre", "ar": "اقرأ عدداً كبيراً" },
+          "prompt": { "fr": "Choisis la bonne lecture.", "ar": "اختر القراءة الصحيحة." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Regarde le nombre de milliers.", "ar": "انظر إلى عدد الآلاف." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Comment lit-on 23 456 ?", "ar": "كيف نقرأ 23 456؟" }, "options": ["deux mille trois cent quarante-six", "vingt-trois mille quatre cent cinquante-six", "deux cent trente-quatre mille cinquante-six"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jusquau-million",
+      "title": { "fr": "Jusqu'au million", "ar": "حتى المليون" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.6rem\">1 000 000</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">un million</div>", "caption": { "fr": "Un million, c'est mille milliers.", "ar": "المليون هو ألف ألف." } },
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">2 345 678</div>", "caption": { "fr": "2 345 678 se lit « deux millions trois cent quarante-cinq mille six cent soixante-dix-huit ».", "ar": "2 345 678 تقرأ «مليونان وثلاثمئة وخمسة وأربعون ألفاً وستمئة وثمانية وسبعون»." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">1 250 000 = 1 million 250 mille</div>", "caption": { "fr": "On lit par classe : millions, milliers, unités.", "ar": "نقرأ حسب الفئات: الملايين والآلاف والوحدات." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "2 345 678",
+          "title": { "fr": "Décompose un grand nombre", "ar": "فكك عدداً كبيراً" },
+          "prompt": { "fr": "Place chaque chiffre dans sa classe.", "ar": "ضع كل رقم في فئته." },
+          "success": { "fr": "Bien décomposé ! ✓", "ar": "فكك بشكل صحيح! ✓" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Classe par valeur", "ar": "صنّف حسب القيمة" },
+          "prompt": { "fr": "Range les nombres du plus petit au plus grand.", "ar": "رتّب الأعداد من الأصغر إلى الأكبر." },
+          "correct": { "fr": "Bien rangé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "lt100k", "label": { "fr": "Moins de 100 000", "ar": "أقل من 100000" } },
+            { "id": "gt100k", "label": { "fr": "100 000 ou plus", "ar": "100000 أو أكثر" } }
+          ],
+          "items": [
+            { "label": { "fr": "45 000", "ar": "45000" }, "bucket": "lt100k" },
+            { "label": { "fr": "250 000", "ar": "250000" }, "bucket": "gt100k" },
+            { "label": { "fr": "99 999", "ar": "99999" }, "bucket": "lt100k" },
+            { "label": { "fr": "1 000 000", "ar": "1000000" }, "bucket": "gt100k" }
+          ]
+        }
+      ]
+    }
+  ]
+}

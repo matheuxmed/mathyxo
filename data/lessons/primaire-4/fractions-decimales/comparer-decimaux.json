@@ -1,0 +1,63 @@
+{
+  "id": "comparer-decimaux",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "fractions-decimales",
+  "title": { "fr": "Comparer des décimaux", "ar": "مقارنة الأعداد العشرية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "comparer-virgule",
+      "title": { "fr": "Comparer avec la virgule", "ar": "المقارنة بالفاصلة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">On compare d'abord la partie entière.</div>", "caption": { "fr": "Si les parties entières sont différentes, on compare comme des entiers.", "ar": "إذا اختلف الجزء الصحيح، نقارن كالأعداد الصحيحة." } },
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">3,4 > 2,9</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">3 > 2 donc 3,4 est plus grand</div>", "caption": { "fr": "3,4 est plus grand que 2,9 car 3 > 2.", "ar": "3,4 أكبر من 2,9 لأن 3 > 2." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.5rem\">3,45 < 3,5</div>", "caption": { "fr": "Si la partie entière est identique, on compare les dixièmes puis les centièmes.", "ar": "إذا تساوى الجزء الصحيح، نقارن الأعشار ثم الأجزاء المائة." } },
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">3,45 vs 3,50 → 3,45 < 3,50</div>", "caption": { "fr": "On peut ajouter un zéro pour comparer plus facilement.", "ar": "يمكن إضافة صفر للمقارنة بسهولة أكبر." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "compare",
+          "a": "3,45",
+          "b": "3,5",
+          "title": { "fr": "Compare deux décimaux", "ar": "قارن عددين عشريين" },
+          "prompt": { "fr": "Choisis le bon signe.", "ar": "اختر الرمز الصحيح." },
+          "success": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "retry": { "fr": "Regarde les dixièmes et les centièmes.", "ar": "انظر إلى الأعشار والأجزاء المائة." }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Range du plus petit au plus grand", "ar": "رتّب من الأصغر إلى الأكبر" },
+          "prompt": { "fr": "Classe ces nombres décimaux.", "ar": "صنّف هذه الأعداد العشرية." },
+          "correct": { "fr": "Bien rangé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "inf1", "label": { "fr": "Inférieur à 1", "ar": "أقل من 1" } },
+            { "id": "sup1", "label": { "fr": "Supérieur ou égal à 1", "ar": "أكبر أو يساوي 1" } }
+          ],
+          "items": [
+            { "label": { "fr": "0,5", "ar": "0,5" }, "bucket": "inf1" },
+            { "label": { "fr": "1,2", "ar": "1,2" }, "bucket": "sup1" },
+            { "label": { "fr": "0,75", "ar": "0,75" }, "bucket": "inf1" },
+            { "label": { "fr": "2,1", "ar": "2,1" }, "bucket": "sup1" }
+          ]
+        }
+      ]
+    }
+  ]
+}

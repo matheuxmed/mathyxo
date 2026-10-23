@@ -1,0 +1,113 @@
+{
+  "id": "construire-cercle",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "cercles-triangles",
+  "title": { "fr": "Construire un cercle", "ar": "إنشاء دائرة" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "cercle-centre-rayon",
+      "title": { "fr": "Centre et rayon", "ar": "المركز ونصف القطر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">Le cercle est l'ensemble des points à égale distance du centre.</div>", "caption": { "fr": "Tous les points du cercle sont à la même distance du centre O.", "ar": "جميع نقاط الدائرة على نفس البعد من المركز O." } },
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">O ●————•</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">rayon [OA]</div>", "caption": { "fr": "Le rayon relie le centre à n'importe quel point du cercle.", "ar": "نصف القطر يربط المركز بأي نقطة على الدائرة." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">diamètre = 2 × rayon</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Un diamètre passe par le centre et relie deux points du cercle.</div>", "caption": { "fr": "Le diamètre fait deux fois le rayon.", "ar": "القطر يساوي ضعفي نصف القطر." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "circle",
+          "title": { "fr": "Vocabulaire du cercle", "ar": "مصطلحات الدائرة" },
+          "prompt": { "fr": "Choisis le bon mot.", "ar": "اختر الكلمة الصحيحة." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Le rayon part du centre. Le diamètre passe par le centre.", "ar": "نصف القطر يبدأ من المركز. القطر يمر بالمركز." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Le segment qui relie le centre à un point du cercle, c'est…", "ar": "القطعة التي تربط المركز بنقطة على الدائرة هي..." }, "options": ["le diamètre", "le rayon", "la corde"], "answer": 1 }
+          ]
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Rayon ou diamètre ?", "ar": "نصف قطر أم قطر؟" },
+          "prompt": { "fr": "Classe chaque proposition.", "ar": "صنّف كل عبارة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "rayon", "label": { "fr": "Rayon", "ar": "نصف القطر" } },
+            { "id": "diametre", "label": { "fr": "Diamètre", "ar": "القطر" } }
+          ],
+          "items": [
+            { "label": { "fr": "Relie centre et cercle", "ar": "يربط المركز بالدائرة" }, "bucket": "rayon" },
+            { "label": { "fr": "Passe par le centre", "ar": "يمر بالمركز" }, "bucket": "diametre" },
+            { "label": { "fr": "Longueur = moitié du diamètre", "ar": "طوله = نصف القطر" }, "bucket": "rayon" },
+            { "label": { "fr": "Relie deux points du cercle en passant par O", "ar": "يربط نقطتين على الدائرة ماراً بالمركز" }, "bucket": "diametre" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compas",
+      "title": { "fr": "Utiliser le compas", "ar": "استعمال الفرجار" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">On plante la pointe sur le centre.</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">📐</div>", "caption": { "fr": "Avec le compas, on trace un cercle en gardant l'écartement constant.", "ar": "بالفرجار نرسم دائرة مع الحفاظ على فتح ثابت." } },
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">L'écartement = la longueur du rayon.</div>", "caption": { "fr": "On règle l'écartement du compas pour obtenir le rayon voulu.", "ar": "نضبط فتحة الفرجار للحصول على نصف القطر المطلوب." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">Tracer le cercle de centre O et de rayon 3 cm</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Ouvre le compas à 3 cm, pique en O, trace.</div>", "caption": { "fr": "On mesure 3 cm avec une règle, on trace le cercle.", "ar": "نقيس 3 سم بالمسطرة، ونرسم الدائرة." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "circle-parts",
+          "title": { "fr": "Associe centre, rayon, diamètre", "ar": "اربط المركز ونصف القطر والقطر" },
+          "prompt": { "fr": "Relie chaque mot à sa définition.", "ar": "اربط كل كلمة بتعريفها." },
+          "pairCorrect": { "fr": "Bien ! ✓", "ar": "حسنًا! ✓" },
+          "pairWrong": { "fr": "Revois le vocabulaire du cercle.", "ar": "راجع مصطلحات الدائرة." }
+        },
+        {
+          "type": "quiz",
+          "topic": "circle",
+          "title": { "fr": "Rayon ou diamètre", "ar": "نصف قطر أم قطر" },
+          "prompt": { "fr": "Calcule si besoin.", "ar": "احسب إن لزم الأمر." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "diamètre = 2 × rayon.", "ar": "القطر = 2 × نصف القطر." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Si le rayon mesure 3 cm, le diamètre mesure…", "ar": "إذا كان نصف القطر 3 سم، يكون القطر..." }, "options": ["3 cm", "6 cm", "9 cm"], "answer": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}

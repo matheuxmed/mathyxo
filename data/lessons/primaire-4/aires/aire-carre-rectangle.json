@@ -1,0 +1,117 @@
+{
+  "id": "aire-carre-rectangle",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "aires",
+  "title": { "fr": "Aire du carré et du rectangle", "ar": "مساحة المربع والمستطيل" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "notion-d-aire",
+      "title": { "fr": "Qu'est-ce qu'une aire ?", "ar": "ما المساحة؟" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">L'aire, c'est la surface à recouvrir.</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">⬜⬜⬜<br>⬜⬜⬜</div>", "caption": { "fr": "L'aire mesure la place occupée par une figure sur un plan.", "ar": "المساحة تقيس الحيز الذي يشغله الشكل." } },
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">On compte les carrés unités.</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">⬛⬛<br>⬛⬛</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">4 carreaux</div>", "caption": { "fr": "On exprime l'aire en cm² ou en carreaux unités.", "ar": "نعبر عن المساحة بـ سم² أو بالوحدات المربعة." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">Rectangle de 3 carreaux sur 2</div><div style=\"text-align:center;font-size:1.5rem;margin-top:8px\">3 × 2 = 6 carreaux</div>", "caption": { "fr": "Pour un rectangle, aire = Longueur × largeur.", "ar": "المستطيل: المساحة = الطول × العرض." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "area",
+          "title": { "fr": "Calcule l'aire", "ar": "احسب المساحة" },
+          "prompt": { "fr": "Trouve l'aire en cm².", "ar": "جد المساحة بالسم²." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie la longueur par la largeur.", "ar": "اضرب الطول في العرض." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Un carré de côté 5 cm : aire ?", "ar": "مربع ضلعه 5 سم: المساحة؟" }, "options": ["20 cm²", "25 cm²", "10 cm²"], "answer": 1 }
+          ]
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Aire ou périmètre ?", "ar": "مساحة أم محيط؟" },
+          "prompt": { "fr": "Classe chaque formule.", "ar": "صنّف كل صيغة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "buckets": [
+            { "id": "aire", "label": { "fr": "Aire", "ar": "المساحة" } },
+            { "id": "perim", "label": { "fr": "Périmètre", "ar": "المحيط" } }
+          ],
+          "items": [
+            { "label": { "fr": "Longueur × largeur", "ar": "الطول × العرض" }, "bucket": "aire" },
+            { "label": { "fr": "(L + l) × 2", "ar": "(ط + ع) × 2" }, "bucket": "perim" },
+            { "label": { "fr": "Côté × côté", "ar": "الضلع × الضلع" }, "bucket": "aire" },
+            { "label": { "fr": "Côté × 4", "ar": "الضلع × 4" }, "bucket": "perim" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cm2",
+      "title": { "fr": "Le cm²", "ar": "السنتيمتر المربع" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.3rem\">1 cm² est un carré de 1 cm de côté.</div><div style=\"text-align:center;font-size:2rem;margin-top:10px\">⬛</div>", "caption": { "fr": "L'unité d'aire est le centimètre carré (cm²).", "ar": "وحدة المساحة هي السنتيمتر المربع (سم²)." } },
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">Rectangle 6 cm × 4 cm = 24 cm²</div>", "caption": { "fr": "6 × 4 = 24, on écrit 24 cm².", "ar": "6 × 4 = 24، نكتب 24 سم²." } }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          { "html": "<div style=\"text-align:center;font-size:1.4rem\">Carré 7 cm × 7 cm = 49 cm²</div>", "caption": { "fr": "Pour un carré, côté × côté.", "ar": "للمربع: الضلع × الضلع." } }
+        ]
+      },
+      "applications": [
+        {
+          "type": "fraction",
+          "shape": "bar",
+          "mode": "shade",
+          "parts": 6,
+          "target": 6,
+          "title": { "fr": "Compte les carreaux", "ar": "عدّ المربعات" },
+          "prompt": { "fr": "Recouvre toute la surface : calcule l'aire.", "ar": "غطِّ السطح كله: احسب المساحة." },
+          "correct": { "fr": "Aire trouvée ! ✓", "ar": "تم إيجاد المساحة! ✓" },
+          "retry": { "fr": "Multiplie largeur × hauteur.", "ar": "اضرب العرض × الارتفاع." },
+          "tooMany": { "fr": "Trop de carreaux !", "ar": "مربعات أكثر من اللازم!" }
+        },
+        {
+          "type": "quiz",
+          "topic": "area",
+          "title": { "fr": "Problèmes d'aire", "ar": "مسائل المساحة" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Fais attention aux unités : cm².", "ar": "انتبه للوحدات: سم²." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! �✅" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Un rectangle fait 8 cm sur 3 cm. Son aire est…", "ar": "مستطيل أبعاده 8 سم في 3 سم. مساحته..." }, "options": ["24 cm²", "22 cm²", "11 cm²"], "answer": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}
