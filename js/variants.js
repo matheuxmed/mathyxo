@@ -875,7 +875,14 @@ const VARIANTS = {
     },
 
     // spec: { type:'place-value', mode:'build'|'compare', intDigits:n, decimals:n }
+    // Authored numbers are authoritative: when the lesson pins `a`/`b` (compare)
+    // or `number` (build), the widget must show exactly those — the generator
+    // only fills in random digits for specs that leave the field open (gallery
+    // demos). Retries stay on the taught anchor, which is the point of the
+    // re-teach step.
     'place-value'(spec, rng) {
+        if (spec.mode === 'compare' && spec.a != null && spec.b != null) return {};
+        if (spec.mode !== 'compare' && spec.number != null) return {};
         const intDigits = spec.intDigits || 1;
         const decimals = spec.decimals || 1;
         const randDigits = (n, firstMin) => {

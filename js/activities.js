@@ -1175,7 +1175,7 @@ function buildPlaceValue(spec, host) {
     }
 
     // mode 'build': show a table; student taps the digit for each column.
-    const number = spec.number || '3,45';
+    const number = String(spec.number || '3,45').replace(/\s+/g, '');   // spaces = thousands separators, not digits
     const digits = number.replace(',', '.').split('');       // e.g. ['3','.','4','5']
     const intPart = number.split(',')[0] || '';
     const decPart = number.split(',')[1] || '';
@@ -1183,12 +1183,25 @@ function buildPlaceValue(spec, host) {
     const header = actEl('div', 'pv-row pv-head');
     const bodyRow = actEl('div', 'pv-row pv-body');
     const tensRow = actEl('div', 'pv-row pv-parts');
-    const allLabels = ['C', 'D', 'U'].slice(-Math.max(1, intPart.length)).concat(['dixièmes', 'centièmes'].slice(0, decPart.length));
-    // Simpler: label columns for the digits we actually show.
-    const cols = intPart.split('').map((_, i, arr) => ['C', 'D', 'U'][3 - arr.length + i] || 'U').concat(decPart.split('').map((_, i) => i === 0 ? 'dixièmes' : 'centièmes'));
+    // Column labels by position from the right: U, D, C, then the
+    // mille/millions classes so big numbers (e.g. 2345678) are labeled
+    // correctly instead of falling back to 'U' everywhere.
+    const POS_LBL = [
+        { fr: 'U', ar: 'آحاد' },
+        { fr: 'D', ar: 'عشرات' },
+        { fr: 'C', ar: 'مئات' },
+        { fr: 'U de mille', ar: 'آحاد الألف' },
+        { fr: 'D de mille', ar: 'عشرات الألف' },
+        { fr: 'C de mille', ar: 'مئات الألف' },
+        { fr: 'U de mill.', ar: 'آحاد المليون' },
+        { fr: 'D de mill.', ar: 'عشرات المليون' },
+        { fr: 'C de mill.', ar: 'مئات المليون' }
+    ];
+    const cols = intPart.split('').map((_, i) => POS_LBL[intPart.length - 1 - i] || POS_LBL[2])
+        .concat(decPart.split('').map((_, i) => ({ fr: i === 0 ? 'dixièmes' : 'centièmes', ar: i === 0 ? 'أعشار' : 'أجزاء من مائة' })));
 
     cols.forEach(lab => {
-        header.appendChild(actEl('div', 'pv-cell pv-cell-head', pick({ fr: lab, ar: lab })));
+        header.appendChild(actEl('div', 'pv-cell pv-cell-head', pick(lab)));
     });
     const inputs = [];
     const allDigits = (intPart + decPart).split('');
