@@ -1,0 +1,120 @@
+{
+  "id": "ecriture-decimale",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "nombres-decimaux",
+  "title": { "fr": "Écriture décimale", "ar": "الكتابة العشرية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "virgule-rangs",
+      "title": { "fr": "La virgule et les rangs", "ar": "الفاصلة والمراتب" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">3,45</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">3 = partie entière · 45 = partie décimale</div>",
+            "caption": { "fr": "La virgule sépare la partie entière et la partie décimale.", "ar": "الفاصلة تفصل الجزء الصحيح عن الجزء العشري." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">3,45 = 3 unités + 4 dixièmes + 5 centièmes</div>",
+            "caption": { "fr": "Chaque chiffre a un rang : unités, dixièmes, centièmes…", "ar": "لكل رقم مرتبة: آحاد، أعشار، أجزاء من مائة…" }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2,7 = 2 + 0,7</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">7 est le chiffre des dixièmes.</div>",
+            "caption": { "fr": "2,7 se lit « deux virgule sept » : 2 unités et 7 dixièmes.", "ar": "يُقرأ 2,7 «اثنان فاصلة سبعة»: آحدتان وسبعة أعشار." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">12,08</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">0 dixième, 8 centièmes → 12 + 0,08</div>",
+            "caption": { "fr": "Le zéro des dixièmes garde sa place : 12,08 ≠ 12,8.", "ar": "الصفر في مرتبة الأعشار يحفظ مكانه: 12,08 لا تساوي 12,8." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "decimals-place",
+          "title": { "fr": "Quel est ce chiffre ?", "ar": "أي رقم هذا؟" },
+          "prompt": { "fr": "Trouve le chiffre demandé.", "ar": "أوجد الرقم المطلوب." },
+          "correct": { "fr": "Bien repéré ! ✓", "ar": "تمييز صحيح! ✓" },
+          "incorrect": { "fr": "Compte les rangs après la virgule : dixièmes puis centièmes.", "ar": "عُدّ المرتبات بعد الفاصلة: أعشار ثم أجزاء من مائة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "place-value",
+          "mode": "build",
+          "number": "12,34",
+          "title": { "fr": "Écris 12,34", "ar": "اكتب 12,34" },
+          "prompt": { "fr": "Place chaque chiffre dans sa colonne.", "ar": "ضع كل رقم في عموده." },
+          "success": { "fr": "12,34 = 12 unités + 3 dixièmes + 4 centièmes ✓", "ar": "12,34 = 12 آحاد + 3 أعشار + 4 أجزاء من مائة ✓" }
+        }
+      ]
+    },
+    {
+      "id": "fractions-decimales-ecrire",
+      "title": { "fr": "Fractions et écriture décimale", "ar": "الكسور والكتابة العشرية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">7/10 = 0,7</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Diviser par 10 décale d'un rang vers la droite.</div>",
+            "caption": { "fr": "Une fraction décimale s'écrit avec une virgule.", "ar": "الكسر العشري يُكتب بفاصلة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">23/100 = 0,23</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Deux chiffres après la virgule pour /100.</div>",
+            "caption": { "fr": "Le dénominateur indique combien de chiffres après la virgule.", "ar": "المقام يحدد عدد الأرقام بعد الفاصلة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5/100 = 0,05</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Le 5 va dans la colonne des centièmes.</div>",
+            "caption": { "fr": "Attention au zéro : 5/100 = 0,05 et non 0,5.", "ar": "انتبه للصفر: 5/100 تساوي 0,05 وليس 0,5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "decimal-fraction",
+          "title": { "fr": "Relie fraction et décimal", "ar": "اربط الكسر بالعدد العشري" },
+          "prompt": { "fr": "Touche une fraction, puis son écriture décimale.", "ar": "المس كسراً ثم كتابته العشرية." },
+          "pairCorrect": { "fr": "Bien relié ! ✓", "ar": "ربط صحيح! ✓" },
+          "pairWrong": { "fr": "Compte les chiffres après la virgule.", "ar": "عُدّ الأرقام بعد الفاصلة." }
+        },
+        {
+          "type": "quiz",
+          "topic": "decimal-words",
+          "title": { "fr": "Fraction → décimal", "ar": "كسر ← عشري" },
+          "prompt": { "fr": "Choisis la bonne écriture.", "ar": "اختر الكتابة الصحيحة." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "/10 → 1 chiffre après la virgule ; /100 → 2 chiffres.", "ar": "/10 ← رقم واحد بعد الفاصلة؛ /100 ← رقمان بعد الفاصلة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

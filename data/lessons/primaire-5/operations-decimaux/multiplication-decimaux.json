@@ -1,0 +1,127 @@
+{
+  "id": "multiplication-decimaux",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "operations-decimaux",
+  "title": { "fr": "Multiplication des décimaux", "ar": "ضرب الأعداد العشرية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "multiplier-par-10",
+      "title": { "fr": "Multiplier par 10, 100, 1000", "ar": "الضرب في 10 و100 و1000" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3,25 × 10 = 32,5</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">La virgule se décale d'un rang vers la droite.</div>",
+            "caption": { "fr": "Multiplier par 10 : la virgule avance d'un rang.", "ar": "الضرب في 10: تتقدم الفاصلة مرتبة واحدة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3,25 × 100 = 325</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">× 100 → deux rangs vers la droite.</div>",
+            "caption": { "fr": "Multiplier par 100 : la virgule avance de deux rangs.", "ar": "الضرب في 100: تتقدم الفاصلة مرتبتين." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">4,7 × 1000 = 4700</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">On complète avec des zéros si besoin.</div>",
+            "caption": { "fr": "× 1000 : trois rangs vers la droite, on complète avec des zéros.", "ar": "الضرب في 1000: ثلاث مرتبات، نكمل بالأصفار." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "mul-10",
+          "title": { "fr": "La virgule voyage", "ar": "الفاصلة تسافر" },
+          "prompt": { "fr": "Multiplie par 10, 100 ou 1000.", "ar": "اضرب في 10 أو 100 أو 1000." },
+          "correct": { "fr": "Bien décalé ! ✓", "ar": "إزاحة صحيحة! ✓" },
+          "incorrect": { "fr": "Compte les zéros du multiplicateur : la virgule avance d'autant de rangs.", "ar": "عُدّ أصفار المضروب فيه: تتقدم الفاصلة بنفس العدد." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "× 10 ou × 100 ?", "ar": "× 10 أم × 100؟" },
+          "prompt": { "fr": "Chaque nombre a été multiplié : par quoi ?", "ar": "كل عدد ضُرب: فيمَ؟" },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة صحيحة! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "x10", "label": { "fr": "Multiplié par 10", "ar": "ضُرب في 10" } },
+            { "id": "x100", "label": { "fr": "Multiplié par 100", "ar": "ضُرب في 100" } }
+          ],
+          "items": [
+            { "label": { "fr": "5,2 → 52", "ar": "5,2 → 52" }, "bucket": "x10" },
+            { "label": { "fr": "5,2 → 520", "ar": "5,2 → 520" }, "bucket": "x100" },
+            { "label": { "fr": "0,7 → 70", "ar": "0,7 → 70" }, "bucket": "x100" },
+            { "label": { "fr": "12,3 → 123", "ar": "12,3 → 123" }, "bucket": "x10" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multiplier-decimal",
+      "title": { "fr": "Multiplier deux décimaux", "ar": "ضرب عددَين عشريّين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2 × 0,3 = 0,6</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">0,3 + 0,3 = 0,6 : deux dixièmes-triples.</div>",
+            "caption": { "fr": "Multiplier par 2, c'est doubler : 0,3 deux fois fait 0,6.", "ar": "الضرب في 2 هو الازدواج: 0,3 مرتين تساوي 0,6." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">3 × 0,25 : trois quarts de… → 0,75</div>",
+            "caption": { "fr": "0,25 c'est un quart ; 3 quarts = 0,75.", "ar": "0,25 هو الربع؛ ثلاثة أرباع تساوي 0,75." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">4 × 1,2 = 4,8</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">4 × 1 = 4 et 4 × 0,2 = 0,8 → 4 + 0,8</div>",
+            "caption": { "fr": "On décompose : multiplier par 1,2 = par 1 puis par 0,2.", "ar": "نفكك: الضرب في 1,2 = الضرب في 1 ثم في 0,2." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "mul-decimal",
+          "title": { "fr": "Calcule le produit", "ar": "احسب الجداء" },
+          "prompt": { "fr": "Multiplie.", "ar": "اضرب." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Pense en dixièmes : 2 × 0,3 = 2 × 3 dixièmes = 6 dixièmes.", "ar": "فكّر بالأعشار: 2 × 0,3 = 2 × 3 أعشار = 6 أعشار." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "mul-decimal-pairs",
+          "title": { "fr": "Relie multiplication et produit", "ar": "اربط الضرب بالجداء" },
+          "prompt": { "fr": "Touche une multiplication, puis son résultat.", "ar": "المس ضرباً ثم نتيجته." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Recompte les dixièmes.", "ar": "أعد عَدّ الأعشار." }
+        }
+      ]
+    }
+  ]
+}

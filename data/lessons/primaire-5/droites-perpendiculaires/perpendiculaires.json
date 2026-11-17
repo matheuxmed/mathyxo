@@ -1,0 +1,135 @@
+{
+  "id": "perpendiculaires",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "droites-perpendiculaires",
+  "title": { "fr": "Droites perpendiculaires", "ar": "المستقيمات المتعامدة" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "reconnaitre-perpendiculaires",
+      "title": { "fr": "Reconnaître deux droites perpendiculaires", "ar": "التعرف على مستقيمين متعامدين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">⊥</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Deux droites perpendiculaires se coupent en formant un angle droit.</div>",
+            "caption": { "fr": "Perpendiculaires = 4 angles droits au croisement.", "ar": "المتعامدتان يتقاطعان مكوّنين أربع زوايا قائمة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Vérifier : l'équerre glisse le long d'une droite, puis sur l'autre.</div>",
+            "caption": { "fr": "Avec l'équerre, on vérifie l'angle droit au point de croisement.", "ar": "بالمسطرة القائمة نتحقق من الزاوية القائمة عند نقطة التقاطع." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Les côtés d'un carré voisins sont perpendiculaires.</div>",
+            "caption": { "fr": "Chaque coin d'un carré est un angle droit.", "ar": "كل رأس من المربع زاوية قائمة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "angle",
+          "mode": "identify",
+          "angle": 90,
+          "title": { "fr": "Un angle droit ?", "ar": "هل زاوية قائمة؟" },
+          "prompt": { "fr": "Regarde l'angle et choisis son nom.", "ar": "انظر إلى الزاوية واختر اسمها." },
+          "correct": { "fr": "C'est un angle droit ! ✓", "ar": "إنها زاوية قائمة! ✓" },
+          "retry": { "fr": "Repense à l'équerre.", "ar": "تذكّر المسطرة القائمة." },
+          "success": { "fr": "Bien identifié ! 🎉", "ar": "تمييز ممتاز! 🎉" }
+        },
+        {
+          "type": "quiz",
+          "topic": "perp-props",
+          "title": { "fr": "Quiz des perpendiculaires", "ar": "اختبار التعامد" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Perpendiculaires = angle droit à l'intersection.", "ar": "المتعامدتان = زاوية قائمة عند التقاطع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Deux droites perpendiculaires forment…", "ar": "المستقيمان المتعامدان يشكلان..." }, "options": ["un angle droit", "une ligne courbe", "un cercle"], "answer": 0 },
+            { "prompt": { "fr": "Quel outil vérifie un angle droit ?", "ar": "أي أداة تتحقق من الزاوية القائمة؟" }, "options": ["le compas", "l'équerre", "la gomme"], "answer": 1 },
+            { "prompt": { "fr": "Au croisement, combien y a-t-il d'angles droits ?", "ar": "عند التقاطع، كم زاوية قائمة هناك؟" }, "options": ["2", "1", "4"], "answer": 2 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tracer-perpendiculaire",
+      "title": { "fr": "Tracer une perpendiculaire", "ar": "رسم مستقيم عمودي" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Pour tracer la perpendiculaire à une droite passant par un point A :</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">① Un côté de l'équerre suit la droite ② L'autre côté passe par A ③ On trace</div>",
+            "caption": { "fr": "L'équerre garantit l'angle droit.", "ar": "المسطرة القائمة تضمن الزاوية القائمة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Dans une salle de classe, le mur du fond et le mur du côté sont perpendiculaires.</div>",
+            "caption": { "fr": "Le coin de la pièce est un angle droit.", "ar": "زاوية الغرفة زاوية قائمة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Perpendiculaires ou pas ?", "ar": "متعامدتان أم لا؟" },
+          "prompt": { "fr": "Classe chaque situation.", "ar": "صنّف كل وضعية." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "perp", "label": { "fr": "Perpendiculaires", "ar": "متعامدتان" } },
+            { "id": "nonperp", "label": { "fr": "Pas perpendiculaires", "ar": "غير متعامدتين" } }
+          ],
+          "items": [
+            { "label": { "fr": "Deux côtés voisins d'un carré", "ar": "ضلعان متجاوران في مربع" }, "bucket": "perp" },
+            { "label": { "fr": "Deux rails d'une même voie", "ar": "قضيبان في سكة واحدة" }, "bucket": "nonperp" },
+            { "label": { "fr": "Le mur et le sol d'une maison", "ar": "حائط بيت وأرضه" }, "bucket": "perp" },
+            { "label": { "fr": "Deux droites qui se croisent sans angle droit", "ar": "مستقيمان يتقاطعان بغير زاوية قائمة" }, "bucket": "nonperp" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "perp-tracer",
+          "title": { "fr": "Étapes du tracé", "ar": "خطوات الرسم" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Un côté de l'équerre suit la droite, l'autre passe par le point.", "ar": "ضلع من المسطرة القائمة يتبع المستقيم، والآخر يمر بالنقطة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Pour tracer une perpendiculaire, on utilise…", "ar": "لرسم مستقيم عمودي نستعمل..." }, "options": ["la règle graduée seule", "l'équerre", "le double décimètre plié"], "answer": 1 },
+            { "prompt": { "fr": "La perpendiculaire à une droite passe par…", "ar": "المستقيم العمودي على مستقيم يمر بـ..." }, "options": ["n'importe où", "le point donné", "nulle part"], "answer": 1 },
+            { "prompt": { "fr": "Deux perpendiculaires à une même droite sont…", "ar": "مستقيمان عموديان على نفس المستقيم هما..." }, "options": ["parallèles", "perpendiculaires", "confondues"], "answer": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

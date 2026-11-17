@@ -1,0 +1,123 @@
+{
+  "id": "volume-pave",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "aires-volumes",
+  "title": { "fr": "Volume du pavé droit", "ar": "حجم متوازي المستطيلات" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "volume-formule",
+      "title": { "fr": "Volume = L × l × h", "ar": "الحجم = الطول × العرض × الارتفاع" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Un pavé droit de 5 × 3 × 2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Il contient 5 × 3 × 2 = 30 petits cubes.</div>",
+            "caption": { "fr": "Le volume se compte en cubes : longueur × largeur × hauteur.", "ar": "الحجم يُقاس بالمكعبات: الطول × العرض × الارتفاع." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">V = 5 × 3 × 2 = 30 cm³</div>",
+            "caption": { "fr": "L'unité de volume est le centimètre cube (cm³).", "ar": "وحدة الحجم هي السنتيمتر المكعب (cm³)." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">4 × 4 × 4 = 64 cm³</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Un cube : les trois dimensions sont égales.</div>",
+            "caption": { "fr": "Le cube est un cas particulier du pavé droit.", "ar": "المكعب حالة خاصة من متوازي المستطيلات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "volume",
+          "title": { "fr": "Calcule le volume", "ar": "احسب الحجم" },
+          "prompt": { "fr": "Multiplie les trois dimensions.", "ar": "اضرب الأبعاد الثلاثة." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Volume = longueur × largeur × hauteur.", "ar": "الحجم = الطول × العرض × الارتفاع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "volume-pairs",
+          "title": { "fr": "Relie pavé et volume", "ar": "اربط المجسم بحجمه" },
+          "prompt": { "fr": "Touche un pavé (dimensions), puis son volume.", "ar": "المس متوازي مستطيلات (أبعاده) ثم حجمه." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Multiplie les trois dimensions.", "ar": "اضرب الأبعاد الثلاثة." }
+        }
+      ]
+    },
+    {
+      "id": "compter-cubes",
+      "title": { "fr": "Compter les cubes", "ar": "عَدّ المكعبات" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Étage du bas : 4 × 3 cubes = 12<br>2 étages → 12 × 2 = 24 cubes</div>",
+            "caption": { "fr": "On peut compter par étages : cubes d'un étage × nombre d'étages.", "ar": "يمكن العدّ بالطوابق: مكعبات الطابق × عدد الطوابق." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Base 5 × 2 et hauteur 3 → 30 cubes</div>",
+            "caption": { "fr": "La base contient 10 cubes, empilée 3 fois.", "ar": "القاعدة تحوي 10 مكعبات مكدسة ثلاث مرات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Volume pair ou impair ?", "ar": "الحجم زوجي أم فردي؟" },
+          "prompt": { "fr": "Calcule puis classe chaque volume.", "ar": "احسب ثم صنّف كل حجم." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "pair", "label": { "fr": "Pair", "ar": "زوجي" } },
+            { "id": "impair", "label": { "fr": "Impair", "ar": "فردي" } }
+          ],
+          "items": [
+            { "label": { "fr": "2 × 3 × 2", "ar": "2 × 3 × 2" }, "bucket": "pair" },
+            { "label": { "fr": "3 × 3 × 1", "ar": "3 × 3 × 1" }, "bucket": "impair" },
+            { "label": { "fr": "2 × 2 × 3", "ar": "2 × 2 × 3" }, "bucket": "pair" },
+            { "label": { "fr": "3 × 1 × 1", "ar": "3 × 1 × 1" }, "bucket": "impair" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "volume",
+          "title": { "fr": "Problème de cubes", "ar": "مسألة مكعبات" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie les trois dimensions du pavé.", "ar": "اضرب الأبعاد الثلاثة لمتوازي المستطيلات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

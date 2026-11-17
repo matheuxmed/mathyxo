@@ -386,6 +386,74 @@ const VARIANTS = {
             return { pairs: rng.shuffle(rows) };
         }
 
+        // mul-decimal-pairs: multiplication matched to its decimal product.
+        // Products stay unique across rows so each left matches exactly one right.
+        if (kind === 'mul-decimal-pairs') {
+            const rows = [];
+            const usedProd = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const t = rng.int(1, 9);
+                const x = rng.int(2, 6);
+                const prod = x * t;
+                if (usedProd.has(prod)) continue;
+                usedProd.add(prod);
+                rows.push({
+                    left: x + ' × 0,' + t,
+                    right: String(Math.round(x * t / 10 * 10) / 10).replace('.', ',')
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // fraction-equal-pairs: two equal fractions (one doubled form).
+        if (kind === 'fraction-equal-pairs') {
+            const rows = [];
+            const used = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const a = rng.int(1, 3);
+                const b = rng.int(a + 1, 5);
+                const k = rng.pick([2, 3]);
+                const key = a + '/' + b;
+                if (used.has(key)) continue;
+                used.add(key);
+                rows.push({
+                    left: a + '/' + b,
+                    right: (a * k) + '/' + (b * k)
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // volume-pairs: dimensions of a pavé droit matched to its volume.
+        if (kind === 'volume-pairs') {
+            const rows = [];
+            const used = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const L = rng.int(2, 6), l = rng.int(2, 6), h = rng.int(2, 6);
+                const vol = L * l * h;
+                if (used.has(vol)) continue;
+                used.add(vol);
+                rows.push({
+                    left: { fr: L + ' × ' + l + ' × ' + h, ar: L + ' × ' + l + ' × ' + h },
+                    right: vol + ' cm³'
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // droites-kind: a geometric situation matched to droite vocabulary.
+        if (kind === 'droites-kind') {
+            const kinds = [
+                { name: { fr: 'parallèles', ar: 'متوازيان' }, prop: { fr: 'Ne se croisent jamais', ar: 'لا يتقاطعان أبداً' } },
+                { name: { fr: 'perpendiculaires', ar: 'متعامدان' }, prop: { fr: 'Se croisent en angle droit', ar: 'يتقاطعان بزاوية قائمة' } },
+                { name: { fr: 'sécants', ar: 'متقاطعان' }, prop: { fr: 'Se croisent sans angle droit', ar: 'يتقاطعان بغير زاوية قائمة' } }
+            ];
+            return { pairs: rng.shuffle(kinds).slice(0, Math.min(n, kinds.length)).map(k => ({ left: k.name, right: k.prop })) };
+        }
+
         // multiplication-pairs: a repeated addition matched to its multiplication.
         if (kind === 'multiplication-pairs') {
             const pairs = [];
@@ -463,7 +531,10 @@ const VARIANTS = {
             'hundreds-units', 'decompose-1000', 'compare-1000', 'bound-ten',
             'tables-6-9', 'division-sense', 'division-quotient',
             'fraction-read', 'fraction-parts', 'perimeter', 'lines-kind', 'right-angle',
-            'thousands-5', 'decimal-words', 'division-remainder', 'area', 'proportion'];
+            'thousands-5', 'decimal-words', 'division-remainder', 'area', 'proportion',
+            'decimals-place', 'compare-decimal', 'ranger-decimal', 'add-decimal', 'sub-decimal',
+            'money-decimal', 'mul-10', 'mul-decimal', 'fraction-equal', 'simplify-fraction',
+            'add-fraction', 'fraction-unit', 'volume', 'chart-total'];
         if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
             return {
                 questions: spec.questions.map(q => {
@@ -976,6 +1047,174 @@ const VARIANTS = {
                 questions.push({
                     prompt: { fr: u + ' stylos coûtent ' + price + ' €. Combien coûtent ' + p + ' stylos ?', ar: 'تكلّف ' + u + ' أقلام ' + price + ' €. كم تكلف ' + p + ' أقلام؟' },
                     options: optsShuffled, answer: optsShuffled.indexOf(ans + ' €')
+                });
+            } else if (topic === 'decimals-place') {
+                // Dans 3,45 : le chiffre des dixièmes est 4.
+                const a = rng.int(0, 9), t = rng.int(0, 9), c = rng.int(0, 9);
+                const pos = rng.pick(['dixièmes', 'centièmes', 'unités']);
+                const ans = pos === 'dixièmes' ? t : pos === 'centièmes' ? c : a;
+                const pool = [ans];
+                let guard = 0;
+                while (pool.length < 4 && guard++ < 60) {
+                    const d = rng.int(0, 9);
+                    if (!pool.includes(d)) pool.push(d);
+                }
+                const opts = rng.shuffle(pool.map(String));
+                const posAr = { 'dixièmes': 'الأعشار', 'centièmes': 'أجزاء من مائة', 'unités': 'الآحاد' }[pos];
+                questions.push({
+                    prompt: { fr: 'Dans ' + a + ',' + t + c + ', quel est le chiffre des ' + pos + ' ?', ar: 'في ' + a + ',' + t + c + '، ما هو رقم ' + posAr + '؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'compare-decimal') {
+                // Compare two 1-decimal numbers (never equal).
+                let intA = rng.int(1, 9), decA = rng.int(0, 9), intB = rng.int(1, 9), decB = rng.int(0, 9);
+                let guard = 0;
+                while (intA * 10 + decA === intB * 10 + decB && guard++ < 20) decB = rng.int(0, 9);
+                const va = intA * 10 + decA, vb = intB * 10 + decB;
+                const rel = va < vb ? '<' : va > vb ? '>' : '=';
+                const order = rng.shuffle(['<', '>', '=']);
+                questions.push({
+                    prompt: { fr: 'Quel signe entre ' + intA + ',' + decA + ' et ' + intB + ',' + decB + ' ?', ar: 'أي رمز بين ' + intA + ',' + decA + ' و ' + intB + ',' + decB + '؟' },
+                    options: order, answer: order.indexOf(rel)
+                });
+            } else if (topic === 'ranger-decimal') {
+                // "Qui est le plus grand ?" among three distinct decimals.
+                const seen = new Set();
+                const vals = [];
+                let guard = 0;
+                while (vals.length < 3 && guard++ < 200) {
+                    const v = rng.int(11, 99) / 10;   // 1,1 … 9,9 with one decimal
+                    const key = Math.round(v * 10);
+                    if (seen.has(key)) continue;
+                    seen.add(key); vals.push(v);
+                }
+                const max = Math.max.apply(null, vals);
+                const opts = rng.shuffle(vals.map(v => String(v).replace('.', ',')));
+                questions.push({
+                    prompt: { fr: 'Quel nombre est le plus grand ?', ar: 'أي عدد هو الأكبر؟' },
+                    options: opts, answer: opts.indexOf(String(max).replace('.', ','))
+                });
+            } else if (topic === 'add-decimal') {
+                // Two 1-decimal numbers, aligned commas.
+                const a = rng.int(1, 20), da = rng.int(0, 9), b = rng.int(1, 20), db = rng.int(0, 9);
+                const fmt = v => String(Math.round(v * 10) / 10).replace('.', ',');
+                const ans = (a * 10 + da + b * 10 + db) / 10;
+                const cand = [ans, ans + 1, ans - 1, ans + 0.1];
+                const opts = rng.shuffle(cand.map(fmt).filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: a + ',' + da + ' + ' + b + ',' + db + ' = ?', ar: a + ',' + da + ' + ' + b + ',' + db + ' = ؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'sub-decimal') {
+                // Difference of two 1-decimal numbers, a > b.
+                let a = rng.int(3, 25), da = rng.int(0, 9), b = rng.int(1, 20), db = rng.int(0, 9);
+                let guard = 0;
+                while (a * 10 + da <= b * 10 + db && guard++ < 20) b = rng.int(1, a - 1);
+                const fmt = v => String(Math.round(v * 10) / 10).replace('.', ',');
+                const ans = (a * 10 + da - b * 10 - db) / 10;
+                const cand = [ans, ans + 1, ans - 1, ans + 0.1];
+                const opts = rng.shuffle(cand.map(fmt).filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: a + ',' + da + ' − ' + b + ',' + db + ' = ?', ar: a + ',' + da + ' − ' + b + ',' + db + ' = ؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'money-decimal') {
+                // Paid with a whole number of euros, price has one decimal.
+                const cents = rng.int(1, 9), euros = rng.int(1, 8);
+                const price = euros + cents / 10;
+                const paid = rng.int(euros + 1, euros + 5);
+                const fmt = v => String(Math.round(v * 10) / 10).replace('.', ',') + ' €';
+                const ans = paid - price;
+                const cand = [ans, ans + 1, ans - 1, ans + 0.1].map(fmt);
+                const opts = rng.shuffle(cand.filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: 'Un objet coûte ' + fmt(price).replace(' €', '') + ' €. Avec ' + paid + ' €, combien reste-t-il ?', ar: 'شيء يكلّف ' + euros + ',' + cents + ' €. مع ' + paid + ' €، كم يبقى؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'mul-10') {
+                // × 10 or × 100 : the comma shifts right.
+                const a = rng.int(1, 30), d = rng.int(0, 9);
+                const v = (a * 10 + d) / 10;
+                const m = rng.pick([10, 100, 1000]);
+                const fmt = x => String(Math.round(x * 100) / 100).replace('.', ',');
+                const ans = v * m;
+                const cand = [ans, ans / 10, ans * 10];
+                const opts = rng.shuffle(cand.map(fmt).filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: fmt(v) + ' × ' + m + ' = ?', ar: fmt(v) + ' × ' + m + ' = ؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'mul-decimal') {
+                // n × 0,t : counting tenths.
+                const n = rng.int(2, 9), t = rng.int(1, 9);
+                const fmt = x => String(Math.round(x * 10) / 10).replace('.', ',');
+                const ans = n * t / 10;
+                const cand = [ans, n * t, ans + 0.1, ans - 0.1];
+                const opts = rng.shuffle(cand.map(fmt).filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: n + ' × 0,' + t + ' = ?', ar: n + ' × 0,' + t + ' = ؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'fraction-equal') {
+                // a/b equals (a×k)/(b×k).
+                const a = rng.int(1, 4), b = rng.int(a + 1, 6), k = rng.pick([2, 3]);
+                const ans = (a * k) + '/' + (b * k);
+                const cand = [ans, a + '/' + (b * k), (a * k + 1) + '/' + (b * k), (a + 1) + '/' + (b + 1)];
+                const opts = rng.shuffle(cand.filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: 'Quelle fraction est égale à ' + a + '/' + b + ' ?', ar: 'أي كسر يساوي ' + a + '/' + b + '؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'simplify-fraction') {
+                // (a×g)/(b×g) simplifies to a/b.
+                const a = rng.int(1, 4), b = rng.int(a + 1, 6), g = rng.pick([2, 3, 5]);
+                const ans = a + '/' + b;
+                const cand = [ans, a + '/' + (b * g), (a * g) + '/' + (b * g), (a + 1) + '/' + (b + 1)];
+                const opts = rng.shuffle(cand.filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: 'Simplifie ' + (a * g) + '/' + (b * g) + ' au maximum.', ar: 'اخزل ' + (a * g) + '/' + (b * g) + ' إلى أبعد حد.' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'add-fraction') {
+                // Same denominator: a/n + b/n = (a+b)/n.
+                const n = rng.int(4, 9);
+                const a = rng.int(1, n - 1);
+                const b = rng.int(1, n - a);
+                const ans = (a + b) + '/' + n;
+                const cand = [ans, (a + b) + '/' + (2 * n), (a * b) + '/' + n, (a + b) + '/' + (n + 1)];
+                const opts = rng.shuffle(cand.filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: a + '/' + n + ' + ' + b + '/' + n + ' = ?', ar: a + '/' + n + ' + ' + b + '/' + n + ' = ؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'fraction-unit') {
+                // a/n + ?/n = 1  →  ? = n − a.
+                const n = rng.int(5, 9);
+                const a = rng.int(1, n - 1);
+                const ans = (n - a) + '/' + n;
+                const cand = [ans, a + '/' + n, (n - a) + '/' + (n + 1), a + '/' + (n + 1)];
+                const opts = rng.shuffle(cand.filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: 'Que faut-il ajouter à ' + a + '/' + n + ' pour faire 1 ?', ar: 'ما الذي نضيفه إلى ' + a + '/' + n + ' لنحصل على 1؟' },
+                    options: opts, answer: opts.indexOf(ans)
+                });
+            } else if (topic === 'volume') {
+                // Volume = L × l × h.
+                const L = rng.int(2, 6), l = rng.int(2, 6), h = rng.int(2, 6);
+                const ans = L * l * h;
+                const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.4)));
+                questions.push({
+                    prompt: { fr: 'Volume d\u2019un pavé droit de ' + L + ' cm sur ' + l + ' cm sur ' + h + ' cm ?', ar: 'حجم متوازي مستطيلات أبعاده ' + L + ' سم و' + l + ' سم و' + h + ' سم؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'chart-total') {
+                // Total of three values read on a table/graph.
+                const v1 = rng.int(2, 9), v2 = rng.int(2, 9), v3 = rng.int(2, 9);
+                const ans = v1 + v2 + v3;
+                const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.3)));
+                questions.push({
+                    prompt: { fr: 'Un tableau donne ' + v1 + ', ' + v2 + ' et ' + v3 + '. Quel est le total ?', ar: 'جدول يعطي ' + v1 + ' و ' + v2 + ' و ' + v3 + '. ما هو المجموع؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
                 });
             }
         }

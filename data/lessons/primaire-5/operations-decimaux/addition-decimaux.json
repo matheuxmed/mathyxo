@@ -1,0 +1,130 @@
+{
+  "id": "addition-decimaux",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "operations-decimaux",
+  "title": { "fr": "Addition et soustraction", "ar": "الجمع والطرح" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "poser-addition-decimale",
+      "title": { "fr": "Poser une addition", "ar": "إجراء الجمع" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">12,4 + 3,2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Aligner les virgules, puis additionner colonne par colonne.</div>",
+            "caption": { "fr": "On aligne les virgules : les dixièmes sous les dixièmes.", "ar": "نحاذي الفواصل: الأعشار تحت الأعشار." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">12,4 + 3,2 = 15,6</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">La virgule du résultat est alignée avec les autres.</div>",
+            "caption": { "fr": "Le résultat garde la virgule à la même hauteur.", "ar": "الفاصلة في النتيجة تبقى في نفس المرتبة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5,75 + 2,3 = ?</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Écrire 2,3 = 2,30 pour aligner : 5,75 + 2,30 = 8,05</div>",
+            "caption": { "fr": "On peut compléter avec un zéro pour aligner les chiffres.", "ar": "يمكن إضافة صفر لمحاذاة الأرقام." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "add-decimal",
+          "title": { "fr": "Calcule la somme", "ar": "احسب المجموع" },
+          "prompt": { "fr": "Additionne les deux nombres.", "ar": "اجمع العددين." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Aligne les virgules et additionne rang par rang.", "ar": "حاذِ الفواصل واجمع مرتبة بمرتبة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Addition juste ou fausse ?", "ar": "جمع صحيح أم خاطئ؟" },
+          "prompt": { "fr": "Vérifie chaque addition.", "ar": "تحقق من كل جمع." },
+          "correct": { "fr": "Bien vérifié ! ✓", "ar": "تحقق صحيح! ✓" },
+          "success": { "fr": "Tout est bien trié ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "juste", "label": { "fr": "Juste", "ar": "صحيح" } },
+            { "id": "faux", "label": { "fr": "Faux", "ar": "خاطئ" } }
+          ],
+          "items": [
+            { "label": { "fr": "1,3 + 2,4 = 3,7", "ar": "1,3 + 2,4 = 3,7" }, "bucket": "juste" },
+            { "label": { "fr": "2,5 + 3,1 = 5,6", "ar": "2,5 + 3,1 = 5,6" }, "bucket": "juste" },
+            { "label": { "fr": "1,2 + 3,4 = 4,6", "ar": "1,2 + 3,4 = 4,6" }, "bucket": "juste" },
+            { "label": { "fr": "2,6 + 1,3 = 3,19", "ar": "2,6 + 1,3 = 3,19" }, "bucket": "faux" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soustraction-decimale",
+      "title": { "fr": "La soustraction", "ar": "الطرح" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">8,5 − 2,3</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">On aligne les virgules, puis on soustrait rang par rang.</div>",
+            "caption": { "fr": "Comme pour l'addition : virgules alignées.", "ar": "مثل الجمع: فواصل محاذاة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">8,5 − 2,3 = 6,2</div>",
+            "caption": { "fr": "Vérifie : 6,2 + 2,3 = 8,5. La soustraction est juste.", "ar": "تحقق: 6,2 + 2,3 = 8,5. الطرح صحيح." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">10 − 4,7 = ?</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Écrire 10 = 10,0 : 10,0 − 4,7 = 5,3</div>",
+            "caption": { "fr": "Pour 10 − 4,7, on écrit 10,0 puis on pose la soustraction.", "ar": "لحساب 10 − 4,7 نكتب 10,0 ثم نُجري الطرح." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "sub-decimal",
+          "title": { "fr": "Calcule la différence", "ar": "احسب الفرق" },
+          "prompt": { "fr": "Soustrais les deux nombres.", "ar": "اطرح العددين." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Aligne les virgules, soustrais rang par rang puis vérifie en additionnant.", "ar": "حاذِ الفواصل، اطرح مرتبة بمرتبة ثم تحقق بالجمع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "quiz",
+          "topic": "money-decimal",
+          "title": { "fr": "Problème d'argent", "ar": "مسألة مال" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
+          "incorrect": { "fr": "Le reste = prix payé − prix acheté.", "ar": "الباقي = المدفوع − ثمن الشراء." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

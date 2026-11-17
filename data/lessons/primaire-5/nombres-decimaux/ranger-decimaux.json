@@ -1,0 +1,124 @@
+{
+  "id": "ranger-decimaux",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "nombres-decimaux",
+  "title": { "fr": "Ranger les décimaux", "ar": "ترتيب الأعداد العشرية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "comparer-decimaux",
+      "title": { "fr": "Comparer des décimaux", "ar": "مقارنة الأعداد العشرية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Comparer 4,5 et 4,7</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">① Parties entières : 4 = 4 ② Dixièmes : 5 < 7 → 4,5 < 4,7</div>",
+            "caption": { "fr": "On compare rang par rang, en partant de la gauche.", "ar": "نقارن مرتبة بمرتبة بدءاً من اليسار." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3,05 et 3,5</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">3 = 3 ; 0 < 5 → 3,05 < 3,5</div>",
+            "caption": { "fr": "Attention : 3,5 est plus grand que 3,05.", "ar": "انتبه: 3,5 أكبر من 3,05." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">7,2 ? 7,20</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">7,2 = 7,20 — le zéro de droite ne change rien.</div>",
+            "caption": { "fr": "Des zéros à droite de la partie décimale ne changent pas le nombre.", "ar": "الأصفار على يمين الجزء العشري لا تغير العدد." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "place-value",
+          "mode": "compare",
+          "a": "4,5",
+          "b": "4,7",
+          "title": { "fr": "Compare 4,5 et 4,7", "ar": "قارن 4,5 و 4,7" },
+          "prompt": { "fr": "Touche le signe qui convient.", "ar": "المس الرمز المناسب." },
+          "success": { "fr": "4,5 < 4,7, c'est ça ! ✓", "ar": "4,5 أصغر من 4,7، صحيح! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "compare-decimal",
+          "title": { "fr": "Quel est le bon signe ?", "ar": "أي رمز صحيح؟" },
+          "prompt": { "fr": "Compare les deux nombres.", "ar": "قارن العددين." },
+          "correct": { "fr": "Bien comparé ! ✓", "ar": "مقارنة صحيحة! ✓" },
+          "incorrect": { "fr": "Compare d'abord les parties entières, puis rang par rang.", "ar": "قارن أولاً الجزأين الصحيحين ثم مرتبة بمرتبة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "ordonner-decimaux",
+      "title": { "fr": "Ranger dans l'ordre", "ar": "الترتيب" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Ranger 2,4 ; 2,45 ; 2,5 du plus petit au plus grand :</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">2,4 < 2,45 < 2,5</div>",
+            "caption": { "fr": "On met d'abord les parties entières en ordre, puis on détaille les décimales.", "ar": "نرتّب الأجزاء الصحيحة أولاً ثم نتعمق في الكسور." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Astuce : écrire 2,4 = 2,40 pour comparer avec 2,45</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">40 < 45 donc 2,4 < 2,45</div>",
+            "caption": { "fr": "Compléter avec des zéros à droite aide à comparer.", "ar": "إضافة أصفار على اليمين تساعد على المقارنة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Plus petit ou plus grand que 2,5 ?", "ar": "أصغر أم أكبر من 2,5؟" },
+          "prompt": { "fr": "Place chaque nombre dans le bon panier.", "ar": "ضع كل عدد في السلة المناسبة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "moins", "label": { "fr": "Moins que 2,5", "ar": "أقل من 2,5" } },
+            { "id": "plus", "label": { "fr": "Plus que 2,5", "ar": "أكثر من 2,5" } }
+          ],
+          "items": [
+            { "label": { "fr": "2,05", "ar": "2,05" }, "bucket": "moins" },
+            { "label": { "fr": "2,8", "ar": "2,8" }, "bucket": "plus" },
+            { "label": { "fr": "2,45", "ar": "2,45" }, "bucket": "moins" },
+            { "label": { "fr": "3,1", "ar": "3,1" }, "bucket": "plus" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "ranger-decimal",
+          "title": { "fr": "Qui est le plus grand ?", "ar": "أيهما أكبر؟" },
+          "prompt": { "fr": "Choisis le plus grand nombre.", "ar": "اختر العدد الأكبر." },
+          "correct": { "fr": "Bien rangé ! ✓", "ar": "ترتيب صحيح! ✓" },
+          "incorrect": { "fr": "Complète avec des zéros puis compare rang par rang.", "ar": "أضف أصفاراً ثم قارن مرتبة بمرتبة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

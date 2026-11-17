@@ -1,0 +1,133 @@
+{
+  "id": "paralleles",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "droites-perpendiculaires",
+  "title": { "fr": "Droites parallèles", "ar": "المستقيمات المتوازية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "reconnaitre-paralleles",
+      "title": { "fr": "Reconnaître deux droites parallèles", "ar": "التعرف على مستقيمين متوازيين" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">∥</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Deux droites parallèles ne se croisent jamais, même prolongées.</div>",
+            "caption": { "fr": "Parallèles = toujours la même distance entre elles.", "ar": "المتوازيتان لا تتقاطعان أبداً، والمسافة بينهما ثابتة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Rails d'un train : deux droites parallèles.</div>",
+            "caption": { "fr": "Les rails gardent toujours la même distance.", "ar": "قضيبا السكة يحفظان المسافة نفسها دائماً." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Deux côtés opposés d'un rectangle sont parallèles.</div>",
+            "caption": { "fr": "Dans un rectangle, chaque paire de côtés opposés est parallèle.", "ar": "في المستطيل، كل زوج من الأضلاع المتقابلة متوازٍ." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "paral-props",
+          "title": { "fr": "Quiz des parallèles", "ar": "اختبار التوازي" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Parallèles = jamais de croisement, même distance.", "ar": "المتوازيتان = لا تقاطع أبداً، المسافة ثابتة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Deux droites parallèles…", "ar": "المستقيمان المتوازيان..." }, "options": ["se croisent", "ne se croisent jamais", "forment un angle droit"], "answer": 1 },
+            { "prompt": { "fr": "Les rails d'un chemin de fer sont…", "ar": "قضيبا السكة هما..." }, "options": ["parallèles", "perpendiculaires", "sécants"], "answer": 0 },
+            { "prompt": { "fr": "Deux côtés opposés d'un rectangle sont…", "ar": "ضلعان متقابلان في مستطيل هما..." }, "options": ["parallèles", "sécants", "obliques"], "answer": 0 }
+          ]
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Parallèles ou perpendiculaires ?", "ar": "متوازيتان أم متعامدتان؟" },
+          "prompt": { "fr": "Classe chaque paire de droites.", "ar": "صنّف كل زوج من المستقيمات." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "paral", "label": { "fr": "Parallèles", "ar": "متوازيتان" } },
+            { "id": "perp", "label": { "fr": "Perpendiculaires", "ar": "متعامدتان" } }
+          ],
+          "items": [
+            { "label": { "fr": "Se croisent en angle droit", "ar": "يتقاطعان بزاوية قائمة" }, "bucket": "perp" },
+            { "label": { "fr": "Ne se croisent jamais", "ar": "لا يتقاطعان أبداً" }, "bucket": "paral" },
+            { "label": { "fr": "Distance constante entre elles", "ar": "المسافة بينهما ثابتة" }, "bucket": "paral" },
+            { "label": { "fr": "Un seul point de croisement", "ar": "نقطة تقاطع واحدة" }, "bucket": "perp" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tracer-parallele",
+      "title": { "fr": "Tracer une parallèle", "ar": "رسم مستقيم موازٍ" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Pour tracer la parallèle à une droite passant par un point A :</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">① Une règle suit la droite ② Une équerre glisse le long de la règle ③ On trace par A</div>",
+            "caption": { "fr": "La règle et l'équerre glissent l'une contre l'autre pour garder la même direction.", "ar": "نُمرّر المسطرة على المسطرة القائمة للحفاظ على نفس الاتجاه." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Deux perpendiculaires à une même droite sont parallèles entre elles.</div>",
+            "caption": { "fr": "Astuce : on peut aussi tracer une perpendiculaire pour obtenir une parallèle.", "ar": "حيلة: يمكن رسم عمودين للحصول على متوازيين." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "droites-kind",
+          "title": { "fr": "Relie situation et nom", "ar": "اربط الوضعية بالاسم" },
+          "prompt": { "fr": "Touche une situation, puis son nom.", "ar": "المس وضعيةً ثم اسمها." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Cherche l'angle droit ou l'absence de croisement.", "ar": "ابحث عن الزاوية القائمة أو غياب التقاطع." }
+        },
+        {
+          "type": "quiz",
+          "topic": "paral-tracer",
+          "title": { "fr": "Étapes du tracé", "ar": "خطوات الرسم" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "La règle suit la droite, l'équerre glisse le long de la règle.", "ar": "المسطرة تتبع المستقيم، والمسطرة القائمة تنزلق على المسطرة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Pour tracer une parallèle, on glisse…", "ar": "لرسم مستقيم موازٍ نُمرّر..." }, "options": ["l'équerre le long d'une règle", "le compas autour d'un point", "la gomme sur la droite"], "answer": 0 },
+            { "prompt": { "fr": "Une parallèle à une droite passe par…", "ar": "المستقيم الموازي لمستقيم يمر بـ..." }, "options": ["le point donné", "tous les points", "aucun point"], "answer": 0 },
+            { "prompt": { "fr": "Deux droites perpendiculaires à une même droite sont…", "ar": "مستقيمان عموديان على نفس المستقيم..." }, "options": ["parallèles entre eux", "perpendiculaires entre eux", "confondus"], "answer": 0 }
+          ]
+        }
+      ]
+    }
+  ]
+}

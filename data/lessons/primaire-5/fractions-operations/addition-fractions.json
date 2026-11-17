@@ -1,0 +1,133 @@
+{
+  "id": "addition-fractions",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "fractions-operations",
+  "title": { "fr": "Additionner des fractions", "ar": "جمع الكسور" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "addition-meme-denominateur",
+      "title": { "fr": "Même dénominateur", "ar": "نفس المقام" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2/5 + 1/5 = 3/5</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">On additionne les numérateurs, le dénominateur ne change pas.</div>",
+            "caption": { "fr": "2 cinquièmes plus 1 cinquième : 3 cinquièmes.", "ar": "خُمسان زائد خمس واحد: ثلاثة أخماس." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">On ne peut additionner que des parts de même taille.</div>",
+            "caption": { "fr": "Le dénominateur donne la taille des parts : il doit être le même.", "ar": "المقام يحدد حجم القطع: يجب أن يكون نفسه." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3/7 + 2/7 = 5/7</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">3 + 2 = 5, sur 7.</div>",
+            "caption": { "fr": "Le dénominateur 7 reste 7.", "ar": "المقام 7 يبقى 7." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5/8 + 3/8 = 8/8 = 1</div>",
+            "caption": { "fr": "Quand le numérateur égale le dénominateur, la fraction vaut 1.", "ar": "عندما يساوي البسط المقام، يساوي الكسر الواحد." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "add-fraction",
+          "title": { "fr": "Calcule la somme", "ar": "احسب المجموع" },
+          "prompt": { "fr": "Additionne les fractions.", "ar": "اجمع الكسور." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Additionne les numérateurs et garde le dénominateur.", "ar": "اجمع البسطين واحفظ المقام." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Somme juste ou fausse ?", "ar": "مجموع صحيح أم خاطئ؟" },
+          "prompt": { "fr": "Vérifie chaque somme.", "ar": "تحقق من كل مجموع." },
+          "correct": { "fr": "Bien vérifié ! ✓", "ar": "تحقق صحيح! ✓" },
+          "success": { "fr": "Tout est bien trié ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "juste", "label": { "fr": "Juste", "ar": "صحيح" } },
+            { "id": "faux", "label": { "fr": "Faux", "ar": "خاطئ" } }
+          ],
+          "items": [
+            { "label": { "fr": "1/4 + 2/4 = 3/4", "ar": "1/4 + 2/4 = 3/4" }, "bucket": "juste" },
+            { "label": { "fr": "2/5 + 1/5 = 3/10", "ar": "2/5 + 1/5 = 3/10" }, "bucket": "faux" },
+            { "label": { "fr": "3/9 + 2/9 = 5/9", "ar": "3/9 + 2/9 = 5/9" }, "bucket": "juste" },
+            { "label": { "fr": "1/6 + 4/6 = 5/12", "ar": "1/6 + 4/6 = 5/12" }, "bucket": "faux" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fractions-et-unite",
+      "title": { "fr": "Fractions et unité", "ar": "الكسور والوحدة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">6/5 = 5/5 + 1/5 = 1 + 1/5</div>",
+            "caption": { "fr": "Quand le numérateur dépasse le dénominateur, la fraction dépasse 1.", "ar": "عندما يتجاوز البسط المقام، يتجاوز الكسر الواحد." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">3/5 + 4/5 = 7/5 = 1 + 2/5</div>",
+            "caption": { "fr": "La somme peut dépasser l'unité : on la décompose.", "ar": "قد يتجاوز المجموع الواحد: نفككه." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Combien manque-t-il à 3/7 pour faire 1 ?</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">7/7 − 3/7 = 4/7</div>",
+            "caption": { "fr": "Pour atteindre 1, on complète jusqu'au dénominateur.", "ar": "للوصول إلى الواحد نكمل حتى المقام." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "fraction-unit",
+          "title": { "fr": "Complète jusqu'à 1", "ar": "أكمل حتى الواحد" },
+          "prompt": { "fr": "Combien manque-t-il pour faire 1 ?", "ar": "كم ينقص للوصول إلى 1؟" },
+          "correct": { "fr": "Bien complété ! ✓", "ar": "إكمال صحيح! ✓" },
+          "incorrect": { "fr": "Compte jusqu'au dénominateur : n/7 + ? = 7/7.", "ar": "عُدّ حتى المقام: n/7 + ? = 7/7." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "fraction",
+          "shape": "pie",
+          "parts": 6,
+          "mode": "shade",
+          "target": 5,
+          "title": { "fr": "Colorie 5/6", "ar": "لوّن 5/6" },
+          "prompt": { "fr": "Touche les parts pour en colorier 5 sur 6.", "ar": "المس القطع لتلوين 5 من 6." },
+          "success": { "fr": "5/6 bien colorié ! ✓", "ar": "تلوين صحيح لـ 5/6! ✓" }
+        }
+      ]
+    }
+  ]
+}

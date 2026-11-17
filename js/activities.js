@@ -1580,7 +1580,9 @@ function buildColumnBoard(spec, host) {
 function buildChart(spec, host) {
     const labels = spec.labels || [];
     const values = spec.values || [];
-    const max = Math.max.apply(null, values.concat([1]));
+    // In build mode the child grows each bar from 0 up to its target, so the
+    // scale must cover the targets too (values may all be 0 at the start).
+    const max = Math.max.apply(null, values.concat(spec.targets || [], [1]));
     const wrap = actEl('div', 'chart-wrap');
     const chart = actEl('div', 'chart-bars');
     const feedback = actEl('div', 'act-feedback');
@@ -1635,6 +1637,7 @@ function buildChart(spec, host) {
         const cols = chart.querySelectorAll('.chart-col');
         cols.forEach((col, i) => {
             const bar = col.querySelector('.chart-bar');
+            bar.style.height = '0px';   // build mode: bars start empty
             const valOut = actEl('span', 'chart-val', '0');
             col.insertBefore(valOut, bar);
             col.style.cursor = 'pointer';

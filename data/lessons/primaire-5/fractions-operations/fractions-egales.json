@@ -1,0 +1,127 @@
+{
+  "id": "fractions-egales",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "fractions-operations",
+  "title": { "fr": "Fractions égales", "ar": "الكسور المتساوية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "reconnaitre-fractions-egales",
+      "title": { "fr": "Reconnaître des fractions égales", "ar": "التعرف على الكسور المتساوية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">1/2 = 2/4 = 3/6</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Même quantité, écritures différentes.</div>",
+            "caption": { "fr": "On obtient une fraction égale en multipliant numérateur et dénominateur par le même nombre.", "ar": "نحصل على كسر مساوٍ بضرب البسط والمقام في العدد نفسه." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2/3 = 4/6</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">2×2 = 4 et 3×2 = 6 ✓</div>",
+            "caption": { "fr": "Ici on a multiplié par 2 en haut et en bas.", "ar": "هنا ضربنا في 2 أعلى وأسفل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5/10 = 1/2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">5÷5 = 1 et 10÷5 = 2</div>",
+            "caption": { "fr": "On peut aussi diviser en haut et en bas par le même nombre.", "ar": "يمكن أيضاً القسمة أعلى وأسفل في العدد نفسه." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "fraction-equal",
+          "title": { "fr": "Trouve la fraction égale", "ar": "أوجد الكسر المساوي" },
+          "prompt": { "fr": "Quelle fraction est égale ?", "ar": "أي كسر يساويه؟" },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة صحيحة! ✓" },
+          "incorrect": { "fr": "Multiplie ou divise numérateur et dénominateur par le même nombre.", "ar": "اضرب أو اقسم البسط والمقام في العدد نفسه." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "fraction-equal-pairs",
+          "title": { "fr": "Relie les fractions égales", "ar": "اربط الكسور المتساوية" },
+          "prompt": { "fr": "Touche une fraction, puis celle qui lui est égale.", "ar": "المس كسراً ثم الكسر المساوي له." },
+          "pairCorrect": { "fr": "Bien relié ! ✓", "ar": "ربط صحيح! ✓" },
+          "pairWrong": { "fr": "Compare en multipliant en haut et en bas.", "ar": "قارن بالضرب أعلى وأسفل." }
+        }
+      ]
+    },
+    {
+      "id": "simplifier-fraction",
+      "title": { "fr": "Simplifier une fraction", "ar": "اختزال كسر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">6/8 = 3/4</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">6÷2 = 3 et 8÷2 = 4 : on a simplifié par 2.</div>",
+            "caption": { "fr": "Simplifier, c'est diviser numérateur et dénominateur par le même nombre.", "ar": "الاختزال هو قسمة البسط والمقام في العدد نفسه." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Une fraction simplifiée au maximum ne peut plus être divisée.</div>",
+            "caption": { "fr": "Exemple : 3/4 ne peut plus être simplifiée.", "ar": "مثال: 3/4 لا يمكن اختزالها أكثر." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">10/15 = 2/3</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">10÷5 = 2 et 15÷5 = 3</div>",
+            "caption": { "fr": "Ici on simplifie par 5.", "ar": "هنا نخزل في 5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "simplify-fraction",
+          "title": { "fr": "Simplifie !", "ar": "اخزل!" },
+          "prompt": { "fr": "Choisis la forme simplifiée.", "ar": "اختر الشكل المخزَل." },
+          "correct": { "fr": "Bien simplifié ! ✓", "ar": "اختزال صحيح! ✓" },
+          "incorrect": { "fr": "Cherche un nombre qui divise à la fois le haut et le bas.", "ar": "ابحث عن عدد يقسم البسط والمقام معاً." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Égale à 1/2 ou pas ?", "ar": "يساوي 1/2 أم لا؟" },
+          "prompt": { "fr": "Classe chaque fraction.", "ar": "صنّف كل كسر." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "demi", "label": { "fr": "Égale à 1/2", "ar": "يساوي 1/2" } },
+            { "id": "autre", "label": { "fr": "Autre chose", "ar": "غير ذلك" } }
+          ],
+          "items": [
+            { "label": { "fr": "2/4", "ar": "2/4" }, "bucket": "demi" },
+            { "label": { "fr": "5/10", "ar": "5/10" }, "bucket": "demi" },
+            { "label": { "fr": "3/4", "ar": "3/4" }, "bucket": "autre" },
+            { "label": { "fr": "6/9", "ar": "6/9" }, "bucket": "autre" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "lire-graphiques",
+  "category": "primaire",
+  "level": "primaire-5",
+  "chapter": "statistiques-p5",
+  "title": { "fr": "Lire un graphique", "ar": "قراءة مبيان" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "lire-diagramme",
+      "title": { "fr": "Lire un diagramme en bâtons", "ar": "قراءة مخطط بالأعمدة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un diagramme en bâtons montre des quantités avec des barres : plus la barre est haute, plus la quantité est grande.</div>",
+            "caption": { "fr": "On lit la hauteur de chaque barre pour connaître la valeur.", "ar": "نقرأ ارتفاع كل عمود لمعرفة القيمة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Sport préféré : Foot ▇▇▇▇ 8 · Natation ▇▇ 4 · Tennis ▇▇▇ 6</div>",
+            "caption": { "fr": "Le football a la barre la plus haute : c'est le préféré.", "ar": "كرة القدم أعلى عموداً: هي المفضلة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Pour comparer deux barres : la plus haute = la plus grande valeur.</div>",
+            "caption": { "fr": "On peut aussi faire des différences entre les hauteurs.", "ar": "يمكن أيضاً حساب الفروق بين الارتفاعات." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "chart",
+          "mode": "read",
+          "labels": [
+            { "fr": "Football", "ar": "كرة القدم" },
+            { "fr": "Natation", "ar": "السباحة" },
+            { "fr": "Tennis", "ar": "التنس" }
+          ],
+          "values": [8, 4, 6],
+          "question": { "answer": 0 },
+          "title": { "fr": "Quel sport est le plus pratiqué ?", "ar": "أي رياضة هي الأكثر ممارسة؟" },
+          "prompt": { "fr": "Touche la barre la plus haute.", "ar": "المس العمود الأعلى." },
+          "correct": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "retry": { "fr": "Compare les hauteurs des barres.", "ar": "قارن ارتفاعات الأعمدة." },
+          "success": { "fr": "Bien lu ! 🎉", "ar": "قراءة ممتازة! 🎉" }
+        },
+        {
+          "type": "chart",
+          "mode": "build",
+          "labels": [
+            { "fr": "Pommes", "ar": "تفاح" },
+            { "fr": "Bananes", "ar": "موز" },
+            { "fr": "Oranges", "ar": "برتقال" }
+          ],
+          "values": [0, 0, 0],
+          "targets": [5, 3, 2],
+          "title": { "fr": "Complète le graphique", "ar": "أكمل المبيان" },
+          "prompt": { "fr": "Pommes : 5 · Bananes : 3 · Oranges : 2 — touche chaque colonne jusqu'à la bonne hauteur.", "ar": "تفاح: 5 · موز: 3 · برتقال: 2 — المس كل عمود حتى الارتفاع المناسب." },
+          "success": { "fr": "Graphique terminé ! 🎉", "ar": "اكتمل المبيان! 🎉" }
+        }
+      ]
+    },
+    {
+      "id": "tableaux-graphiques",
+      "title": { "fr": "Du tableau au graphique", "ar": "من الجدول إلى المبيان" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un tableau donne des nombres : chaque nombre devient une barre.</div>",
+            "caption": { "fr": "Tableau et graphique racontent la même chose autrement.", "ar": "الجدول والمبيان يعرضان نفس المعلومة بطريقتين." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Total = additionner toutes les valeurs du tableau.</div>",
+            "caption": { "fr": "Exemple : 5 + 3 + 2 = 10 fruits en tout.", "ar": "مثال: 5 + 3 + 2 = 10 ثمار في المجموع." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "chart-total",
+          "title": { "fr": "Calculs sur le tableau", "ar": "حسابات على الجدول" },
+          "prompt": { "fr": "Utilise les valeurs du tableau.", "ar": "استعمل قيم الجدول." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Additionne ou compare les valeurs une par une.", "ar": "اجمع أو قارن القيم واحدة واحدة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Plus ou moins que 5 ?", "ar": "أكثر أم أقل من 5؟" },
+          "prompt": { "fr": "Classe chaque valeur du tableau.", "ar": "صنّف كل قيمة من الجدول." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "plus5", "label": { "fr": "Plus que 5", "ar": "أكثر من 5" } },
+            { "id": "moins5", "label": { "fr": "5 ou moins", "ar": "5 أو أقل" } }
+          ],
+          "items": [
+            { "label": { "fr": "Pommes : 5", "ar": "تفاح: 5" }, "bucket": "moins5" },
+            { "label": { "fr": "Bananes : 3", "ar": "موز: 3" }, "bucket": "moins5" },
+            { "label": { "fr": "Foot : 8", "ar": "كرة القدم: 8" }, "bucket": "plus5" },
+            { "label": { "fr": "Tennis : 6", "ar": "التنس: 6" }, "bucket": "plus5" }
+          ]
+        }
+      ]
+    }
+  ]
+}
