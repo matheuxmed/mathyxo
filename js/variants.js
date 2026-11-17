@@ -237,6 +237,155 @@ const VARIANTS = {
             };
         }
 
+        // number-words-5digit: 5-digit numbers matched to their wording
+        // (dix mille, vingt et un mille trois cents…). Reuses the same
+        // irregular French tens rules as the 2- and 3-digit generators.
+        if (kind === 'number-words-5digit') {
+            const u5 = ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf'];
+            const teens5 = ['dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
+            const tw5 = ['', '', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante', 'quatre-vingt', 'quatre-vingt'];
+            const under100 = (v) => {
+                if (v < 10) return u5[v];
+                if (v < 20) return teens5[v - 10];
+                const t = Math.floor(v / 10), u2 = v % 10;
+                if (u2 === 0) return (t === 7 ? 'soixante-dix' : t === 9 ? 'quatre-vingt-dix' : t === 8 ? 'quatre-vingts' : tw5[t]);
+                if (t === 7) return u2 === 1 ? 'soixante et onze' : 'soixante-' + teens5[u2];
+                if (t === 9) return 'quatre-vingt-' + teens5[u2];
+                if (u2 === 1 && t < 7) return tw5[t] + ' et un';
+                return tw5[t] + '-' + u5[u2];
+            };
+            const wordOf = (v) => {
+                const h = Math.floor(v / 100), rest = v % 100;
+                if (h === 0) return under100(rest);
+                const head = h === 1 ? 'cent' : u5[h] + ' cent' + (rest === 0 ? 's' : '');
+                return rest === 0 ? head : head + ' ' + under100(rest);
+            };
+            const arU5 = ['صفر', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة'];
+            const arUnder100 = (v) => {
+                if (v < 10) return arU5[v];
+                if (v < 20) {
+                    const arTeens = ['عشرة', 'أحد عشر', 'اثنا عشر', 'ثلاثة عشر', 'أربعة عشر',
+                        'خمسة عشر', 'ستة عشر', 'سبعة عشر', 'ثمانية عشر', 'تسعة عشر'];
+                    return arTeens[v - 10];
+                }
+                const t = Math.floor(v / 10), u2 = v % 10;
+                const tensAr = { 2: 'عشرون', 3: 'ثلاثون', 4: 'أربعون', 5: 'خمسون', 6: 'ستون', 7: 'سبعون', 8: 'ثمانون', 9: 'تسعون' };
+                return u2 === 0 ? tensAr[t] : arU5[u2] + ' و' + tensAr[t];
+            };
+            const arWordOf = (v) => {
+                const h = Math.floor(v / 100), rest = v % 100;
+                if (h === 0) return arUnder100(rest);
+                const arHundreds = ['', 'مئة', 'مئتان', 'ثلاثمئة', 'أربعمئة', 'خمسمئة',
+                    'ستمئة', 'سبعمئة', 'ثمانمئة', 'تسعمئة'];
+                return rest === 0 ? arHundreds[h] : arHundreds[h] + ' و' + arUnder100(rest);
+            };
+            const nums = [];
+            let guard = 0;
+            while (nums.length < n && guard++ < 400) {
+                const v = rng.int(10000, 99999);
+                if (!nums.includes(v)) nums.push(v);
+            }
+            const grouped = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            return {
+                pairs: nums.map(v => {
+                    const t = Math.floor(v / 1000), rest = v % 1000;
+                    let tFr = under100(t);
+                    if (tFr === 'quatre-vingts') tFr = 'quatre-vingt';   // invariable before 'mille'
+                    const fr = tFr + ' mille' + (rest ? ' ' + wordOf(rest) : '');
+                    const tAr = t === 10 ? 'عشرة آلاف' : arUnder100(t) + ' ألفاً';
+                    const ar = tAr + (rest ? ' و' + arWordOf(rest) : '');
+                    return { left: grouped(v), right: { fr, ar } };
+                })
+            };
+        }
+
+        // decimal-fraction: fraction décimale matched to its decimal writing
+        // (7/10 ↔ 0,7 ; 35/100 ↔ 0,35). Values are unique across rows.
+        if (kind === 'decimal-fraction') {
+            const rows = [];
+            const usedVal = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const den = rng.float() < 0.5 ? 10 : 100;
+                const t = den === 10 ? rng.int(1, 9) : rng.int(1, 99);
+                const val = t / den;
+                const key = Math.round(val * 1000);
+                if (usedVal.has(key)) continue;
+                usedVal.add(key);
+                const dec = den === 10 ? '0,' + t : (t < 10 ? '0,0' + t : '0,' + t);
+                rows.push({ left: t + '/' + den, right: dec });
+            }
+            return { pairs: rows };
+        }
+
+        // division-pairs: euclidean division matched to "quotient reste reste".
+        if (kind === 'division-pairs') {
+            const rows = [];
+            const usedA = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const d = rng.int(3, 9);
+                const q = rng.int(2, 9);
+                const r = rng.int(0, d - 1);
+                const a = d * q + r;
+                if (usedA.has(a)) continue;
+                usedA.add(a);
+                rows.push({
+                    left: a + ' ÷ ' + d,
+                    right: { fr: q + ' reste ' + r, ar: q + ' وباقي ' + r }
+                });
+            }
+            return { pairs: rows };
+        }
+
+        // circle-parts: cercle vocabulary (centre, rayon, diamètre, corde)
+        // matched to its definition.
+        if (kind === 'circle-parts') {
+            const vocab = [
+                { word: { fr: 'le centre', ar: 'المركز' }, def: { fr: 'Le point à égale distance de tous les points du cercle', ar: 'النقطة التي تبعد نفس المسافة عن كل نقاط الدائرة' } },
+                { word: { fr: 'le rayon', ar: 'نصف القطر' }, def: { fr: 'Le segment qui relie le centre à un point du cercle', ar: 'القطعة التي تربط المركز بنقطة على الدائرة' } },
+                { word: { fr: 'le diamètre', ar: 'القطر' }, def: { fr: 'La corde qui passe par le centre (2 × rayon)', ar: 'الوتر الذي يمر بالمركز (ضعف نصف القطر)' } },
+                { word: { fr: 'la corde', ar: 'الوتر' }, def: { fr: 'Le segment qui relie deux points du cercle', ar: 'القطعة التي تربط نقطتين على الدائرة' } }
+            ];
+            return { pairs: rng.shuffle(vocab).slice(0, Math.min(n, vocab.length)).map(v => ({ left: v.word, right: v.def })) };
+        }
+
+        // triangle-kind: triangle name matched to its defining property.
+        if (kind === 'triangle-kind') {
+            const kinds = [
+                { name: { fr: 'équilatéral', ar: 'متساوي الأضلاع' }, prop: { fr: '3 côtés égaux', ar: 'ثلاثة أضلاع متساوية' } },
+                { name: { fr: 'isocèle', ar: 'متساوي الساقين' }, prop: { fr: '2 côtés égaux', ar: 'ضلعان متساويان' } },
+                { name: { fr: 'rectangle', ar: 'قائم' }, prop: { fr: '1 angle droit', ar: 'زاوية قائمة واحدة' } }
+            ];
+            return { pairs: rng.shuffle(kinds).slice(0, Math.min(n, kinds.length)).map(k => ({ left: k.name, right: k.prop })) };
+        }
+
+        // proportion-pairs: same unit price, different quantities — the two
+        // statements of one proportional relationship. Unit prices stay
+        // unique per row so each left matches exactly one right.
+        if (kind === 'proportion-pairs') {
+            const items = rng.shuffle([
+                { fr: 'stylos', ar: 'أقلام' }, { fr: 'cahiers', ar: 'دفاتر' },
+                { fr: 'gommes', ar: 'محاسم' }, { fr: 'crayons', ar: 'أقلام رصاص' }
+            ]);
+            const rows = [];
+            const usedUnit = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const item = items[rows.length % items.length];
+                const unit = rng.int(2, 6);
+                if (usedUnit.has(unit)) continue;
+                usedUnit.add(unit);
+                let p = rng.int(2, 6);
+                if (p === unit) p = unit + 1;
+                rows.push({
+                    left: { fr: unit + ' ' + item.fr + ' coûtent ' + unit * unit + ' €', ar: unit + ' ' + item.ar + ' بـ ' + unit * unit + ' €' },
+                    right: { fr: p + ' ' + item.fr + ' coûtent ' + p * unit + ' €', ar: p + ' ' + item.ar + ' بـ ' + p * unit + ' €' }
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
         // multiplication-pairs: a repeated addition matched to its multiplication.
         if (kind === 'multiplication-pairs') {
             const pairs = [];

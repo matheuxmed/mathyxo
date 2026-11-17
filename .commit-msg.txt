@@ -1,0 +1,17 @@
+﻿Primaire-4 complete: 8 lessons, generators, and widget fix
+
+- Author the 2 remaining lessons: triangles-particuliers (triangle
+  rectangle/isocèle/équilatéral: template quiz + property sort +
+  triangle-kind matching) and tableaux-proportion (proportionality
+  recognition + coefficient: generated proportion quiz + situation sort +
+  proportion-pairs matching).
+- Add 6 matching pair generators: number-words-5digit (French wording
+  incl. quatre-vingt invariable before 'mille'), decimal-fraction
+  (unique values), division-pairs, circle-parts, triangle-kind,
+  proportion-pairs (unique unit prices per row).
+- place-value build mode now displays the target number (.pv-target) —
+  without it the child had no way to know what to decompose.
+- Fix the mangled Arabic string in aire-carre-rectangle.json.
+- Validated: JSON + structure of all 8 lessons; generator smoke tests
+  (uniqueness, wording); review.html auto-test 26/26; full walkthrough
+  of every primaire-4 lesson end-to-end.

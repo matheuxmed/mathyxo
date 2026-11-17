@@ -1205,6 +1205,12 @@ function buildPlaceValue(spec, host) {
     });
     const inputs = [];
     const allDigits = (intPart + decPart).split('');
+    // Show the target number: the child must know what to decompose.
+    const targetLine = actEl('div', 'pv-target');
+    targetLine.dir = 'ltr';
+    targetLine.textContent = number;
+    tensRow.appendChild(targetLine);
+    tensRow.appendChild(actEl('div', 'pv-note', pick({ fr: 'Touche une case pour choisir le chiffre.', ar: 'المس مربعاً لاختيار الرقم.' })));
     allDigits.forEach((d, i) => {
         const cell = actEl('button', 'pv-cell pv-input');
         cell.type = 'button';

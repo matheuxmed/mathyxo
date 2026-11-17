@@ -105,7 +105,7 @@
           "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
           "incorrect": { "fr": "Fais attention aux unités : cm².", "ar": "انتبه للوحدات: سم²." },
           "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
-          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! �✅" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! واصل، أنت تتقدم! 💪" },
           "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
           "questions": [
             { "prompt": { "fr": "Un rectangle fait 8 cm sur 3 cm. Son aire est…", "ar": "مستطيل أبعاده 8 سم في 3 سم. مساحته..." }, "options": ["24 cm²", "22 cm²", "11 cm²"], "answer": 0 }

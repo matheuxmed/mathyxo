@@ -1,0 +1,141 @@
+{
+  "id": "triangles-particuliers",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "cercles-triangles",
+  "title": { "fr": "Triangles particuliers", "ar": "المثلثات الخاصة" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "reconnaitre-triangles",
+      "title": { "fr": "Les trois triangles", "ar": "المثلثات الثلاثة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.4rem\">🔺 Le triangle a 3 côtés et 3 angles.</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Certains triangles sont « particuliers » : leurs côtés ou leurs angles ont des propriétés spéciales.</div>",
+            "caption": { "fr": "Un triangle a trois côtés et trois angles.", "ar": "للمثلث ثلاثة أضلاع وثلاث زوايا." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Équilatéral : 3 côtés égaux<br>Isocèle : 2 côtés égaux<br>Rectangle : 1 angle droit</div>",
+            "caption": { "fr": "Équilatéral = 3 côtés égaux. Isocèle = 2 côtés égaux. Rectangle = un angle droit.", "ar": "متساوي الأضلاع = ثلاثة أضلاع متساوية. متساوي الساقين = ضلعان متساويان. قائم = زاوية قائمة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">△ côtés : 5 cm, 5 cm, 3 cm</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">2 côtés égaux → triangle isocèle</div>",
+            "caption": { "fr": "Il a deux côtés égaux : c'est un triangle isocèle.", "ar": "له ضلعان متساويان: إذن هو مثلث متساوي الساقين." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">△ côtés : 4 cm, 4 cm, 4 cm</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">3 côtés égaux → triangle équilatéral</div>",
+            "caption": { "fr": "Ses trois côtés sont égaux : triangle équilatéral.", "ar": "أضلاعه الثلاثة متساوية: مثلث متساوي الأضلاع." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "triangle-kind",
+          "title": { "fr": "Quel triangle est-ce ?", "ar": "أي مثلث هذا؟" },
+          "prompt": { "fr": "Compte les côtés égaux et choisis.", "ar": "عُدّ الأضلاع المتساوية واختر." },
+          "correct": { "fr": "Bien reconnu ! ✓", "ar": "تمييز صحيح! ✓" },
+          "incorrect": { "fr": "Regarde les côtés égaux : 2 côtés = isocèle, 3 côtés = équilatéral.", "ar": "انظر إلى الأضلاع المتساوية: ضلعان = متساوي الساقين، ثلاثة = متساوي الأضلاع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Un triangle a des côtés de 6 cm, 6 cm et 6 cm. C'est…", "ar": "مثلث أضلاعه 6 سم و6 سم و6 سم. هو..." }, "options": ["isocèle", "équilatéral", "rectangle"], "answer": 1 },
+            { "prompt": { "fr": "Un triangle a des côtés de 7 cm, 7 cm et 4 cm. C'est…", "ar": "مثلث أضلاعه 7 سم و7 سم و4 سم. هو..." }, "options": ["équilatéral", "rectangle", "isocèle"], "answer": 2 },
+            { "prompt": { "fr": "Un triangle a un angle de 90°. C'est…", "ar": "مثلث فيه زاوية 90 درجة. هو..." }, "options": ["rectangle", "équilatéral", "isocèle"], "answer": 0 }
+          ]
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Range les propriétés", "ar": "رتّب الخصائص" },
+          "prompt": { "fr": "À quel triangle chaque propriété correspond-elle ?", "ar": "لأي مثلث تنتمي كل خاصية؟" },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "isoceles", "label": { "fr": "Isocèle", "ar": "متساوي الساقين" } },
+            { "id": "equilateral", "label": { "fr": "Équilatéral", "ar": "متساوي الأضلاع" } }
+          ],
+          "items": [
+            { "label": { "fr": "3 côtés égaux", "ar": "ثلاثة أضلاع متساوية" }, "bucket": "equilateral" },
+            { "label": { "fr": "2 côtés égaux", "ar": "ضلعان متساويان" }, "bucket": "isoceles" },
+            { "label": { "fr": "Ses 3 angles sont égaux", "ar": "زواياه الثلاث متساوية" }, "bucket": "equilateral" },
+            { "label": { "fr": "Un axe de symétrie", "ar": "له محور تناظر" }, "bucket": "isoceles" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tracer-triangles",
+      "title": { "fr": "Construire les triangles", "ar": "إنشاء المثلثات" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Pour tracer un triangle équilatéral de côté 4 cm :</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">① Trace [AB] de 4 cm ② Prends un écartement de compas de 4 cm ③ Arc de A et arc de B ④ Relie l'intersection</div>",
+            "caption": { "fr": "Le compas, avec un écartement égal au côté, trouve le 3ème sommet.", "ar": "الفرجار بفتحة تساوي الضلع يجد الرأس الثالث." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Triangle rectangle :</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Trace un angle droit avec l'équerre, puis deux côtés de longueurs choisies et ferme le triangle.</div>",
+            "caption": { "fr": "L'équerre garantit l'angle droit.", "ar": "المسطرة القائمة تضمن الزاوية القائمة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Un triangle isocèle a un axe de symétrie.</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">En le pliant le long de cet axe, les deux moitiés se superposent.</div>",
+            "caption": { "fr": "Cet axe passe par le sommet principal et le milieu du côté de base.", "ar": "هذا المحور يمر بالرأس الرئيسي ووسط القاعدة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "triangle-kind",
+          "title": { "fr": "Relie triangle et propriété", "ar": "اربط المثلث بخاصيته" },
+          "prompt": { "fr": "Touche un triangle, puis sa propriété.", "ar": "المس مثلثاً ثم خاصيته." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Compte les côtés égaux et cherche l'angle droit.", "ar": "عُدّ الأضلاع المتساوية وابحث عن الزاوية القائمة." }
+        },
+        {
+          "type": "quiz",
+          "topic": "triangle-props",
+          "title": { "fr": "Quiz des triangles", "ar": "اختبار المثلثات" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Repense aux côtés égaux et à l'angle droit.", "ar": "تذكّر الأضلاع المتساوية والزاوية القائمة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Le triangle équilatéral a…", "ar": "المثلث متساوي الأضلاع له..." }, "options": ["3 axes de symétrie", "0 axe de symétrie", "1 seul angle droit"], "answer": 0 },
+            { "prompt": { "fr": "Un triangle rectangle possède…", "ar": "المثلث القائم يملك..." }, "options": ["3 angles droits", "exactement un angle droit", "3 côtés égaux"], "answer": 1 },
+            { "prompt": { "fr": "Pour tracer un triangle équilatéral, on utilise…", "ar": "لرسم مثلث متساوي الأضلاع نستعمل..." }, "options": ["le rapporteur", "le compas", "le thermomètre"], "answer": 1 }
+          ]
+        }
+      ]
+    }
+  ]
+}

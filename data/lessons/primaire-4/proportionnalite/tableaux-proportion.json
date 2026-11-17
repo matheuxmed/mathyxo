@@ -1,0 +1,136 @@
+{
+  "id": "tableaux-proportion",
+  "category": "primaire",
+  "level": "primaire-4",
+  "chapter": "proportionnalite",
+  "title": { "fr": "Tableaux de proportionnalité", "ar": "جداول التناسبية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "reconnaitre-proportion",
+      "title": { "fr": "Reconnaître la proportionnalité", "ar": "التعرف على التناسبية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3 stylos coûtent 6 €. Combien coûtent 6 stylos ?</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Deux fois plus de stylos → deux fois plus cher : 12 €</div>",
+            "caption": { "fr": "On dit que le prix est proportionnel au nombre de stylos.", "ar": "نقول أن الثمن يتناسب مع عدد الأقلام." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un tableau est proportionnel si on passe d'une colonne à l'autre en multipliant toujours par le même nombre.</div>",
+            "caption": { "fr": "Ce nombre s'appelle le coefficient de proportionnalité.", "ar": "هذا العدد يسمى معامل التناسبية." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Bonbons : 2 → 4 € ; 4 → 8 € ; 6 → 12 €</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">Toujours × 2 → proportionnel ✓</div>",
+            "caption": { "fr": "Chaque prix est 2 fois le nombre de bonbons : coefficient 2.", "ar": "كل ثمن يساوي ضعف عدد الحلوى: المعامل 2." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Entrées : 1 → 5 € ; 2 → 9 € ; 4 → 16 €</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">×5 ? ×4.5 ? ×4 ? → pas proportionnel ✗</div>",
+            "caption": { "fr": "Il n'y a pas toujours le même multiplicateur : ce n'est pas proportionnel.", "ar": "لا يوجد نفس المضاعف دائماً: إذن غير تناسبي." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "proportion",
+          "title": { "fr": "Combien coûtent… ?", "ar": "كم يكلف…؟" },
+          "prompt": { "fr": "Utilise la proportionnalité.", "ar": "استعمل التناسبية." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Cherche d'abord le prix d'un seul, puis multiplie.", "ar": "ابحث أولاً عن ثمن الواحد ثم اضرب." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Proportionnel ou pas ?", "ar": "تناسبي أم لا؟" },
+          "prompt": { "fr": "Classe chaque tableau-situation.", "ar": "صنّف كل وضعية." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "oui", "label": { "fr": "Proportionnel", "ar": "تناسبي" } },
+            { "id": "non", "label": { "fr": "Pas proportionnel", "ar": "غير تناسبي" } }
+          ],
+          "items": [
+            { "label": { "fr": "2 img → 6 € ; 4 img → 12 €", "ar": "2 صور ← 6 € ؛ 4 صور ← 12 €" }, "bucket": "oui" },
+            { "label": { "fr": "3 gâteaux → 9 € ; 5 gâteaux → 14 €", "ar": "3 كعكات ← 9 € ؛ 5 كعكات ← 14 €" }, "bucket": "non" },
+            { "label": { "fr": "1 kg → 3 € ; 10 kg → 30 €", "ar": "1 كلغ ← 3 € ؛ 10 كلغ ← 30 €" }, "bucket": "oui" },
+            { "label": { "fr": "5 feuilles → 2 € ; 8 feuilles → 5 €", "ar": "5 أوراق ← 2 € ؛ 8 أوراق ← 5 €" }, "bucket": "non" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "coefficient-proportion",
+      "title": { "fr": "Le coefficient", "ar": "معامل التناسبية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">kilos : 2 → 4 → 6<br>prix : 6 → 12 → 18</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">6 ÷ 2 = 12 ÷ 4 = 18 ÷ 6 = 3</div>",
+            "caption": { "fr": "Prix ÷ kilos donne toujours 3 : le coefficient est 3.", "ar": "الثمن ÷ الكيلو دائماً يعطي 3: المعامل هو 3." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Pour compléter : kilos × 3 = prix</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">8 kilos → 8 × 3 = 24 €</div>",
+            "caption": { "fr": "On multiplie chaque quantité par le coefficient.", "ar": "نضرب كل كمية في المعامل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Si 5 cahiers coûtent 10 €, alors 1 cahier coûte 2 €.</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">8 cahiers → 8 × 2 = 16 €</div>",
+            "caption": { "fr": "On peut aussi passer par le prix d'un seul : c'est le retour à l'unité.", "ar": "يمكن أيضاً الانتقال إلى ثمن الواحد: هذا هو الرجوع إلى الوحدة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "matching",
+          "pairType": "proportion-pairs",
+          "title": { "fr": "Relie les achats équivalents", "ar": "اربط المشتريات المتناسبة" },
+          "prompt": { "fr": "Touche un achat, puis celui qui a le même prix à l'unité.", "ar": "المس شراءً ثم الآخر بنفس ثمن الوحدة." },
+          "pairCorrect": { "fr": "Même prix à l'unité ! ✓", "ar": "نفس ثمن الوحدة! ✓" },
+          "pairWrong": { "fr": "Compare le prix d'un seul article dans chaque cas.", "ar": "قارن ثمن القطعة الواحدة في كل حالة." }
+        },
+        {
+          "type": "quiz",
+          "topic": "prop-coef",
+          "title": { "fr": "Trouve le coefficient", "ar": "أوجد المعامل" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Divise : prix ÷ quantité.", "ar": "اقسم: الثمن ÷ الكمية." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "3 cahiers coûtent 12 €. Le coefficient est…", "ar": "3 دفاتر بـ 12 €. المعامل هو..." }, "options": ["4", "3", "12"], "answer": 0 },
+            { "prompt": { "fr": "Avec un coefficient de 5 : 4 objets coûtent…", "ar": "بمعامل 5: تكلف 4 أشياء..." }, "options": ["9 €", "20 €", "25 €"], "answer": 1 },
+            { "prompt": { "fr": "6 img coûtent 18 €. Le prix de 1 img est…", "ar": "6 صور بـ 18 €. ثمن صورة واحدة هو..." }, "options": ["6 €", "18 €", "3 €"], "answer": 2 }
+          ]
+        }
+      ]
+    }
+  ]
+}
