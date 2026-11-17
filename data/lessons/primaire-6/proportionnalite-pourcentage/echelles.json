@@ -1,0 +1,123 @@
+{
+  "id": "echelles",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "proportionnalite-pourcentage",
+  "title": { "fr": "Les échelles", "ar": "السلالم" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "comprendre-echelle",
+      "title": { "fr": "Comprendre une échelle", "ar": "فهم السلم" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Échelle 1/100</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">1 cm sur le dessin = 100 cm (1 m) en réalité.</div>",
+            "caption": { "fr": "L'échelle dit combien de fois la réalité a été réduite.", "ar": "السلم يحدد كم مرة صُغّرت الحقيقة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Échelle 1/50 : 3 cm → 150 cm</div>",
+            "caption": { "fr": "On multiplie la longueur du dessin par le dénominateur.", "ar": "نضرب طول الرسم في مقام السلم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Sur une carte à 1/100 000 : 2 cm = 2 km</div>",
+            "caption": { "fr": "Une carte réduit beaucoup : 1 cm peut valoir 1 km.", "ar": "الخريطة تصغّر كثيراً: 1 سم قد يساوي 1 كلومتر." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "echelle",
+          "title": { "fr": "Dessin ou réalité ?", "ar": "رسم أم حقيقة؟" },
+          "prompt": { "fr": "Utilise l'échelle.", "ar": "استعمل السلم." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie ou divise par le dénominateur de l'échelle.", "ar": "اضرب أو اقسم في مقام السلم." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "echelle-pairs",
+          "title": { "fr": "Relie dessin et réalité", "ar": "اربط الرسم بالحقيقة" },
+          "prompt": { "fr": "Touche une mesure du dessin, puis la mesure réelle.", "ar": "المس قياس الرسم ثم القياس الحقيقي." },
+          "pairCorrect": { "fr": "Bien relié ! ✓", "ar": "ربط صحيح! ✓" },
+          "pairWrong": { "fr": "Multiplie par 100 pour passer du dessin au réel.", "ar": "اضرب في 100 للانتقال من الرسم إلى الحقيقة." }
+        }
+      ]
+    },
+    {
+      "id": "utiliser-echelle",
+      "title": { "fr": "Utiliser une échelle", "ar": "استعمال السلم" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Pour dessiner : réalité ÷ dénominateur. Pour mesurer la réalité : dessin × dénominateur.</div>",
+            "caption": { "fr": "Dans les deux sens, on garde la même échelle.", "ar": "في الاتجاهين نحافظ على نفس السلم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Un mur de 5 m à l'échelle 1/100 → 500 cm ÷ 100 = 5 cm</div>",
+            "caption": { "fr": "Sur le dessin, le mur mesure 5 cm.", "ar": "في الرسم، الحائط يقيس 5 سم." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Dessin ou réalité ?", "ar": "رسم أم حقيقة؟" },
+          "prompt": { "fr": "À l'échelle 1/100, classe chaque longueur.", "ar": "بسلّم 1/100، صنّف كل طول." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "dessin", "label": { "fr": "Sur le dessin", "ar": "في الرسم" } },
+            { "id": "reel", "label": { "fr": "Dans la réalité", "ar": "في الحقيقة" } }
+          ],
+          "items": [
+            { "label": { "fr": "4 cm sur le dessin", "ar": "4 سم في الرسم" }, "bucket": "dessin" },
+            { "label": { "fr": "4 m dans la réalité", "ar": "4 م في الحقيقة" }, "bucket": "reel" },
+            { "label": { "fr": "2 cm sur le dessin", "ar": "2 سم في الرسم" }, "bucket": "dessin" },
+            { "label": { "fr": "2 m dans la réalité", "ar": "2 م في الحقيقة" }, "bucket": "reel" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "echelle",
+          "title": { "fr": "Problème d'échelle", "ar": "مسألة سلم" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
+          "incorrect": { "fr": "Dessin × dénominateur = réalité.", "ar": "الرسم × المقام = الحقيقة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

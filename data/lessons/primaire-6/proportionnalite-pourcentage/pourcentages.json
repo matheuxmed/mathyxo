@@ -1,0 +1,125 @@
+{
+  "id": "pourcentages",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "proportionnalite-pourcentage",
+  "title": { "fr": "Les pourcentages", "ar": "النسب المئوية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "comprendre-pourcentage",
+      "title": { "fr": "Comprendre les pourcentages", "ar": "فهم النسب المئوية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">50% = la moitié</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Un pourcentage compare à 100 : 50% = 50/100.</div>",
+            "caption": { "fr": "Le signe % veut dire « pour cent ».", "ar": "الرمز % يعني «من مائة»." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">25% = 1/4 · 50% = 1/2 · 75% = 3/4</div>",
+            "caption": { "fr": "Des pourcentages à connaître par cœur.", "ar": "نسب مئوية يُحفظ عن ظهر قلب." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">30% de 60 = 60 × 30 ÷ 100 = 18</div>",
+            "caption": { "fr": "Pour prendre 30%, on multiplie par 30 puis on divise par 100.", "ar": "لأخذ 30% نضرب في 30 ثم نقسم على 100." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "pourcentage",
+          "title": { "fr": "Combien fait x% ?", "ar": "كم يساوي x%؟" },
+          "prompt": { "fr": "Calcule le pourcentage.", "ar": "احسب النسبة." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie par le pourcentage puis divise par 100.", "ar": "اضرب في النسبة ثم اقسم على 100." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "fraction",
+          "shape": "pie",
+          "parts": 10,
+          "mode": "shade",
+          "target": 3,
+          "title": { "fr": "Colorie 30%", "ar": "لوّن 30%" },
+          "prompt": { "fr": "30% de 10 parts = 3 parts. Touche-les.", "ar": "30% من 10 قطع = 3 قطع. المسها." },
+          "success": { "fr": "30% bien colorié ! ✓", "ar": "تلوين صحيح لـ 30%! ✓" }
+        }
+      ]
+    },
+    {
+      "id": "calculer-pourcentage",
+      "title": { "fr": "Calculer un pourcentage", "ar": "حساب نسبة مئوية" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Dans une classe de 20 élèves, 5 portent des lunettes.</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">5/20 = 25/100 → 25%</div>",
+            "caption": { "fr": "On ramène la fraction sur 100.", "ar": "نحوّل الكسر ليصبح من مائة." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Une réduction de 10% sur 50 € : 50 − 5 = 45 €</div>",
+            "caption": { "fr": "10% de 50 € = 5 €, on soustrait la réduction.", "ar": "10% من 50 € = 5 €، نطرح التخفيض." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "pct-calc",
+          "title": { "fr": "Quel pourcentage ?", "ar": "أي نسبة مئوية؟" },
+          "prompt": { "fr": "Trouve le pourcentage.", "ar": "أوجد النسبة المئوية." },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة صحيحة! ✓" },
+          "incorrect": { "fr": "Ramène la fraction sur 100.", "ar": "حوّل الكسر إلى من مائة." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Plus ou moins que 50% ?", "ar": "أكثر أم أقل من 50%؟" },
+          "prompt": { "fr": "Classe chaque pourcentage.", "ar": "صنّف كل نسبة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "plus", "label": { "fr": "Plus que 50%", "ar": "أكثر من 50%" } },
+            { "id": "moins", "label": { "fr": "Moins que 50%", "ar": "أقل من 50%" } }
+          ],
+          "items": [
+            { "label": { "fr": "75%", "ar": "75%" }, "bucket": "plus" },
+            { "label": { "fr": "25%", "ar": "25%" }, "bucket": "moins" },
+            { "label": { "fr": "90%", "ar": "90%" }, "bucket": "plus" },
+            { "label": { "fr": "10%", "ar": "10%" }, "bucket": "moins" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -114,15 +114,23 @@
           "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
         },
         {
-          "type": "quiz",
-          "topic": "money-decimal",
-          "title": { "fr": "Problème d'argent", "ar": "مسألة مال" },
-          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
-          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
-          "incorrect": { "fr": "Le reste = prix payé − prix acheté.", "ar": "الباقي = المدفوع − ثمن الشراء." },
-          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "type": "sort",
+          "title": { "fr": "Soustraction juste ou fausse ?", "ar": "طرح صحيح أم خاطئ؟" },
+          "prompt": { "fr": "Vérifie chaque soustraction.", "ar": "تحقق من كل طرح." },
+          "correct": { "fr": "Bien vérifié ! ✓", "ar": "تحقق صحيح! ✓" },
+          "success": { "fr": "Tout est bien trié ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
           "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
-          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "juste", "label": { "fr": "Juste", "ar": "صحيح" } },
+            { "id": "faux", "label": { "fr": "Faux", "ar": "خاطئ" } }
+          ],
+          "items": [
+            { "label": { "fr": "8,5 − 2,3 = 6,2", "ar": "8,5 − 2,3 = 6,2" }, "bucket": "juste" },
+            { "label": { "fr": "9,4 − 3,1 = 6,3", "ar": "9,4 − 3,1 = 6,3" }, "bucket": "juste" },
+            { "label": { "fr": "7,6 − 2,2 = 5,4", "ar": "7,6 − 2,2 = 5,4" }, "bucket": "juste" },
+            { "label": { "fr": "6,5 − 1,2 = 5,7", "ar": "6,5 − 1,2 = 5,7" }, "bucket": "faux" }
+          ]
         }
       ]
     }

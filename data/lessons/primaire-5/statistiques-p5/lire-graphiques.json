@@ -55,18 +55,23 @@
           "success": { "fr": "Bien lu ! 🎉", "ar": "قراءة ممتازة! 🎉" }
         },
         {
-          "type": "chart",
-          "mode": "build",
-          "labels": [
-            { "fr": "Pommes", "ar": "تفاح" },
-            { "fr": "Bananes", "ar": "موز" },
-            { "fr": "Oranges", "ar": "برتقال" }
+          "type": "sort",
+          "title": { "fr": "Plus ou moins que 5 ?", "ar": "أكثر أم أقل من 5؟" },
+          "prompt": { "fr": "Classe chaque valeur par rapport à 5.", "ar": "صنّف كل قيمة بالنسبة إلى 5." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "plus5", "label": { "fr": "Plus que 5", "ar": "أكثر من 5" } },
+            { "id": "moins5", "label": { "fr": "5 ou moins", "ar": "5 أو أقل" } }
           ],
-          "values": [0, 0, 0],
-          "targets": [5, 3, 2],
-          "title": { "fr": "Complète le graphique", "ar": "أكمل المبيان" },
-          "prompt": { "fr": "Pommes : 5 · Bananes : 3 · Oranges : 2 — touche chaque colonne jusqu'à la bonne hauteur.", "ar": "تفاح: 5 · موز: 3 · برتقال: 2 — المس كل عمود حتى الارتفاع المناسب." },
-          "success": { "fr": "Graphique terminé ! 🎉", "ar": "اكتمل المبيان! 🎉" }
+          "items": [
+            { "label": { "fr": "Football : 8", "ar": "كرة القدم: 8" }, "bucket": "plus5" },
+            { "label": { "fr": "Natation : 4", "ar": "السباحة: 4" }, "bucket": "moins5" },
+            { "label": { "fr": "Tennis : 6", "ar": "التنس: 6" }, "bucket": "plus5" },
+            { "label": { "fr": "Total : 18", "ar": "المجموع: 18" }, "bucket": "plus5" }
+          ]
         }
       ]
     },
@@ -110,23 +115,18 @@
           "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
         },
         {
-          "type": "sort",
-          "title": { "fr": "Plus ou moins que 5 ?", "ar": "أكثر أم أقل من 5؟" },
-          "prompt": { "fr": "Classe chaque valeur du tableau.", "ar": "صنّف كل قيمة من الجدول." },
-          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
-          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
-          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
-          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
-          "buckets": [
-            { "id": "plus5", "label": { "fr": "Plus que 5", "ar": "أكثر من 5" } },
-            { "id": "moins5", "label": { "fr": "5 ou moins", "ar": "5 أو أقل" } }
+          "type": "chart",
+          "mode": "build",
+          "labels": [
+            { "fr": "Pommes", "ar": "تفاح" },
+            { "fr": "Bananes", "ar": "موز" },
+            { "fr": "Oranges", "ar": "برتقال" }
           ],
-          "items": [
-            { "label": { "fr": "Pommes : 5", "ar": "تفاح: 5" }, "bucket": "moins5" },
-            { "label": { "fr": "Bananes : 3", "ar": "موز: 3" }, "bucket": "moins5" },
-            { "label": { "fr": "Foot : 8", "ar": "كرة القدم: 8" }, "bucket": "plus5" },
-            { "label": { "fr": "Tennis : 6", "ar": "التنس: 6" }, "bucket": "plus5" }
-          ]
+          "values": [0, 0, 0],
+          "targets": [5, 3, 2],
+          "title": { "fr": "Complète le graphique", "ar": "أكمل المبيان" },
+          "prompt": { "fr": "Pommes : 5 · Bananes : 3 · Oranges : 2 — touche chaque colonne jusqu'à la bonne hauteur.", "ar": "تفاح: 5 · موز: 3 · برتقال: 2 — المس كل عمود حتى الارتفاع المناسب." },
+          "success": { "fr": "Graphique terminé ! 🎉", "ar": "اكتمل المبيان! 🎉" }
         }
       ]
     }

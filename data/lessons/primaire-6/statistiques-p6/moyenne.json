@@ -1,0 +1,130 @@
+{
+  "id": "moyenne",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "statistiques-p6",
+  "title": { "fr": "La moyenne", "ar": "المتوسط" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "comprendre-moyenne",
+      "title": { "fr": "Comprendre la moyenne", "ar": "فهم المتوسط" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Notes : 8 · 6 · 10</div><div style=\"text-align:center;font-size:1.3rem;margin-top:8px\">(8 + 6 + 10) ÷ 3 = 24 ÷ 3 = 8</div>",
+            "caption": { "fr": "La moyenne = la somme divisée par le nombre de valeurs.", "ar": "المتوسط = المجموع مقسوماً على عدد القيم." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Si on partage également, chacun reçoit la moyenne.</div>",
+            "caption": { "fr": "La moyenne est la valeur « équitable » du partage.", "ar": "المتوسط هو القيمة العادلة للتقسيم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">4 pommes, 5 pommes, 6 pommes : 15 pommes pour 3 personnes → 5 chacune.</div>",
+            "caption": { "fr": "Chacun aurait 5 pommes : la moyenne est 5.", "ar": "لكل واحد 5 تفاحات: المتوسط 5." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "chart",
+          "mode": "mean",
+          "labels": [
+            { "fr": "Lundi", "ar": "الاثنين" },
+            { "fr": "Mardi", "ar": "الثلاثاء" },
+            { "fr": "Mercredi", "ar": "الأربعاء" }
+          ],
+          "values": [6, 8, 7],
+          "title": { "fr": "Quelle est la moyenne ?", "ar": "ما هو المتوسط؟" },
+          "prompt": { "fr": "Calcule (6 + 8 + 7) ÷ 3 et choisis.", "ar": "احسب (6 + 8 + 7) ÷ 3 واختر." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "retry": { "fr": "Additionne d'abord, puis divise par 3.", "ar": "اجمع أولاً ثم اقسم على 3." },
+          "success": { "fr": "Moyenne trouvée ! 🎉", "ar": "وجدت المتوسط! 🎉" }
+        },
+        {
+          "type": "quiz",
+          "topic": "moyenne",
+          "title": { "fr": "Calcule la moyenne", "ar": "احسب المتوسط" },
+          "prompt": { "fr": "Somme ÷ nombre de valeurs.", "ar": "المجموع ÷ عدد القيم." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Additionne toutes les valeurs puis divise par leur nombre.", "ar": "اجمع كل القيم ثم اقسم على عددها." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "utiliser-moyenne",
+      "title": { "fr": "Utiliser la moyenne", "ar": "استعمال المتوسط" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Moyenne de 4 mesures = 7 cm → total = 4 × 7 = 28 cm</div>",
+            "caption": { "fr": "On peut aussi remonter : moyenne × nombre = total.", "ar": "يمكن أيضاً العكس: المتوسط × العدد = المجموع." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">La moyenne est toujours entre la plus petite et la plus grande valeur.</div>",
+            "caption": { "fr": "Vérification rapide : la moyenne ne sort jamais des valeurs.", "ar": "تحقق سريع: المتوسط لا يتجاوز القيم أبداً." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "moyenne",
+          "title": { "fr": "Problèmes de moyenne", "ar": "مسائل المتوسط" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
+          "incorrect": { "fr": "Pense : total = moyenne × nombre de valeurs.", "ar": "تذكّر: المجموع = المتوسط × عدد القيم." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Au-dessus ou en dessous ?", "ar": "فوق أم تحت؟" },
+          "prompt": { "fr": "La moyenne de 5, 7 et 9 est 7. Classe chaque valeur.", "ar": "متوسط 5 و7 و9 هو 7. صنّف كل قيمة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "dessus", "label": { "fr": "Au-dessus de 7", "ar": "فوق 7" } },
+            { "id": "dessous", "label": { "fr": "7 ou en dessous", "ar": "7 أو أقل" } }
+          ],
+          "items": [
+            { "label": { "fr": "Valeur 9", "ar": "القيمة 9" }, "bucket": "dessus" },
+            { "label": { "fr": "Valeur 5", "ar": "القيمة 5" }, "bucket": "dessous" },
+            { "label": { "fr": "Valeur 12", "ar": "القيمة 12" }, "bucket": "dessus" },
+            { "label": { "fr": "Valeur 7", "ar": "القيمة 7" }, "bucket": "dessous" }
+          ]
+        }
+      ]
+    }
+  ]
+}

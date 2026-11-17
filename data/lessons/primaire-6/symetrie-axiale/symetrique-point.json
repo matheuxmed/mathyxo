@@ -1,0 +1,131 @@
+{
+  "id": "symetrique-point",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "symetrie-axiale",
+  "title": { "fr": "Symétrique d'un point", "ar": "مماثل نقطة" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "axe-de-symetrie",
+      "title": { "fr": "L'axe de symétrie", "ar": "محور التماثل" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">✂️ Plier le long de l'axe : les deux moitiés se superposent.</div>",
+            "caption": { "fr": "L'axe de symétrie est comme une ligne de pliage.", "ar": "محور التماثل كخط طي." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Lettre A : 1 axe · Lettre M : 1 axe · Cercle : une infinité !</div>",
+            "caption": { "fr": "Certaines figures ont un ou plusieurs axes.", "ar": "بعض الأشكال لها محور أو أكثر." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Un carré a 4 axes de symétrie.</div>",
+            "caption": { "fr": "2 diagonales + 2 axes passant par les milieux des côtés.", "ar": "قطران + محوران يمران بمنتصفات الأضلاع." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "symmetry",
+          "size": 8,
+          "axis": "vertical",
+          "goal": 3,
+          "title": { "fr": "Dessine le pliage", "ar": "ارسم الطية" },
+          "prompt": { "fr": "Peins quelques cases d'un côté de l'axe : l'autre côté se reflète tout seul.", "ar": "لوّن بعض المربعات على جانب المحور: فينعكس الجانب الآخر تلقائياً." },
+          "success": { "fr": "Figure bien symétrique ! ✓", "ar": "شكل متماثل! ✓" }
+        },
+        {
+          "type": "quiz",
+          "topic": "sym-axes",
+          "title": { "fr": "Quiz des axes", "ar": "اختبار المحاور" },
+          "prompt": { "fr": "Choisis la bonne réponse.", "ar": "اختر الجواب الصحيح." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Pense au pliage : les deux moitiés doivent se superposer.", "ar": "فكّر في الطية: يجب أن يتطابق النصفان." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "questions": [
+            { "prompt": { "fr": "Combien d'axes de symétrie a un carré ?", "ar": "كم محور تناظر في المربع؟" }, "options": ["2", "4", "1"], "answer": 1 },
+            { "prompt": { "fr": "Combien d'axes a un triangle équilatéral ?", "ar": "كم محوراً للمثلث متساوي الأضلاع؟" }, "options": ["3", "1", "0"], "answer": 0 },
+            { "prompt": { "fr": "Combien d'axes a un rectangle (pas un carré) ?", "ar": "كم محوراً للمستطيل (غير المربع)؟" }, "options": ["4", "2", "1"], "answer": 1 }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "construire-symetrique",
+      "title": { "fr": "Construire le symétrique d'un point", "ar": "إنشاء مماثل نقطة" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Le symétrique de A par rapport à (d) :</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">① La droite (dA) est perpendiculaire à (d) ② On reporte la distance avec le compas ③ A′ est à la même distance de l'axe</div>",
+            "caption": { "fr": "L'axe est la médiatrice du segment [AA′].", "ar": "المحور هو العمود المتوسط للقطعة AA′." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Si A est sur l'axe, son symétrique est A lui-même !</div>",
+            "caption": { "fr": "Un point sur l'axe reste à la même place.", "ar": "النقطة الواقعة على المحور تبقى في مكانها." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">A est à 3 cm de l'axe → A′ est à 3 cm de l'axe, de l'autre côté.</div>",
+            "caption": { "fr": "Même distance, côté opposé : voilà le symétrique.", "ar": "نفس المسافة في الجانب المقابل: هذا هو المماثل." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Sur l'axe ou pas ?", "ar": "على المحور أم لا؟" },
+          "prompt": { "fr": "Où se trouve le symétrique de chaque point ?", "ar": "أين يقع مماثل كل نقطة؟" },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "sur", "label": { "fr": "Sur l'axe (même place)", "ar": "على المحور (نفس المكان)" } },
+            { "id": "deux", "label": { "fr": "De l'autre côté", "ar": "في الجانب الآخر" } }
+          ],
+          "items": [
+            { "label": { "fr": "A est sur l'axe", "ar": "A على المحور" }, "bucket": "sur" },
+            { "label": { "fr": "A est à 2 cm de l'axe", "ar": "A يبعد 2 سم عن المحور" }, "bucket": "deux" },
+            { "label": { "fr": "B est à 5 cm de l'axe", "ar": "B يبعد 5 سم عن المحور" }, "bucket": "deux" },
+            { "label": { "fr": "C est sur l'axe", "ar": "C على المحور" }, "bucket": "sur" }
+          ]
+        },
+        {
+          "type": "symmetry",
+          "size": 8,
+          "axis": "horizontal",
+          "goal": 3,
+          "title": { "fr": "Axe horizontal", "ar": "محور أفقي" },
+          "prompt": { "fr": "Cette fois l'axe est horizontal : peins des cases et regarde la réflexion.", "ar": "هذه المرة المحور أفقي: لوّن المربعات ولاحظ الانعكاس." },
+          "success": { "fr": "Figure bien symétrique ! ✓", "ar": "شكل متماثل! ✓" }
+        }
+      ]
+    }
+  ]
+}

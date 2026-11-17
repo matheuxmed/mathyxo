@@ -454,6 +454,78 @@ const VARIANTS = {
             return { pairs: rng.shuffle(kinds).slice(0, Math.min(n, kinds.length)).map(k => ({ left: k.name, right: k.prop })) };
         }
 
+        // div-decimal-pairs: a 1-decimal division matched to its whole quotient.
+        // Quotients stay unique so each left matches exactly one right.
+        if (kind === 'div-decimal-pairs') {
+            const rows = [];
+            const usedT = new Set();
+            const usedQ = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const n2 = rng.int(2, 9), q2 = rng.int(2, 9);
+                const T = n2 * q2;
+                if (usedQ.has(q2) || usedT.has(T)) continue;
+                usedQ.add(q2);
+                usedT.add(T);
+                rows.push({
+                    left: String(Math.round(T / 10 * 10) / 10).replace('.', ',') + ' ÷ ' + n2,
+                    right: String(q2)
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // priorites-pairs: an expression with priorities matched to its value.
+        if (kind === 'priorites-pairs') {
+            const rows = [];
+            const usedV = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const a = rng.int(2, 9), b = rng.int(2, 9), c = rng.int(2, 9);
+                const withP = rng.float() < 0.5;
+                const expr = withP ? '(' + a + ' + ' + b + ') × ' + c : a + ' + ' + b + ' × ' + c;
+                const val = withP ? (a + b) * c : a + b * c;
+                if (usedV.has(val)) continue;
+                usedV.add(val);
+                rows.push({ left: expr, right: String(val) });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // echelle-pairs: a plan length matched to the real length (1/100).
+        if (kind === 'echelle-pairs') {
+            const rows = [];
+            const usedP = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const P = rng.int(2, 9);
+                if (usedP.has(P)) continue;
+                usedP.add(P);
+                rows.push({
+                    left: { fr: P + ' cm sur le plan (1/100)', ar: P + ' سم في الرسم (1/100)' },
+                    right: (P * 100) + ' cm'
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
+        // volume-cube-pairs: cube side matched to its volume.
+        if (kind === 'volume-cube-pairs') {
+            const rows = [];
+            const usedA = new Set();
+            let guard = 0;
+            while (rows.length < n && guard++ < 400) {
+                const a = rng.int(2, 6);
+                if (usedA.has(a)) continue;
+                usedA.add(a);
+                rows.push({
+                    left: { fr: 'Cube de côté ' + a + ' cm', ar: 'مكعب ضلعه ' + a + ' سم' },
+                    right: (a * a * a) + ' cm³'
+                });
+            }
+            return { pairs: rng.shuffle(rows) };
+        }
+
         // multiplication-pairs: a repeated addition matched to its multiplication.
         if (kind === 'multiplication-pairs') {
             const pairs = [];
@@ -534,7 +606,9 @@ const VARIANTS = {
             'thousands-5', 'decimal-words', 'division-remainder', 'area', 'proportion',
             'decimals-place', 'compare-decimal', 'ranger-decimal', 'add-decimal', 'sub-decimal',
             'money-decimal', 'mul-10', 'mul-decimal', 'fraction-equal', 'simplify-fraction',
-            'add-fraction', 'fraction-unit', 'volume', 'chart-total'];
+            'add-fraction', 'fraction-unit', 'volume', 'chart-total',
+            'div-10', 'div-decimal', 'priorites', 'pourcentage', 'pct-calc', 'echelle',
+            'volume-cube', 'effectif', 'frequence', 'moyenne'];
         if (spec.questions && GENERATED_TOPICS.indexOf(topic) === -1) {
             return {
                 questions: spec.questions.map(q => {
@@ -1214,6 +1288,122 @@ const VARIANTS = {
                 const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.3)));
                 questions.push({
                     prompt: { fr: 'Un tableau donne ' + v1 + ', ' + v2 + ' et ' + v3 + '. Quel est le total ?', ar: 'جدول يعطي ' + v1 + ' و ' + v2 + ' و ' + v3 + '. ما هو المجموع؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'div-10') {
+                // ÷ 10 / ÷ 100 / ÷ 1000 : the comma shifts left.
+                const a = rng.int(11, 99);
+                const m = rng.pick([10, 100, 1000]);
+                const fmt = x => String(Math.round(x * 1000) / 1000).replace('.', ',');
+                const ans = a / m;
+                const cand = [ans, ans * 10, ans / 10];
+                const opts = rng.shuffle(cand.map(fmt).filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: a + ' ÷ ' + m + ' = ?', ar: a + ' ÷ ' + m + ' = ؟' },
+                    options: opts, answer: opts.indexOf(fmt(ans))
+                });
+            } else if (topic === 'div-decimal') {
+                // A 1-decimal dividend that divides exactly by a whole number.
+                const n = rng.int(2, 9), q = rng.int(2, 9);
+                const T = n * q;                     // dividend tenths
+                const fmt = x => String(Math.round(x * 10) / 10).replace('.', ',');
+                const opts = rng.shuffle([String(q), '0,' + q, String(q + 1), String(q - 1)].filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: fmt(T / 10) + ' ÷ ' + n + ' = ?', ar: fmt(T / 10) + ' ÷ ' + n + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(q))
+                });
+            } else if (topic === 'priorites') {
+                // Order of operations: the distractor is the wrong-order result.
+                // Subtraction forms keep every intermediate value positive.
+                const a = rng.int(2, 9), b = rng.int(2, 9), c = rng.int(2, 9);
+                const form = rng.int(0, 3);
+                let right, wrong, expr;
+                if (form === 0) { right = (a + b) * c; wrong = a + b * c; expr = '(' + a + ' + ' + b + ') × ' + c; }
+                else if (form === 1) { right = a + b * c; wrong = (a + b) * c; expr = a + ' + ' + b + ' × ' + c; }
+                else if (form === 2) { right = (a - b) * c; wrong = a - b * c; expr = '(' + a + ' − ' + b + ') × ' + c; }
+                else { right = a - b * c; wrong = (a - b) * c; expr = a + ' − ' + b + ' × ' + c; }
+                if (right < 2 || wrong < 0) { // regenerate with a large enough minuend
+                    const b2 = rng.int(2, 9), c2 = rng.int(2, 9), a2 = rng.int(b2 * c2 + 2, b2 * c2 + 9);
+                    if (rng.float() < 0.5) { right = (a2 - b2) * c2; wrong = a2 - b2 * c2; expr = '(' + a2 + ' − ' + b2 + ') × ' + c2; }
+                    else { right = a2 - b2 * c2; wrong = (a2 - b2) * c2; expr = a2 + ' − ' + b2 + ' × ' + c2; }
+                }
+                const cand = [right, wrong, right + 1, right - 1].filter((x, i, arr) => arr.indexOf(x) === i);
+                const opts = rng.shuffle(cand.map(String));
+                questions.push({
+                    prompt: { fr: expr + ' = ?', ar: expr + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(right))
+                });
+            } else if (topic === 'pourcentage') {
+                // A classic percentage of a round number.
+                const p = rng.pick([10, 20, 25, 50, 75]);
+                const N = rng.pick([20, 40, 60, 80, 100, 200]);
+                const ans = N * p / 100;
+                const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.4)));
+                questions.push({
+                    prompt: { fr: p + '% de ' + N + ' = ?', ar: p + '% من ' + N + ' = ؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'pct-calc') {
+                // a élèves sur b : quel pourcentage ?
+                const cases = [[4, 1, 25], [4, 2, 50], [4, 3, 75], [5, 1, 20], [5, 2, 40], [5, 3, 60], [5, 4, 80], [10, 3, 30], [10, 7, 70], [20, 5, 25]];
+                const c = rng.pick(cases);
+                const b = c[0], a = c[1], pct = c[2];
+                const cand = [pct, pct + 10, pct - 10, pct + 5].filter((x, i, arr) => arr.indexOf(x) === i);
+                const opts = rng.shuffle(cand.map(x => x + '%'));
+                questions.push({
+                    prompt: { fr: a + ' élèves sur ' + b + ' portent des lunettes. Quel pourcentage ?', ar: a + ' تلاميذ من ' + b + ' يلبسون نظارات. أي نسبة مئوية؟' },
+                    options: opts, answer: opts.indexOf(pct + '%')
+                });
+            } else if (topic === 'echelle') {
+                // 1/D : drawing ↔ reality, whole centimetres.
+                const D = rng.pick([10, 100]);
+                const P = rng.int(2, 9);
+                const ans = P * D;
+                const opts = optionsFor(ans, Math.max(10, ans));
+                questions.push({
+                    prompt: { fr: 'Plan à 1/' + D + ' : une longueur de ' + P + ' cm sur le plan mesure combien en réalité (en cm) ?', ar: 'سلم 1/' + D + ' : طول ' + P + ' سم في الرسم، كم يقيس في الحقيقة (بالسم)؟' },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'volume-cube') {
+                // V = a × a × a ; distractors: a×3 (classic) and a².
+                const a = rng.int(2, 6);
+                const cand = [a * a * a, a * 3, a * a, a * a * a - a].filter((x, i, arr) => arr.indexOf(x) === i);
+                const opts = rng.shuffle(cand.map(String));
+                questions.push({
+                    prompt: { fr: 'Volume d\\u2019un cube de côté ' + a + ' cm ?', ar: 'حجم مكعب ضلعه ' + a + ' سم؟' },
+                    options: opts, answer: opts.indexOf(String(a * a * a))
+                });
+            } else if (topic === 'effectif') {
+                // Reading a small table: total or one effectif.
+                const e1 = rng.int(2, 8), e2 = rng.int(2, 8), e3 = rng.int(2, 8);
+                const total = e1 + e2 + e3;
+                const askTotal = rng.float() < 0.5;
+                const ans = askTotal ? total : e2;
+                const opts = optionsFor(ans, Math.max(4, Math.round(ans * 0.4)));
+                questions.push({
+                    prompt: { fr: 'Un tableau donne ' + e1 + ', ' + e2 + ' et ' + e3 + '. ' + (askTotal ? 'Quel est l\\u2019effectif total ?' : 'Quel est l\\u2019effectif de la 2ème valeur ?'), ar: 'جدول يعطي ' + e1 + ' و ' + e2 + ' و ' + e3 + '. ' + (askTotal ? 'ما هو العدد الإجمالي؟' : 'ما هو عدد القيمة الثانية؟') },
+                    options: opts, answer: opts.indexOf(String(ans))
+                });
+            } else if (topic === 'frequence') {
+                // effectif ÷ total as a percentage, nice pairs only.
+                const cases = [[4, 1, 25], [4, 3, 75], [5, 1, 20], [5, 2, 40], [5, 4, 80], [10, 2, 20], [10, 5, 50], [10, 8, 80], [20, 5, 25], [20, 15, 75]];
+                const c = rng.pick(cases);
+                const opts = rng.shuffle([c[2] + '%', (c[2] + 10) + '%', (c[2] - 10) + '%', (c[2] + 5) + '%'].filter((x, i, arr) => arr.indexOf(x) === i));
+                questions.push({
+                    prompt: { fr: 'Sur ' + c[0] + ' réponses, ' + c[1] + ' sont « oui ». Quelle est la fréquence de « oui » ?', ar: 'من ' + c[0] + ' جواباً، ' + c[1] + ' بـ «نعم». ما هو تواتر «نعم»؟' },
+                    options: opts, answer: opts.indexOf(c[2] + '%')
+                });
+            } else if (topic === 'moyenne') {
+                // Three values whose sum is divisible by 3.
+                const v1 = rng.int(2, 10), v2 = rng.int(2, 10);
+                let v3 = rng.int(2, 10);
+                const S = v1 + v2 + v3;
+                v3 += (3 - (S % 3)) % 3;             // adjust so the mean is whole
+                const ans = (v1 + v2 + v3) / 3;
+                const cand = [ans, ans + 1, ans - 1, v1 + v2 + v3].filter((x, i, arr) => arr.indexOf(x) === i);
+                const opts = rng.shuffle(cand.map(String));
+                questions.push({
+                    prompt: { fr: 'Moyenne de ' + v1 + ', ' + v2 + ' et ' + v3 + ' ?', ar: 'متوسط ' + v1 + ' و ' + v2 + ' و ' + v3 + '؟' },
                     options: opts, answer: opts.indexOf(String(ans))
                 });
             }

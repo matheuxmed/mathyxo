@@ -1,0 +1,123 @@
+{
+  "id": "volume-cube",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "volumes-solides",
+  "title": { "fr": "Volume du cube", "ar": "حجم المكعب" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "volume-du-cube",
+      "title": { "fr": "V = côté × côté × côté", "ar": "الحجم = الضلع × الضلع × الضلع" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Un cube de côté 3 cm</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">V = 3 × 3 × 3 = 27 cm³</div>",
+            "caption": { "fr": "Les trois dimensions d'un cube sont égales.", "ar": "أبعاد المكعب الثلاثة متساوية." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">V = a³</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">a × a × a se lit « a au cube ».</div>",
+            "caption": { "fr": "Le volume du cube se note a³ (a au cube).", "ar": "حجم المكعب يُكتب a³ (أ مكعب)." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">5³ = 5 × 5 × 5 = 125 cm³</div>",
+            "caption": { "fr": "Attention : 5³ = 125, et non 5 × 3 = 15.", "ar": "انتبه: 5³ = 125 وليس 5 × 3 = 15." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "volume-cube",
+          "title": { "fr": "Calcule le volume", "ar": "احسب الحجم" },
+          "prompt": { "fr": "Multiplie le côté trois fois.", "ar": "اضرب الضلع ثلاث مرات." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "V = côté × côté × côté.", "ar": "الحجم = الضلع × الضلع × الضلع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "volume-cube-pairs",
+          "title": { "fr": "Relie cube et volume", "ar": "اربط المكعب بحجمه" },
+          "prompt": { "fr": "Touche un cube (côté), puis son volume.", "ar": "المس مكعباً (ضلعه) ثم حجمه." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Multiplie le côté par lui-même trois fois.", "ar": "اضرب الضلع في نفسه ثلاث مرات." }
+        }
+      ]
+    },
+    {
+      "id": "aire-ou-volume",
+      "title": { "fr": "Aire ou volume ?", "ar": "مساحة أم حجم؟" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">L'aire d'une face : cm² (2 dimensions).<br>Le volume du cube : cm³ (3 dimensions).</div>",
+            "caption": { "fr": "cm² pour une surface, cm³ pour un solide.", "ar": "سم² للسطح، سم³ للمجسم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Cube de côté 2 : une face = 2 × 2 = 4 cm² · volume = 8 cm³</div>",
+            "caption": { "fr": "Aire d'une face ≠ volume : deux calculs différents.", "ar": "مساحة الوجه لا تساوي الحجم: حسابان مختلفان." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Aire ou volume ?", "ar": "مساحة أم حجم؟" },
+          "prompt": { "fr": "Classe chaque calcul.", "ar": "صنّف كل حساب." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "aire", "label": { "fr": "Aire (cm²)", "ar": "مساحة (سم²)" } },
+            { "id": "volume", "label": { "fr": "Volume (cm³)", "ar": "حجم (سم³)" } }
+          ],
+          "items": [
+            { "label": { "fr": "3 × 3 (une face)", "ar": "3 × 3 (وجه)" }, "bucket": "aire" },
+            { "label": { "fr": "3 × 3 × 3", "ar": "3 × 3 × 3" }, "bucket": "volume" },
+            { "label": { "fr": "4 × 2 (un rectangle)", "ar": "4 × 2 (مستطيل)" }, "bucket": "aire" },
+            { "label": { "fr": "2 × 2 × 2", "ar": "2 × 2 × 2" }, "bucket": "volume" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "volume-cube",
+          "title": { "fr": "Problème de cube", "ar": "مسألة مكعب" },
+          "prompt": { "fr": "Résous le problème.", "ar": "حل المسألة." },
+          "correct": { "fr": "Bien résolu ! ✓", "ar": "حل صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie le côté par lui-même trois fois.", "ar": "اضرب الضلع في نفسه ثلاث مرات." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

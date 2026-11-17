@@ -1,0 +1,135 @@
+{
+  "id": "effectifs-frequences",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "statistiques-p6",
+  "title": { "fr": "Effectifs et fréquences", "ar": "الأعداد والتواتر" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "lire-effectifs",
+      "title": { "fr": "Lire les effectifs", "ar": "قراءة الأعداد" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Couleurs préférées : Rouge 6 · Bleu 8 · Vert 4</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Chaque nombre est un effectif : combien de fois on l'a compté.</div>",
+            "caption": { "fr": "L'effectif d'une valeur, c'est le nombre de fois où elle apparaît.", "ar": "عدد القيمة هو عدد مرات ظهورها." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Total : 6 + 8 + 4 = 18</div>",
+            "caption": { "fr": "L'effectif total est la somme de tous les effectifs.", "ar": "العدد الإجمالي هو مجموع الأعداد." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">L'effectif le plus grand = la valeur la plus fréquente (le « mode »).</div>",
+            "caption": { "fr": "Ici c'est le bleu : 8 élèves.", "ar": "هنا الأزرق: 8 تلاميذ." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "chart",
+          "mode": "read",
+          "labels": [
+            { "fr": "Rouge", "ar": "الأحمر" },
+            { "fr": "Bleu", "ar": "الأزرق" },
+            { "fr": "Vert", "ar": "الأخضر" }
+          ],
+          "values": [6, 8, 4],
+          "question": { "answer": 1 },
+          "title": { "fr": "Quelle couleur a le plus grand effectif ?", "ar": "أي لون له أكبر عدد؟" },
+          "prompt": { "fr": "Touche la barre la plus haute.", "ar": "المس العمود الأعلى." },
+          "correct": { "fr": "Bien lu ! ✓", "ar": "قراءة صحيحة! ✓" },
+          "retry": { "fr": "Compare les hauteurs des barres.", "ar": "قارن ارتفاعات الأعمدة." },
+          "success": { "fr": "Bien lu ! 🎉", "ar": "قراءة ممتازة! 🎉" }
+        },
+        {
+          "type": "quiz",
+          "topic": "effectif",
+          "title": { "fr": "Effectifs en question", "ar": "أسئلة الأعداد" },
+          "prompt": { "fr": "Utilise le tableau.", "ar": "استعمل الجدول." },
+          "correct": { "fr": "Bien compté ! ✓", "ar": "عدّ صحيح! ✓" },
+          "incorrect": { "fr": "Additionne les effectifs pour le total.", "ar": "اجمع الأعداد للحصول على المجموع." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    },
+    {
+      "id": "frequences",
+      "title": { "fr": "Les fréquences", "ar": "التواتر" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">Fréquence = effectif ÷ total</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Rouge : 6 ÷ 18 = 1/3 des réponses</div>",
+            "caption": { "fr": "La fréquence dit la part de chaque valeur dans le total.", "ar": "التواتر يحدد حصة كل قيمة من المجموع." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">La somme de toutes les fréquences = 1 (ou 100%).</div>",
+            "caption": { "fr": "Les fréquences partagent le tout.", "ar": "التواترات تُقسّم الكل." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Bleu : 8 ÷ 18 = 4/9 · Vert : 4 ÷ 18 = 2/9</div>",
+            "caption": { "fr": "On peut écrire la fréquence comme une fraction simplifiée.", "ar": "يمكن كتابة التواتر ككسر مخزَل." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "frequence",
+          "title": { "fr": "Calcule la fréquence", "ar": "احسب التواتر" },
+          "prompt": { "fr": "Divise l'effectif par le total.", "ar": "اقسم العدد على المجموع." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Fréquence = effectif ÷ effectif total.", "ar": "التواتر = العدد ÷ العدد الإجمالي." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "Grande ou petite part ?", "ar": "حصة كبيرة أم صغيرة؟" },
+          "prompt": { "fr": "Classe chaque effectif par rapport à la moitié.", "ar": "صنّف كل عدد بالنسبة للنصف." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "plus", "label": { "fr": "Plus que la moitié du total", "ar": "أكثر من نصف المجموع" } },
+            { "id": "moins", "label": { "fr": "Moins que la moitié", "ar": "أقل من النصف" } }
+          ],
+          "items": [
+            { "label": { "fr": "Total 10, effectif 6", "ar": "المجموع 10، العدد 6" }, "bucket": "plus" },
+            { "label": { "fr": "Total 10, effectif 4", "ar": "المجموع 10، العدد 4" }, "bucket": "moins" },
+            { "label": { "fr": "Total 8, effectif 5", "ar": "المجموع 8، العدد 5" }, "bucket": "plus" },
+            { "label": { "fr": "Total 12, effectif 5", "ar": "المجموع 12، العدد 5" }, "bucket": "moins" }
+          ]
+        }
+      ]
+    }
+  ]
+}

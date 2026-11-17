@@ -1,0 +1,127 @@
+{
+  "id": "priorites",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "decimaux-operations",
+  "title": { "fr": "Priorités des opérations", "ar": "أولوية العمليات" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "parentheses-dabord",
+      "title": { "fr": "Les parenthèses d'abord", "ar": "الأقواس أولاً" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">(2 + 3) × 4 = 5 × 4 = 20</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">On calcule toujours ce qui est entre parenthèses en premier.</div>",
+            "caption": { "fr": "Les parenthèses sont prioritaires.", "ar": "الأقواس لها الأولوية." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2 × (8 − 5) = 2 × 3 = 6</div>",
+            "caption": { "fr": "D'abord la parenthèse, puis la multiplication.", "ar": "أولاً القوس ثم الضرب." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">(3 + 4) × 2 ≠ 3 + 4 × 2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">7 × 2 = 14 mais 3 + 8 = 11</div>",
+            "caption": { "fr": "La place des parenthèses change le résultat.", "ar": "موضع الأقواس يغيّر النتيجة." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "priorites",
+          "title": { "fr": "Calcule dans l'ordre", "ar": "احسب بالترتيب" },
+          "prompt": { "fr": "Respecte les priorités.", "ar": "احترم الأولويات." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Parenthèses d'abord, puis × et ÷, enfin + et −.", "ar": "الأقواس أولاً، ثم الضرب والقسمة، وأخيراً الجمع والطرح." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "priorites-pairs",
+          "title": { "fr": "Relie expression et résultat", "ar": "اربط العبارة بالنتيجة" },
+          "prompt": { "fr": "Touche une expression, puis son résultat.", "ar": "المس عبارةً ثم نتيجتها." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Commence par les parenthèses.", "ar": "ابدأ بالأقواس." }
+        }
+      ]
+    },
+    {
+      "id": "ordre-des-operations",
+      "title": { "fr": "× et ÷ avant + et −", "ar": "الضرب والقسمة قبل الجمع والطرح" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2 + 3 × 4 = 2 + 12 = 14</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Sans parenthèses : on multiplie avant d'additionner.</div>",
+            "caption": { "fr": "La multiplication est prioritaire sur l'addition.", "ar": "الضرب أولويته أعلى من الجمع." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.2rem\">Ordre : ① parenthèses ② × et ÷ ③ + et −</div>",
+            "caption": { "fr": "Quand tout est au même niveau, on lit de gauche à droite.", "ar": "عند تساوي الأولوية نقرأ من اليسار إلى اليمين." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">10 − 2 × 3 = 10 − 6 = 4</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">(10 − 2) × 3 = 24 : différent !</div>",
+            "caption": { "fr": "On ne soustrait pas avant de multiplier.", "ar": "لا نطرح قبل الضرب." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "sort",
+          "title": { "fr": "Que calcule-t-on d'abord ?", "ar": "ماذا نحسب أولاً؟" },
+          "prompt": { "fr": "Classe chaque expression.", "ar": "صنّف كل عبارة." },
+          "correct": { "fr": "Bien classé ! ✓", "ar": "تصنيف صحيح! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "mul", "label": { "fr": "Multiplication d'abord", "ar": "الضرب أولاً" } },
+            { "id": "add", "label": { "fr": "Addition d'abord", "ar": "الجمع أولاً" } }
+          ],
+          "items": [
+            { "label": { "fr": "5 + 2 × 3", "ar": "5 + 2 × 3" }, "bucket": "mul" },
+            { "label": { "fr": "(5 + 2) × 3", "ar": "(5 + 2) × 3" }, "bucket": "add" },
+            { "label": { "fr": "8 − 1 × 4", "ar": "8 − 1 × 4" }, "bucket": "mul" },
+            { "label": { "fr": "(8 − 1) × 4", "ar": "(8 − 1) × 4" }, "bucket": "add" }
+          ]
+        },
+        {
+          "type": "quiz",
+          "topic": "priorites",
+          "title": { "fr": "Vrai résultat", "ar": "النتيجة الصحيحة" },
+          "prompt": { "fr": "Choisis le bon résultat.", "ar": "اختر النتيجة الصحيحة." },
+          "correct": { "fr": "Exact ! ✓", "ar": "صحيح! ✓" },
+          "incorrect": { "fr": "Multiplie et divise avant d'additionner et de soustraire.", "ar": "اضرب واقسم قبل الجمع والطرح." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "division-decimaux",
+  "category": "primaire",
+  "level": "primaire-6",
+  "chapter": "decimaux-operations",
+  "title": { "fr": "Division des décimaux", "ar": "قسمة الأعداد العشرية" },
+  "xp": 50,
+  "concepts": [
+    {
+      "id": "diviser-par-10",
+      "title": { "fr": "Diviser par 10, 100, 1000", "ar": "القسمة على 10 و100 و1000" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">45 ÷ 10 = 4,5</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">La virgule se décale d'un rang vers la gauche.</div>",
+            "caption": { "fr": "Diviser par 10 : la virgule recule d'un rang.", "ar": "القسمة على 10: تتراجع الفاصلة مرتبة واحدة." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">45 ÷ 100 = 0,45</div>",
+            "caption": { "fr": "÷ 100 : deux rangs vers la gauche.", "ar": "القسمة على 100: مرتبتان نحو اليسار." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">7 ÷ 1000 = 0,007</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">On complète avec des zéros.</div>",
+            "caption": { "fr": "Trois rangs vers la gauche : on écrit 0,007.", "ar": "ثلاث مرتبات نحو اليسار: نكتب 0,007." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "div-10",
+          "title": { "fr": "La virgule recule", "ar": "الفاصلة تتراجع" },
+          "prompt": { "fr": "Divise par 10, 100 ou 1000.", "ar": "اقسم على 10 أو 100 أو 1000." },
+          "correct": { "fr": "Bien décalé ! ✓", "ar": "إزاحة صحيحة! ✓" },
+          "incorrect": { "fr": "Compte les zéros du diviseur : la virgule recule d'autant de rangs.", "ar": "عُدّ أصفار المقسوم عليه: تتراجع الفاصلة بنفس العدد." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "sort",
+          "title": { "fr": "÷ 10 ou ÷ 100 ?", "ar": "÷ 10 أم ÷ 100؟" },
+          "prompt": { "fr": "Chaque nombre a été divisé : par quoi ?", "ar": "كل عدد قُسم: على ماذا؟" },
+          "correct": { "fr": "Bien vu ! ✓", "ar": "ملاحظة صحيحة! ✓" },
+          "success": { "fr": "Tout est bien rangé ! 🎉", "ar": "كل شيء في مكانه! 🎉" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" },
+          "buckets": [
+            { "id": "d10", "label": { "fr": "Divisé par 10", "ar": "قُسم على 10" } },
+            { "id": "d100", "label": { "fr": "Divisé par 100", "ar": "قُسم على 100" } }
+          ],
+          "items": [
+            { "label": { "fr": "52 → 5,2", "ar": "52 → 5,2" }, "bucket": "d10" },
+            { "label": { "fr": "52 → 0,52", "ar": "52 → 0,52" }, "bucket": "d100" },
+            { "label": { "fr": "7 → 0,07", "ar": "7 → 0,07" }, "bucket": "d100" },
+            { "label": { "fr": "123 → 12,3", "ar": "123 → 12,3" }, "bucket": "d10" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diviser-decimal",
+      "title": { "fr": "Diviser un décimal", "ar": "قسمة عدد عشري" },
+      "explainer": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">3,6 ÷ 3 = 1,2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">36 dixièmes ÷ 3 = 12 dixièmes = 1,2</div>",
+            "caption": { "fr": "On divise comme un entier, en comptant les dixièmes.", "ar": "نقسم كالعدد الصحيح مع عدّ الأعشار." }
+          },
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">1,5 ÷ 5 = 0,3</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">15 dixièmes ÷ 5 = 3 dixièmes</div>",
+            "caption": { "fr": "La virgule du résultat est alignée avec celle du dividende.", "ar": "فاصلة النتيجة محاذاة لفاصلة المقسوم." }
+          }
+        ]
+      },
+      "example": {
+        "type": "explainer",
+        "prev": { "fr": "‹ Précédent", "ar": "‹ السابق" },
+        "next": { "fr": "Suivant ›", "ar": "التالي ›" },
+        "replay": { "fr": "↻ Revoir", "ar": "↻ إعادة" },
+        "steps": [
+          {
+            "html": "<div style=\"text-align:center;font-size:1.3rem\">2,4 ÷ 2 = 1,2</div><div style=\"text-align:center;font-size:1.2rem;margin-top:8px\">Vérifie : 1,2 × 2 = 2,4 ✓</div>",
+            "caption": { "fr": "On peut toujours vérifier en multipliant.", "ar": "يمكن دائماً التحقق بالضرب." }
+          }
+        ]
+      },
+      "applications": [
+        {
+          "type": "quiz",
+          "topic": "div-decimal",
+          "title": { "fr": "Calcule le quotient", "ar": "احسب الخارج" },
+          "prompt": { "fr": "Divise.", "ar": "اقسم." },
+          "correct": { "fr": "Bien calculé ! ✓", "ar": "حساب صحيح! ✓" },
+          "incorrect": { "fr": "Pense en dixièmes : 36 dixièmes ÷ 3 = 12 dixièmes.", "ar": "فكّر بالأعشار: 36 عشراً ÷ 3 = 12 عشراً." },
+          "win": { "fr": "Bravo ! 🌟", "ar": "أحسنت! 🌟" },
+          "tryAgain": { "fr": "Continue, tu progresses ! 💪", "ar": "واصل، أنت تتقدم! 💪" },
+          "restart": { "fr": "↻ Recommencer", "ar": "↻ إعادة" }
+        },
+        {
+          "type": "matching",
+          "pairType": "div-decimal-pairs",
+          "title": { "fr": "Relie division et quotient", "ar": "اربط القسمة بالخارج" },
+          "prompt": { "fr": "Touche une division, puis son quotient.", "ar": "المس قسمةً ثم خارجها." },
+          "pairCorrect": { "fr": "Bien vu ! ✓", "ar": "ملاحظة جيدة! ✓" },
+          "pairWrong": { "fr": "Compte les dixièmes.", "ar": "عُدّ الأعشار." }
+        }
+      ]
+    }
+  ]
+}
